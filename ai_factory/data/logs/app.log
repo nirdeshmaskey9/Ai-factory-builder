@@ -7,3 +7,5 @@
 2025-10-15T18:35:25-0500 | INFO | ai_factory.main | Starting AI Factory Router Core (Phase 1)
 2025-10-15T18:35:26-0500 | INFO | ai_factory.main | Starting AI Factory Router Core (Phase 1)
 2025-10-15T18:35:49-0500 | INFO | ai_factory.main | Shutting down AI Factory Router Core
+2025-10-15T18:39:45-0500 | INFO | ai_factory.main | Starting AI Factory Router Core + Memory MCP (Phase 2)
+2025-10-15T18:44:25-0500 | INFO | ai_factory.main | Shutting down AI Factory
