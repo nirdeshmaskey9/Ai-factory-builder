@@ -85,3 +85,19 @@ class MemoryLoggerMiddleware(BaseHTTPMiddleware):
         # Non-planner routes pass through
         return await call_next(request)
 
+class DebugLoggerMiddleware(BaseHTTPMiddleware):
+    """
+    Optional lightweight middleware to annotate /debugger/* requests with timing headers.
+    Persistence and indexing happen in the route itself.
+    """
+
+    async def dispatch(self, request: Request, call_next: Callable[[Request], Awaitable[Response]]) -> Response:
+        if request.url.path.startswith("/debugger/"):
+            req_id = str(uuid.uuid4())
+            started = time.time()
+            response = await call_next(request)
+            duration = time.time() - started
+            response.headers["X-Debug-Request-ID"] = req_id
+            response.headers["X-Debug-Duration"] = str(round(duration, 3))
+            return response
+        return await call_next(request)

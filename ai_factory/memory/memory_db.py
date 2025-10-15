@@ -26,6 +26,18 @@ class MemoryEvent(Base):
     response = Column(Text, nullable=False)
 
 
+class DebuggerRun(Base):
+    __tablename__ = "debugger_runs"
+    id = Column(Integer, primary_key=True)
+    request_id = Column(String, index=True, nullable=False)
+    timestamp = Column(DateTime, default=datetime.utcnow, index=True)
+    language = Column(String, nullable=False)
+    code = Column(Text, nullable=False)
+    stdout = Column(Text, nullable=False)
+    stderr = Column(Text, nullable=False)
+    status = Column(String, nullable=False)
+
+
 def init_db() -> None:
     """
     Ensure data directory and SQLite schema are created.
@@ -36,4 +48,3 @@ def init_db() -> None:
 
 def get_session() -> Session:
     return SessionLocal()
-

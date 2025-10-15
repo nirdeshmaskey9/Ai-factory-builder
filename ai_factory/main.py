@@ -6,10 +6,11 @@ from ai_factory.logging_setup import setup_logging, ensure_log_dir
 from ai_factory.routers import health as health_router
 from ai_factory.routers import planner as planner_router
 
-# Phase 2 imports
+# Phase 2+ imports
 from ai_factory.memory.memory_db import init_db
 from ai_factory.memory.routers import memory_router
 from ai_factory.services.middleware import MemoryLoggerMiddleware
+from ai_factory.debugger.routers import debugger_router
 
 
 @asynccontextmanager
@@ -18,16 +19,16 @@ async def lifespan(app: FastAPI):
     ensure_log_dir()
     setup_logging(settings.log_level)
     init_db()
-    logging.getLogger(__name__).info("Starting AI Factory Router Core + Memory MCP (Phase 2)")
+    logging.getLogger(__name__).info("Starting AI Factory Router Core + Memory MCP + Debugger MCP (Phase 3)")
     yield
     # Shutdown
     logging.getLogger(__name__).info("Shutting down AI Factory")
 
 
 app = FastAPI(
-    title="AI Factory Builder — Router Core + Memory MCP",
-    version="0.2.0",
-    description="Phase 2: Memory MCP with SQLite event log and Chroma semantic recall.",
+    title="AI Factory Builder - Router Core + Memory + Debugger",
+    version="0.3.0",
+    description="Phase 3: Debugger MCP with safe code execution, SQLite logging, and semantic recall.",
     lifespan=lifespan,
 )
 
@@ -38,9 +39,10 @@ app.add_middleware(MemoryLoggerMiddleware)
 app.include_router(health_router.router)
 app.include_router(planner_router.router)
 app.include_router(memory_router.router)
+app.include_router(debugger_router.router)
 
 
 # Root
 @app.get("/", include_in_schema=False)
 def root():
-    return {"message": "AI Factory Builder — Router Core + Memory MCP (Phase 2)", "docs": "/docs"}
+    return {"message": "AI Factory Builder - Router Core + Memory + Debugger (Phase 3)", "docs": "/docs"}
