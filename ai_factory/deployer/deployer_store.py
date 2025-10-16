@@ -77,3 +77,21 @@ def get_deploy_path(deployment_id: int) -> Optional[str]:
         if line.startswith("path="):
             return line[len("path=") :].strip()
     return None
+
+
+def get_pid(deployment_id: int) -> Optional[int]:
+    """Extract the running process PID from notes if present. Returns None if not available."""
+    dep = get_deployment(deployment_id)
+    if not dep or not dep.notes:
+        return None
+    try:
+        # Look for a token like 'pid=12345' in notes lines
+        for line in dep.notes.splitlines():
+            if "pid=" in line:
+                token = line.split("pid=")[-1].strip()
+                # token may have trailing text; split on whitespace
+                pid_txt = token.split()[0]
+                return int(pid_txt)
+    except Exception:
+        return None
+    return None
