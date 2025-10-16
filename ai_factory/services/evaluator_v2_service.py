@@ -35,3 +35,24 @@ def inject_memory_snippet(model_name: str, task_type: str, reward: float, reason
     )
     add_to_memory(rid, snippet)
 
+
+def get_average_reward() -> float:
+    """Compute rolling average reward across all EvaluationRewardLog rows.
+
+    Falls back to 0.0 when the evaluator DB is empty or unavailable.
+    """
+    try:
+        from ai_factory.evaluator_v2.evaluator_v2_store import EvaluationRewardLog
+        from ai_factory.memory.memory_db import get_session
+
+        session = get_session()
+        try:
+            rows = session.query(EvaluationRewardLog.reward).all()
+        finally:
+            session.close()
+        if not rows:
+            return 0.0
+        values = [float(r[0]) for r in rows]
+        return sum(values) / len(values)
+    except Exception:
+        return 0.0

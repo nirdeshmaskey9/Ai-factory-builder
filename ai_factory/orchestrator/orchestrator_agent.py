@@ -135,6 +135,18 @@ def run(goal: str, max_attempts: Optional[int] = None, deploy: bool = False) -> 
     snippet = make_orch_snippet(goal, chosen_model, float(score if 'score' in locals() else 0.0), status, endpoint)
     add_to_memory(f"orch:{req_id}", snippet)
 
+    # Additional adaptive evaluation memory tag (Phase 10.1)
+    try:
+        from ai_factory.services.evaluator_v2_service import get_average_reward
+        thr = success_threshold()
+        avg = float(get_average_reward())
+        add_to_memory(
+            f"orch-eval:{req_id}",
+            f"[ORCH v10.1] Adaptive evaluation applied — score={float(score if 'score' in locals() else 0.0):.2f}, threshold={thr:.2f}, reward_avg={avg:.2f}",
+        )
+    except Exception:
+        pass
+
     return {
         "run_id": run_id,
         "request_id": req_id,
@@ -174,4 +186,3 @@ def history(limit: int = 10) -> Any:
         }
         for r in rows
     ]
-

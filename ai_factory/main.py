@@ -28,7 +28,7 @@ async def lifespan(app: FastAPI):
     # Confirm .env visibility for Phase 11 by logging key prefix
     log_openai_key_prefix()
     init_db()
-    logging.getLogger(__name__).info("Starting AI Factory v10 — Autonomous Orchestrator online.")
+    logging.getLogger(__name__).info("Starting AI Factory v10.1 — Adaptive Orchestrator online.")
     yield
     # Shutdown
     logging.getLogger(__name__).info("Shutting down AI Factory")
@@ -36,8 +36,8 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(
     title="AI Factory Builder - Router + Memory + Debugger + Supervisor + Evaluator + Builder + Deployer + RouterV2 + EvaluatorV2 + Orchestrator",
-    version="0.10.0",
-    description="Phase 10: Autonomous Orchestrator — Golden Core closed loop.",
+    version="0.10.1",
+    description="Phase 10.1: Adaptive Orchestrator — reward-aware thresholds.",
     lifespan=lifespan,
 )
 
@@ -61,4 +61,4 @@ app.include_router(orchestrator_router)
 # Root
 @app.get("/", include_in_schema=False)
 def root():
-    return {"message": "AI Factory Builder - Router + Memory + Debugger + Supervisor + Evaluator + Builder + Deployer + RouterV2 + EvaluatorV2 + Orchestrator (Phase 10)", "docs": "/docs"}
+    return {"message": "AI Factory Builder - Router + Memory + Debugger + Supervisor + Evaluator + Builder + Deployer + RouterV2 + EvaluatorV2 + Orchestrator (Phase 10.1)", "docs": "/docs"}
