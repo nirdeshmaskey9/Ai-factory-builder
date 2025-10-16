@@ -15,6 +15,8 @@ from typing import List, Tuple, Dict, Any
 import httpx
 
 from ai_factory.deployer import deployer_agent, deployer_store
+from ai_factory.memory.memory_db import SessionLocal, SupervisorSession
+import uuid
 
 
 async def _verify(port: int, deployment_id: int) -> Tuple[bool, float, int]:
@@ -32,13 +34,48 @@ async def _verify(port: int, deployment_id: int) -> Tuple[bool, float, int]:
     return (ok, latency, deployment_id)
 
 
+def _create_supervisor_session(goal: str) -> int:
+    """Create a minimal SupervisorSession row so deploy() can resolve it."""
+    req_id = str(uuid.uuid4())
+    with SessionLocal() as session:
+        row = SupervisorSession(
+            request_id=req_id,
+            goal=goal,
+            plan="[stress] plan",
+            context="[stress] context",
+            result="[stress] result",
+            status="ok",
+        )
+        session.add(row)
+        session.commit()
+        return int(row.id)
+
+
+async def _deploy_one(i: int) -> Tuple[int, int] | Tuple[None, None]:
+    """Create a session and deploy in a background thread. Returns (id, port)."""
+    goal = f"stress-test-{i}"
+    try:
+        sess_id = _create_supervisor_session(goal)
+        d = await asyncio.to_thread(deployer_agent.deploy, session_id=sess_id, goal=goal)
+        # Prefer explicit session_id path if available
+        if not d or not isinstance(d, dict):
+            return (None, None)
+        dep_id = d.get("deployment_id") or d.get("id")
+        port = d.get("port")
+        if isinstance(dep_id, int) and isinstance(port, int):
+            return (dep_id, port)
+    except Exception:
+        return (None, None)
+    return (None, None)
+
+
 async def _cleanup(deployment_ids: List[int]) -> List[int]:
     """Attempt to stop all given deployments. Returns list of stopped IDs."""
     stopped: List[int] = []
     for did in deployment_ids:
         # Prefer orchestrated rollback which is cross-platform
         try:
-            deployer_agent.rollback(did)
+            await asyncio.to_thread(deployer_agent.rollback, did)
             stopped.append(did)
             continue
         except Exception:
@@ -67,17 +104,33 @@ async def run_stress_test(n: int = 5) -> Dict[str, Any]:
     ids: List[Tuple[int, int]] = []  # (deployment_id, port)
     print(f"🚀 Starting {n} concurrent deployments...")
 
-    # Launch deployments (sequential dispatch with small stagger to avoid port races)
-    for i in range(n):
+    # Launch deployments concurrently in background threads
+    launch_tasks = [_deploy_one(i) for i in range(n)]
+    launched = await asyncio.gather(*launch_tasks)
+    ids = [(did, port) for (did, port) in launched if isinstance(did, int) and isinstance(port, int)]
+    if not ids:
+        # Nothing launched; short-circuit with empty summary
+        elapsed = round(time.time() - start, 2)
+        summary = {
+            "total_runs": n,
+            "successes": 0,
+            "failures": n,
+            "avg_latency_sec": 0.0,
+            "elapsed_sec": elapsed,
+            "stopped": [],
+        }
+        log_dir = Path("deployments")
+        log_dir.mkdir(exist_ok=True)
         try:
-            d = deployer_agent.deploy(goal=f"stress-test-{i}")
-            dep_id = d.get("deployment_id") or d.get("id")
-            port = d.get("port")
-            if isinstance(dep_id, int) and isinstance(port, int):
-                ids.append((dep_id, port))
+            with open(log_dir / "stress_test.log", "a", encoding="utf-8") as f:
+                f.write(f"{time.ctime()} | {summary}\n")
         except Exception:
             pass
-        await asyncio.sleep(0.3)
+        try:
+            print(f"✅ Stress test complete: {summary}")
+        except Exception:
+            print("Stress test complete.")
+        return summary
 
     # Verify concurrently
     tasks = [_verify(port, did) for (did, port) in ids]
@@ -113,4 +166,3 @@ async def run_stress_test(n: int = 5) -> Dict[str, Any]:
     except Exception:
         print("Stress test complete.")
     return summary
-
