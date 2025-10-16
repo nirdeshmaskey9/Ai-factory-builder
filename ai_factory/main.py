@@ -15,6 +15,7 @@ from ai_factory.evaluator.evaluator_router import router as evaluator_router
 from ai_factory.builder.builder_router import router as builder_router
 from ai_factory.deployer.deployer_router import router as deployer_router
 from ai_factory.router_v2.router_v2_router import router as router_v2_router
+from ai_factory.evaluator_v2.evaluator_v2_router import router as evaluator_v2_router
 from ai_factory.debugger.routers import debugger_router
 
 
@@ -24,16 +25,16 @@ async def lifespan(app: FastAPI):
     ensure_log_dir()
     setup_logging(settings.log_level)
     init_db()
-    logging.getLogger(__name__).info("Starting AI Factory v8 — Multi-Model Router online.")
+    logging.getLogger(__name__).info("Starting AI Factory v9 — Adaptive Evaluator online.")
     yield
     # Shutdown
     logging.getLogger(__name__).info("Shutting down AI Factory")
 
 
 app = FastAPI(
-    title="AI Factory Builder - Router + Memory + Debugger + Supervisor + Evaluator + Builder + Deployer + RouterV2",
-    version="0.8.0",
-    description="Phase 8: Multi-Model Router 2.0 for dynamic model dispatch.",
+    title="AI Factory Builder - Router + Memory + Debugger + Supervisor + Evaluator + Builder + Deployer + RouterV2 + EvaluatorV2",
+    version="0.9.0",
+    description="Phase 9: Adaptive Evaluator 2.0 with learning & reward loop.",
     lifespan=lifespan,
 )
 
@@ -50,9 +51,10 @@ app.include_router(evaluator_router)
 app.include_router(builder_router)
 app.include_router(deployer_router)
 app.include_router(router_v2_router)
+app.include_router(evaluator_v2_router)
 
 
 # Root
 @app.get("/", include_in_schema=False)
 def root():
-    return {"message": "AI Factory Builder - Router + Memory + Debugger + Supervisor + Evaluator + Builder + Deployer + RouterV2 (Phase 8)", "docs": "/docs"}
+    return {"message": "AI Factory Builder - Router + Memory + Debugger + Supervisor + Evaluator + Builder + Deployer + RouterV2 + EvaluatorV2 (Phase 9)", "docs": "/docs"}
