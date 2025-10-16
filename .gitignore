@@ -1,0 +1,9 @@
+# Python caches
+__pycache__/
+*.pyc
+
+# Databases & logs
+ai_factory/data/*.db
+ai_factory/data/logs/
+backups/
+
