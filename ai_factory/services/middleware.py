@@ -117,3 +117,19 @@ class SupervisorLoggerMiddleware(BaseHTTPMiddleware):
             response.headers["X-Supervisor-Duration"] = str(round(duration, 3))
             return response
         return await call_next(request)
+
+class EvaluatorLoggerMiddleware(BaseHTTPMiddleware):
+    """
+    Optional timing middleware for /evaluator/* routes. Safe no-op otherwise.
+    """
+
+    async def dispatch(self, request: Request, call_next: Callable[[Request], Awaitable[Response]]) -> Response:
+        if request.url.path.startswith("/evaluator/"):
+            req_id = str(uuid.uuid4())
+            started = time.time()
+            response = await call_next(request)
+            duration = time.time() - started
+            response.headers["X-Evaluator-Request-ID"] = req_id
+            response.headers["X-Evaluator-Duration"] = str(round(duration, 3))
+            return response
+        return await call_next(request)

@@ -9,3 +9,7 @@
 2025-10-15T18:35:49-0500 | INFO | ai_factory.main | Shutting down AI Factory Router Core
 2025-10-15T18:39:45-0500 | INFO | ai_factory.main | Starting AI Factory Router Core + Memory MCP (Phase 2)
 2025-10-15T18:44:25-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-15T19:47:20-0500 | INFO | ai_factory.main | Starting AI Factory v4 — Agent Supervisor MCP online.
+2025-10-15T19:48:06-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=coding prompt_len=23
+2025-10-15T19:48:16-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=general prompt_len=37
+2025-10-15T19:57:59-0500 | INFO | ai_factory.main | Shutting down AI Factory
