@@ -19,19 +19,20 @@ from ai_factory.memory.memory_db import SessionLocal, SupervisorSession
 import uuid
 
 
-async def _verify(port: int, deployment_id: int) -> Tuple[bool, float, int]:
-    """Ping the /hello endpoint and return (success, latency, id)."""
+async def _wait_for_ready(port: int, started_at: float, timeout: float = 15.0) -> Tuple[bool, float]:
+    """Poll /hello until it responds 200 or timeout. Returns (ok, ready_time_sec_from_start)."""
     url = f"http://127.0.0.1:{port}/hello"
-    t0 = time.perf_counter()
-    ok = False
-    try:
-        async with httpx.AsyncClient(timeout=5) as c:
-            r = await c.get(url)
-            ok = (r.status_code == 200)
-    except Exception:
-        ok = False
-    latency = round(time.perf_counter() - t0, 3)
-    return (ok, latency, deployment_id)
+    while True:
+        try:
+            async with httpx.AsyncClient(timeout=3) as c:
+                r = await c.get(url)
+                if r.status_code == 200:
+                    return True, round(time.time() - started_at, 2)
+        except Exception:
+            pass
+        if (time.time() - started_at) > timeout:
+            return False, round(timeout, 2)
+        await asyncio.sleep(1)
 
 
 def _create_supervisor_session(goal: str) -> int:
@@ -51,22 +52,23 @@ def _create_supervisor_session(goal: str) -> int:
         return int(row.id)
 
 
-async def _deploy_one(i: int) -> Tuple[int, int] | Tuple[None, None]:
-    """Create a session and deploy in a background thread. Returns (id, port)."""
+async def _deploy_one(i: int) -> Tuple[int, int, float] | Tuple[None, None, None]:
+    """Create a session and deploy in a background thread. Returns (id, port, started_at)."""
     goal = f"stress-test-{i}"
     try:
         sess_id = _create_supervisor_session(goal)
+        started_at = time.time()
         d = await asyncio.to_thread(deployer_agent.deploy, session_id=sess_id, goal=goal)
         # Prefer explicit session_id path if available
         if not d or not isinstance(d, dict):
-            return (None, None)
+            return (None, None, None)
         dep_id = d.get("deployment_id") or d.get("id")
         port = d.get("port")
         if isinstance(dep_id, int) and isinstance(port, int):
-            return (dep_id, port)
+            return (dep_id, port, started_at)
     except Exception:
-        return (None, None)
-    return (None, None)
+        return (None, None, None)
+    return (None, None, None)
 
 
 async def _cleanup(deployment_ids: List[int]) -> List[int]:
@@ -102,20 +104,24 @@ async def run_stress_test(n: int = 5) -> Dict[str, Any]:
     """
     start = time.time()
     ids: List[Tuple[int, int]] = []  # (deployment_id, port)
-    print(f"🚀 Starting {n} concurrent deployments...")
+    print(f"🚀 Launching {n} deployments (adaptive wait)...")
 
     # Launch deployments concurrently in background threads
     launch_tasks = [_deploy_one(i) for i in range(n)]
     launched = await asyncio.gather(*launch_tasks)
-    ids = [(did, port) for (did, port) in launched if isinstance(did, int) and isinstance(port, int)]
-    if not ids:
+    runs = [
+        {"deployment_id": did, "port": port, "started_at": started_at}
+        for (did, port, started_at) in launched
+        if isinstance(did, int) and isinstance(port, int) and isinstance(started_at, (int, float))
+    ]
+    if not runs:
         # Nothing launched; short-circuit with empty summary
         elapsed = round(time.time() - start, 2)
         summary = {
             "total_runs": n,
             "successes": 0,
             "failures": n,
-            "avg_latency_sec": 0.0,
+            "avg_ready_time_sec": 0.0,
             "elapsed_sec": elapsed,
             "stopped": [],
         }
@@ -127,27 +133,49 @@ async def run_stress_test(n: int = 5) -> Dict[str, Any]:
         except Exception:
             pass
         try:
-            print(f"✅ Stress test complete: {summary}")
+            print(f"✅ Stress test finished: {summary}")
         except Exception:
             print("Stress test complete.")
         return summary
 
-    # Verify concurrently
-    tasks = [_verify(port, did) for (did, port) in ids]
+    # Verify readiness concurrently with adaptive wait
+    tasks = [_wait_for_ready(run["port"], run["started_at"]) for run in runs]
     checks = await asyncio.gather(*tasks)
 
-    ok_count = sum(1 for ok, _, _ in checks if ok)
-    avg_latency = round(sum(lat for _, lat, _ in checks) / max(len(checks), 1), 3)
+    # Annotate runs with results and mark notes in store
+    successes: List[float] = []
+    for run, (ok, ready_time) in zip(runs, checks):
+        run["ok"] = ok
+        run["ready_time_sec"] = ready_time
+        run["ready_at"] = time.time() if ok else None
+        # Append verification note without changing status
+        try:
+            dep = deployer_store.get_deployment(run["deployment_id"])  # type: ignore
+            if dep:
+                cur_status = dep.status
+                note = (
+                    f"verified (ready_time={ready_time}s)"
+                    if ok
+                    else f"failed readiness (timeout={ready_time}s)"
+                )
+                deployer_store.update_status(run["deployment_id"], cur_status, notes=note)  # type: ignore
+        except Exception:
+            pass
+        if ok:
+            successes.append(float(ready_time))
+
+    ok_count = sum(1 for r in runs if r.get("ok"))
+    avg_ready = round(sum(successes) / max(len(successes), 1), 2) if successes else 0.0
     elapsed = round(time.time() - start, 2)
 
     # Stop all stress-test deployments (best-effort)
-    stopped = await _cleanup([did for (did, _) in ids])
+    stopped = await _cleanup([int(r["deployment_id"]) for r in runs])
 
     summary: Dict[str, Any] = {
         "total_runs": n,
         "successes": ok_count,
         "failures": max(n - ok_count, 0),
-        "avg_latency_sec": avg_latency,
+        "avg_ready_time_sec": avg_ready,
         "elapsed_sec": elapsed,
         "stopped": stopped,
     }
@@ -156,13 +184,16 @@ async def run_stress_test(n: int = 5) -> Dict[str, Any]:
     log_dir.mkdir(exist_ok=True)
     try:
         with open(log_dir / "stress_test.log", "a", encoding="utf-8") as f:
-            f.write(f"{time.ctime()} | {summary}\n")
+            f.write(f"{time.ctime()} | {summary} | runs={runs}\n")
     except Exception:
         # ignore logging failures
         pass
 
     try:
-        print(f"✅ Stress test complete: {summary}")
+        print(f"✅ Stress test finished: {summary}")
     except Exception:
         print("Stress test complete.")
     return summary
+
+
+

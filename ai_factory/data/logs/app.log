@@ -213,3 +213,101 @@
 2025-10-16T18:08:04-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
 2025-10-16T18:08:13-0500 | INFO | ai_factory.main | Shutting down AI Factory
 2025-10-16T18:08:13-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T18:08:13-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T18:08:13-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T18:08:14-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T18:08:14-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T18:10:20-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8021/hello "HTTP/1.1 200 OK"
+2025-10-16T18:10:20-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8021/hello "HTTP/1.1 200 OK"
+2025-10-16T18:10:20-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8021/hello "HTTP/1.1 200 OK"
+2025-10-16T18:10:20-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8021/hello "HTTP/1.1 200 OK"
+2025-10-16T18:10:20-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8021/hello "HTTP/1.1 200 OK"
+2025-10-16T18:10:24-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8021/hello "HTTP/1.1 200 OK"
+2025-10-16T18:10:24-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8021/hello "HTTP/1.1 200 OK"
+2025-10-16T18:10:24-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8021/hello "HTTP/1.1 200 OK"
+2025-10-16T18:10:24-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8021/hello "HTTP/1.1 200 OK"
+2025-10-16T18:10:24-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8021/hello "HTTP/1.1 200 OK"
+2025-10-16T18:10:24-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8021/hello "HTTP/1.1 200 OK"
+2025-10-16T18:10:24-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8021/hello "HTTP/1.1 200 OK"
+2025-10-16T18:10:24-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8021/hello "HTTP/1.1 200 OK"
+2025-10-16T18:10:24-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8021/hello "HTTP/1.1 200 OK"
+2025-10-16T18:10:24-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8021/hello "HTTP/1.1 200 OK"
+2025-10-16T18:10:57-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T18:10:57-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T18:10:57-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T18:10:57-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T18:10:58-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T18:10:58-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T18:11:02-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T18:11:02-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T18:11:03-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T18:11:03-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T18:11:03-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T18:11:03-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T18:12:07-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T18:12:07-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T18:12:08-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T18:12:08-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T18:12:08-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T18:12:08-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T18:12:18-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T18:12:18-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T18:12:19-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T18:12:19-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T18:12:19-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T18:12:19-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T18:12:42-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T18:12:42-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T18:12:43-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T18:12:43-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T18:12:43-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T18:12:43-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T18:12:48-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T18:12:48-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T18:12:49-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T18:12:49-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T18:12:49-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T18:12:49-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T18:13:00-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T18:13:01-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T18:13:01-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T18:13:01-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T18:13:01-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T18:13:11-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T18:13:11-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T18:13:12-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T18:13:12-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T18:13:12-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T18:13:12-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T18:13:23-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T18:13:23-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T18:13:24-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T18:13:24-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T18:13:24-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T18:13:24-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T18:13:45-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T18:13:45-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T18:13:46-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T18:13:46-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T18:13:46-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T18:13:46-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T18:13:53-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T18:13:53-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T18:13:53-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T18:13:53-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T18:13:54-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T18:13:54-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T18:13:57-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T18:13:57-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T18:13:58-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T18:13:58-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T18:13:58-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T18:13:58-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T18:14:21-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T18:14:21-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T18:14:22-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T18:14:22-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T18:14:22-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T18:14:22-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T18:14:34-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T18:14:34-0500 | INFO | ai_factory.main | Shutting down AI Factory
