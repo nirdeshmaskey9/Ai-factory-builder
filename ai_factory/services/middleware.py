@@ -101,3 +101,19 @@ class DebugLoggerMiddleware(BaseHTTPMiddleware):
             response.headers["X-Debug-Duration"] = str(round(duration, 3))
             return response
         return await call_next(request)
+
+class SupervisorLoggerMiddleware(BaseHTTPMiddleware):
+    """
+    Optional timing middleware for /supervisor/* routes. Safe no-op otherwise.
+    """
+
+    async def dispatch(self, request: Request, call_next: Callable[[Request], Awaitable[Response]]) -> Response:
+        if request.url.path.startswith("/supervisor/"):
+            req_id = str(uuid.uuid4())
+            started = time.time()
+            response = await call_next(request)
+            duration = time.time() - started
+            response.headers["X-Supervisor-Request-ID"] = req_id
+            response.headers["X-Supervisor-Duration"] = str(round(duration, 3))
+            return response
+        return await call_next(request)

@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import os
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Optional
 
 from sqlalchemy import create_engine, Column, Integer, String, Text, DateTime, select
@@ -20,7 +20,7 @@ class MemoryEvent(Base):
     __tablename__ = "memory_events"
     id = Column(Integer, primary_key=True)
     request_id = Column(String, index=True, nullable=False)
-    timestamp = Column(DateTime, default=datetime.utcnow, index=True)
+    timestamp = Column(DateTime, default=lambda: datetime.now(timezone.utc), index=True)
     task_type = Column(String, nullable=False)
     prompt = Column(Text, nullable=False)
     response = Column(Text, nullable=False)
@@ -30,11 +30,23 @@ class DebuggerRun(Base):
     __tablename__ = "debugger_runs"
     id = Column(Integer, primary_key=True)
     request_id = Column(String, index=True, nullable=False)
-    timestamp = Column(DateTime, default=datetime.utcnow, index=True)
+    timestamp = Column(DateTime, default=lambda: datetime.now(timezone.utc), index=True)
     language = Column(String, nullable=False)
     code = Column(Text, nullable=False)
     stdout = Column(Text, nullable=False)
     stderr = Column(Text, nullable=False)
+    status = Column(String, nullable=False)
+
+
+class SupervisorSession(Base):
+    __tablename__ = "supervisor_sessions"
+    id = Column(Integer, primary_key=True)
+    request_id = Column(String, index=True, nullable=False)
+    timestamp = Column(DateTime, default=lambda: datetime.now(timezone.utc), index=True)
+    goal = Column(Text, nullable=False)
+    plan = Column(Text, nullable=False)
+    context = Column(Text, nullable=False)
+    result = Column(Text, nullable=False)
     status = Column(String, nullable=False)
 
 
