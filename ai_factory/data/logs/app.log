@@ -31,3 +31,8 @@
 2025-10-16T11:52:03-0500 | INFO | ai_factory.main | Starting AI Factory v7 — Deployer MCP online.
 2025-10-16T11:53:41-0500 | INFO | ai_factory.main | Shutting down AI Factory
 2025-10-16T11:53:41-0500 | INFO | ai_factory.main | Starting AI Factory v7 — Deployer MCP online.
+2025-10-16T11:53:42-0500 | INFO | ai_factory.main | Starting AI Factory v7 — Deployer MCP online.
+2025-10-16T12:55:38-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=coding prompt_len=23
+2025-10-16T12:55:54-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=general prompt_len=37
+2025-10-16T12:56:04-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=general prompt_len=37
+2025-10-16T13:04:32-0500 | INFO | ai_factory.main | Shutting down AI Factory
