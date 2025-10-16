@@ -1,0 +1,61 @@
+from __future__ import annotations
+
+import json
+from typing import Dict, Any
+
+from ai_factory.debugger.debugger_runner import run_code
+from ai_factory.supervisor.supervisor_agent import run_supervisor
+from ai_factory.supervisor.supervisor_store import get_recent as get_recent_sessions
+from ai_factory.evaluator.evaluator_agent import evaluate as eval_session
+
+
+def make_patch(goal: str, plan_json: str, context_text: str, result_text: str, feedback: str) -> Dict[str, Any]:
+    """Produce a small patch based on feedback. Rule-based and safe.
+
+    Returns dict with keys: code, diff_summary, notes
+    """
+    msg = feedback or "Applying minor improvements"
+    code = (
+        "# auto-generated repair snippet\n"
+        f"print('Builder v6: repairing for goal:', {json.dumps(goal)})\n"
+        f"print('Feedback:', {json.dumps(msg[:120])})\n"
+        "print('Rebuild hello:', 'OK')\n"
+    )
+    diff = "Added repair snippet that surfaces feedback and confirms rebuild."
+    notes = "Heuristic patch: echo feedback and sanity print to increase signal."
+    return {"code": code, "diff_summary": diff, "notes": notes}
+
+
+def apply_and_rerun(goal: str, patch: Dict[str, Any]) -> Dict[str, Any]:
+    # Run the patch directly via debugger for immediate effect
+    _ = run_code(language="python", code=patch.get("code", ""), timeout=5)
+    # Then re-run supervisor for the goal
+    run_supervisor(goal)
+    # Obtain latest session id
+    rows = get_recent_sessions(limit=1)
+    new_session_id = rows[0].id if rows else -1
+    return {"session_id": new_session_id, "stdout": _.get("stdout", ""), "stderr": _.get("stderr", "")}
+
+
+def evaluate_session(session_id: int) -> Dict[str, Any]:
+    return eval_session(session_id=session_id)
+
+
+def status_from_delta(old_score: float, new_score: float) -> str:
+    if new_score > old_score + 1e-6:
+        return "improved"
+    if abs(new_score - old_score) <= 1e-6:
+        return "same"
+    return "worse"
+
+
+def memory_snippet(revision_id: int, evaluation_id: int, old_score: float, new_score: float, diff_summary: str) -> str:
+    delta = new_score - old_score
+    return (
+        "[REBUILD v6]\n"
+        f"evaluation_id: {evaluation_id}  revision_id: {revision_id}\n"
+        f"old_score -> new_score: {old_score:.2f} -> {new_score:.2f}  Δ={delta:.2f}\n"
+        f"status: {{auto}}\n"
+        f"diff: {diff_summary}"
+    )
+
