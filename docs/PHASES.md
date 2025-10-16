@@ -1,6 +1,6 @@
-# 🧩 AI Factory Builder — Phases 1–3 Summary (v3.0)
+# 🧩 AI Factory Builder — Phases 1–4 Summary (v4.0)
 
-This document summarizes the delivered phases for the v3.0 Golden Build.
+This document summarizes the delivered phases through the v4.0 release.
 
 ---
 
@@ -56,9 +56,26 @@ This document summarizes the delivered phases for the v3.0 Golden Build.
 
 ---
 
-## ✅ Current Status — v3.0 Golden Build
+## 4️⃣ Phase 4 — Agent Supervisor MCP
 
-- Router Core, Memory MCP, and Debugger MCP are stable and tested.
+- Goal: Orchestrate Planner → Memory → Debugger into a self‑contained loop.
+- Features:
+  - Supervisor loop: generate plan, search memory, execute code‑like steps, aggregate results
+  - DB table `supervisor_sessions` persists goal, plan (JSON), context, result, status
+  - Endpoints:
+    - `POST /supervisor/run`
+    - `GET /supervisor/status?limit=N`
+    - `GET /supervisor/history?limit=N`
+- Tech:
+  - In‑proc Planner + Memory + Debugger integration with SQLAlchemy persistence
+- Tests:
+  - Ensure a run returns full payload and is persisted; status/history list sessions; smoke old routes
+
+---
+
+## ✅ Current Status — v4.0
+
+- Router Core, Memory MCP, Debugger MCP, and Supervisor MCP are stable and tested.
 - All storage and logs are local‑first under `ai_factory/data/`.
 - The application starts cleanly and serves all routes.
 
@@ -100,4 +117,3 @@ curl -s "http://127.0.0.1:8000/memory/snapshot?limit=50"
   - Manage task decomposition, execution, and iterative refinement
   - Persist agent traces to Memory MCP for auditable workflows
   - Plan upgrades for model integration while preserving local‑first defaults
-

@@ -1,10 +1,11 @@
-# 🧠 AI Factory Builder — v3.0 Architecture
+# 🧠 AI Factory Builder — v4.0 Architecture
 
-This document describes the current system at the v3.0 Golden Build. The platform is a local‑first FastAPI application that exposes three cooperating MCPs (Model/Memory/Control Plane components):
+This document describes the current system at the v4.0 release. The platform is a local‑first FastAPI application that exposes four cooperating MCPs (Model/Memory/Control Plane components):
 
 - Router Core (Phase 1)
 - Memory MCP (Phase 2)
 - Debugger MCP (Phase 3)
+- Supervisor MCP (Phase 4)
 
 The system is designed to be modular, offline‑friendly, and testable end‑to‑end.
 
@@ -42,7 +43,7 @@ The system is designed to be modular, offline‑friendly, and testable end‑to�
   - Uses a persistent Chroma client
   - Falls back to an in‑repo stub and FAKE hash embeddings if model downloads are not available
 - Middleware: `ai_factory/services/middleware.py`
-  - `MemoryLoggerMiddleware` automatically logs `POST /planner/dispatch` requests + responses into SQLite and indexes them into Chroma
+ - `MemoryLoggerMiddleware` automatically logs `POST /planner/dispatch` requests + responses into SQLite and indexes them into Chroma
 
 3) Debugger MCP
 - Runner: `ai_factory/debugger/debugger_runner.py`
@@ -56,6 +57,18 @@ The system is designed to be modular, offline‑friendly, and testable end‑to�
   - `GET /debugger/search?q=...&n=M` — text search across code/outputs
 - Optional middleware: `DebugLoggerMiddleware` (timing headers for `/debugger/*`)
 
+4) Supervisor MCP
+- Orchestration: `ai_factory/services/supervisor_service.py`
+  - Generates a plan via Planner, searches Memory for context, conditionally runs code via Debugger
+  - Aggregates outputs and computes overall status
+- Agent wrapper: `ai_factory/supervisor/supervisor_agent.py`
+  - Executes the full supervisor loop and indexes a summary into vector memory
+- Persistence: `ai_factory/supervisor/supervisor_store.py` with table `supervisor_sessions`
+- APIs (router): `ai_factory/supervisor/supervisor_router.py`
+  - `POST /supervisor/run` — run an orchestration session for a goal
+  - `GET /supervisor/status?limit=N` — latest sessions
+  - `GET /supervisor/history?limit=N` — summarized recent sessions
+
 ---
 
 ## 🗄️ Storage Layout
@@ -64,6 +77,7 @@ The system is designed to be modular, offline‑friendly, and testable end‑to�
   - Tables:
     - `memory_events` — planner dispatch request/response records
     - `debugger_runs` — code execution results
+    - `supervisor_sessions` — aggregated supervisor sessions (goal/plan/context/result/status)
 - Vector store directory: `ai_factory/data/chroma/`
 - Log directory: `ai_factory/data/logs/` (rotating file `app.log`)
 - Snapshots: `ai_factory/data/snapshots/` (JSONL)
@@ -105,11 +119,11 @@ ai_factory/
 - Lifespan startup (`main.py`):
   - Ensure log directory, configure logging
   - Initialize the SQLite schema (`init_db()`)
-  - Log startup banner for Phase 3
+  - Log startup banner for Phase 4
 - Middleware:
   - `MemoryLoggerMiddleware` adds `X-Request-ID` and `X-Duration` and logs/embeds planner events
 - Routers:
-  - Health, Planner, Memory, Debugger all mounted on the FastAPI app
+  - Health, Planner, Memory, Debugger, Supervisor mounted on the FastAPI app
 
 ---
 
@@ -135,6 +149,16 @@ ai_factory/
   curl -s "http://127.0.0.1:8000/memory/snapshot?limit=50"
   ```
 
+- Supervisor:
+  ```bash
+  curl -s -X POST http://127.0.0.1:8000/supervisor/run \
+    -H "Content-Type: application/json" \
+    -d '{"goal":"build a FastAPI app that greets users"}'
+
+  curl -s "http://127.0.0.1:8000/supervisor/status?limit=5"
+  curl -s "http://127.0.0.1:8000/supervisor/history?limit=5"
+  ```
+
 ---
 
 ## 🔒 Local‑First Principles
@@ -156,8 +180,11 @@ ai_factory/
 
 ## 📌 Version
 
-- v3.0 Golden Build (Router Core + Memory MCP + Debugger MCP)
+- v4.0 (Router Core + Memory MCP + Debugger MCP + Supervisor MCP)
 - App title/version (runtime):
-  - Title: "AI Factory Builder - Router Core + Memory + Debugger"
-  - Version: 0.3.0
-
+  - Title: "AI Factory Builder - Router + Memory + Debugger + Supervisor"
+  - Version: 0.4.0
+  supervisor/
+    supervisor_agent.py        # Supervisor loop (plan → context → execute → aggregate)
+    supervisor_store.py        # Persist/retrieve sessions
+    supervisor_router.py       # /supervisor/run, /status, /history
