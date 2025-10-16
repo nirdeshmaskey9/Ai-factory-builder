@@ -55,7 +55,7 @@ app.include_router(builder_router)
 app.include_router(deployer_router)
 app.include_router(router_v2_router)
 app.include_router(evaluator_v2_router)
-app.include_router(orchestrator_router)
+app.include_router(orchestrator_router, prefix="/orchestrator")
 
 
 # Root
