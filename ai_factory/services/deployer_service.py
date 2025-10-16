@@ -23,18 +23,53 @@ def find_free_port(start: int = 8001) -> int:
                 port += 1
 
 
-def package_app(goal: str, session_id: Optional[int]) -> Path:
-    base = Path(tempfile.mkdtemp(prefix="aifactory_deploy_"))
+def package_app(goal: str, session_id: Optional[int], dest: Optional[Path] = None) -> Path:
+    """Create a minimal FastAPI app package in dest directory.
+
+    If dest is None, creates a temporary directory. Ensures the following exist:
+      - app.py with /hello and root endpoints
+      - main.py entrypoint to run uvicorn programmatically
+      - requirements.txt with minimal deps
+    """
+    base = dest if dest is not None else Path(tempfile.mkdtemp(prefix="aifactory_deploy_"))
+    base.mkdir(parents=True, exist_ok=True)
+
     app_py = base / "app.py"
-    app_code = (
-        "from fastapi import FastAPI\n"
-        "app = FastAPI(title='Deployed App', version='1.0.0')\n\n"
-        f"GOAL = {goal!r}\n"
-        "@app.get('/health')\n"
-        "def health():\n"
-        "    return {'status':'ok','goal':GOAL}\n"
+    if not app_py.exists():
+        app_code = (
+            "from fastapi import FastAPI\n\n"
+            "app = FastAPI()\n\n"
+            "@app.get('/hello')\n"
+            "def read_root():\n"
+            "    return {'message': 'Factory Online'}\n\n"
+            "@app.get('/')\n"
+            "def index():\n"
+            "    return {'message': 'App deployed successfully'}\n"
+        )
+        app_py.write_text(app_code, encoding="utf-8")
+
+    main_py = base / "main.py"
+    # Write a robust entrypoint that works regardless of launch CWD
+    main_code = (
+        "import os\n"
+        "import sys\n"
+        "from pathlib import Path\n"
+        "import uvicorn\n\n"
+        "if __name__ == \"__main__\":\n"
+        "    # Ensure FastAPI app can always be found no matter where this is launched\n"
+        "    sys.path.append(str(Path(__file__).parent))\n"
+        "    port = int(os.getenv(\"PORT\", \"8000\"))\n"
+        "    uvicorn.run(\"app:app\", host=\"127.0.0.1\", port=port)\n"
     )
-    app_py.write_text(app_code, encoding="utf-8")
+    main_py.write_text(main_code, encoding="utf-8")
+
+    req_txt = base / "requirements.txt"
+    req_txt.write_text("fastapi\nuvicorn\n", encoding="utf-8")
+
+    try:
+        print(f"📦 Deployment packaged at: {base}")
+    except Exception:
+        print(f"[deploy] Deployment packaged at: {base}")
     return base
 
 
@@ -78,4 +113,3 @@ def make_memory_snippet(goal: str, port: int, version: str, status: str) -> str:
         f"version: {version}\n"
         f"status: {status}"
     )
-

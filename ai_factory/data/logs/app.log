@@ -40,3 +40,120 @@
 2025-10-16T13:40:11-0500 | INFO | ai_factory.main | Shutting down AI Factory
 2025-10-16T13:40:12-0500 | INFO | ai_factory.main | Starting AI Factory v9 — Adaptive Evaluator online.
 2025-10-16T13:40:12-0500 | INFO | ai_factory.main | Starting AI Factory v9 — Adaptive Evaluator online.
+2025-10-16T14:05:26-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T14:05:26-0500 | INFO | ai_factory.main | Starting AI Factory v10 — Autonomous Orchestrator online.
+2025-10-16T14:05:27-0500 | INFO | ai_factory.main | Starting AI Factory v10 — Autonomous Orchestrator online.
+2025-10-16T14:05:30-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T14:08:07-0500 | INFO | ai_factory.main | Starting AI Factory v10 — Autonomous Orchestrator online.
+2025-10-16T14:12:18-0500 | INFO | ai_factory.main | Starting AI Factory v10 — Autonomous Orchestrator online.
+2025-10-16T14:13:56-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=general prompt_len=93
+2025-10-16T14:13:56-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=general prompt_len=93
+2025-10-16T14:13:56-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=general prompt_len=93
+2025-10-16T14:13:56-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=general prompt_len=93
+2025-10-16T14:19:47-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=general prompt_len=93
+2025-10-16T14:19:47-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=general prompt_len=93
+2025-10-16T14:19:47-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=general prompt_len=93
+2025-10-16T14:19:47-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=general prompt_len=93
+2025-10-16T14:22:57-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=general prompt_len=89
+2025-10-16T14:22:57-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=general prompt_len=89
+2025-10-16T14:22:58-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=general prompt_len=89
+2025-10-16T14:22:58-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=general prompt_len=89
+2025-10-16T14:57:37-0500 | INFO | ai_factory.main | Starting AI Factory v10 — Autonomous Orchestrator online.
+2025-10-16T14:58:14-0500 | INFO | ai_factory.main | Starting AI Factory v10 — Autonomous Orchestrator online.
+2025-10-16T14:58:26-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T14:58:32-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T14:58:35-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T14:58:46-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T14:58:50-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T15:07:41-0500 | INFO | ai_factory.main | Starting AI Factory v10 — Autonomous Orchestrator online.
+2025-10-16T15:09:08-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T15:09:13-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T15:09:16-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T15:09:29-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T15:09:38-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T15:16:56-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T15:16:57-0500 | INFO | ai_factory.main | Starting AI Factory v10 — Autonomous Orchestrator online.
+2025-10-16T15:17:16-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T15:17:17-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T15:17:17-0500 | INFO | ai_factory.main | Starting AI Factory v10 — Autonomous Orchestrator online.
+2025-10-16T15:17:40-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T15:17:40-0500 | INFO | ai_factory.main | Starting AI Factory v10 — Autonomous Orchestrator online.
+2025-10-16T15:17:40-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T15:21:26-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T15:21:26-0500 | INFO | ai_factory.main | Starting AI Factory v10 — Autonomous Orchestrator online.
+2025-10-16T15:21:52-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T15:21:58-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T15:22:02-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T15:22:16-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T15:22:21-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T15:29:26-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T15:29:33-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T15:29:36-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T15:29:51-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T15:29:57-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T15:36:01-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T15:36:02-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T15:36:02-0500 | INFO | ai_factory.main | Starting AI Factory v10 — Autonomous Orchestrator online.
+2025-10-16T15:36:03-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T15:36:03-0500 | INFO | ai_factory.main | Starting AI Factory v10 — Autonomous Orchestrator online.
+2025-10-16T15:37:01-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T15:37:02-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T15:37:02-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T15:37:03-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T15:37:03-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T15:38:01-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T15:38:01-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T15:38:22-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T15:38:27-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T15:38:30-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T15:38:41-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T15:38:48-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T15:44:51-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T15:44:57-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T15:49:24-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T15:49:32-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T15:53:01-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T15:53:06-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T15:53:09-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T15:53:20-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T15:53:27-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T16:03:27-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T16:03:28-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T16:03:28-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T16:03:30-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T16:03:30-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T16:05:42-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T16:05:43-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T16:05:43-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T16:05:45-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T16:05:45-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T16:06:29-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T16:06:34-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T16:06:38-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T16:06:46-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T16:06:51-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-16T16:06:52-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T16:06:53-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T16:06:53-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T16:16:52-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T16:16:53-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T16:16:53-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T16:16:54-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T16:16:54-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T16:40:51-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T16:40:51-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T16:43:02-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=general prompt_len=55
+2025-10-16T16:43:02-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=general prompt_len=55
+2025-10-16T16:43:02-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=general prompt_len=55
+2025-10-16T16:43:02-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=general prompt_len=55
+2025-10-16T16:43:10-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=general prompt_len=55
+2025-10-16T16:43:10-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=general prompt_len=55
+2025-10-16T16:43:10-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=general prompt_len=55
+2025-10-16T16:43:10-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=general prompt_len=55
+2025-10-16T17:02:46-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T17:02:47-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T17:02:47-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T17:03:21-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T17:03:21-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T17:03:21-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T17:03:57-0500 | INFO | ai_factory.main | Shutting down AI Factory

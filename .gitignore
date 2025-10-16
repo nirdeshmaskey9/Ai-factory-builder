@@ -7,3 +7,7 @@ ai_factory/data/*.db
 ai_factory/data/logs/
 backups/
 
+# Environment files (do not commit secrets)
+.env
+.env.*
+!.env.example

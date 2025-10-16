@@ -22,9 +22,13 @@ class Deployment(Base):
     notes = Column(Text, nullable=False)
 
 
-def save_deployment(session_id: int | None, goal: str, port: int, endpoint: str, version: str, status: str, notes: str = "") -> int:
+def save_deployment(session_id: int | None, goal: str, port: int, endpoint: str, version: str, status: str, notes: str = "", deploy_path: str | None = None) -> int:
     init_db()
     with SessionLocal() as session:
+        # Persist deploy_path inside notes to avoid schema migrations
+        merged_notes = notes or ""
+        if deploy_path:
+            merged_notes = (merged_notes + ("\n" if merged_notes else "")) + f"path={deploy_path}"
         row = Deployment(
             session_id=session_id,
             goal=goal,
@@ -32,7 +36,7 @@ def save_deployment(session_id: int | None, goal: str, port: int, endpoint: str,
             endpoint=endpoint,
             version=version,
             status=status,
-            notes=notes or "",
+            notes=merged_notes,
         )
         session.add(row)
         session.commit()
@@ -46,7 +50,8 @@ def update_status(deployment_id: int, status: str, notes: str = "") -> None:
         if row:
             row.status = status
             if notes:
-                row.notes = notes
+                existing = row.notes or ""
+                row.notes = (existing + ("\n" if existing else "") + notes)
             session.add(row)
             session.commit()
 
@@ -62,3 +67,13 @@ def get_recent(limit: int = 10) -> List[Deployment]:
         stmt = select(Deployment).order_by(desc(Deployment.timestamp)).limit(limit)
         return list(session.scalars(stmt))
 
+
+def get_deploy_path(deployment_id: int) -> Optional[str]:
+    """Return the stored deploy path, if recorded in notes as 'path=...'."""
+    dep = get_deployment(deployment_id)
+    if not dep or not dep.notes:
+        return None
+    for line in dep.notes.splitlines():
+        if line.startswith("path="):
+            return line[len("path=") :].strip()
+    return None

@@ -8,6 +8,7 @@ from typing import Dict, List, Tuple
 
 from ai_factory.router_v2.router_v2_store import list_models, log_routing
 from ai_factory.memory.memory_embeddings import add_to_memory
+from typing import Any
 
 
 _TASK_TO_CAPS = {
@@ -75,3 +76,23 @@ def route(task_type: str, meta: Dict | None = None) -> Dict:
         "log_id": log_id,
     }
 
+
+def call_model(model_name: str, prompt: str, role: str = "general") -> str:
+    """Thin wrapper to call a provider based on model name.
+
+    Lazy-imports provider clients so tests pass without extra deps.
+    """
+    try:
+        from ai_factory.models.model_clients import gpt4o_chat, claude3_chat, gemini_chat
+    except Exception:
+        # Should not happen in normal runs; return a safe message
+        return "[model-error] client module unavailable"
+
+    name = (model_name or "").lower()
+    if name.startswith("gpt") or name.startswith("openai"):
+        return gpt4o_chat(prompt)
+    if name.startswith("claude") or name.startswith("anthropic"):
+        return claude3_chat(prompt)
+    if name.startswith("gemini") or name.startswith("google"):
+        return gemini_chat(prompt)
+    return f"[model-error] Unknown model: {model_name}"
