@@ -1,7 +1,7 @@
 import logging
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
-from ai_factory.config import settings
+from ai_factory.config import settings, log_openai_key_prefix
 from ai_factory.logging_setup import setup_logging, ensure_log_dir
 from ai_factory.routers import health as health_router
 from ai_factory.routers import planner as planner_router
@@ -25,6 +25,8 @@ async def lifespan(app: FastAPI):
     # Startup
     ensure_log_dir()
     setup_logging(settings.log_level)
+    # Confirm .env visibility for Phase 11 by logging key prefix
+    log_openai_key_prefix()
     init_db()
     logging.getLogger(__name__).info("Starting AI Factory v10 — Autonomous Orchestrator online.")
     yield
