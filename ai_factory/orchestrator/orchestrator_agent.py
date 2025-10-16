@@ -125,6 +125,26 @@ def run(goal: str, max_attempts: Optional[int] = None, deploy: bool = False) -> 
         status = "failed"
         break
 
+    # Ensure deployment when requested, even if evaluation failed
+    if deploy and not deployment_id:
+        try:
+            dep = deploy_app(goal=goal)
+            deployment_id = dep.get("deployment_id")
+            if deployment_id:
+                status = "deployed"
+                update_run(
+                    run_id,
+                    attempt=attempts,
+                    status=status,
+                    debugger_stdout=dbg_out,
+                    debugger_stderr=dbg_err,
+                    evaluation_score=float(score if 'score' in locals() else 0.0),
+                    deployment_id=deployment_id,
+                    notes="forced deploy",
+                )
+        except Exception:
+            pass
+
     # Memory snippet
     endpoint = None
     if deployment_id:
