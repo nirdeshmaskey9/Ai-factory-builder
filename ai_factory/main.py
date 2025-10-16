@@ -13,6 +13,7 @@ from ai_factory.services.middleware import MemoryLoggerMiddleware
 from ai_factory.supervisor.supervisor_router import router as supervisor_router
 from ai_factory.evaluator.evaluator_router import router as evaluator_router
 from ai_factory.builder.builder_router import router as builder_router
+from ai_factory.deployer.deployer_router import router as deployer_router
 from ai_factory.debugger.routers import debugger_router
 
 
@@ -22,16 +23,16 @@ async def lifespan(app: FastAPI):
     ensure_log_dir()
     setup_logging(settings.log_level)
     init_db()
-    logging.getLogger(__name__).info("Starting AI Factory v6 — Builder MCP online.")
+    logging.getLogger(__name__).info("Starting AI Factory v7 — Deployer MCP online.")
     yield
     # Shutdown
     logging.getLogger(__name__).info("Shutting down AI Factory")
 
 
 app = FastAPI(
-    title="AI Factory Builder - Router + Memory + Debugger + Supervisor + Evaluator + Builder",
-    version="0.6.0",
-    description="Phase 6: Builder MCP for self-repair and rebuild loop.",
+    title="AI Factory Builder - Router + Memory + Debugger + Supervisor + Evaluator + Builder + Deployer",
+    version="0.7.0",
+    description="Phase 7: Deployer MCP for packaging, launch, and registry.",
     lifespan=lifespan,
 )
 
@@ -46,9 +47,10 @@ app.include_router(debugger_router.router)
 app.include_router(supervisor_router)
 app.include_router(evaluator_router)
 app.include_router(builder_router)
+app.include_router(deployer_router)
 
 
 # Root
 @app.get("/", include_in_schema=False)
 def root():
-    return {"message": "AI Factory Builder - Router + Memory + Debugger + Supervisor + Evaluator + Builder (Phase 6)", "docs": "/docs"}
+    return {"message": "AI Factory Builder - Router + Memory + Debugger + Supervisor + Evaluator + Builder + Deployer (Phase 7)", "docs": "/docs"}
