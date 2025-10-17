@@ -315,3 +315,47 @@
 2025-10-16T18:14:35-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
 2025-10-16T18:14:35-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
 2025-10-16T18:14:35-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T18:18:33-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T18:18:33-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T18:18:45-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8023/hello "HTTP/1.1 200 OK"
+2025-10-16T18:18:45-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8023/hello "HTTP/1.1 200 OK"
+2025-10-16T18:18:45-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8023/hello "HTTP/1.1 200 OK"
+2025-10-16T18:18:45-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8023/hello "HTTP/1.1 200 OK"
+2025-10-16T18:18:45-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8023/hello "HTTP/1.1 200 OK"
+2025-10-16T18:18:49-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8023/hello "HTTP/1.1 200 OK"
+2025-10-16T18:18:49-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8023/hello "HTTP/1.1 200 OK"
+2025-10-16T18:18:49-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8023/hello "HTTP/1.1 200 OK"
+2025-10-16T18:18:49-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8023/hello "HTTP/1.1 200 OK"
+2025-10-16T18:18:49-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8023/hello "HTTP/1.1 200 OK"
+2025-10-16T18:18:49-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8023/hello "HTTP/1.1 200 OK"
+2025-10-16T18:18:49-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8023/hello "HTTP/1.1 200 OK"
+2025-10-16T18:18:49-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8023/hello "HTTP/1.1 200 OK"
+2025-10-16T18:18:49-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8023/hello "HTTP/1.1 200 OK"
+2025-10-16T18:18:49-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8023/hello "HTTP/1.1 200 OK"
+2025-10-16T18:47:53-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T18:47:53-0500 | INFO | ai_factory.main | Starting AI Factory v10.1 — Adaptive Orchestrator online.
+2025-10-16T18:57:41-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8023/hello "HTTP/1.1 200 OK"
+2025-10-16T18:57:41-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8023/hello "HTTP/1.1 200 OK"
+2025-10-16T18:57:41-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8023/hello "HTTP/1.1 200 OK"
+2025-10-16T18:57:45-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8023/hello "HTTP/1.1 200 OK"
+2025-10-16T18:57:45-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8023/hello "HTTP/1.1 200 OK"
+2025-10-16T18:57:45-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8023/hello "HTTP/1.1 200 OK"
+2025-10-16T18:57:45-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8023/hello "HTTP/1.1 200 OK"
+2025-10-16T18:57:45-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8023/hello "HTTP/1.1 200 OK"
+2025-10-16T18:57:45-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8023/hello "HTTP/1.1 200 OK"
+2025-10-16T18:57:56-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=general prompt_len=47
+2025-10-16T18:57:56-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=general prompt_len=47
+2025-10-16T18:57:56-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=general prompt_len=47
+2025-10-16T18:57:56-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=general prompt_len=47
+2025-10-16T18:58:09-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=general prompt_len=47
+2025-10-16T18:58:10-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=general prompt_len=47
+2025-10-16T18:58:10-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=general prompt_len=47
+2025-10-16T18:58:10-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=general prompt_len=47
+2025-10-16T18:58:37-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=general prompt_len=61
+2025-10-16T18:58:37-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=general prompt_len=61
+2025-10-16T18:58:37-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=general prompt_len=61
+2025-10-16T18:58:37-0500 | INFO | ai_factory.services.planner_service | Planning request: task_type=general prompt_len=61
+2025-10-16T19:07:21-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T19:07:21-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T19:07:21-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T19:07:22-0500 | INFO | ai_factory.main | Shutting down AI Factory

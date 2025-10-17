@@ -1,0 +1,247 @@
+{
+  "routes": [
+    {
+      "name": "/orchestrator/status",
+      "method": "GET",
+      "path": "/orchestrator/status",
+      "ok": true,
+      "status": 200,
+      "error": null,
+      "latency_ms": 7
+    },
+    {
+      "name": "/deployer/list",
+      "method": "GET",
+      "path": "/deployer/list",
+      "ok": true,
+      "status": 200,
+      "error": null,
+      "latency_ms": 3
+    },
+    {
+      "name": "/memory/search?q=test&n=1",
+      "method": "GET",
+      "path": "/memory/search?q=test&n=1",
+      "ok": true,
+      "status": 200,
+      "error": null,
+      "latency_ms": 1
+    },
+    {
+      "name": "/evaluator/learn",
+      "method": "POST",
+      "path": "/evaluator/learn",
+      "ok": true,
+      "status": 200,
+      "error": null,
+      "latency_ms": 25
+    }
+  ],
+  "deployments": [
+    {
+      "id": 66,
+      "goal": "stress-test-2",
+      "port": 8023,
+      "endpoint": "http://127.0.0.1:8023",
+      "status": "stopped",
+      "timestamp": "2025-10-16T23:18:41.998436"
+    },
+    {
+      "id": 65,
+      "goal": "stress-test-3",
+      "port": 8023,
+      "endpoint": "http://127.0.0.1:8023",
+      "status": "stopped",
+      "timestamp": "2025-10-16T23:18:41.954412"
+    },
+    {
+      "id": 64,
+      "goal": "stress-test-1",
+      "port": 8023,
+      "endpoint": "http://127.0.0.1:8023",
+      "status": "stopped",
+      "timestamp": "2025-10-16T23:18:41.954412"
+    },
+    {
+      "id": 63,
+      "goal": "stress-test-0",
+      "port": 8023,
+      "endpoint": "http://127.0.0.1:8023",
+      "status": "stopped",
+      "timestamp": "2025-10-16T23:18:41.921223"
+    },
+    {
+      "id": 62,
+      "goal": "stress-test-4",
+      "port": 8023,
+      "endpoint": "http://127.0.0.1:8023",
+      "status": "stopped",
+      "timestamp": "2025-10-16T23:18:41.911712"
+    },
+    {
+      "id": 61,
+      "goal": "create sample app then improve",
+      "port": 8022,
+      "endpoint": "http://127.0.0.1:8022",
+      "status": "running",
+      "timestamp": "2025-10-16T23:14:59.664337"
+    },
+    {
+      "id": 60,
+      "goal": "registry test",
+      "port": 8022,
+      "endpoint": "http://127.0.0.1:8022",
+      "status": "stopped",
+      "timestamp": "2025-10-16T23:14:52.385355"
+    },
+    {
+      "id": 59,
+      "goal": "deploy a tiny app",
+      "port": 8021,
+      "endpoint": "http://127.0.0.1:8021",
+      "status": "running",
+      "timestamp": "2025-10-16T23:14:45.127992"
+    },
+    {
+      "id": 58,
+      "goal": "stress-test-3",
+      "port": 8021,
+      "endpoint": "http://127.0.0.1:8021",
+      "status": "stopped",
+      "timestamp": "2025-10-16T23:10:16.948979"
+    },
+    {
+      "id": 57,
+      "goal": "stress-test-2",
+      "port": 8021,
+      "endpoint": "http://127.0.0.1:8021",
+      "status": "stopped",
+      "timestamp": "2025-10-16T23:10:16.905471"
+    }
+  ],
+  "deployment_health": [
+    {
+      "id": 61,
+      "port": 8022,
+      "status": "running",
+      "ok": true,
+      "code": 200,
+      "body": {
+        "message": "Factory Online"
+      }
+    },
+    {
+      "id": 59,
+      "port": 8021,
+      "status": "running",
+      "ok": true,
+      "code": 200,
+      "body": {
+        "message": "Factory Online"
+      }
+    }
+  ],
+  "deploy_dirs": [
+    "31",
+    "32",
+    "33",
+    "34",
+    "35",
+    "36",
+    "37",
+    "38",
+    "39",
+    "40",
+    "41",
+    "42",
+    "43",
+    "44",
+    "45",
+    "46",
+    "47",
+    "48",
+    "49",
+    "50",
+    "51",
+    "52",
+    "53",
+    "54",
+    "55",
+    "56",
+    "57",
+    "58",
+    "59",
+    "60",
+    "61",
+    "62",
+    "63",
+    "64",
+    "65",
+    "66"
+  ],
+  "ports": [
+    0,
+    135,
+    139,
+    445,
+    3705,
+    5040,
+    7680,
+    8001,
+    8002,
+    8003,
+    8004,
+    8005,
+    8006,
+    8007,
+    8008,
+    8009,
+    8010,
+    8011,
+    8012,
+    8013,
+    8014,
+    8015,
+    8016,
+    8017,
+    8018,
+    8019,
+    8020,
+    8021,
+    8022,
+    8884,
+    11434,
+    15292,
+    15393,
+    16494,
+    24563,
+    27036,
+    27060,
+    45623,
+    49664,
+    49665,
+    49666,
+    49667,
+    49668,
+    49669,
+    49678,
+    56151,
+    56153,
+    56955,
+    59453,
+    59454,
+    64980
+  ],
+  "healthy": [
+    "Core routes responsive",
+    "Running deployments respond at /hello",
+    "DB integrity OK (read-write)",
+    "Essential files present"
+  ],
+  "warnings": [
+    "OPENAI_API_KEY missing or invalid length"
+  ],
+  "critical": [],
+  "overall": "WARNING",
+  "timestamp": "2025-10-16 18:39:51"
+}

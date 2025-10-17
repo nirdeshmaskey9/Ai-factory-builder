@@ -50,8 +50,13 @@ def deploy(session_id: Optional[int] = None, goal: Optional[str] = None) -> Dict
     # Now launch the app from persistent directory
     proc = svc.launch_app(path, port)
     status = svc.check_status(proc)
-    # Update status and store deploy path in notes
-    update_status(dep_id, status, notes=f"path={deploy_path}")
+    # Update status and store deploy path and pid in notes
+    try:
+        pid_note = f"pid={proc.pid}"
+    except Exception:
+        pid_note = ""
+    note_lines = [f"path={deploy_path}"] + ([pid_note] if pid_note else [])
+    update_status(dep_id, status, notes="\n".join(note_lines))
     svc.register_process(dep_id, proc)
     # Log path to stdout for operator visibility
     try:
@@ -121,6 +126,19 @@ def rollback(deployment_id: int) -> Dict[str, Any]:
     if not dep:
         raise ValueError("deployment not found")
     svc.stop_process(deployment_id)
+    # Fallback: kill by PID if still present
+    try:
+        from ai_factory.deployer.deployer_store import get_pid
+        import os, signal
+        pid = get_pid(deployment_id)
+        if pid:
+            try:
+                os.kill(int(pid), 0)
+                os.kill(int(pid), signal.SIGTERM)
+            except Exception:
+                pass
+    except Exception:
+        pass
     update_status(deployment_id, "stopped")
     return {"deployment_id": deployment_id, "status": "stopped"}
 
