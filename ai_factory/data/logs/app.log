@@ -359,3 +359,11 @@
 2025-10-16T19:07:21-0500 | INFO | ai_factory.main | Shutting down AI Factory
 2025-10-16T19:07:21-0500 | INFO | ai_factory.main | Shutting down AI Factory
 2025-10-16T19:07:22-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-16T19:09:22-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T19:09:22-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T19:09:22-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T19:09:22-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-16T19:09:22-0500 | INFO | ai_factory.main | Starting AI Factory v1.1 - Self-Healing Foundation online.
+2025-10-16T19:09:22-0500 | INFO | ai_factory.main | Starting AI Factory v1.1 - Self-Healing Foundation online.
+2025-10-16T19:09:22-0500 | INFO | ai_factory.main | Starting AI Factory v1.1 - Self-Healing Foundation online.
+2025-10-16T19:09:22-0500 | INFO | ai_factory.main | Starting AI Factory v1.1 - Self-Healing Foundation online.
