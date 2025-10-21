@@ -1,5 +1,6 @@
 from ai_factory.services.planner_service import create_blueprint
-from ai_factory.planner.planner_agent import plan_for_domain
+from ai_factory.planner.planner_agent import plan_task as plan_for_domain
+
 
 
 def test_planner_blueprint_web():
@@ -31,7 +32,8 @@ def test_planner_unknown_domain():
 
 def test_planner_agent_domains():
     for d in ("web", "cli", "ml", "data", "automation", "desktop"):
-        plan = plan_for_domain(d, "goal")
+        plan = plan_for_domain(f"Generate a {d} app for goal")
+
         assert plan["domain"] == d
         assert isinstance(plan.get("steps"), list) and plan["steps"], "steps required"
 

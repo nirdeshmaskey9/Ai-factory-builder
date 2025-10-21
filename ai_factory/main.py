@@ -188,11 +188,13 @@ def root():
 @app.get("/factory/info")
 def factory_info():
     # Minimal, UI-friendly metadata for Micro App Builder
-    name = "AI Factory"
-    version = "v1.3-gpt4o-builder"
-    status = "online"
-    banner = "AI Factory v1.3-gpt4o-builder - Stable Core Mode"
-    return {"name": name, "version": version, "status": status, "banner": banner}
+    return {
+        "name": "AI Factory",
+        "version": "v1.3-gpt4o-builder",
+        "status": "online",
+        "banner": "AI Factory v1.3-gpt4o-builder – Stable Core Mode",
+        "healthy": True,
+    }
 
 
 # Startup self diagnostics
@@ -219,4 +221,3 @@ def health():
     version = "v1.3-gpt4o-builder"
     ts = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
     return {"healthy": True, "timestamp": ts, "active_builds": active_builds, "version": version}
-
