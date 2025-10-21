@@ -1,0 +1,6 @@
+{
+  "name": "hello_web",
+  "title": "hello_web",
+  "description": "Create a FastAPI web app that says Hello World on /hello",
+  "goal": "Create a FastAPI web app that says Hello World on /hello"
+}

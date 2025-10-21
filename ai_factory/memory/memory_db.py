@@ -6,6 +6,9 @@ from typing import Optional
 
 from sqlalchemy import create_engine, Column, Integer, String, Text, DateTime, select
 from sqlalchemy.orm import declarative_base, sessionmaker, Session
+from sqlalchemy.exc import OperationalError
+import json
+import time
 
 # Data paths (under ai_factory/data/)
 DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "data")
@@ -50,6 +53,17 @@ class SupervisorSession(Base):
     status = Column(String, nullable=False)
 
 
+class EvaluationResult(Base):
+    __tablename__ = "evaluation_results"
+    id = Column(Integer, primary_key=True)
+    build_id = Column(String, index=True, nullable=False)
+    domain = Column(String, nullable=False)
+    passed = Column(String, nullable=False)  # store as 'true'/'false'
+    summary = Column(Text, nullable=False)
+    artifacts = Column(Text, nullable=False)  # JSON
+    timestamp = Column(DateTime, default=lambda: datetime.now(timezone.utc), index=True)
+
+
 def init_db() -> None:
     """
     Ensure data directory and SQLite schema are created.
@@ -60,3 +74,39 @@ def init_db() -> None:
 
 def get_session() -> Session:
     return SessionLocal()
+
+
+def _retry_commit(sess: Session, attempts: int = 3) -> None:
+    delay = 0.05
+    for i in range(attempts):
+        try:
+            sess.commit()
+            return
+        except OperationalError:
+            time.sleep(delay)
+            delay *= 2
+    sess.commit()
+
+
+def store_evaluation(build_id: str, domain: str, passed: bool, summary: str, artifacts: dict) -> None:
+    os.makedirs(DATA_DIR, exist_ok=True)
+    Base.metadata.create_all(engine)
+    sess = get_session()
+    try:
+        row = EvaluationResult(
+            build_id=build_id,
+            domain=domain,
+            passed=str(bool(passed)).lower(),
+            summary=summary or "Evaluation completed successfully.",
+            artifacts=json.dumps(artifacts or {}),
+        )
+        sess.add(row)
+        _retry_commit(sess)
+        # Diagnostics log
+        try:
+            with open(os.path.join(DATA_DIR, "logs", "memory_diagnostics.log"), "a", encoding="utf-8") as f:
+                f.write(f"stored evaluation: {build_id}:{domain}\n")
+        except Exception:
+            pass
+    finally:
+        sess.close()

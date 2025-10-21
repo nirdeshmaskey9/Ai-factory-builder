@@ -1,0 +1,6 @@
+{
+  "name": "app",
+  "title": "app",
+  "description": "Create a CLI that echoes input",
+  "goal": "Create a CLI that echoes input"
+}

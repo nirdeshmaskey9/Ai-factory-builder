@@ -1,0 +1,6 @@
+{
+  "name": "app",
+  "title": "app",
+  "description": "Create a FastAPI app with /hello and /health routes.",
+  "goal": "Create a FastAPI app with /hello and /health routes."
+}

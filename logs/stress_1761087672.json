@@ -1,0 +1,8 @@
+{
+  "elapsed_sec": 69.9,
+  "failures": [
+    "[B2] stop_all did not report success",
+    "[F2] diagnostics returned non-zero"
+  ],
+  "timestamp": 1761087672
+}

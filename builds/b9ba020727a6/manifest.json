@@ -1,0 +1,31 @@
+{
+  "build_id": "b9ba020727a6",
+  "timestamp": "2025-10-18T19:35:55Z",
+  "pid": 4700,
+  "version": "1.2-master-stable",
+  "goal": "Create a FastAPI app with /hello",
+  "domain": "web",
+  "blueprint": {
+    "name": "app",
+    "title": "app",
+    "description": "Create a FastAPI app with /hello",
+    "goal": "Create a FastAPI app with /hello"
+  },
+  "options": {},
+  "outputs_dir": "builds\\b9ba020727a6\\outputs",
+  "files": [
+    "app\\app.py",
+    "app\\Dockerfile",
+    "app\\README.md"
+  ],
+  "warnings": [],
+  "evaluation": {
+    "passed": false,
+    "summary": "ASGI evaluation failed: 'ASGITransport' object has no attribute '__enter__'",
+    "artifacts": {
+      "files": [
+        "app.py"
+      ]
+    }
+  }
+}

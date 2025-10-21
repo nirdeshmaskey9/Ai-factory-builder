@@ -4,6 +4,8 @@ import json
 from typing import List
 from ai_factory.models import PlanStep, TaskType, DispatchResponse
 from ai_factory.memory.memory_embeddings import add_to_memory
+from pathlib import Path
+import time
 
 try:
     # Optional import; tests may run without OpenAI installed
@@ -65,6 +67,15 @@ class StubPlanner:
 
     def plan(self, prompt: str, task_type: TaskType) -> DispatchResponse:
         logger.info("Planning request: task_type=%s prompt_len=%d", task_type, len(prompt))
+        # Append to planner.log
+        try:
+            log_dir = Path("ai_factory/data/logs")
+            log_dir.mkdir(parents=True, exist_ok=True)
+            with open(log_dir / "planner.log", "a", encoding="utf-8") as f:
+                ts = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+                f.write(f"{ts} | task_type={task_type} | prompt_len={len(prompt)}\n")
+        except Exception:
+            pass
         steps = self._heuristic_decompose(prompt, task_type)
         # Rough token estimate: 1 token ~ 4 chars (very approximate)
         est_tokens = max(32, int(len(prompt) / 4) + 8 * len(steps))
@@ -140,3 +151,15 @@ class GptPlanner(StubPlanner):
 
 # Choose planner: OpenAI if configured and not under pytest, else stub
 planner = GptPlanner()
+
+
+# --- Domain blueprint utility for stability tests ---
+def create_blueprint(domain: str, goal: str) -> dict:
+    d = domain.strip().lower()
+    if d == "web":
+        return {"name": "hello_web", "title": "hello_web", "description": goal, "pages": [{"path": "/", "kind": "static"}]}
+    if d == "cli":
+        return {"name": "cli_app", "description": goal, "entry": "cli.py", "commands": ["run"]}
+    if d == "ml":
+        return {"name": "ml_project", "description": goal, "model": "stub", "dataset": "stub"}
+    raise ValueError("Unknown domain")

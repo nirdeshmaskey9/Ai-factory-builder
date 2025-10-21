@@ -1,0 +1,31 @@
+{
+  "build_id": "dab2ad160afd",
+  "timestamp": "2025-10-21T23:00:03Z",
+  "pid": 11556,
+  "version": "1.2-master-stable",
+  "goal": "Create a FastAPI app with /hello and /health",
+  "domain": "web",
+  "blueprint": {
+    "name": "app",
+    "title": "app",
+    "description": "Create a FastAPI app with /hello and /health",
+    "goal": "Create a FastAPI app with /hello and /health"
+  },
+  "options": {},
+  "outputs_dir": "builds\\dab2ad160afd\\outputs",
+  "files": [
+    "app\\app.py",
+    "app\\Dockerfile",
+    "app\\README.md"
+  ],
+  "warnings": [],
+  "evaluation": {
+    "passed": true,
+    "summary": "/hello: 200; /health: 200",
+    "artifacts": {
+      "files": [
+        "app.py"
+      ]
+    }
+  }
+}

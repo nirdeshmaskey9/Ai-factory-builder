@@ -1,0 +1,29 @@
+{
+  "build_id": "2e6bad3ea754",
+  "timestamp": "2025-10-18T18:45:25Z",
+  "pid": 7744,
+  "version": "1.2-master-stable",
+  "goal": "Create a FastAPI app with /hello route",
+  "domain": "web",
+  "blueprint": {
+    "name": "app",
+    "title": "app",
+    "description": "Create a FastAPI app with /hello route",
+    "goal": "Create a FastAPI app with /hello route"
+  },
+  "options": {},
+  "outputs_dir": "builds\\2e6bad3ea754\\outputs",
+  "files": [
+    "app\\app.py",
+    "app\\Dockerfile",
+    "app\\README.md"
+  ],
+  "warnings": [],
+  "evaluation": {
+    "passed": false,
+    "summary": "ASGI call failed: asyncio.run() cannot be called from a running event loop",
+    "artifacts": {
+      "path": "builds\\2e6bad3ea754\\outputs\\app\\app.py"
+    }
+  }
+}

@@ -3,6 +3,7 @@ import os
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from typing import Literal
 from dotenv import load_dotenv
+from pathlib import Path
 
 # Load environment variables from a local .env file if present
 # Force override so runtime reflects the .env during Phase 11
@@ -42,3 +43,38 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
+
+
+def validate_config() -> None:
+    """Best-effort config validation with warnings only.
+
+    - Ensures .env loaded
+    - Checks for OPENAI_API_KEY, DB_PATH, and TEMPLATES_PATH
+    - Logs warnings instead of raising
+    """
+    logger = logging.getLogger("ai_factory.config")
+    # .env presence
+    if not Path('.env').exists():
+        logger.warning(".env file not found at project root")
+
+    # OPENAI_API_KEY
+    if not os.getenv("OPENAI_API_KEY"):
+        logger.warning("OPENAI_API_KEY missing; model features may be limited")
+
+    # DB_PATH
+    db_path = os.getenv("DB_PATH")
+    if not db_path:
+        # default to internal sqlite path
+        try:
+            from ai_factory.memory.memory_db import DB_PATH as DEFAULT_DB
+            logger.info(f"DB_PATH not set; defaulting to {DEFAULT_DB}")
+        except Exception:
+            logger.warning("DB_PATH missing and default could not be determined")
+
+    # TEMPLATES_PATH
+    tpath = os.getenv("TEMPLATES_PATH")
+    if not tpath:
+        logger.info("TEMPLATES_PATH not set; using internal ai_factory/templates")
+
+# API port constant for local UI helpers
+API_PORT = 8015

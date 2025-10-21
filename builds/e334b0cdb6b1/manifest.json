@@ -1,0 +1,31 @@
+{
+  "build_id": "e334b0cdb6b1",
+  "timestamp": "2025-10-18T19:31:14Z",
+  "pid": 11320,
+  "version": "1.2-master-stable",
+  "goal": "Create a FastAPI app with /hello and /health routes\r\n",
+  "domain": "web",
+  "blueprint": {
+    "name": "app",
+    "title": "app",
+    "description": "Create a FastAPI app with /hello and /health routes\r\n",
+    "goal": "Create a FastAPI app with /hello and /health routes\r\n"
+  },
+  "options": {},
+  "outputs_dir": "builds\\e334b0cdb6b1\\outputs",
+  "files": [
+    "app\\app.py",
+    "app\\Dockerfile",
+    "app\\README.md"
+  ],
+  "warnings": [],
+  "evaluation": {
+    "passed": false,
+    "summary": "ASGI evaluation failed: asyncio.run() cannot be called from a running event loop",
+    "artifacts": {
+      "files": [
+        "app.py"
+      ]
+    }
+  }
+}

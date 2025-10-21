@@ -1,0 +1,28 @@
+{
+  "build_id": "2fc408746f1f",
+  "timestamp": "2025-10-21T23:00:20Z",
+  "pid": 11556,
+  "version": "1.2-master-stable",
+  "goal": null,
+  "domain": null,
+  "blueprint": {
+    "name": "app",
+    "description": "Generated application",
+    "title": "app"
+  },
+  "options": {},
+  "outputs_dir": "builds\\2fc408746f1f\\outputs",
+  "files": [
+    "app\\app.py",
+    "app\\README.md"
+  ],
+  "warnings": [],
+  "evaluation": {
+    "passed": true,
+    "summary": "CLI entry detected (argparse: True).",
+    "artifacts": {
+      "entry": "builds\\2fc408746f1f\\outputs\\app\\app.py",
+      "argparse": true
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "build_id": "7c57da0e3142",
+  "timestamp": "2025-10-18T19:44:38Z",
+  "pid": 5800,
+  "version": "1.2-master-stable",
+  "goal": "Create a FastAPI app with /hello and /health routes.",
+  "domain": "web",
+  "blueprint": {
+    "name": "app",
+    "title": "app",
+    "description": "Create a FastAPI app with /hello and /health routes.",
+    "goal": "Create a FastAPI app with /hello and /health routes."
+  },
+  "options": {},
+  "outputs_dir": "builds\\7c57da0e3142\\outputs",
+  "files": [
+    "app\\app.py",
+    "app\\Dockerfile",
+    "app\\README.md"
+  ],
+  "warnings": [],
+  "evaluation": {
+    "passed": false,
+    "summary": "ASGI evaluation failed: 'ASGITransport' object has no attribute '__enter__'",
+    "artifacts": {
+      "files": [
+        "app.py"
+      ]
+    }
+  }
+}

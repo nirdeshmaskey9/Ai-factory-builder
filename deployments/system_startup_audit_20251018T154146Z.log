@@ -1,0 +1,317 @@
+{
+  "routes": [
+    {
+      "name": "/orchestrator/status",
+      "method": "GET",
+      "path": "/orchestrator/status",
+      "ok": true,
+      "status": 200,
+      "error": null,
+      "latency_ms": 6
+    },
+    {
+      "name": "/deployer/list",
+      "method": "GET",
+      "path": "/deployer/list",
+      "ok": true,
+      "status": 200,
+      "error": null,
+      "latency_ms": 2
+    },
+    {
+      "name": "/memory/search?q=test&n=1",
+      "method": "GET",
+      "path": "/memory/search?q=test&n=1",
+      "ok": true,
+      "status": 200,
+      "error": null,
+      "latency_ms": 1
+    },
+    {
+      "name": "/evaluator/learn",
+      "method": "POST",
+      "path": "/evaluator/learn",
+      "ok": true,
+      "status": 200,
+      "error": null,
+      "latency_ms": 16
+    }
+  ],
+  "deployments": [
+    {
+      "id": 84,
+      "goal": "create sample app then improve",
+      "port": 8002,
+      "endpoint": "http://127.0.0.1:8002",
+      "status": "running",
+      "timestamp": "2025-10-18T15:39:32.524897"
+    },
+    {
+      "id": 83,
+      "goal": "registry test",
+      "port": 8002,
+      "endpoint": "http://127.0.0.1:8002",
+      "status": "stopped",
+      "timestamp": "2025-10-18T15:39:25.341394"
+    },
+    {
+      "id": 82,
+      "goal": "deploy a tiny app",
+      "port": 8001,
+      "endpoint": "http://127.0.0.1:8001",
+      "status": "running",
+      "timestamp": "2025-10-18T15:39:18.195023"
+    },
+    {
+      "id": 81,
+      "goal": "create sample app then improve",
+      "port": 8006,
+      "endpoint": "http://127.0.0.1:8006",
+      "status": "running",
+      "timestamp": "2025-10-17T16:26:17.180439"
+    },
+    {
+      "id": 80,
+      "goal": "registry test",
+      "port": 8006,
+      "endpoint": "http://127.0.0.1:8006",
+      "status": "stopped",
+      "timestamp": "2025-10-17T16:26:09.769586"
+    },
+    {
+      "id": 79,
+      "goal": "deploy a tiny app",
+      "port": 8005,
+      "endpoint": "http://127.0.0.1:8005",
+      "status": "running",
+      "timestamp": "2025-10-17T16:26:02.581900"
+    },
+    {
+      "id": 78,
+      "goal": "create sample app then improve",
+      "port": 8004,
+      "endpoint": "http://127.0.0.1:8004",
+      "status": "running",
+      "timestamp": "2025-10-17T16:22:03.781986"
+    },
+    {
+      "id": 77,
+      "goal": "registry test",
+      "port": 8004,
+      "endpoint": "http://127.0.0.1:8004",
+      "status": "stopped",
+      "timestamp": "2025-10-17T16:21:56.312886"
+    },
+    {
+      "id": 76,
+      "goal": "deploy a tiny app",
+      "port": 8003,
+      "endpoint": "http://127.0.0.1:8003",
+      "status": "running",
+      "timestamp": "2025-10-17T16:21:48.986716"
+    },
+    {
+      "id": 75,
+      "goal": "create sample app then improve",
+      "port": 8002,
+      "endpoint": "http://127.0.0.1:8002",
+      "status": "running",
+      "timestamp": "2025-10-17T16:05:06.240615"
+    }
+  ],
+  "deployment_health": [
+    {
+      "id": 84,
+      "port": 8002,
+      "status": "running",
+      "ok": true,
+      "code": 200,
+      "body": {
+        "message": "Factory Online"
+      }
+    },
+    {
+      "id": 82,
+      "port": 8001,
+      "status": "running",
+      "ok": true,
+      "code": 200,
+      "body": {
+        "message": "Factory Online"
+      }
+    },
+    {
+      "id": 81,
+      "port": 8006,
+      "status": "running",
+      "ok": true,
+      "code": 200,
+      "body": {
+        "message": "Factory Online"
+      }
+    },
+    {
+      "id": 79,
+      "port": 8005,
+      "status": "running",
+      "ok": true,
+      "code": 200,
+      "body": {
+        "message": "Factory Online"
+      }
+    },
+    {
+      "id": 78,
+      "port": 8004,
+      "status": "running",
+      "ok": true,
+      "code": 200,
+      "body": {
+        "message": "Factory Online"
+      }
+    },
+    {
+      "id": 76,
+      "port": 8003,
+      "status": "running",
+      "ok": true,
+      "code": 200,
+      "body": {
+        "message": "Factory Online"
+      }
+    },
+    {
+      "id": 75,
+      "port": 8002,
+      "status": "running",
+      "ok": true,
+      "code": 200,
+      "body": {
+        "message": "Factory Online"
+      }
+    }
+  ],
+  "deploy_dirs": [
+    "31",
+    "32",
+    "33",
+    "34",
+    "35",
+    "36",
+    "37",
+    "38",
+    "39",
+    "40",
+    "41",
+    "42",
+    "43",
+    "44",
+    "45",
+    "46",
+    "47",
+    "48",
+    "49",
+    "50",
+    "51",
+    "52",
+    "53",
+    "54",
+    "55",
+    "56",
+    "57",
+    "58",
+    "59",
+    "60",
+    "61",
+    "62",
+    "63",
+    "64",
+    "65",
+    "66",
+    "67",
+    "68",
+    "69",
+    "70",
+    "71",
+    "72",
+    "73",
+    "74",
+    "75",
+    "76",
+    "77",
+    "78",
+    "79",
+    "80",
+    "81",
+    "82",
+    "83",
+    "84"
+  ],
+  "ports": [
+    0,
+    135,
+    139,
+    445,
+    5040,
+    5992,
+    7680,
+    8001,
+    8002,
+    8003,
+    8004,
+    8005,
+    8006,
+    8007,
+    8008,
+    8009,
+    8010,
+    8011,
+    8012,
+    8013,
+    8014,
+    8015,
+    8016,
+    8017,
+    8018,
+    8019,
+    8020,
+    8021,
+    8022,
+    8023,
+    8024,
+    8884,
+    9245,
+    11434,
+    15292,
+    15393,
+    16494,
+    24563,
+    27036,
+    27060,
+    45623,
+    49664,
+    49665,
+    49666,
+    49667,
+    49670,
+    49671,
+    49676,
+    54263,
+    54264,
+    54980,
+    54982,
+    56955,
+    60720
+  ],
+  "healthy": [
+    "Core routes responsive",
+    "Running deployments respond at /hello",
+    "DB integrity OK (read-write)",
+    "Essential files present",
+    "OPENAI_API_KEY present"
+  ],
+  "warnings": [],
+  "critical": [],
+  "overall": "EXCELLENT",
+  "timestamp": "2025-10-18 10:41:46"
+}

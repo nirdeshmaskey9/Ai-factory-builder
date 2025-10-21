@@ -1,0 +1,13 @@
+from fastapi import FastAPI
+
+app = FastAPI(title="{{ app_name }}")
+
+
+@app.get("{{ route_path }}")
+def hello():
+    return {"message": "{{ hello_text }}"}
+
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
