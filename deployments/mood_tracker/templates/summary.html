@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>7‑Day Summary</title>
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>7‑Day Average</h1>
+      <div class="card">
+        <div class="avg">{{ average }} / 5</div>
+        <div class="emoji" aria-label="mood">{{ emoji }}</div>
+        <div class="count">from {{ count }} entries</div>
+      </div>
+      <nav>
+        <a href="/">Add Today</a>
+        <a href="/history">History</a>
+      </nav>
+    </div>
+  </body>
+  </html>
+

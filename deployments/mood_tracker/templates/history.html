@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mood History</title>
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>History</h1>
+      <a href="/">Back</a>
+      <ul class="list">
+        {% for item in items %}
+        <li>
+          <span class="date">{{ item.date }}</span>
+          <span class="mood">{{ item.mood }}</span>
+          <span class="note">{{ item.note }}</span>
+        </li>
+        {% else %}
+        <li>No entries yet.</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </body>
+  </html>
+
