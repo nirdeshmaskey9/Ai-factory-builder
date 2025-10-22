@@ -4,7 +4,10 @@ import os
 
 
 def main() -> None:
-    print("🚀 Launching AI Factory (Auto Port Recovery Enabled)...")
+    try:
+        print("🚀 Launching AI Factory (Auto Port Recovery Enabled)...")
+    except Exception:
+        print("Launching AI Factory (Auto Port Recovery Enabled)...")
     try:
         # Delegate to module entrypoint that performs port auto-recovery
         result = subprocess.call([sys.executable, "-m", "ai_factory.main"], env=os.environ.copy())
@@ -17,4 +20,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

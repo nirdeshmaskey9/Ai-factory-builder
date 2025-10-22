@@ -1,0 +1,31 @@
+{
+  "build_id": "ff7ecb1724cd",
+  "timestamp": "2025-10-22T21:57:15Z",
+  "pid": 23504,
+  "version": "1.2-master-stable",
+  "goal": "Create a FastAPI app with /hello",
+  "domain": "web",
+  "blueprint": {
+    "name": "app",
+    "title": "app",
+    "description": "Create a FastAPI app with /hello",
+    "goal": "Create a FastAPI app with /hello"
+  },
+  "options": {},
+  "outputs_dir": "builds\\ff7ecb1724cd\\outputs",
+  "files": [
+    "app\\app.py",
+    "app\\Dockerfile",
+    "app\\README.md"
+  ],
+  "warnings": [],
+  "evaluation": {
+    "passed": true,
+    "summary": "/hello: 200; /health: 200",
+    "artifacts": {
+      "files": [
+        "app.py"
+      ]
+    }
+  }
+}

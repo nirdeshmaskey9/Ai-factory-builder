@@ -30,6 +30,7 @@ from ai_factory.debugger.routers import debugger_router
 from ai_factory.tools.system_audit import run_audit as run_system_audit
 from ai_factory.config_env_validator import validate_env
 from ai_factory.services.watchdog_service import start_watchdog
+from ai_factory.routers import factory_info as factory_info_router
 from ai_factory.system.port_finder import find_free_port
 
 
@@ -177,6 +178,7 @@ app.include_router(orchestrator_router, prefix="/orchestrator")
 app.include_router(factory_router)
 app.include_router(system_health_router)
 app.include_router(system_report_router)
+app.include_router(factory_info_router.router)
 print("?? Deployer Health route registered at /deployer/health")
 
 
@@ -184,18 +186,6 @@ print("?? Deployer Health route registered at /deployer/health")
 @app.get("/", include_in_schema=False)
 def root():
     return {"message": "AI Factory Builder v1.1 - Self-Healing Foundation", "docs": "/docs"}
-
-
-@app.get("/factory/info")
-def factory_info():
-    # Minimal, UI-friendly metadata for Micro App Builder
-    return {
-        "name": "AI Factory",
-        "version": "v1.3-gpt4o-builder",
-        "status": "online",
-        "banner": "AI Factory v1.3-gpt4o-builder – Stable Core Mode",
-        "healthy": True,
-    }
 
 
 # Startup self diagnostics
