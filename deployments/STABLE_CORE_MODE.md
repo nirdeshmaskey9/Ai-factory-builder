@@ -26,3 +26,10 @@ How to launch with auto recovery:
 
 Notes:
 - If you continue to start via uvicorn CLI directly (e.g., `python -m uvicorn ai_factory.main:app --port 8015`), uvicorn will attempt the specified port and will not use auto recovery. Use the programmatic entrypoint above for resilience.
+
+### Quick Launch (v1.4.3)
+You can now start the Factory with one command:
+
+```bash
+python scripts/run_factory.py
+```
