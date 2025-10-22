@@ -30,6 +30,7 @@ from ai_factory.debugger.routers import debugger_router
 from ai_factory.tools.system_audit import run_audit as run_system_audit
 from ai_factory.config_env_validator import validate_env
 from ai_factory.services.watchdog_service import start_watchdog
+from ai_factory.system.port_finder import find_free_port
 
 
 @asynccontextmanager
@@ -221,3 +222,34 @@ def health():
     version = "v1.3-gpt4o-builder"
     ts = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
     return {"healthy": True, "timestamp": ts, "active_builds": active_builds, "version": version}
+
+
+# Optional programmatic launcher with auto port recovery
+if __name__ == "__main__":
+    # Defer import so tests importing app don't pull uvicorn
+    try:
+        import uvicorn  # type: ignore
+    except Exception as e:
+        raise SystemExit(f"uvicorn not installed: {e}")
+
+    # Choose a port starting from 8015 up to 8050
+    try:
+        port = find_free_port(8015, 8050)
+    except Exception as e:
+        raise SystemExit(f"No free port found in 8015-8050: {e}")
+
+    # Log to startup.log and console
+    try:
+        from pathlib import Path
+        Path("logs").mkdir(parents=True, exist_ok=True)
+        with open("logs/startup.log", "a", encoding="utf-8") as f:
+            f.write(f"selected_port {port}\n")
+    except Exception:
+        pass
+    # Console: prefer ASCII to avoid encoding issues on some terminals
+    try:
+        print(f"✅ Port {port} selected — Factory online")
+    except Exception:
+        print(f"[OK] Port {port} selected - Factory online")
+
+    uvicorn.run(app, host=settings.host or "127.0.0.1", port=port, log_level=settings.uvicorn_log_level)
