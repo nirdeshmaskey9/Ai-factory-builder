@@ -1,0 +1,5 @@
+?? Deployer Health route registered at /deployer/health
+AI Factory v1.3-gpt4o-builder - Live Planner Active (Startup @ 2025-10-22T19:38:01Z)
+? [OK] Healthy components: DB integrity OK (read-write), Essential files present, OPENAI_API_KEY present
+?? [WARN] Route GET /orchestrator/status returned 404; Route GET /deployer/list returned 404; Route GET /memory/search?q=test&n=1 returned 404; Route POST /evaluator/learn returned 404; Some routes not responsive — see details.routes; /deployer/list returned 404
+?? Cleaning up previews and processes before exit...

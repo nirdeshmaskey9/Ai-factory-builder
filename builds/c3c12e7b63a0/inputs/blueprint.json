@@ -1,0 +1,6 @@
+{
+  "name": "reverse_cli",
+  "title": "reverse_cli",
+  "description": "Build a Python CLI that asks for a sentence and prints it reversed.",
+  "goal": "Build a Python CLI that asks for a sentence and prints it reversed."
+}

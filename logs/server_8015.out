@@ -1,0 +1,5 @@
+?? Deployer Health route registered at /deployer/health
+AI Factory v1.3-gpt4o-builder - Live Planner Active (Startup @ 2025-10-22T19:36:40Z)
+? [OK] Healthy components: DB integrity OK (read-write), Essential files present, OPENAI_API_KEY present
+?? [WARN] Route GET /orchestrator/status error: All connection attempts failed; Route GET /deployer/list error: All connection attempts failed; Route GET /memory/search?q=test&n=1 error: All connection attempts failed; Route POST /evaluator/learn error: All connection attempts failed; Some routes not responsive — see details.routes; /deployer/list error: All connection attempts failed
+?? Cleaning up previews and processes before exit...

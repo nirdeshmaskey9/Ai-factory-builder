@@ -1,0 +1,33 @@
+{
+  "build_id": "2d5896bfe7d7",
+  "timestamp": "2025-10-21T23:28:59Z",
+  "pid": 9468,
+  "version": "1.2-master-stable",
+  "goal": "Build a FastAPI app with one route '/' returning 'Hello, world! from AI Factory'",
+  "domain": "web",
+  "blueprint": {
+    "name": "test_app",
+    "title": "test_app",
+    "description": "Test app",
+    "goal": "Build a FastAPI app with one route '/' returning 'Hello, world! from AI Factory'",
+    "route": "/",
+    "hello_text": "Hello, world! from AI Factory"
+  },
+  "options": {},
+  "outputs_dir": "builds\\2d5896bfe7d7\\outputs",
+  "files": [
+    "test_app\\app.py",
+    "test_app\\Dockerfile",
+    "test_app\\README.md"
+  ],
+  "warnings": [],
+  "evaluation": {
+    "passed": false,
+    "summary": "/hello: 404; /health: 200",
+    "artifacts": {
+      "files": [
+        "app.py"
+      ]
+    }
+  }
+}

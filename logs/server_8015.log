@@ -1,0 +1,6 @@
+?? Deployer Health route registered at /deployer/health
+INFO:     Started server process [20420]
+INFO:     Waiting for application startup.
+2025-10-22T14:34:28-0500 | INFO | ai_factory.config | \u2705 OpenAI key loaded (prefix: sk-proj-à)
+2025-10-22T14:34:28-0500 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
+AI Factory v1.3-gpt4o-builder - Live Planner Active (Startup @ 2025-10-22T19:34:28Z)

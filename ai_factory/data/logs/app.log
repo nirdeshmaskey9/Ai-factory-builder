@@ -813,3 +813,40 @@
 2025-10-21T18:04:32-0500 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
 2025-10-21T18:04:43-0500 | INFO | ai_factory.config | DB_PATH not set; defaulting to C:\projects\ai_factory_builder\ai_factory\memory\..\data\memory.db
 2025-10-21T18:04:43-0500 | INFO | ai_factory.config | TEMPLATES_PATH not set; using internal ai_factory/templates
+2025-10-21T18:26:57-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-21T18:26:57-0500 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
+2025-10-21T18:27:07-0500 | INFO | ai_factory.config | DB_PATH not set; defaulting to C:\projects\ai_factory_builder\ai_factory\memory\..\data\memory.db
+2025-10-21T18:27:07-0500 | INFO | ai_factory.config | TEMPLATES_PATH not set; using internal ai_factory/templates
+2025-10-21T18:27:37-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-21T18:27:53-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-21T18:27:53-0500 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
+2025-10-21T18:27:54-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8015/orchestrator/status "HTTP/1.1 404 Not Found"
+2025-10-21T18:27:54-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8015/deployer/list "HTTP/1.1 404 Not Found"
+2025-10-21T18:27:54-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8015/memory/search?q=test&n=1 "HTTP/1.1 404 Not Found"
+2025-10-21T18:27:54-0500 | INFO | httpx | HTTP Request: POST http://127.0.0.1:8015/evaluator/learn "HTTP/1.1 404 Not Found"
+2025-10-21T18:27:54-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8015/deployer/list "HTTP/1.1 404 Not Found"
+2025-10-21T18:27:54-0500 | INFO | ai_factory.config | DB_PATH not set; defaulting to C:\projects\ai_factory_builder\ai_factory\memory\..\data\memory.db
+2025-10-21T18:27:54-0500 | INFO | ai_factory.config | TEMPLATES_PATH not set; using internal ai_factory/templates
+2025-10-21T18:28:26-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-22T14:34:28-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-22T14:34:28-0500 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
+2025-10-22T14:35:15-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-22T14:35:15-0500 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
+2025-10-22T14:35:26-0500 | INFO | ai_factory.config | DB_PATH not set; defaulting to C:\projects\ai_factory_builder\ai_factory\memory\..\data\memory.db
+2025-10-22T14:35:26-0500 | INFO | ai_factory.config | TEMPLATES_PATH not set; using internal ai_factory/templates
+2025-10-22T14:36:00-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-22T14:36:40-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-22T14:36:40-0500 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
+2025-10-22T14:36:51-0500 | INFO | ai_factory.config | DB_PATH not set; defaulting to C:\projects\ai_factory_builder\ai_factory\memory\..\data\memory.db
+2025-10-22T14:36:51-0500 | INFO | ai_factory.config | TEMPLATES_PATH not set; using internal ai_factory/templates
+2025-10-22T14:37:24-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-22T14:38:01-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-22T14:38:01-0500 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
+2025-10-22T14:38:01-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8015/orchestrator/status "HTTP/1.1 404 Not Found"
+2025-10-22T14:38:01-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8015/deployer/list "HTTP/1.1 404 Not Found"
+2025-10-22T14:38:01-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8015/memory/search?q=test&n=1 "HTTP/1.1 404 Not Found"
+2025-10-22T14:38:01-0500 | INFO | httpx | HTTP Request: POST http://127.0.0.1:8015/evaluator/learn "HTTP/1.1 404 Not Found"
+2025-10-22T14:38:01-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8015/deployer/list "HTTP/1.1 404 Not Found"
+2025-10-22T14:38:01-0500 | INFO | ai_factory.config | DB_PATH not set; defaulting to C:\projects\ai_factory_builder\ai_factory\memory\..\data\memory.db
+2025-10-22T14:38:01-0500 | INFO | ai_factory.config | TEMPLATES_PATH not set; using internal ai_factory/templates
+2025-10-22T14:38:34-0500 | INFO | ai_factory.main | Shutting down AI Factory

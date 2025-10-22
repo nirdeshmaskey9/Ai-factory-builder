@@ -1,0 +1,11 @@
+INFO:     Started server process [35332]
+INFO:     Waiting for application startup.
+2025-10-22T14:36:40-0500 | INFO | ai_factory.config | \u2705 OpenAI key loaded (prefix: sk-proj-…)
+2025-10-22T14:36:40-0500 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
+2025-10-22T14:36:51-0500 | INFO | ai_factory.config | DB_PATH not set; defaulting to C:\projects\ai_factory_builder\ai_factory\memory\..\data\memory.db
+2025-10-22T14:36:51-0500 | INFO | ai_factory.config | TEMPLATES_PATH not set; using internal ai_factory/templates
+INFO:     Application startup complete.
+ERROR:    [Errno 10048] error while attempting to bind on address ('127.0.0.1', 8015): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+INFO:     Waiting for application shutdown.
+2025-10-22T14:37:24-0500 | INFO | ai_factory.main | Shutting down AI Factory
+INFO:     Application shutdown complete.
