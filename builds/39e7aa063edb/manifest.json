@@ -1,0 +1,29 @@
+{
+  "build_id": "39e7aa063edb",
+  "timestamp": "2025-10-23T00:05:18Z",
+  "pid": 38400,
+  "version": "1.2-master-stable",
+  "goal": "Static page",
+  "domain": "web",
+  "blueprint": {
+    "name": "app",
+    "title": "app",
+    "description": "Static page",
+    "goal": "Static page"
+  },
+  "options": {},
+  "outputs_dir": "builds\\39e7aa063edb\\outputs",
+  "files": [
+    "app\\index.html",
+    "app\\README.md"
+  ],
+  "warnings": [],
+  "evaluation": {
+    "passed": true,
+    "summary": "index.html and README present.",
+    "artifacts": {
+      "path": "builds\\39e7aa063edb\\outputs\\app\\index.html",
+      "readme": true
+    }
+  }
+}

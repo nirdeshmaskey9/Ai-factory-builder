@@ -217,3 +217,27 @@
 {"ts": "2025-10-22T21:56:04Z", "build_id": "ac2b9a7ff090", "domain": "cli", "passed": true, "summary": "CLI entry detected (argparse: True)."}
 {"ts": "2025-10-22T21:56:05Z", "build_id": "84a38e17373d", "domain": "cli", "passed": true, "summary": "CLI entry detected (argparse: True)."}
 {"ts": "2025-10-22T21:57:15Z", "build_id": "ff7ecb1724cd", "domain": "web", "passed": true, "summary": "/hello: 200; /health: 200"}
+{"ts": "2025-10-22T23:54:17Z", "build_id": "9451aaeb8167", "domain": "web", "passed": true, "summary": "index.html and README present."}
+{"ts": "2025-10-22T23:54:31Z", "build_id": "2892ce17c29e", "domain": "web", "passed": true, "summary": "index.html and README present."}
+{"ts": "2025-10-22T23:54:31Z", "build_id": "a29a15524fe9", "domain": "web", "passed": true, "summary": "/hello: 200; /health: 200"}
+{"ts": "2025-10-22T23:54:37Z", "build_id": "7eeb6eb3e1aa", "domain": "cli", "passed": true, "summary": "CLI entry detected (argparse: True)."}
+{"ts": "2025-10-22T23:54:37Z", "build_id": "dbc8932ae34d", "domain": "cli", "passed": true, "summary": "CLI entry detected (argparse: True)."}
+{"ts": "2025-10-22T23:55:34Z", "build_id": "fbbeda4371fb", "domain": "web", "passed": true, "summary": "/hello: 200; /health: 200"}
+{"ts": "2025-10-22T23:55:46Z", "build_id": "653f2b0da6e7", "domain": "web", "passed": false, "summary": "ASGI evaluation failed: attempted relative import with no known parent package"}
+{"ts": "2025-10-22T23:56:37Z", "build_id": "17c29d5f5350", "domain": "web", "passed": false, "summary": "ASGI evaluation failed: attempted relative import with no known parent package"}
+{"ts": "2025-10-22T23:57:27Z", "build_id": "372d1a9ee629", "domain": "web", "passed": false, "summary": "ASGI evaluation failed: No module named 'routes'"}
+{"ts": "2025-10-22T23:57:59Z", "build_id": "a08c0ab60bb0", "domain": "web", "passed": false, "summary": "ASGI evaluation failed: No module named 'routes'"}
+{"ts": "2025-10-22T23:58:26Z", "build_id": "5a0c4745c118", "domain": "web", "passed": false, "summary": "ASGI evaluation failed: unexpected indent (summary.py, line 23)"}
+{"ts": "2025-10-22T23:59:31Z", "build_id": "67345fb8ca46", "domain": "web", "passed": false, "summary": "ASGI evaluation failed: unindent does not match any outer indentation level (summary.py, line 14)"}
+{"ts": "2025-10-23T00:00:48Z", "build_id": "a5999350d641", "domain": "web", "passed": false, "summary": "ASGI evaluation failed: unexpected indent (summary.py, line 23)"}
+{"ts": "2025-10-23T00:02:35Z", "build_id": "e7edf7f87374", "domain": "web", "passed": false, "summary": "ASGI evaluation failed: no such table: entries"}
+{"ts": "2025-10-23T00:03:19Z", "build_id": "e7155b3bbe78", "domain": "web", "passed": false, "summary": "ASGI evaluation failed: no such table: entries"}
+{"ts": "2025-10-23T00:04:16Z", "build_id": "3d8b116fec92", "domain": "web", "passed": false, "summary": "ASGI evaluation failed: ASGITransport.__init__() got an unexpected keyword argument 'lifespan'"}
+{"ts": "2025-10-23T00:04:33Z", "build_id": "c6cb04068d0b", "domain": "web", "passed": false, "summary": "ASGI evaluation failed: ASGITransport.__init__() got an unexpected keyword argument 'lifespan'"}
+{"ts": "2025-10-23T00:04:49Z", "build_id": "5ff2398a9352", "domain": "web", "passed": true, "summary": "/: 200; /history: 200; /summary: 200"}
+{"ts": "2025-10-23T00:05:03Z", "build_id": "268beed789dd", "domain": "web", "passed": true, "summary": "index.html and README present."}
+{"ts": "2025-10-23T00:05:18Z", "build_id": "39e7aa063edb", "domain": "web", "passed": true, "summary": "index.html and README present."}
+{"ts": "2025-10-23T00:05:18Z", "build_id": "e15452fb2c33", "domain": "web", "passed": true, "summary": "/hello: 200; /health: 200"}
+{"ts": "2025-10-23T00:05:23Z", "build_id": "e648133182a9", "domain": "cli", "passed": true, "summary": "CLI entry detected (argparse: True)."}
+{"ts": "2025-10-23T00:05:23Z", "build_id": "41e25ec49c18", "domain": "cli", "passed": true, "summary": "CLI entry detected (argparse: True)."}
+{"ts": "2025-10-23T00:06:52Z", "build_id": "b56288df424a", "domain": "web", "passed": true, "summary": "/hello: 200; /health: 200"}

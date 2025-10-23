@@ -1,0 +1,19 @@
+import sqlite3
+from pathlib import Path
+
+DB_PATH = Path(__file__).resolve().parent / "__APP_NAME__.db"
+
+DDL = f"""
+CREATE TABLE IF NOT EXISTS __TABLE_NAME__ (
+  __FIELDS_SQL__
+);
+"""
+
+def get_conn():
+    return sqlite3.connect(DB_PATH)
+
+def init_db():
+    with get_conn() as conn:
+        conn.execute(DDL)
+        conn.commit()
+

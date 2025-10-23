@@ -1,0 +1,19 @@
+from fastapi import APIRouter, Request
+from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi.templating import Jinja2Templates
+from pathlib import Path
+from database import get_conn
+from models import TABLE_NAME
+
+templates = Jinja2Templates(directory=str(Path(__file__).resolve().parents[1] / "templates"))
+router = APIRouter(tags=["summary"])
+
+@router.get("/summary", response_class=HTMLResponse)
+def summary(request: Request):
+__SUMMARY_LOGIC_PY__
+    return templates.TemplateResponse("summary.html", {"request": request, "avg": avg, "count": count, "emoji": emoji})
+
+@router.get("/api/summary", response_class=JSONResponse)
+def api_summary():
+__SUMMARY_LOGIC_PY__
+    return {"average": avg, "count": count, "emoji": emoji}

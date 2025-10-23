@@ -1,0 +1,16 @@
+from fastapi import APIRouter, Form
+from fastapi.responses import RedirectResponse
+from database import get_conn
+from models import TABLE_NAME
+
+router = APIRouter(tags=["log"])
+
+@router.post("/log")
+def log_entry(__FORM_ARGS__):
+    with get_conn() as conn:
+        conn.execute(
+            "INSERT OR REPLACE INTO " + TABLE_NAME + " (__COLUMN_NAMES__) VALUES (__PLACEHOLDERS__)",
+            [__COLUMN_VALUES_LIST__]
+        )
+        conn.commit()
+    return RedirectResponse("/summary", status_code=303)

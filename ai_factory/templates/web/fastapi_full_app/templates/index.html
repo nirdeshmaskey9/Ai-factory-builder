@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Daily Input</h1>
+<form method="post" action="/log">
+  __FORM_FIELDS_HTML__
+  <button type="submit">Save</button>
+</form>
+{% endblock %}
+

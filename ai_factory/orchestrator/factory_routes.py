@@ -189,7 +189,8 @@ async def factory_create(request: Request):
     except Exception:
         green = reset = ""
     status_word = "SUCCESS" if eval_report.passed else "DONE"
-    print(f"{green}🟢 {status_word}: {domain.upper()} build {result.build_id} at {result.outputs_path}{reset}")
+    # ASCII-only banner to avoid Windows console encoding issues
+    print(f"{green}[OK] {status_word}: {domain.upper()} build {result.build_id} at {result.outputs_path}{reset}")
 
     # 7) Response
     return {

@@ -1,0 +1,28 @@
+{
+  "build_id": "dbc8932ae34d",
+  "timestamp": "2025-10-22T23:54:37Z",
+  "pid": 31528,
+  "version": "1.2-master-stable",
+  "goal": null,
+  "domain": null,
+  "blueprint": {
+    "name": "app",
+    "description": "Generated application",
+    "title": "app"
+  },
+  "options": {},
+  "outputs_dir": "builds\\dbc8932ae34d\\outputs",
+  "files": [
+    "app\\app.py",
+    "app\\README.md"
+  ],
+  "warnings": [],
+  "evaluation": {
+    "passed": true,
+    "summary": "CLI entry detected (argparse: True).",
+    "artifacts": {
+      "entry": "builds\\dbc8932ae34d\\outputs\\app\\app.py",
+      "argparse": true
+    }
+  }
+}
