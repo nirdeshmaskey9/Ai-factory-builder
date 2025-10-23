@@ -9,16 +9,24 @@ router = APIRouter(prefix="/factory", tags=["Factory"])
 
 @router.get("/info")
 def factory_info():
-    version = os.getenv("FACTORY_VERSION", "v1.5-full-webapp-support")
+    version = os.getenv("FACTORY_VERSION", "v1.6.1-pre-phase2")
     templates = [
+        # Core banks
+        "fastapi_full_app",
+        "fastapi_dashboard",
+        "flask_minimal",
+        "streamlit_basic",
+        "automation_cli",
+        "imagegen_fastapi",
+        # Legacy identifiers
         "fastapi_basic",
         "cli_basic",
         "ml_basic",
-        "fastapi_full_app",
     ]
     return {
         "name": "AI Factory",
         "version": version,
+        "release_stage": "stable-core-polished",
         "status": "online",
         "banner": "AI Factory v1.3-gpt4o-builder - Live Planner Active",
         "healthy": True,

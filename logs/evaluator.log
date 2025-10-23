@@ -268,3 +268,9 @@
 {"ts": "2025-10-23T17:23:20Z", "build_id": "0d4cebe0abd8", "domain": "web", "passed": true, "summary": "/: 200; /history: 200; /summary: 200"}
 {"ts": "2025-10-23T17:23:20Z", "build_id": "8a72cb2b9765", "domain": "web", "passed": true, "summary": "/: 200; /history: 200; /summary: 200"}
 {"ts": "2025-10-23T17:23:20Z", "build_id": "381d8e8b6cba", "domain": "web", "passed": true, "summary": "/: 200; /history: 200; /summary: 200"}
+{"ts": "2025-10-23T17:49:50Z", "build_id": "5ee3a42669f1", "domain": "web", "passed": true, "summary": "index.html and README present."}
+{"ts": "2025-10-23T17:50:04Z", "build_id": "134c335c38b4", "domain": "web", "passed": true, "summary": "index.html and README present."}
+{"ts": "2025-10-23T17:50:05Z", "build_id": "7174b2c79ca6", "domain": "web", "passed": true, "summary": "/hello: 200; /health: 200"}
+{"ts": "2025-10-23T17:50:10Z", "build_id": "85ffd4041e84", "domain": "cli", "passed": true, "summary": "CLI entry detected (argparse: True)."}
+{"ts": "2025-10-23T17:50:10Z", "build_id": "4296407ce4f1", "domain": "cli", "passed": true, "summary": "CLI entry detected (argparse: True)."}
+{"ts": "2025-10-23T17:51:26Z", "build_id": "d6cab8ec18cf", "domain": "web", "passed": true, "summary": "/hello: 200; /health: 200"}
