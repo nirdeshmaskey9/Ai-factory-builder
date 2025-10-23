@@ -1,0 +1,29 @@
+{
+  "build_id": "450854739f29",
+  "timestamp": "2025-10-23T17:22:57Z",
+  "pid": 18756,
+  "version": "1.2-master-stable",
+  "goal": "Create an automation CLI that organizes files by extension into subfolders",
+  "domain": "cli",
+  "blueprint": {
+    "name": "file_organizer_cli",
+    "title": "File Organizer CLI",
+    "description": "automation CLI tool to sort files by type into folders",
+    "goal": "Create an automation CLI that organizes files by extension into subfolders"
+  },
+  "options": {},
+  "outputs_dir": "builds\\450854739f29\\outputs",
+  "files": [
+    "file_organizer_cli\\main.py",
+    "file_organizer_cli\\README.md"
+  ],
+  "warnings": [],
+  "evaluation": {
+    "passed": true,
+    "summary": "CLI entry detected (argparse: True).",
+    "artifacts": {
+      "entry": "builds\\450854739f29\\outputs\\file_organizer_cli\\main.py",
+      "argparse": true
+    }
+  }
+}

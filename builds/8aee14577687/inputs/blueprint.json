@@ -1,0 +1,6 @@
+{
+  "name": "reminder_scheduler",
+  "title": "Reminder Scheduler",
+  "description": "FastAPI background task loop with APScheduler; routes /add, /list",
+  "goal": "Create a reminder scheduler app with routes /add and /list and mention APScheduler"
+}

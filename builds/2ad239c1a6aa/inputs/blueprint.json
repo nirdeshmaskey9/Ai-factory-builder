@@ -1,0 +1,6 @@
+{
+  "name": "task_tracker",
+  "title": "Task Tracker",
+  "description": "FastAPI + SQLite + Jinja2 CRUD tasks with routes /, /add, /list",
+  "goal": "Generate a simple task tracker with FastAPI and SQLite and Jinja2 with routes /, /add, /list"
+}

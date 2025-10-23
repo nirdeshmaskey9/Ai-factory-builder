@@ -241,3 +241,30 @@
 {"ts": "2025-10-23T00:05:23Z", "build_id": "e648133182a9", "domain": "cli", "passed": true, "summary": "CLI entry detected (argparse: True)."}
 {"ts": "2025-10-23T00:05:23Z", "build_id": "41e25ec49c18", "domain": "cli", "passed": true, "summary": "CLI entry detected (argparse: True)."}
 {"ts": "2025-10-23T00:06:52Z", "build_id": "b56288df424a", "domain": "web", "passed": true, "summary": "/hello: 200; /health: 200"}
+{"ts": "2025-10-23T17:18:02Z", "build_id": "27cc53201621", "domain": "web", "passed": true, "summary": "index.html and README present."}
+{"ts": "2025-10-23T17:18:16Z", "build_id": "c22859862c4a", "domain": "web", "passed": true, "summary": "index.html and README present."}
+{"ts": "2025-10-23T17:18:16Z", "build_id": "6a69f7233da4", "domain": "web", "passed": true, "summary": "/hello: 200; /health: 200"}
+{"ts": "2025-10-23T17:18:22Z", "build_id": "2ac9a7e8680d", "domain": "cli", "passed": true, "summary": "CLI entry detected (argparse: True)."}
+{"ts": "2025-10-23T17:18:22Z", "build_id": "77465f17a687", "domain": "cli", "passed": true, "summary": "CLI entry detected (argparse: True)."}
+{"ts": "2025-10-23T17:21:26Z", "build_id": "854a70ba91cf", "domain": "web", "passed": true, "summary": "/hello: 200; /health: 200"}
+{"ts": "2025-10-23T17:21:46Z", "build_id": "2ad239c1a6aa", "domain": "web", "passed": false, "summary": "ASGI evaluation failed: Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n"}
+{"ts": "2025-10-23T17:21:46Z", "build_id": "59efaeadb126", "domain": "cli", "passed": true, "summary": "CLI entry detected (argparse: True)."}
+{"ts": "2025-10-23T17:21:46Z", "build_id": "4c49e15b4afd", "domain": "ml", "passed": true, "summary": "Notebook found (cells: True)."}
+{"ts": "2025-10-23T17:21:46Z", "build_id": "cb8f9529b696", "domain": "web", "passed": true, "summary": "/hello: 200; /health: 200"}
+{"ts": "2025-10-23T17:21:46Z", "build_id": "424359c13075", "domain": "web", "passed": false, "summary": "/: 200; /history: 404; /summary: 404"}
+{"ts": "2025-10-23T17:21:46Z", "build_id": "c392a00ff7f6", "domain": "web", "passed": false, "summary": "ASGI evaluation failed: Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n"}
+{"ts": "2025-10-23T17:21:46Z", "build_id": "19d153e40523", "domain": "web", "passed": false, "summary": "ASGI evaluation failed: Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n"}
+{"ts": "2025-10-23T17:22:56Z", "build_id": "718e0d704276", "domain": "web", "passed": true, "summary": "/: 200; /history: 200; /summary: 200"}
+{"ts": "2025-10-23T17:22:57Z", "build_id": "450854739f29", "domain": "cli", "passed": true, "summary": "CLI entry detected (argparse: True)."}
+{"ts": "2025-10-23T17:22:57Z", "build_id": "807a86413767", "domain": "ml", "passed": true, "summary": "Notebook found (cells: True)."}
+{"ts": "2025-10-23T17:22:57Z", "build_id": "8aee14577687", "domain": "web", "passed": true, "summary": "/hello: 200; /health: 200"}
+{"ts": "2025-10-23T17:22:57Z", "build_id": "7d3fb2301eb9", "domain": "web", "passed": true, "summary": "/: 200; /history: 200; /summary: 200"}
+{"ts": "2025-10-23T17:22:57Z", "build_id": "102371d00726", "domain": "web", "passed": true, "summary": "/: 200; /history: 200; /summary: 200"}
+{"ts": "2025-10-23T17:22:57Z", "build_id": "9b009a60693a", "domain": "web", "passed": true, "summary": "/: 200; /history: 200; /summary: 200"}
+{"ts": "2025-10-23T17:23:20Z", "build_id": "6fdca6b65114", "domain": "web", "passed": true, "summary": "/: 200; /history: 200; /summary: 200"}
+{"ts": "2025-10-23T17:23:20Z", "build_id": "a96491d229b4", "domain": "cli", "passed": true, "summary": "CLI entry detected (argparse: True)."}
+{"ts": "2025-10-23T17:23:20Z", "build_id": "9167dac218e1", "domain": "ml", "passed": true, "summary": "Notebook found (cells: True)."}
+{"ts": "2025-10-23T17:23:20Z", "build_id": "380f0f250987", "domain": "web", "passed": true, "summary": "/hello: 200; /health: 200"}
+{"ts": "2025-10-23T17:23:20Z", "build_id": "0d4cebe0abd8", "domain": "web", "passed": true, "summary": "/: 200; /history: 200; /summary: 200"}
+{"ts": "2025-10-23T17:23:20Z", "build_id": "8a72cb2b9765", "domain": "web", "passed": true, "summary": "/: 200; /history: 200; /summary: 200"}
+{"ts": "2025-10-23T17:23:20Z", "build_id": "381d8e8b6cba", "domain": "web", "passed": true, "summary": "/: 200; /history: 200; /summary: 200"}

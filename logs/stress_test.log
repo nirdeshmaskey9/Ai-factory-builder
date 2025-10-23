@@ -1,0 +1,21 @@
+{"build_id": "6fdca6b65114", "domain": "web", "passed": true, "time_taken": 0.051, "errors": []}
+{"ts": 1761240200, "category": "Simple Web App", "app_name": "Task Tracker", "build_id": "6fdca6b65114", "domain": "web", "passed": true, "time_taken": 0.116, "errors": [], "summary": "/: 200; /history: 200; /summary: 200"}
+{"build_id": "6fdca6b65114", "domain": "web", "passed": true, "time_taken": 0.116, "errors": []}
+{"build_id": "a96491d229b4", "domain": "cli", "passed": true, "time_taken": 0.001, "errors": []}
+{"ts": 1761240200, "category": "CLI Tool", "app_name": "File Organizer CLI", "build_id": "a96491d229b4", "domain": "cli", "passed": true, "time_taken": 0.029, "errors": [], "summary": "CLI entry detected (argparse: True)."}
+{"build_id": "a96491d229b4", "domain": "cli", "passed": true, "time_taken": 0.029, "errors": []}
+{"build_id": "9167dac218e1", "domain": "ml", "passed": true, "time_taken": 0.001, "errors": []}
+{"ts": 1761240200, "category": "ML Scaffold", "app_name": "Scatter Plot Generator", "build_id": "9167dac218e1", "domain": "ml", "passed": true, "time_taken": 0.029, "errors": [], "summary": "Notebook found (cells: True)."}
+{"build_id": "9167dac218e1", "domain": "ml", "passed": true, "time_taken": 0.029, "errors": []}
+{"build_id": "380f0f250987", "domain": "web", "passed": true, "time_taken": 0.004, "errors": []}
+{"ts": 1761240200, "category": "Logic App", "app_name": "Reminder Scheduler", "build_id": "380f0f250987", "domain": "web", "passed": true, "time_taken": 0.028, "errors": [], "summary": "/hello: 200; /health: 200"}
+{"build_id": "380f0f250987", "domain": "web", "passed": true, "time_taken": 0.028, "errors": []}
+{"build_id": "0d4cebe0abd8", "domain": "web", "passed": true, "time_taken": 0.007, "errors": []}
+{"ts": 1761240200, "category": "Creative App", "app_name": "Prompt Writer", "build_id": "0d4cebe0abd8", "domain": "web", "passed": true, "time_taken": 0.027, "errors": [], "summary": "/: 200; /history: 200; /summary: 200"}
+{"build_id": "0d4cebe0abd8", "domain": "web", "passed": true, "time_taken": 0.027, "errors": []}
+{"build_id": "8a72cb2b9765", "domain": "web", "passed": true, "time_taken": 0.012, "errors": []}
+{"ts": 1761240200, "category": "Database App", "app_name": "Expense Tracker", "build_id": "8a72cb2b9765", "domain": "web", "passed": true, "time_taken": 0.052, "errors": [], "summary": "/: 200; /history: 200; /summary: 200"}
+{"build_id": "8a72cb2b9765", "domain": "web", "passed": true, "time_taken": 0.052, "errors": []}
+{"build_id": "381d8e8b6cba", "domain": "web", "passed": true, "time_taken": 0.013, "errors": []}
+{"ts": 1761240200, "category": "Hybrid App", "app_name": "Notes + Tagging System", "build_id": "381d8e8b6cba", "domain": "web", "passed": true, "time_taken": 0.039, "errors": [], "summary": "/: 200; /history: 200; /summary: 200"}
+{"build_id": "381d8e8b6cba", "domain": "web", "passed": true, "time_taken": 0.039, "errors": []}

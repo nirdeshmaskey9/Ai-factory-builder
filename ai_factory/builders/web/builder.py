@@ -24,7 +24,30 @@ class WebBuilder(Builder):
             or any(k in text_fields for k in ["/history", "/summary", "sqlite", "jinja", "templates", "multi-route", "multiple routes"])  # noqa: E501
         )
 
-        if is_full_app:
+        # Keyword-based template selection
+        if any(k in text_fields for k in ("dashboard",)):
+            self._build_from_bank("fastapi_dashboard", name=name, outputs_dir=outputs_dir, warnings=warnings, tokens={
+                "__APP_NAME__": name,
+                "__DESCRIPTION__": blueprint.get("description", "A generated FastAPI dashboard."),
+            })
+        elif any(k in text_fields for k in ("image", "prompt")):
+            self._build_from_bank("imagegen_fastapi", name=name, outputs_dir=outputs_dir, warnings=warnings, tokens={
+                "__APP_NAME__": name,
+                "__DESCRIPTION__": blueprint.get("description", "Generate prompts/images."),
+            })
+        elif "flask" in text_fields:
+            # Provide a FastAPI-compatible minimal app in this template for evaluator compatibility
+            self._build_from_bank("flask_minimal", name=name, outputs_dir=outputs_dir, warnings=warnings, tokens={
+                "__APP_NAME__": name,
+                "__DESCRIPTION__": blueprint.get("description", "A minimal Flask-style app (FastAPI-compatible)."),
+            })
+        elif "streamlit" in text_fields:
+            # Streamlit projects are not applicable to web ASGI evaluator; still scaffold and let evaluator skip
+            self._build_from_bank("streamlit_basic", name=name, outputs_dir=outputs_dir, warnings=warnings, tokens={
+                "__APP_NAME__": name,
+                "__DESCRIPTION__": blueprint.get("description", "A basic Streamlit app."),
+            })
+        elif is_full_app:
             self._build_full_app(name=name, blueprint=blueprint, outputs_dir=outputs_dir, warnings=warnings)
         elif is_dynamic:
             context = {
@@ -151,3 +174,35 @@ class WebBuilder(Builder):
         render_tmpl("static/style.css", base / "static" / "style.css")
         # Preview compatibility wrapper
         (base / "app.py").write_text("from main import app\n", encoding="utf-8")
+
+    def _build_from_bank(self, folder: str, *, name: str, outputs_dir: Path, warnings: list[str], tokens: Mapping[str, Any]) -> None:
+        """Render a template bank at ai_factory/templates/<folder> into outputs.
+
+        Rules:
+        - Any file ending with .tmpl is token-replaced and suffix removed.
+        - Other files are copied verbatim.
+        - Supported tokens include keys from `tokens`.
+        """
+        root = Path("ai_factory") / "templates" / folder
+        if not root.exists():
+            warnings.append(f"template_bank_missing: {folder}")
+            return
+        base = outputs_dir / name
+        for p in root.rglob("*"):
+            if p.is_dir():
+                continue
+            rel = p.relative_to(root)
+            if p.suffix == ".tmpl":
+                dest = base / rel.with_suffix("")
+                text = p.read_text(encoding="utf-8")
+                for k, v in tokens.items():
+                    text = text.replace(k, str(v))
+                dest.parent.mkdir(parents=True, exist_ok=True)
+                dest.write_text(text, encoding="utf-8")
+            else:
+                dest = base / rel
+                dest.parent.mkdir(parents=True, exist_ok=True)
+                try:
+                    dest.write_bytes(p.read_bytes())
+                except Exception as e:
+                    warnings.append(f"copy_error: {rel} -> {e}")

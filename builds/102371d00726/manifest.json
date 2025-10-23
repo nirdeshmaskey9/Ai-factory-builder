@@ -1,0 +1,42 @@
+{
+  "build_id": "102371d00726",
+  "timestamp": "2025-10-23T17:22:57Z",
+  "pid": 18756,
+  "version": "1.2-master-stable",
+  "goal": "Expense tracker with SQLite and summary totals at /summary",
+  "domain": "web",
+  "blueprint": {
+    "name": "expense_tracker",
+    "title": "Expense Tracker",
+    "description": "FastAPI CRUD entries in SQLite with totals view; routes /, /add, /summary",
+    "goal": "Expense tracker with SQLite and summary totals at /summary"
+  },
+  "options": {},
+  "outputs_dir": "builds\\102371d00726\\outputs",
+  "files": [
+    "expense_tracker\\app.py",
+    "expense_tracker\\database.py",
+    "expense_tracker\\main.py",
+    "expense_tracker\\models.py",
+    "expense_tracker\\routes\\history.py",
+    "expense_tracker\\routes\\home.py",
+    "expense_tracker\\routes\\log.py",
+    "expense_tracker\\routes\\summary.py",
+    "expense_tracker\\routes\\__init__.py",
+    "expense_tracker\\static\\style.css",
+    "expense_tracker\\templates\\base.html",
+    "expense_tracker\\templates\\history.html",
+    "expense_tracker\\templates\\index.html",
+    "expense_tracker\\templates\\summary.html"
+  ],
+  "warnings": [],
+  "evaluation": {
+    "passed": true,
+    "summary": "/: 200; /history: 200; /summary: 200",
+    "artifacts": {
+      "files": [
+        "main.py"
+      ]
+    }
+  }
+}

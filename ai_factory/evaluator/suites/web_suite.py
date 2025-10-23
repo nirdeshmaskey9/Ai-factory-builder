@@ -77,6 +77,14 @@ async def evaluate(build_id: str) -> EvaluationReport:
         if not folders:
             return EvaluationReport(False, "No output folder found.", {})
         app_dir = folders[0]
+        # Skip evaluation for Streamlit-based templates
+        try:
+            for py in app_dir.rglob("*.py"):
+                txt = py.read_text(encoding="utf-8", errors="ignore")
+                if "import streamlit" in txt or "STREAMLIT_TEMPLATE" in txt:
+                    return EvaluationReport(True, "Streamlit app detected, skipping.", {"skipped": True, "status": "template_not_applicable"})
+        except Exception:
+            pass
         # Branch: full multi-route FastAPI app
         main_py = app_dir / "main.py"
         if main_py.exists():

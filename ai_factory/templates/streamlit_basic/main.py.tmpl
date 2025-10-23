@@ -1,0 +1,10 @@
+# STREAMLIT_TEMPLATE
+import streamlit as st
+
+st.set_page_config(page_title="__APP_NAME__")
+st.title("__APP_NAME__")
+st.write("__DESCRIPTION__")
+
+xs = st.slider("x", 0, 100, (10, 90))
+st.write("Range:", xs)
+

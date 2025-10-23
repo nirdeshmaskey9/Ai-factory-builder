@@ -1,0 +1,6 @@
+{
+  "name": "scatter_plot_generator",
+  "title": "Scatter Plot Generator",
+  "description": "Generate a Matplotlib scatter plot saved as scatter.png",
+  "goal": "Create a minimal ML scaffold notebook that saves a scatter plot"
+}

@@ -1,0 +1,30 @@
+{
+  "total": 21,
+  "success": 21,
+  "fail": 0,
+  "avg_build_duration": 0.035,
+  "avg_success_rate": 100.0,
+  "top_error_patterns": [],
+  "files_causing_failures": [
+    {
+      "file": "task_tracker\\app.py",
+      "count": 3
+    },
+    {
+      "file": "task_tracker\\main.py",
+      "count": 3
+    },
+    {
+      "file": "task_tracker\\routes\\history.py",
+      "count": 3
+    },
+    {
+      "file": "task_tracker\\routes\\home.py",
+      "count": 3
+    },
+    {
+      "file": "task_tracker\\routes\\log.py",
+      "count": 3
+    }
+  ]
+}

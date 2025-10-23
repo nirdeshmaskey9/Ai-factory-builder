@@ -1,0 +1,42 @@
+{
+  "build_id": "9b009a60693a",
+  "timestamp": "2025-10-23T17:22:57Z",
+  "pid": 18756,
+  "version": "1.2-master-stable",
+  "goal": "Notes+Tags system with multiple routes and relations",
+  "domain": "web",
+  "blueprint": {
+    "name": "notes_tags",
+    "title": "Notes + Tags",
+    "description": "Multiple routes and multi-table relations; routes /, /notes, /tags",
+    "goal": "Notes+Tags system with multiple routes and relations"
+  },
+  "options": {},
+  "outputs_dir": "builds\\9b009a60693a\\outputs",
+  "files": [
+    "notes_tags\\app.py",
+    "notes_tags\\database.py",
+    "notes_tags\\main.py",
+    "notes_tags\\models.py",
+    "notes_tags\\routes\\history.py",
+    "notes_tags\\routes\\home.py",
+    "notes_tags\\routes\\log.py",
+    "notes_tags\\routes\\summary.py",
+    "notes_tags\\routes\\__init__.py",
+    "notes_tags\\static\\style.css",
+    "notes_tags\\templates\\base.html",
+    "notes_tags\\templates\\history.html",
+    "notes_tags\\templates\\index.html",
+    "notes_tags\\templates\\summary.html"
+  ],
+  "warnings": [],
+  "evaluation": {
+    "passed": true,
+    "summary": "/: 200; /history: 200; /summary: 200",
+    "artifacts": {
+      "files": [
+        "main.py"
+      ]
+    }
+  }
+}

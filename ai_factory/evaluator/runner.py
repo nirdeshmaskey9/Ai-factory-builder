@@ -13,6 +13,9 @@ class EvaluationReport:
 
 class EvaluationRunner:
     async def run(self, build_id: str, domain: str) -> EvaluationReport:
+        from pathlib import Path
+        import time, json
+        started = time.time()
         if domain == "web":
             from .suites.web_suite import evaluate  # lazy import
         elif domain == "cli":
@@ -21,7 +24,16 @@ class EvaluationRunner:
             from .suites.ml_suite import evaluate
         else:
             # Placeholder for future domains
-            return EvaluationReport(True, f"No suite for domain '{domain}', skipping.", {"skipped": True})
+            rep = EvaluationReport(True, f"No suite for domain '{domain}', skipping.", {"skipped": True, "status": "template_not_applicable"})
+            # Log structured stress line if desired
+            try:
+                log_dir = Path("logs"); log_dir.mkdir(parents=True, exist_ok=True)
+                with open(log_dir / "evaluator.log", "a", encoding="utf-8") as f:
+                    ts = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+                    f.write(json.dumps({"ts": ts, "build_id": build_id, "domain": domain, "passed": rep.passed, "summary": rep.summary})+"\n")
+            except Exception:
+                pass
+            return rep
 
         if inspect.iscoroutinefunction(evaluate):
             report = await evaluate(build_id)  # type: ignore
@@ -32,13 +44,24 @@ class EvaluationRunner:
             report.summary = "Evaluation completed successfully."
         # Structured logging
         try:
-            from pathlib import Path
-            import time, json
             log_dir = Path("logs")
             log_dir.mkdir(parents=True, exist_ok=True)
             with open(log_dir / "evaluator.log", "a", encoding="utf-8") as f:
                 ts = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
                 f.write(json.dumps({"ts": ts, "build_id": build_id, "domain": domain, "passed": report.passed, "summary": report.summary})+"\n")
+        except Exception:
+            pass
+        # Write stress_test.log line with duration to support stress reporting
+        try:
+            dur = round(time.time() - started, 3)
+            with open(Path("logs") / "stress_test.log", "a", encoding="utf-8") as f:
+                f.write(json.dumps({
+                    "build_id": build_id,
+                    "domain": domain,
+                    "passed": report.passed,
+                    "time_taken": dur,
+                    "errors": [],
+                })+"\n")
         except Exception:
             pass
         return report

@@ -1,0 +1,42 @@
+{
+  "build_id": "6fdca6b65114",
+  "timestamp": "2025-10-23T17:23:20Z",
+  "pid": 21968,
+  "version": "1.2-master-stable",
+  "goal": "Generate a simple task tracker with FastAPI and SQLite and Jinja2 with routes /, /add, /list",
+  "domain": "web",
+  "blueprint": {
+    "name": "task_tracker",
+    "title": "Task Tracker",
+    "description": "FastAPI + SQLite + Jinja2 CRUD tasks with routes /, /add, /list",
+    "goal": "Generate a simple task tracker with FastAPI and SQLite and Jinja2 with routes /, /add, /list"
+  },
+  "options": {},
+  "outputs_dir": "builds\\6fdca6b65114\\outputs",
+  "files": [
+    "task_tracker\\app.py",
+    "task_tracker\\database.py",
+    "task_tracker\\main.py",
+    "task_tracker\\models.py",
+    "task_tracker\\routes\\history.py",
+    "task_tracker\\routes\\home.py",
+    "task_tracker\\routes\\log.py",
+    "task_tracker\\routes\\summary.py",
+    "task_tracker\\routes\\__init__.py",
+    "task_tracker\\static\\style.css",
+    "task_tracker\\templates\\base.html",
+    "task_tracker\\templates\\history.html",
+    "task_tracker\\templates\\index.html",
+    "task_tracker\\templates\\summary.html"
+  ],
+  "warnings": [],
+  "evaluation": {
+    "passed": true,
+    "summary": "/: 200; /history: 200; /summary: 200",
+    "artifacts": {
+      "files": [
+        "main.py"
+      ]
+    }
+  }
+}

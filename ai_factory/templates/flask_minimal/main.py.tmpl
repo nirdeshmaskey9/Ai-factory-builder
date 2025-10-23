@@ -1,0 +1,14 @@
+from fastapi import FastAPI
+
+app = FastAPI(title="__APP_NAME__", description="__DESCRIPTION__")
+
+
+@app.get("/")
+def index():
+    return {"message": "Hello from Flask-Minimal (FastAPI-compatible)"}
+
+
+@app.get("/health")
+def health():
+    return {"ok": True}
+

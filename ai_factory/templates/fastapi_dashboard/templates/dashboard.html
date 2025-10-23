@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ app_name }} – Dashboard</title>
+    <style>body{font-family:sans-serif;margin:2rem} .kpi{display:inline-block;margin:1rem;padding:1rem;border:1px solid #ccc;border-radius:8px}</style>
+  </head>
+  <body>
+    <h1>Dashboard</h1>
+    <div class="kpi">Items: {{ stats.items }}</div>
+    <div class="kpi">Users: {{ stats.users }}</div>
+    <div class="kpi">Errors: {{ stats.errors }}</div>
+  </body>
+</html>
+
