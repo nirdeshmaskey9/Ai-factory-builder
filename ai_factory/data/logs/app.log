@@ -910,3 +910,16 @@
 2025-10-22T16:46:44-0500 | INFO | ai_factory.config | DB_PATH not set; defaulting to C:\projects\ai_factory_builder\ai_factory\memory\..\data\memory.db
 2025-10-22T16:46:44-0500 | INFO | ai_factory.config | TEMPLATES_PATH not set; using internal ai_factory/templates
 2025-10-22T16:47:16-0500 | INFO | __main__ | Shutting down AI Factory
+2025-10-24T20:41:59-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-24T20:41:59-0500 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
+2025-10-24T20:42:10-0500 | INFO | ai_factory.config | DB_PATH not set; defaulting to C:\projects\ai_factory_builder\ai_factory\memory\..\data\memory.db
+2025-10-24T20:42:10-0500 | INFO | ai_factory.config | TEMPLATES_PATH not set; using internal ai_factory/templates
+2025-10-24T20:43:13-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-24T20:43:17-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-24T20:45:16-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-24T20:45:21-0500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-24T20:52:06-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-24T20:52:07-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-24T20:52:07-0500 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
+2025-10-24T20:52:18-0500 | INFO | ai_factory.config | DB_PATH not set; defaulting to C:\projects\ai_factory_builder\ai_factory\memory\..\data\memory.db
+2025-10-24T20:52:18-0500 | INFO | ai_factory.config | TEMPLATES_PATH not set; using internal ai_factory/templates

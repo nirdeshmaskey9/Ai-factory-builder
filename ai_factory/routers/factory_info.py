@@ -32,6 +32,16 @@ def factory_info():
         "cli_basic",
         "ml_basic",
     ]
+    # Orchestrator stats
+    try:
+        from ai_factory.orchestrator.orchestrator_store import list_runs
+        runs = list_runs(limit=1, sort="desc")
+        latest_run_id = runs[0].id if runs else None
+        total_runs = len(list_runs(limit=1000))  # lightweight scan
+    except Exception:
+        latest_run_id = None
+        total_runs = 0
+
     return {
         "name": "AI Factory",
         "version": version,
@@ -40,6 +50,8 @@ def factory_info():
         "banner": f"AI Factory {version} - Cognitive Engine Active",
         "healthy": True,
         "templates": templates,
+        "latest_run_id": latest_run_id,
+        "total_runs": total_runs,
     }
 
 

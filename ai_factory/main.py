@@ -49,6 +49,25 @@ async def lifespan(app: FastAPI):
         if not p.exists():
             p.mkdir(parents=True, exist_ok=True)
             created.append(str(p))
+    # Log rotation: delete logs older than 30 days in supervisor/orchestrator
+    try:
+        import datetime, os
+        cutoff = datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(days=30)
+        for sub in ("orchestrator", "supervisor"):
+            d = Path("logs") / sub
+            if not d.exists():
+                continue
+            for f in d.iterdir():
+                try:
+                    stat = f.stat()
+                    # On some platforms, st_mtime may be naive; rely on epoch seconds
+                    mtime = datetime.datetime.fromtimestamp(stat.st_mtime, tz=datetime.timezone.utc)
+                    if mtime < cutoff:
+                        f.unlink(missing_ok=True)
+                except Exception:
+                    pass
+    except Exception:
+        pass
     ts = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
     # Log to startup.log
     try:

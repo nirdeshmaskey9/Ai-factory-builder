@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-from typing import List, Optional
+from typing import List, Optional, Dict, Any
 
-from sqlalchemy import select, desc
+from sqlalchemy import select, desc, asc
 
 from ai_factory.memory.memory_db import SessionLocal, Base, init_db
 from sqlalchemy import Column, Integer, Text, DateTime, Float, ForeignKey
@@ -82,3 +82,82 @@ def get_recent(limit: int = 10) -> List[OrchestratorRun]:
     with SessionLocal() as session:
         stmt = select(OrchestratorRun).order_by(desc(OrchestratorRun.timestamp)).limit(limit)
         return list(session.scalars(stmt))
+
+
+def list_runs(limit: int = 50, status: Optional[str] = None, sort: str = "desc") -> List[OrchestratorRun]:
+    """List recent orchestrator runs with optional status filter and sort order."""
+    with SessionLocal() as session:
+        stmt = select(OrchestratorRun)
+        if status:
+            stmt = stmt.where(OrchestratorRun.status == status)
+        order = desc if sort.lower() != "asc" else asc
+        stmt = stmt.order_by(order(OrchestratorRun.timestamp)).limit(limit)
+        return list(session.scalars(stmt))
+
+
+def get_run_steps(run_id: int) -> List[OrchestratorRunStep]:
+    with SessionLocal() as session:
+        stmt = select(OrchestratorRunStep).where(OrchestratorRunStep.run_id == run_id).order_by(asc(OrchestratorRunStep.timestamp))
+        return list(session.scalars(stmt))
+
+
+def _read_json(path: str) -> Optional[Dict[str, Any]]:
+    try:
+        import json, os
+        if not path or not os.path.exists(path):
+            return None
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return None
+
+
+def get_run_summary(run_id: int) -> Dict[str, Any]:
+    """Merge run info, steps, and supervisor report JSON. Handles missing artifacts gracefully."""
+    r = get_run(run_id)
+    if not r:
+        return {"not_found": True}
+
+    # Assemble basic run info
+    base: Dict[str, Any] = {
+        "run": {
+            "run_id": r.id,
+            "request_id": r.request_id,
+            "goal": r.goal,
+            "attempt": r.attempt,
+            "status": r.status,
+            "score": r.evaluation_score,
+            "timestamp": r.timestamp.isoformat() if r.timestamp else None,
+        }
+    }
+
+    # Paths
+    import os
+    run_report_path = os.path.join("logs", "orchestrator", f"run_{r.id}.json")
+    supervisor_report_path = os.path.join("logs", "supervisor", f"report_{r.id}.json")
+
+    # Read report JSON for duration
+    run_report = _read_json(run_report_path) or {}
+    base["run"]["duration_sec"] = run_report.get("duration_sec")
+    base["run"]["report_path"] = run_report_path if os.path.exists(run_report_path) else None
+
+    # Steps
+    steps = get_run_steps(run_id)
+    base["steps"] = [
+        {
+            "id": s.id,
+            "step_name": s.step_name,
+            "step_status": s.step_status,
+            "log_path": s.log_path or None,
+            "timestamp": s.timestamp.isoformat() if s.timestamp else None,
+        }
+        for s in steps
+    ]
+
+    # Supervisor report
+    sup = _read_json(supervisor_report_path)
+    base["supervisor"] = sup if sup is not None else {"not_found": True}
+    if sup is not None:
+        base["supervisor"]["report_path"] = supervisor_report_path
+
+    return base
