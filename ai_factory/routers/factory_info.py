@@ -52,6 +52,8 @@ def factory_info():
         "templates": templates,
         "latest_run_id": latest_run_id,
         "total_runs": total_runs,
+        "memory_enabled": True,
+        "memory_counts": (lambda: __import__('ai_factory.memory.memory_agent', fromlist=['stats']).stats())(),
     }
 
 

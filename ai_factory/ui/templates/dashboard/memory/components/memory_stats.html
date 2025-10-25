@@ -1,0 +1,11 @@
+<div class="memory-stats">
+  <div>Total: {{ stats.total }}</div>
+  <div>Recent 7d: {{ stats.recent_7d }}</div>
+  <div>Avg Score: {{ '%.2f'|format(stats.avg_score) if stats.avg_score is not none else '-' }}</div>
+  <div>Top Tags:
+    {% for t in stats.tags[:6] %}
+      <span class="tag">{{ t.tag }} ({{ t.count }})</span>
+    {% endfor %}
+  </div>
+</div>
+

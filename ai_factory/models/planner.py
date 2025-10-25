@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field, field_validator
-from typing import List, Literal, Optional
+from typing import List, Literal, Optional, Dict, Any
 from datetime import datetime, timezone
 from uuid import uuid4
 
@@ -33,6 +33,7 @@ class DispatchResponse(BaseModel):
     estimated_tokens: int
     model_name: str = "stub/planner-v0"
     notes: Optional[str] = None
+    memory_context: Optional[List[Dict[str, Any]]] = None
 
     @classmethod
     def make(

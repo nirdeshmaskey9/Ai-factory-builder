@@ -4,7 +4,7 @@ import os
 from datetime import datetime, timezone
 from typing import Optional
 
-from sqlalchemy import create_engine, Column, Integer, String, Text, DateTime, select
+from sqlalchemy import create_engine, Column, Integer, String, Text, DateTime, select, Float
 from sqlalchemy.orm import declarative_base, sessionmaker, Session
 from sqlalchemy.exc import OperationalError
 import json
@@ -62,6 +62,37 @@ class EvaluationResult(Base):
     summary = Column(Text, nullable=False)
     artifacts = Column(Text, nullable=False)  # JSON
     timestamp = Column(DateTime, default=lambda: datetime.now(timezone.utc), index=True)
+
+
+# Phase 3.0 – Cognitive Memory MCP tables (additive)
+class MemoryEntry(Base):
+    __tablename__ = "memory_entries"
+    id = Column(Integer, primary_key=True)
+    run_id = Column(Integer, nullable=True)
+    goal = Column(Text, nullable=False)
+    summary = Column(Text, nullable=False)
+    tags = Column(Text, nullable=False)  # comma-separated, lowercase
+    score = Column(Float, nullable=True)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), index=True)
+    deleted = Column(Integer, nullable=False, default=0)  # soft delete flag
+
+
+class MemoryLink(Base):
+    __tablename__ = "memory_links"
+    id = Column(Integer, primary_key=True)
+    source_run = Column(Integer, nullable=False)
+    target_run = Column(Integer, nullable=False)
+    reason = Column(Text, nullable=False)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), index=True)
+
+
+class MemoryFeedback(Base):
+    __tablename__ = "memory_feedback"
+    id = Column(Integer, primary_key=True)
+    run_id = Column(Integer, nullable=False)
+    rating = Column(Integer, nullable=False)  # +1 / -1
+    notes = Column(Text, nullable=True)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), index=True)
 
 
 def init_db() -> None:

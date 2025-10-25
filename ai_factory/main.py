@@ -33,6 +33,7 @@ from ai_factory.services.watchdog_service import start_watchdog
 from ai_factory.routers import factory_info as factory_info_router
 from ai_factory.system.port_finder import find_free_port
 from ai_factory.ui.dashboard_router import router as dashboard_router
+from ai_factory.ui.memory_ui_router import router as memory_ui_router
 from ai_factory.ui.analytics_router import router as analytics_router
 from ai_factory.ui.feedback_router import router as feedback_router
 from ai_factory.ui.ws_router import router as ws_router
@@ -145,9 +146,9 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title="AI Factory Builder – Cognitive Engine",
-    version="v2.0-cognitive-engine",
-    description="v2.0-cognitive-engine: Orchestrator + Supervisor active.",
+    title="AI Factory Builder - Cognitive Engine",
+    version="v3.0-memory-mcp",
+    description="v3.0-memory-mcp: Long-term memory + recall + learning.",
     lifespan=lifespan,
 )
 
@@ -205,6 +206,7 @@ app.include_router(system_health_router)
 app.include_router(system_report_router)
 app.include_router(factory_info_router.router)
 app.include_router(dashboard_router)
+app.include_router(memory_ui_router)
 app.include_router(analytics_router)
 app.include_router(feedback_router)
 app.include_router(ws_router)

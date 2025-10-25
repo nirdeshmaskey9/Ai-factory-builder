@@ -1,0 +1,12 @@
+.memory-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin-top:12px}
+.memory-card{border:1px solid #333;border-radius:8px;padding:10px;background:var(--card-bg,#111);color:#eee}
+.mc-title{font-weight:600;color:#7fc4ff;text-decoration:none}
+.mc-body{margin-top:6px;font-size:0.95em;line-height:1.3}
+.mc-tags{margin-top:8px}
+.tag{display:inline-block;background:#223a50;color:#cfe8ff;border-radius:12px;padding:2px 8px;margin:2px;font-size:0.8em}
+.mc-meta{margin-top:8px;font-size:0.8em;color:#bbb}
+.muted{color:#888}
+.memory-detail .goal{font-weight:700;margin:6px 0}
+.memory-detail .summary{white-space:pre-wrap;margin:6px 0}
+.memory-stats{display:flex;gap:16px;align-items:center;margin:10px 0;padding:8px;border:1px dashed #333;border-radius:8px}
+

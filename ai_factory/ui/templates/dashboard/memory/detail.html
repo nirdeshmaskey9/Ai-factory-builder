@@ -1,0 +1,28 @@
+{% extends "dashboard/layout.html" %}
+{% block content %}
+<link rel="stylesheet" href="/static/css/memory.css" />
+
+<a href="/dashboard/memory">← Back to Memory</a>
+<h2>Memory #{{ entry.id }}</h2>
+<div class="memory-detail">
+  <div class="goal">{{ entry.goal }}</div>
+  <div class="summary">{{ entry.summary }}</div>
+  <div class="tags">
+    {% for t in (entry.tags or '').split(',') %}
+      {% if t %}<span class="tag">{{ t }}</span>{% endif %}
+    {% endfor %}
+  </div>
+  <div class="meta">Run: {% if entry.run_id %}<a href="/dashboard/summary/{{ entry.run_id }}">#{{ entry.run_id }}</a>{% else %}-{% endif %} · Score: {{ entry.score if entry.score is not none else '-' }} · Created: {{ entry.created_at or '-' }}</div>
+</div>
+
+<h3>Related</h3>
+<div class="memory-grid">
+  {% for m in related %}
+    {% set entry = m %}
+    {% include "dashboard/memory/components/memory_card.html" %}
+  {% else %}
+    <p class="muted">No related entries.</p>
+  {% endfor %}
+</div>
+{% endblock %}
+

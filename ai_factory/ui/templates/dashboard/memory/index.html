@@ -1,0 +1,26 @@
+{% extends "dashboard/layout.html" %}
+{% block content %}
+<link rel="stylesheet" href="/static/css/memory.css" />
+<script defer src="/static/js/memory.js"></script>
+
+<h2>Memory</h2>
+<form method="get" action="" id="memory-search-form">
+  <input type="text" name="q" value="{{ q }}" placeholder="Search goal, summary, tags" />
+  <input type="number" name="limit" value="{{ limit }}" min="1" max="100" />
+  <button type="submit">Search</button>
+  <button type="button" id="learn-btn">Learn Last Runs</button>
+  <span id="learn-status"></span>
+  <a style="margin-left:1rem" href="/dashboard/runs">Runs</a>
+</form>
+
+{% include "dashboard/memory/components/memory_stats.html" %}
+
+<div class="memory-grid">
+  {% for m in results %}
+    {% include "dashboard/memory/components/memory_card.html" %}
+  {% else %}
+    <p class="muted">No results yet. Try a search or click Learn.</p>
+  {% endfor %}
+  </div>
+{% endblock %}
+
