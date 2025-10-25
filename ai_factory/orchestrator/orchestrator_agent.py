@@ -3,6 +3,8 @@ from __future__ import annotations
 import json
 import uuid
 from typing import Any, Dict, Optional
+import time
+import os
 
 from ai_factory.services.supervisor_service import generate_plan, fetch_context
 from ai_factory.services.router_v2_service import route as router_decide
@@ -12,7 +14,7 @@ from ai_factory.builder.builder_agent import rebuild
 from ai_factory.deployer.deployer_agent import deploy as deploy_app
 from ai_factory.supervisor.supervisor_store import get_recent as supervisor_recent
 
-from ai_factory.orchestrator.orchestrator_store import create_run, update_run, get_run, get_recent
+from ai_factory.orchestrator.orchestrator_store import create_run, update_run, get_run, get_recent, log_step
 from ai_factory.services.orchestrator_service import (
     choose_primary_task_type,
     success_threshold,
@@ -24,6 +26,7 @@ from ai_factory.memory.memory_embeddings import add_to_memory
 
 
 def run(goal: str, max_attempts: Optional[int] = None, deploy: bool = False) -> Dict[str, Any]:
+    t0 = time.time()
     req_id = str(uuid.uuid4())
     attempts = 0
     max_att = max_attempts_or_default(max_attempts)
@@ -60,6 +63,22 @@ def run(goal: str, max_attempts: Optional[int] = None, deploy: bool = False) -> 
         notes="orchestrator started",
     )
 
+    # Ensure log directories
+    try:
+        os.makedirs(os.path.join("logs", "orchestrator"), exist_ok=True)
+        os.makedirs(os.path.join("logs", "supervisor"), exist_ok=True)
+    except Exception:
+        pass
+
+    # Log planning step
+    try:
+        plan_path = os.path.join("logs", "orchestrator", f"plan_{run_id}.json")
+        with open(plan_path, "w", encoding="utf-8") as f:
+            f.write(plan_json)
+        log_step(run_id, "plan", "ok", plan_path)
+    except Exception:
+        log_step(run_id, "plan", "ok")
+
     # Auto-pass for system goals
     sys_markers = ["audit", "health", "system check", "status", "self-verify"]
     if any(m in (g or "").lower() for m in sys_markers for g in [goal]):
@@ -74,12 +93,28 @@ def run(goal: str, max_attempts: Optional[int] = None, deploy: bool = False) -> 
         )
         snippet = make_orch_snippet(goal, chosen_model, 0.0, "success", None)
         add_to_memory(f"orch:{req_id}", snippet)
+        duration = time.time() - t0
+        report_path = os.path.join("logs", "orchestrator", f"run_{run_id}.json")
+        try:
+            with open(report_path, "w", encoding="utf-8") as f:
+                json.dump({
+                    "run_id": run_id,
+                    "status": "success",
+                    "tasks_completed": 0,
+                    "attempts": 1,
+                    "duration_sec": duration,
+                    "report_path": report_path,
+                }, f, ensure_ascii=False, indent=2)
+        except Exception:
+            pass
         return {
             "run_id": run_id,
             "request_id": req_id,
             "status": "success",
             "score": 0.0,
             "attempts": 1,
+            "duration_sec": duration,
+            "report_path": report_path,
             "deployment": None,
         }
 
@@ -87,6 +122,14 @@ def run(goal: str, max_attempts: Optional[int] = None, deploy: bool = False) -> 
         attempts += 1
         # Execute (use supervisor to run steps; it will log a session)
         sup = run_supervisor(goal)
+        # Persist supervisor report for this run_id for traceability
+        try:
+            sup_path = os.path.join("logs", "supervisor", f"report_{run_id}.json")
+            with open(sup_path, "w", encoding="utf-8") as f:
+                json.dump(sup, f, ensure_ascii=False, indent=2)
+            log_step(run_id, f"supervisor_attempt_{attempts}", "ok", sup_path)
+        except Exception:
+            log_step(run_id, f"supervisor_attempt_{attempts}", "ok")
         # get latest supervisor session id
         sess_rows = supervisor_recent(limit=1)
         sess_id = sess_rows[0].id if sess_rows else -1
@@ -115,6 +158,7 @@ def run(goal: str, max_attempts: Optional[int] = None, deploy: bool = False) -> 
                 deployment_id=deployment_id,
                 notes="orchestrator success",
             )
+            log_step(run_id, f"decision_attempt_{attempts}", status)
             break
 
         # Consider repair
@@ -133,6 +177,12 @@ def run(goal: str, max_attempts: Optional[int] = None, deploy: bool = False) -> 
                 builder_revision_id=builder_rev_id,
                 notes="attempt repair",
             )
+            log_step(run_id, f"repair_attempt_{attempts}", "retry")
+            # Exponential backoff: 1s, 2s, 4s
+            try:
+                time.sleep(min(4, 2 ** (attempts - 1)))
+            except Exception:
+                pass
             continue
 
         # No more attempts or unrecoverable
@@ -146,6 +196,7 @@ def run(goal: str, max_attempts: Optional[int] = None, deploy: bool = False) -> 
             notes="orchestrator failed",
         )
         status = "failed"
+        log_step(run_id, f"decision_attempt_{attempts}", status)
         break
 
     # Ensure deployment when requested, even if evaluation failed
@@ -190,12 +241,30 @@ def run(goal: str, max_attempts: Optional[int] = None, deploy: bool = False) -> 
     except Exception:
         pass
 
+    duration = time.time() - t0
+    # Write a consolidated run report
+    report = {
+        "run_id": run_id,
+        "status": status,
+        "tasks_completed": 0,
+        "attempts": attempts,
+        "duration_sec": duration,
+    }
+    report_path = os.path.join("logs", "orchestrator", f"run_{run_id}.json")
+    try:
+        with open(report_path, "w", encoding="utf-8") as f:
+            json.dump(report, f, ensure_ascii=False, indent=2)
+    except Exception:
+        pass
+
     return {
         "run_id": run_id,
         "request_id": req_id,
         "status": status,
         "score": float(score if 'score' in locals() else 0.0),
         "attempts": attempts,
+        "duration_sec": duration,
+        "report_path": report_path,
         "deployment": {"id": deployment_id, "endpoint": endpoint} if deployment_id else None,
     }
 

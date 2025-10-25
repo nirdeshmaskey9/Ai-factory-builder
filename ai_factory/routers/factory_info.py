@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from fastapi import APIRouter
 import os
+from pathlib import Path
 
 
 router = APIRouter(prefix="/factory", tags=["Factory"])
@@ -9,7 +10,15 @@ router = APIRouter(prefix="/factory", tags=["Factory"])
 
 @router.get("/info")
 def factory_info():
-    version = os.getenv("FACTORY_VERSION", "v1.6.1-pre-phase2")
+    # Prefer VERSION file, then env var, then default
+    version_file = Path("VERSION")
+    version = None
+    try:
+        if version_file.exists():
+            version = version_file.read_text(encoding="utf-8").strip()
+    except Exception:
+        version = None
+    version = os.getenv("FACTORY_VERSION", version or "v2.0-cognitive-engine")
     templates = [
         # Core banks
         "fastapi_full_app",
@@ -28,7 +37,7 @@ def factory_info():
         "version": version,
         "release_stage": "stable-core-polished",
         "status": "online",
-        "banner": "AI Factory v1.3-gpt4o-builder - Live Planner Active",
+        "banner": f"AI Factory {version} - Cognitive Engine Active",
         "healthy": True,
         "templates": templates,
     }

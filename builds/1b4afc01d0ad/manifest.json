@@ -1,0 +1,28 @@
+{
+  "build_id": "1b4afc01d0ad",
+  "timestamp": "2025-10-25T01:37:50Z",
+  "pid": 8048,
+  "version": "v2.0-cognitive-engine",
+  "goal": null,
+  "domain": null,
+  "blueprint": {
+    "name": "app",
+    "description": "Generated application",
+    "title": "app"
+  },
+  "options": {},
+  "outputs_dir": "builds\\1b4afc01d0ad\\outputs",
+  "files": [
+    "app\\app.py",
+    "app\\README.md"
+  ],
+  "warnings": [],
+  "evaluation": {
+    "passed": true,
+    "summary": "CLI entry detected (argparse: True).",
+    "artifacts": {
+      "entry": "builds\\1b4afc01d0ad\\outputs\\app\\app.py",
+      "argparse": true
+    }
+  }
+}

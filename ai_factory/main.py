@@ -120,9 +120,9 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title="AI Factory Builder - Router + Memory + Debugger + Supervisor + Evaluator + Builder + Deployer + RouterV2 + EvaluatorV2 + Orchestrator",
-    version="v1.3-gpt4o-builder",
-    description="v1.3-gpt4o-builder: Stable Core Mode (GPT-4o builder).",
+    title="AI Factory Builder – Cognitive Engine",
+    version="v2.0-cognitive-engine",
+    description="v2.0-cognitive-engine: Orchestrator + Supervisor active.",
     lifespan=lifespan,
 )
 
@@ -209,7 +209,7 @@ def health():
         active_builds = len([p for p in Path("builds").iterdir() if p.is_dir()])
     except Exception:
         active_builds = 0
-    version = "v1.3-gpt4o-builder"
+    version = "v2.0-cognitive-engine"
     ts = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
     return {"healthy": True, "timestamp": ts, "active_builds": active_builds, "version": version}
 
