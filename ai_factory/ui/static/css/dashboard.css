@@ -1,0 +1,4 @@
+/* Minimal dark theme tweaks */
+body { color-scheme: dark; }
+.dark .bg-white { background-color: #0f172a; color: #e2e8f0; }
+.dark table { color: #e2e8f0; }

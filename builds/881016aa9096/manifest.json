@@ -1,0 +1,28 @@
+{
+  "build_id": "881016aa9096",
+  "timestamp": "2025-10-25T02:38:49Z",
+  "pid": 20568,
+  "version": "v2.2-dashboard",
+  "goal": null,
+  "domain": null,
+  "blueprint": {
+    "name": "app",
+    "description": "Generated application",
+    "title": "app"
+  },
+  "options": {},
+  "outputs_dir": "builds\\881016aa9096\\outputs",
+  "files": [
+    "app\\app.py",
+    "app\\README.md"
+  ],
+  "warnings": [],
+  "evaluation": {
+    "passed": true,
+    "summary": "CLI entry detected (argparse: True).",
+    "artifacts": {
+      "entry": "builds\\881016aa9096\\outputs\\app\\app.py",
+      "argparse": true
+    }
+  }
+}

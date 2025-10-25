@@ -33,6 +33,10 @@ from ai_factory.services.watchdog_service import start_watchdog
 from ai_factory.routers import factory_info as factory_info_router
 from ai_factory.system.port_finder import find_free_port
 from ai_factory.ui.dashboard_router import router as dashboard_router
+from ai_factory.ui.analytics_router import router as analytics_router
+from ai_factory.ui.feedback_router import router as feedback_router
+from ai_factory.ui.ws_router import router as ws_router
+from starlette.staticfiles import StaticFiles
 
 
 @asynccontextmanager
@@ -200,6 +204,10 @@ app.include_router(system_health_router)
 app.include_router(system_report_router)
 app.include_router(factory_info_router.router)
 app.include_router(dashboard_router)
+app.include_router(analytics_router)
+app.include_router(feedback_router)
+app.include_router(ws_router)
+app.mount("/static", StaticFiles(directory="ai_factory/ui/static"), name="static")
 print("?? Deployer Health route registered at /deployer/health")
 
 

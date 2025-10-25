@@ -55,7 +55,13 @@ def dashboard_index(request: Request):
 
 @router.get("/runs")
 def dashboard_runs(request: Request):
-    runs = list_runs(limit=20, sort="desc")
+    # Query params
+    q = request.query_params.get('q', '')
+    status = request.query_params.get('status') or None
+    sort = request.query_params.get('sort') or 'desc'
+    limit = int(request.query_params.get('limit') or 20)
+
+    runs = list_runs(limit=limit, sort=sort)
     view = []
     for r in runs:
         # Optionally read duration from report
@@ -68,7 +74,7 @@ def dashboard_runs(request: Request):
                     duration = j.get("duration_sec")
             except Exception:
                 pass
-        view.append({
+        item = {
             "run_id": r.id,
             "goal": r.goal,
             "status": r.status,
@@ -76,8 +82,33 @@ def dashboard_runs(request: Request):
             "attempt": r.attempt,
             "duration_sec": duration,
             "timestamp": r.timestamp.isoformat() if r.timestamp else None,
-        })
-    return templates.TemplateResponse("dashboard/runs.html", {"request": request, "runs": view})
+        }
+        view.append(item)
+
+    # Filter
+    if status:
+        view = [x for x in view if x['status'] == status]
+    if q:
+        ql = q.lower()
+        view = [x for x in view if ql in (x['goal'] or '').lower()]
+
+    # Export
+    dl = request.query_params.get('download')
+    if dl == 'json':
+        from fastapi.responses import JSONResponse
+        return JSONResponse(view)
+    if dl == 'csv':
+        import io, csv
+        from fastapi.responses import PlainTextResponse
+        buf = io.StringIO()
+        fieldnames = ["run_id","goal","status","score","duration_sec","timestamp"]
+        w = csv.DictWriter(buf, fieldnames=fieldnames, extrasaction='ignore')
+        w.writeheader()
+        for row in view:
+            w.writerow({k: row.get(k) for k in fieldnames})
+        return PlainTextResponse(buf.getvalue(), media_type='text/csv')
+
+    return templates.TemplateResponse("dashboard/runs.html", {"request": request, "runs": view, "q": q, "status": status, "sort": sort, "limit": limit})
 
 
 @router.get("/summary/{run_id}")
@@ -87,6 +118,11 @@ def dashboard_summary(request: Request, run_id: int = Path(..., ge=1)):
         raise HTTPException(status_code=404, detail="run not found")
     pretty = json.dumps(summary, ensure_ascii=False, indent=2)
     return templates.TemplateResponse("dashboard/summary.html", {"request": request, "run_id": run_id, "summary": summary, "pretty": pretty})
+
+
+@router.get("/analytics")
+def dashboard_analytics(request: Request):
+    return templates.TemplateResponse("dashboard/analytics.html", {"request": request})
 
 
 @router.get("/launch/{build_id}")

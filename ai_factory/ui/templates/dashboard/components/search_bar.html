@@ -1,0 +1,31 @@
+<form method="get" class="flex gap-2 items-end mb-3">
+  <div>
+    <label class="text-xs block">Query</label>
+    <input name="q" value="{{ q or '' }}" class="bg-gray-800 p-1 rounded" />
+  </div>
+  <div>
+    <label class="text-xs block">Status</label>
+    <select name="status" class="bg-gray-800 p-1 rounded">
+      <option value="">Any</option>
+      {% for s in ['success','failed','deployed','partial'] %}
+      <option value="{{s}}" {% if status==s %}selected{% endif %}>{{ s }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div>
+    <label class="text-xs block">Sort</label>
+    <select name="sort" class="bg-gray-800 p-1 rounded">
+      {% for s in ['desc','asc'] %}
+      <option value="{{s}}" {% if sort==s %}selected{% endif %}>{{ s }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div>
+    <label class="text-xs block">Limit</label>
+    <input type="number" min="1" max="200" name="limit" value="{{ limit or 20 }}" class="bg-gray-800 p-1 rounded w-20"/>
+  </div>
+  <button class="bg-teal-600 px-3 py-1 rounded">Apply</button>
+  <a class="bg-gray-700 px-3 py-1 rounded" href="?download=json">Export JSON</a>
+  <a class="bg-gray-700 px-3 py-1 rounded" href="?download=csv">Export CSV</a>
+</form>
+

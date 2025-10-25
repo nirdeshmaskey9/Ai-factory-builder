@@ -1,6 +1,7 @@
 {% extends "dashboard/layout.html" %}
 {% block content %}
 <h1 class="text-2xl font-semibold mb-4">Recent Orchestrator Runs</h1>
+{% include "dashboard/components/search_bar.html" %}
 <div class="bg-white shadow rounded p-4">
   <div class="overflow-auto">
     <table class="min-w-full text-sm">
@@ -30,4 +31,3 @@
   </div>
 </div>
 {% endblock %}
-

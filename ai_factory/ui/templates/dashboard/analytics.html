@@ -1,0 +1,21 @@
+{% extends "dashboard/layout.html" %}
+{% block content %}
+<h1 class="text-2xl font-semibold mb-4">Analytics</h1>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="metric-cards">
+  {% include "dashboard/components/metric_card.html" %}
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+  {% include "dashboard/components/chart_block.html" %}
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  // Minimal bootstrap - analytics.js will populate charts
+  document.addEventListener('DOMContentLoaded', () => {
+    if (window.Analytics) { window.Analytics.init(); }
+  });
+  </script>
+{% endblock %}
+

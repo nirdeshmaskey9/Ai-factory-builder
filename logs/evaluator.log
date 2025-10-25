@@ -292,3 +292,15 @@
 {"ts": "2025-10-25T02:05:26Z", "build_id": "f6bb0e026fcd", "domain": "cli", "passed": true, "summary": "CLI entry detected (argparse: True)."}
 {"ts": "2025-10-25T02:05:26Z", "build_id": "1ceb0211753f", "domain": "cli", "passed": true, "summary": "CLI entry detected (argparse: True)."}
 {"ts": "2025-10-25T02:06:18Z", "build_id": "18da896a8aad", "domain": "web", "passed": true, "summary": "/hello: 200; /health: 200"}
+{"ts": "2025-10-25T02:38:28Z", "build_id": "a47673353c27", "domain": "web", "passed": true, "summary": "index.html and README present."}
+{"ts": "2025-10-25T02:38:43Z", "build_id": "b4c3584ea4ae", "domain": "web", "passed": true, "summary": "index.html and README present."}
+{"ts": "2025-10-25T02:38:43Z", "build_id": "8bfa99d2af1f", "domain": "web", "passed": true, "summary": "/hello: 200; /health: 200"}
+{"ts": "2025-10-25T02:38:49Z", "build_id": "c5ce8431a67a", "domain": "cli", "passed": true, "summary": "CLI entry detected (argparse: True)."}
+{"ts": "2025-10-25T02:38:49Z", "build_id": "881016aa9096", "domain": "cli", "passed": true, "summary": "CLI entry detected (argparse: True)."}
+{"ts": "2025-10-25T02:39:37Z", "build_id": "a7b98b72f032", "domain": "web", "passed": true, "summary": "/hello: 200; /health: 200"}
+{"ts": "2025-10-25T02:40:03Z", "build_id": "7cc8dbc378c7", "domain": "web", "passed": true, "summary": "index.html and README present."}
+{"ts": "2025-10-25T02:40:18Z", "build_id": "da0db7647d3b", "domain": "web", "passed": true, "summary": "index.html and README present."}
+{"ts": "2025-10-25T02:40:18Z", "build_id": "ddc295bb78a5", "domain": "web", "passed": true, "summary": "/hello: 200; /health: 200"}
+{"ts": "2025-10-25T02:40:24Z", "build_id": "77bc2c2b66ee", "domain": "cli", "passed": true, "summary": "CLI entry detected (argparse: True)."}
+{"ts": "2025-10-25T02:40:24Z", "build_id": "fddd7cba706b", "domain": "cli", "passed": true, "summary": "CLI entry detected (argparse: True)."}
+{"ts": "2025-10-25T02:41:28Z", "build_id": "ec4ad7654521", "domain": "web", "passed": true, "summary": "/hello: 200; /health: 200"}

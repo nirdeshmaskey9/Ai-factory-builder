@@ -52,6 +52,22 @@
     <h2 class="text-lg font-bold mb-2">Raw JSON</h2>
     <pre class="text-xs bg-gray-50 p-3 rounded border overflow-auto">{{ pretty }}</pre>
   </div>
+
+  {% include "dashboard/components/feedback_section.html" %}
+
+  <div class="bg-white shadow rounded p-4">
+    <h2 class="text-lg font-bold mb-2">Live Logs</h2>
+    <pre id="live-logs" class="text-xs bg-gray-50 p-3 rounded border overflow-auto"></pre>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        if (window.WS) {
+          WS.connectLogs({{ run_id }}, (payload) => {
+            const el = document.getElementById('live-logs');
+            el.textContent = JSON.stringify(payload, null, 2);
+          });
+        }
+      });
+    </script>
+  </div>
 </div>
 {% endblock %}
-
