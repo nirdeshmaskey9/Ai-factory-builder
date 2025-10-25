@@ -4,7 +4,7 @@ from sqlalchemy.exc import OperationalError
 from sqlalchemy import text
 from pathlib import Path
 import time
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Tuple
 from datetime import datetime
 
 from sqlalchemy import select, func, and_, or_, desc
@@ -15,7 +15,10 @@ from ai_factory.memory.memory_db import (
     SessionLocal,
     MemoryEntry,
     MemoryLink,
+    MemoryEmbedding,
 )
+from shutil import copy2
+import os
 
 
 def startup_probe() -> None:
@@ -76,22 +79,28 @@ def search_memories(q: str, limit: int = 20) -> List[Dict]:
     q = (q or "").strip()
     init_db()
     with SessionLocal() as session:
-        like = f"%{q.lower()}%"
-        stmt = (
-            select(MemoryEntry)
-            .where(
-                and_(
-                    MemoryEntry.deleted == 0,
+        tokens = [t for t in q.lower().split() if t]
+        conditions = []
+        if tokens:
+            for tok in tokens:
+                like = f"%{tok}%"
+                conditions.append(
                     or_(
                         func.lower(MemoryEntry.goal).like(like),
                         func.lower(MemoryEntry.summary).like(like),
                         func.lower(MemoryEntry.tags).like(like),
-                    ),
+                    )
+                )
+        else:
+            like = f"%{q.lower()}%"
+            conditions.append(
+                or_(
+                    func.lower(MemoryEntry.goal).like(like),
+                    func.lower(MemoryEntry.summary).like(like),
+                    func.lower(MemoryEntry.tags).like(like),
                 )
             )
-            .order_by(desc(MemoryEntry.created_at))
-            .limit(int(limit or 20))
-        )
+        stmt = select(MemoryEntry).where(and_(MemoryEntry.deleted == 0, or_(*conditions))).order_by(desc(MemoryEntry.created_at)).limit(int(limit or 20))
         rows = list(session.scalars(stmt))
         out: List[Dict] = []
         for r in rows:
@@ -106,7 +115,8 @@ def search_memories(q: str, limit: int = 20) -> List[Dict]:
                     "created_at": r.created_at.isoformat() if r.created_at else None,
                 }
             )
-        return out
+        ranked = rank_memories(q, out)
+        return ranked[: int(limit or 20)]
 
 
 def _split_tags(s: str) -> List[str]:
@@ -134,7 +144,7 @@ def recall_for_run(run_id: int, limit: int = 10) -> List[Dict]:
 
         rows.sort(key=rank, reverse=True)
         rows = rows[: int(limit or 10)]
-        return [
+        out = [
             {
                 "id": r.id,
                 "run_id": r.run_id,
@@ -146,6 +156,8 @@ def recall_for_run(run_id: int, limit: int = 10) -> List[Dict]:
             }
             for r in rows
         ]
+        # Further rank via semantic + tag + recency based on goal text
+        return rank_memories(me.goal if me else "", out)[: int(limit or 10)]
 
 
 def link_runs(source_run: int, target_run: int, reason: str) -> int:
@@ -200,3 +212,149 @@ def safe_tags(entry: Dict[str, object]):
     if isinstance(tags, list):
         return [str(t).strip() for t in tags if str(t).strip()]
     return [t.strip() for t in str(tags).split(',') if t.strip()]
+
+
+def auto_learn_from_run(run_id: Optional[int], goal: Optional[str], summary: Optional[str], tags: Optional[List[str]] = None) -> int:
+    """Summarize and store/update memory for a run. Upsert by run_id.
+    Returns memory entry id.
+    """
+    init_db()
+    goal_text = (goal or "").strip()
+    summ_text = (summary or "").strip()
+    # Derive tags: from provided or from goal keywords
+    tlist = [str(t).strip().lower() for t in (tags or []) if str(t).strip()] if tags else []
+    for w in (goal_text.split()[:5] if goal_text else []):
+        lw = w.strip().lower()
+        if lw and lw not in tlist:
+            tlist.append(lw)
+    with SessionLocal() as session:
+        existing = None
+        if run_id is not None:
+            existing = session.scalars(select(MemoryEntry).where(MemoryEntry.run_id == run_id, MemoryEntry.deleted == 0)).first()
+        if existing:
+            existing.goal = existing.goal or goal_text
+            if summ_text:
+                existing.summary = summ_text
+            if tlist:
+                existing.tags = _norm_tags(_split_tags(existing.tags) + tlist)
+            session.add(existing)
+            session.commit()
+            return existing.id
+        else:
+            row = MemoryEntry(run_id=run_id, goal=goal_text or (f"Run {run_id}" if run_id is not None else ""), summary=summ_text or goal_text, tags=_norm_tags(tlist), score=None)
+            session.add(row)
+            session.commit()
+            return row.id
+
+
+def backup_memory_db() -> str:
+    from ai_factory.memory.memory_db import DB_PATH
+    ts = datetime.now().strftime("%Y%m%dT%H%M%SZ")
+    out_dir = os.path.join("ai_factory", "data", "backups")
+    os.makedirs(out_dir, exist_ok=True)
+    dst = os.path.join(out_dir, f"memory_backup_{ts}.db")
+    copy2(DB_PATH, dst)
+    return dst
+
+
+def restore_latest_backup() -> Optional[str]:
+    out_dir = os.path.join("ai_factory", "data", "backups")
+    if not os.path.exists(out_dir):
+        return None
+    files = sorted([f for f in os.listdir(out_dir) if f.startswith("memory_backup_") and f.endswith(".db")])
+    if not files:
+        return None
+    latest = files[-1]
+    from ai_factory.memory.memory_db import DB_PATH
+    copy2(os.path.join(out_dir, latest), DB_PATH)
+    return os.path.join(out_dir, latest)
+
+
+# --- Embedding support ---
+def _hash_vector(text: str, dim: int = 64) -> List[float]:
+    import hashlib
+    h = hashlib.sha256((text or "").encode("utf-8")).digest()
+    # expand to dim by repeating digest
+    by = (h * ((dim + len(h) - 1) // len(h)))[:dim]
+    # normalize bytes to 0..1 floats
+    vec = [b / 255.0 for b in by]
+    return vec
+
+
+def _cosine(a: List[float], b: List[float]) -> float:
+    import math
+    if not a or not b or len(a) != len(b):
+        return 0.0
+    dot = sum(x * y for x, y in zip(a, b))
+    na = math.sqrt(sum(x * x for x in a))
+    nb = math.sqrt(sum(y * y for y in b))
+    if na == 0 or nb == 0:
+        return 0.0
+    return dot / (na * nb)
+
+
+def ensure_embedding(entry: MemoryEntry) -> List[float]:
+    init_db()
+    with SessionLocal() as session:
+        existing = session.scalars(select(MemoryEmbedding).where(MemoryEmbedding.entry_id == entry.id)).first()
+        if existing:
+            try:
+                data = existing.vector.decode("utf-8")
+                import json
+                return json.loads(data)
+            except Exception:
+                pass
+        # Fallback deterministic embedding via hash
+        text = f"{entry.goal}\n{entry.summary}\n{entry.tags}"
+        vec = _hash_vector(text)
+        import json
+        payload = json.dumps(vec).encode("utf-8")
+        row = existing or MemoryEmbedding(entry_id=entry.id, vector=payload)
+        row.vector = payload
+        row.updated_at = datetime.now()  # naive ok for SQLite
+        session.add(row)
+        session.commit()
+        return vec
+
+
+def _tag_overlap_score(query: str, tags_csv: str) -> float:
+    q_tokens = [w.strip().lower() for w in query.split() if w.strip()]
+    tags = [t.strip().lower() for t in (tags_csv or "").split(",") if t.strip()]
+    if not q_tokens or not tags:
+        return 0.0
+    inter = len(set(q_tokens) & set(tags))
+    return inter / max(1, len(set(tags)))
+
+
+def rank_memories(query: str, rows: List[Dict]) -> List[Dict]:
+    qvec = _hash_vector(query or "")
+    scored: List[Tuple[float, Dict]] = []
+    now = datetime.now()
+    for r in rows:
+        # compute
+        try:
+            created_at = r.get("created_at")
+            if isinstance(created_at, str):
+                try:
+                    dt = datetime.fromisoformat(created_at.replace("Z", "+00:00"))
+                except Exception:
+                    dt = now
+            else:
+                dt = now
+            days = max(0.0, (now - dt).days)
+            recency = 1.0 / (1.0 + days)
+        except Exception:
+            recency = 0.0
+        tag_score = _tag_overlap_score(query or "", str(r.get("tags") or ""))
+        # semantic by ensuring embedding of row if possible
+        try:
+            with SessionLocal() as session:
+                e = session.get(MemoryEntry, int(r.get("id")))
+                vec = ensure_embedding(e) if e else _hash_vector((r.get("summary") or r.get("goal") or ""))
+        except Exception:
+            vec = _hash_vector((r.get("summary") or r.get("goal") or ""))
+        sem = _cosine(qvec, vec)
+        total = (0.6 * sem) + (0.25 * tag_score) + (0.15 * recency)
+        scored.append((total, r))
+    scored.sort(key=lambda x: x[0], reverse=True)
+    return [r for _, r in scored]

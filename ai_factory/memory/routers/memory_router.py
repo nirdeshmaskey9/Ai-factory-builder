@@ -12,6 +12,10 @@ from ai_factory.memory.memory_agent import (
 )
 from ai_factory.memory.memory_summarizer import summarize_run
 from typing import Optional, List, Dict
+from fastapi.responses import JSONResponse, PlainTextResponse
+from datetime import datetime
+import os, json, csv
+from sqlalchemy import select, func
 
 router = APIRouter(prefix="/memory", tags=["memory"])
 
@@ -150,3 +154,140 @@ def delete_memory(id: int):
         raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.get("/export")
+def export_memory(fmt: str = Query("json", pattern="^(json|csv)$")):
+    from ai_factory.memory.memory_db import SessionLocal, MemoryEntry
+    os.makedirs("ai_factory/data/exports", exist_ok=True)
+    ts = datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
+    path = os.path.join("ai_factory/data/exports", f"memory_{ts}.{fmt}")
+    with SessionLocal() as session:
+        rows = list(session.scalars(select(MemoryEntry).where(MemoryEntry.deleted == 0)))
+        data = [
+            {
+                "id": r.id,
+                "run_id": r.run_id,
+                "goal": r.goal,
+                "summary": r.summary,
+                "tags": r.tags,
+                "score": r.score,
+                "created_at": r.created_at.isoformat() if r.created_at else None,
+            }
+            for r in rows
+        ]
+    if fmt == "json":
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+    else:
+        with open(path, "w", encoding="utf-8", newline="") as f:
+            writer = csv.DictWriter(f, fieldnames=["id","run_id","goal","summary","tags","score","created_at"]) 
+            writer.writeheader()
+            for d in data:
+                writer.writerow(d)
+    return {"status": "ok", "path": path, "count": len(data)}
+
+
+@router.post("/import")
+def import_memory(body: Dict[str, object]):
+    items = body.get("items") if isinstance(body, dict) else None
+    if not isinstance(items, list):
+        raise HTTPException(status_code=400, detail="items must be a list")
+    added = 0
+    from ai_factory.memory.memory_db import SessionLocal, MemoryEntry
+    with SessionLocal() as session:
+        for it in items:
+            try:
+                goal = str(it.get("goal") or "")
+                tags = str(it.get("tags") or "")
+                # dedupe by goal+tags
+                existing = session.scalars(select(MemoryEntry).where(MemoryEntry.goal == goal, MemoryEntry.tags == tags, MemoryEntry.deleted == 0)).first()
+                if existing:
+                    continue
+                row = MemoryEntry(
+                    run_id=it.get("run_id"),
+                    goal=goal,
+                    summary=str(it.get("summary") or ""),
+                    tags=tags,
+                    score=float(it.get("score")) if it.get("score") is not None else None,
+                )
+                session.add(row)
+                session.commit()
+                added += 1
+            except Exception:
+                continue
+    return {"added": added}
+
+
+@router.get("/diagnostics")
+def diagnostics(q: str = Query("")):
+    rows = search_memories(q, limit=5) if q else []
+    from ai_factory.memory.memory_agent import rank_memories
+    ranked = rank_memories(q, rows)
+    def score_parts(entry):
+        from ai_factory.memory.memory_agent import _hash_vector, _cosine, _tag_overlap_score
+        qv = _hash_vector(q)
+        ev = _hash_vector((entry.get("summary") or entry.get("goal") or ""))
+        sem = _cosine(qv, ev)
+        tag = _tag_overlap_score(q, str(entry.get("tags") or ""))
+        # recency approx: newer gets higher
+        rec = 0.0
+        try:
+            from datetime import datetime as _dt
+            dt = _dt.fromisoformat((entry.get("created_at") or "").replace("Z","+00:00"))
+            rec = 1.0 / (1.0 + max(0, (_dt.now() - dt).days))
+        except Exception:
+            pass
+        total = 0.6*sem + 0.25*tag + 0.15*rec
+        return {"semantic_score": sem, "tag_score": tag, "recency_score": rec, "total": total}
+    matched = [{"id": e.get("id"), **score_parts(e)} for e in ranked]
+    agg = matched[0] if matched else {"semantic_score": 0.0, "tag_score": 0.0, "recency_score": 0.0, "total": 0.0}
+    return {**agg, "matched": matched}
+
+
+@router.get("/insights")
+def insights():
+    s = memory_stats()
+    return {"status": "ok", "stats": s}
+
+
+@router.get("/embeddings/stats")
+def embeddings_stats():
+    from ai_factory.memory.memory_db import SessionLocal, MemoryEmbedding, MemoryEntry
+    with SessionLocal() as session:
+        total = session.scalar(select(func.count()).select_from(MemoryEntry).where(MemoryEntry.deleted == 0)) or 0
+        emb = session.scalar(select(func.count()).select_from(MemoryEmbedding)) or 0
+    return {"total_entries": int(total), "with_embeddings": int(emb)}
+
+
+@router.get("/links")
+def links():
+    from ai_factory.memory.memory_db import SessionLocal, MemoryLink
+    with SessionLocal() as session:
+        rows = list(session.scalars(select(MemoryLink)))
+        return [
+            {"id": r.id, "source_run": r.source_run, "target_run": r.target_run, "reason": r.reason, "created_at": r.created_at.isoformat() if r.created_at else None}
+            for r in rows
+        ]
+
+
+@router.get("/backup")
+def backup():
+    import os
+    if os.getenv("ADMIN_MODE", "false").lower() != "true":
+        raise HTTPException(status_code=403, detail="admin only")
+    from ai_factory.memory.memory_agent import backup_memory_db
+    path = backup_memory_db()
+    return {"status": "ok", "path": path}
+
+
+@router.post("/restore")
+def restore():
+    import os
+    if os.getenv("ADMIN_MODE", "false").lower() != "true":
+        raise HTTPException(status_code=403, detail="admin only")
+    from ai_factory.memory.memory_agent import restore_latest_backup
+    p = restore_latest_backup()
+    if not p:
+        raise HTTPException(status_code=404, detail="no backup found")
+    return {"status": "ok", "path": p}

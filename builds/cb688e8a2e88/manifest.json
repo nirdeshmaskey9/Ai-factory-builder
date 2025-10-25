@@ -1,0 +1,28 @@
+{
+  "build_id": "cb688e8a2e88",
+  "timestamp": "2025-10-25T17:47:54Z",
+  "pid": 29052,
+  "version": "v3.1-memory-intelligence",
+  "goal": null,
+  "domain": null,
+  "blueprint": {
+    "name": "app",
+    "description": "Generated application",
+    "title": "app"
+  },
+  "options": {},
+  "outputs_dir": "builds\\cb688e8a2e88\\outputs",
+  "files": [
+    "app\\app.py",
+    "app\\README.md"
+  ],
+  "warnings": [],
+  "evaluation": {
+    "passed": true,
+    "summary": "CLI entry detected (argparse: True).",
+    "artifacts": {
+      "entry": "builds\\cb688e8a2e88\\outputs\\app\\app.py",
+      "argparse": true
+    }
+  }
+}

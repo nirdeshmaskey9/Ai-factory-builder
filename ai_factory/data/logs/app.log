@@ -1055,3 +1055,95 @@
 2025-10-25T12:18:30-0500 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
 2025-10-25T12:18:40-0500 | INFO | ai_factory.config | DB_PATH not set; defaulting to C:\projects\ai_factory_builder\ai_factory\memory\..\data\memory.db
 2025-10-25T12:18:40-0500 | INFO | ai_factory.config | TEMPLATES_PATH not set; using internal ai_factory/templates
+2025-10-25T12:19:12-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-25T12:19:12-0500 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
+2025-10-25T12:19:23-0500 | INFO | ai_factory.config | DB_PATH not set; defaulting to C:\projects\ai_factory_builder\ai_factory\memory\..\data\memory.db
+2025-10-25T12:19:23-0500 | INFO | ai_factory.config | TEMPLATES_PATH not set; using internal ai_factory/templates
+2025-10-25T12:19:55-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-25T12:19:55-0500 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
+2025-10-25T12:20:05-0500 | INFO | ai_factory.config | DB_PATH not set; defaulting to C:\projects\ai_factory_builder\ai_factory\memory\..\data\memory.db
+2025-10-25T12:20:05-0500 | INFO | ai_factory.config | TEMPLATES_PATH not set; using internal ai_factory/templates
+2025-10-25T12:38:15-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-25T12:38:17-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-25T12:38:17-0500 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
+2025-10-25T12:38:28-0500 | INFO | ai_factory.config | DB_PATH not set; defaulting to C:\projects\ai_factory_builder\ai_factory\memory\..\data\memory.db
+2025-10-25T12:38:28-0500 | INFO | ai_factory.config | TEMPLATES_PATH not set; using internal ai_factory/templates
+2025-10-25T12:38:57-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-25T12:38:57-0500 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
+2025-10-25T12:39:07-0500 | INFO | ai_factory.config | DB_PATH not set; defaulting to C:\projects\ai_factory_builder\ai_factory\memory\..\data\memory.db
+2025-10-25T12:39:07-0500 | INFO | ai_factory.config | TEMPLATES_PATH not set; using internal ai_factory/templates
+2025-10-25T12:39:37-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-25T12:39:37-0500 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
+2025-10-25T12:39:48-0500 | INFO | ai_factory.config | DB_PATH not set; defaulting to C:\projects\ai_factory_builder\ai_factory\memory\..\data\memory.db
+2025-10-25T12:39:48-0500 | INFO | ai_factory.config | TEMPLATES_PATH not set; using internal ai_factory/templates
+2025-10-25T12:40:17-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-25T12:40:17-0500 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
+2025-10-25T12:40:28-0500 | INFO | ai_factory.config | DB_PATH not set; defaulting to C:\projects\ai_factory_builder\ai_factory\memory\..\data\memory.db
+2025-10-25T12:40:28-0500 | INFO | ai_factory.config | TEMPLATES_PATH not set; using internal ai_factory/templates
+2025-10-25T12:40:57-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-25T12:40:57-0500 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
+2025-10-25T12:41:08-0500 | INFO | ai_factory.config | DB_PATH not set; defaulting to C:\projects\ai_factory_builder\ai_factory\memory\..\data\memory.db
+2025-10-25T12:41:08-0500 | INFO | ai_factory.config | TEMPLATES_PATH not set; using internal ai_factory/templates
+2025-10-25T12:41:37-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-25T12:41:37-0500 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
+2025-10-25T12:41:48-0500 | INFO | ai_factory.config | DB_PATH not set; defaulting to C:\projects\ai_factory_builder\ai_factory\memory\..\data\memory.db
+2025-10-25T12:41:48-0500 | INFO | ai_factory.config | TEMPLATES_PATH not set; using internal ai_factory/templates
+2025-10-25T12:42:15-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-25T12:42:15-0500 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
+2025-10-25T12:42:26-0500 | INFO | ai_factory.config | DB_PATH not set; defaulting to C:\projects\ai_factory_builder\ai_factory\memory\..\data\memory.db
+2025-10-25T12:42:26-0500 | INFO | ai_factory.config | TEMPLATES_PATH not set; using internal ai_factory/templates
+2025-10-25T12:42:54-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-25T12:42:54-0500 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
+2025-10-25T12:42:54-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8015/orchestrator/status "HTTP/1.1 404 Not Found"
+2025-10-25T12:42:54-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8015/deployer/list "HTTP/1.1 404 Not Found"
+2025-10-25T12:42:54-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8015/memory/search?q=test&n=1 "HTTP/1.1 404 Not Found"
+2025-10-25T12:42:54-0500 | INFO | httpx | HTTP Request: POST http://127.0.0.1:8015/evaluator/learn "HTTP/1.1 404 Not Found"
+2025-10-25T12:42:54-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8015/deployer/list "HTTP/1.1 404 Not Found"
+2025-10-25T12:42:55-0500 | INFO | ai_factory.config | DB_PATH not set; defaulting to C:\projects\ai_factory_builder\ai_factory\memory\..\data\memory.db
+2025-10-25T12:42:55-0500 | INFO | ai_factory.config | TEMPLATES_PATH not set; using internal ai_factory/templates
+2025-10-25T12:43:23-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-25T12:43:23-0500 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
+2025-10-25T12:43:33-0500 | INFO | ai_factory.config | DB_PATH not set; defaulting to C:\projects\ai_factory_builder\ai_factory\memory\..\data\memory.db
+2025-10-25T12:43:33-0500 | INFO | ai_factory.config | TEMPLATES_PATH not set; using internal ai_factory/templates
+2025-10-25T12:44:02-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-25T12:44:02-0500 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
+2025-10-25T12:44:13-0500 | INFO | ai_factory.config | DB_PATH not set; defaulting to C:\projects\ai_factory_builder\ai_factory\memory\..\data\memory.db
+2025-10-25T12:44:13-0500 | INFO | ai_factory.config | TEMPLATES_PATH not set; using internal ai_factory/templates
+2025-10-25T12:44:40-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-25T12:44:40-0500 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
+2025-10-25T12:44:51-0500 | INFO | ai_factory.config | DB_PATH not set; defaulting to C:\projects\ai_factory_builder\ai_factory\memory\..\data\memory.db
+2025-10-25T12:44:51-0500 | INFO | ai_factory.config | TEMPLATES_PATH not set; using internal ai_factory/templates
+2025-10-25T12:45:20-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-25T12:45:20-0500 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
+2025-10-25T12:45:20-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8015/orchestrator/status "HTTP/1.1 404 Not Found"
+2025-10-25T12:45:20-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8015/deployer/list "HTTP/1.1 404 Not Found"
+2025-10-25T12:45:20-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8015/memory/search?q=test&n=1 "HTTP/1.1 404 Not Found"
+2025-10-25T12:45:20-0500 | INFO | httpx | HTTP Request: POST http://127.0.0.1:8015/evaluator/learn "HTTP/1.1 404 Not Found"
+2025-10-25T12:45:20-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8015/deployer/list "HTTP/1.1 404 Not Found"
+2025-10-25T12:45:20-0500 | INFO | ai_factory.config | DB_PATH not set; defaulting to C:\projects\ai_factory_builder\ai_factory\memory\..\data\memory.db
+2025-10-25T12:45:20-0500 | INFO | ai_factory.config | TEMPLATES_PATH not set; using internal ai_factory/templates
+2025-10-25T12:45:49-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-25T12:45:49-0500 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
+2025-10-25T12:45:59-0500 | INFO | ai_factory.config | DB_PATH not set; defaulting to C:\projects\ai_factory_builder\ai_factory\memory\..\data\memory.db
+2025-10-25T12:45:59-0500 | INFO | ai_factory.config | TEMPLATES_PATH not set; using internal ai_factory/templates
+2025-10-25T12:46:27-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-25T12:46:27-0500 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
+2025-10-25T12:46:38-0500 | INFO | ai_factory.config | DB_PATH not set; defaulting to C:\projects\ai_factory_builder\ai_factory\memory\..\data\memory.db
+2025-10-25T12:46:38-0500 | INFO | ai_factory.config | TEMPLATES_PATH not set; using internal ai_factory/templates
+2025-10-25T12:47:06-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-25T12:47:06-0500 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
+2025-10-25T12:47:07-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8015/orchestrator/status "HTTP/1.1 404 Not Found"
+2025-10-25T12:47:07-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8015/deployer/list "HTTP/1.1 404 Not Found"
+2025-10-25T12:47:07-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8015/memory/search?q=test&n=1 "HTTP/1.1 404 Not Found"
+2025-10-25T12:47:07-0500 | INFO | httpx | HTTP Request: POST http://127.0.0.1:8015/evaluator/learn "HTTP/1.1 404 Not Found"
+2025-10-25T12:47:07-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8015/deployer/list "HTTP/1.1 404 Not Found"
+2025-10-25T12:47:07-0500 | INFO | ai_factory.config | DB_PATH not set; defaulting to C:\projects\ai_factory_builder\ai_factory\memory\..\data\memory.db
+2025-10-25T12:47:07-0500 | INFO | ai_factory.config | TEMPLATES_PATH not set; using internal ai_factory/templates
+2025-10-25T12:47:36-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-25T12:47:36-0500 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
+2025-10-25T12:47:46-0500 | INFO | ai_factory.config | DB_PATH not set; defaulting to C:\projects\ai_factory_builder\ai_factory\memory\..\data\memory.db
+2025-10-25T12:47:46-0500 | INFO | ai_factory.config | TEMPLATES_PATH not set; using internal ai_factory/templates
+2025-10-25T12:48:13-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-25T12:48:13-0500 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
+2025-10-25T12:48:24-0500 | INFO | ai_factory.config | DB_PATH not set; defaulting to C:\projects\ai_factory_builder\ai_factory\memory\..\data\memory.db
+2025-10-25T12:48:24-0500 | INFO | ai_factory.config | TEMPLATES_PATH not set; using internal ai_factory/templates

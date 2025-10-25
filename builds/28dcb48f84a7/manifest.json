@@ -1,0 +1,29 @@
+{
+  "build_id": "28dcb48f84a7",
+  "timestamp": "2025-10-25T17:41:53Z",
+  "pid": 40316,
+  "version": "v3.1-memory-intelligence",
+  "goal": "Static page",
+  "domain": "web",
+  "blueprint": {
+    "name": "app",
+    "title": "app",
+    "description": "Static page",
+    "goal": "Static page"
+  },
+  "options": {},
+  "outputs_dir": "builds\\28dcb48f84a7\\outputs",
+  "files": [
+    "app\\index.html",
+    "app\\README.md"
+  ],
+  "warnings": [],
+  "evaluation": {
+    "passed": true,
+    "summary": "index.html and README present.",
+    "artifacts": {
+      "path": "builds\\28dcb48f84a7\\outputs\\app\\index.html",
+      "readme": true
+    }
+  }
+}

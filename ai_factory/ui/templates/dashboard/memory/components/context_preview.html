@@ -1,0 +1,11 @@
+<div id="context-preview" class="context-preview">
+  <h4>Context for Run #{{ run_id }}</h4>
+  <ul>
+    {% for e in items %}
+      <li><strong>{{ e.goal|truncate(60) }}</strong><br/><span class="muted">{{ e.summary|truncate(120) }}</span></li>
+    {% else %}
+      <li class="muted">No related memory found.</li>
+    {% endfor %}
+  </ul>
+</div>
+

@@ -1,0 +1,15 @@
+{% extends "dashboard/layout.html" %}
+{% block content %}
+<link rel="stylesheet" href="/static/css/memory.css" />
+<script defer src="/static/js/memory_insights.js"></script>
+<h2>Memory Insights</h2>
+<div class="memory-stats">
+  <div>Total: {{ stats.total }}</div>
+  <div>Recent 7d: {{ stats.recent_7d }}</div>
+  <div>Avg Score: {{ '%.2f'|format(stats.avg_score) if stats.avg_score is not none else '-' }}</div>
+</div>
+<canvas id="tagCloud" width="600" height="240"></canvas>
+<button id="learn-now">Learn Now</button>
+<div id="learn-res" class="muted"></div>
+{% endblock %}
+

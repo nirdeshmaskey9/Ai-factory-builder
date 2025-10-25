@@ -4,7 +4,7 @@ import os
 from datetime import datetime, timezone
 from typing import Optional
 
-from sqlalchemy import create_engine, Column, Integer, String, Text, DateTime, select, Float
+from sqlalchemy import create_engine, Column, Integer, String, Text, DateTime, select, Float, LargeBinary, ForeignKey
 from sqlalchemy.orm import declarative_base, sessionmaker, Session
 from sqlalchemy.exc import OperationalError
 import json
@@ -93,6 +93,14 @@ class MemoryFeedback(Base):
     rating = Column(Integer, nullable=False)  # +1 / -1
     notes = Column(Text, nullable=True)
     created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), index=True)
+
+
+class MemoryEmbedding(Base):
+    __tablename__ = "memory_embeddings"
+    id = Column(Integer, primary_key=True)
+    entry_id = Column(Integer, ForeignKey("memory_entries.id"), index=True)
+    vector = Column(LargeBinary, nullable=False)
+    updated_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), index=True)
 
 
 def init_db() -> None:

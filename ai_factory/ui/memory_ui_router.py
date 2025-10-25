@@ -60,3 +60,31 @@ def memory_detail(request: Request, id: int = Path(..., ge=1)):
         "dashboard/memory/detail.html",
         {"request": request, "entry": entry, "related": related},
     )
+
+
+@router.get("/memory/insights")
+def memory_insights(request: Request):
+    from ai_factory.memory.memory_agent import stats as memory_stats
+    s = memory_stats()
+    return templates.TemplateResponse(
+        "dashboard/memory/insights.html",
+        {"request": request, "stats": s},
+    )
+
+
+@router.get("/memory/timeline")
+def memory_timeline(request: Request):
+    return templates.TemplateResponse(
+        "dashboard/memory/timeline.html",
+        {"request": request},
+    )
+
+
+@router.get("/memory/context/{run_id}")
+def memory_context_preview(request: Request, run_id: int = Path(..., ge=1)):
+    from ai_factory.memory.memory_agent import recall_for_run
+    rows = recall_for_run(run_id, limit=3)
+    return templates.TemplateResponse(
+        "dashboard/memory/components/context_preview.html",
+        {"request": request, "items": rows, "run_id": run_id},
+    )

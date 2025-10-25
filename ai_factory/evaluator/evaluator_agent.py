@@ -36,6 +36,15 @@ def evaluate(session_id: Optional[int] = None, goal: Optional[str] = None) -> Di
     snippet = make_memory_snippet(eval_id, sess.id, goal_text, score, feedback, recs)
     add_to_memory(f"eval:{eval_id}", snippet)
 
+    # Auto-learn on successful outcome
+    try:
+        if status == "pass":
+            from ai_factory.memory.memory_agent import auto_learn_from_run
+            # Use supervisor session id as run_id surrogate
+            auto_learn_from_run(run_id=sess.id, goal=goal_text, summary=feedback, tags=["evaluator","feedback"])
+    except Exception:
+        pass
+
     return {
         "evaluation_id": eval_id,
         "session_id": sess.id,
@@ -45,4 +54,3 @@ def evaluate(session_id: Optional[int] = None, goal: Optional[str] = None) -> Di
         "recommendations": recs,
         "status": status,
     }
-
