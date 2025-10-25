@@ -1,0 +1,10 @@
+{
+  "request_id": "x",
+  "goal": "retry test goal",
+  "plan": {
+    "steps": []
+  },
+  "context": [],
+  "result": "ok",
+  "status": "ok"
+}

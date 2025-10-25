@@ -120,27 +120,17 @@ def recall_for_run(run_id: int, limit: int = 10) -> List[Dict]:
         me = session.scalars(
             select(MemoryEntry).where(MemoryEntry.run_id == run_id, MemoryEntry.deleted == 0).limit(1)
         ).first()
-        goal = me.goal if me else ""
         keytags = set(_split_tags(me.tags) if me else [])
 
-        like = f"%{(goal or '').lower()}%" if goal else None
         stmt = select(MemoryEntry).where(MemoryEntry.deleted == 0)
-        if like:
-            stmt = stmt.where(
-                or_(
-                    func.lower(MemoryEntry.goal).like(like),
-                    func.lower(MemoryEntry.summary).like(like),
-                    func.lower(MemoryEntry.tags).like(like),
-                )
-            )
-        stmt = stmt.order_by(desc(MemoryEntry.created_at)).limit(int(limit or 10) + 5)
         rows = [r for r in session.scalars(stmt) if (r.run_id or -1) != run_id]
-        # Rank by tag overlap + score
+        # Rank by tag overlap + score; fallback to recency
         def rank(r: MemoryEntry) -> float:
             tags = set(_split_tags(r.tags))
             overlap = len(tags & keytags)
             sc = float(r.score) if r.score is not None else 0.0
-            return overlap * 10.0 + sc
+            rec = r.created_at.timestamp() if getattr(r, "created_at", None) else 0.0
+            return overlap * 10.0 + sc + rec * 1e-9
 
         rows.sort(key=rank, reverse=True)
         rows = rows[: int(limit or 10)]

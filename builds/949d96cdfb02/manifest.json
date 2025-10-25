@@ -1,0 +1,29 @@
+{
+  "build_id": "949d96cdfb02",
+  "timestamp": "2025-10-25T16:30:35Z",
+  "pid": 6264,
+  "version": "v3.0-memory-mcp",
+  "goal": "x",
+  "domain": "mobile",
+  "blueprint": {
+    "name": "app",
+    "title": "app",
+    "description": "x",
+    "goal": "x"
+  },
+  "options": {},
+  "outputs_dir": "builds\\949d96cdfb02\\outputs",
+  "files": [
+    "app\\app.py",
+    "app\\README.md"
+  ],
+  "warnings": [],
+  "evaluation": {
+    "passed": true,
+    "summary": "CLI entry detected (argparse: True).",
+    "artifacts": {
+      "entry": "builds\\949d96cdfb02\\outputs\\app\\app.py",
+      "argparse": true
+    }
+  }
+}
