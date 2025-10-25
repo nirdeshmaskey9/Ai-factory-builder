@@ -16,11 +16,12 @@
 {% include "dashboard/memory/components/memory_stats.html" %}
 
 <div class="memory-grid">
-  {% for m in results %}
-    {% include "dashboard/memory/components/memory_card.html" %}
+  {% if results %}
+    {% for entry in results %}
+      {% include 'dashboard/memory/components/memory_card.html' %}
+    {% endfor %}
   {% else %}
-    <p class="muted">No results yet. Try a search or click Learn.</p>
-  {% endfor %}
+    <div class="muted">No results found.</div>
+  {% endif %}
   </div>
 {% endblock %}
-

@@ -190,3 +190,13 @@ def stats() -> Dict[str, object]:
             "tags": tags_list[:20],
             "last_created_at": last_created.isoformat() if last_created else None,
         }
+
+
+# UI/Backend safety helper for tag handling
+def safe_tags(entry: Dict[str, object]):
+    tags = entry.get("tags") if isinstance(entry, dict) else None
+    if not tags:
+        return []
+    if isinstance(tags, list):
+        return [str(t).strip() for t in tags if str(t).strip()]
+    return [t.strip() for t in str(tags).split(',') if t.strip()]

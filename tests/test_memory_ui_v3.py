@@ -23,5 +23,4 @@ def test_memory_ui_and_factory_info():
 
     info = client.get("/factory/info").json()
     assert info.get("memory_enabled") is True
-    assert info.get("version") == "v3.0-memory-mcp"
-
+    assert str(info.get("version")).startswith("v3.0")

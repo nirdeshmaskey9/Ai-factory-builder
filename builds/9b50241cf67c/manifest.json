@@ -1,0 +1,28 @@
+{
+  "build_id": "9b50241cf67c",
+  "timestamp": "2025-10-25T17:17:52Z",
+  "pid": 27792,
+  "version": "v3.0.1-memory-hotfix",
+  "goal": null,
+  "domain": null,
+  "blueprint": {
+    "name": "app",
+    "description": "Generated application",
+    "title": "app"
+  },
+  "options": {},
+  "outputs_dir": "builds\\9b50241cf67c\\outputs",
+  "files": [
+    "app\\app.py",
+    "app\\README.md"
+  ],
+  "warnings": [],
+  "evaluation": {
+    "passed": true,
+    "summary": "CLI entry detected (argparse: True).",
+    "artifacts": {
+      "entry": "builds\\9b50241cf67c\\outputs\\app\\app.py",
+      "argparse": true
+    }
+  }
+}

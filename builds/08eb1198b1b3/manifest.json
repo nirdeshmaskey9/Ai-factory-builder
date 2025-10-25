@@ -1,0 +1,29 @@
+{
+  "build_id": "08eb1198b1b3",
+  "timestamp": "2025-10-25T17:17:52Z",
+  "pid": 27792,
+  "version": "v3.0.1-memory-hotfix",
+  "goal": "x",
+  "domain": "mobile",
+  "blueprint": {
+    "name": "app",
+    "title": "app",
+    "description": "x",
+    "goal": "x"
+  },
+  "options": {},
+  "outputs_dir": "builds\\08eb1198b1b3\\outputs",
+  "files": [
+    "app\\app.py",
+    "app\\README.md"
+  ],
+  "warnings": [],
+  "evaluation": {
+    "passed": true,
+    "summary": "CLI entry detected (argparse: True).",
+    "artifacts": {
+      "entry": "builds\\08eb1198b1b3\\outputs\\app\\app.py",
+      "argparse": true
+    }
+  }
+}

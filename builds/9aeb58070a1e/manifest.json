@@ -1,0 +1,31 @@
+{
+  "build_id": "9aeb58070a1e",
+  "timestamp": "2025-10-25T17:15:50Z",
+  "pid": 28028,
+  "version": "v3.0.1-memory-hotfix",
+  "goal": "Create a FastAPI app with /hello and /health",
+  "domain": "web",
+  "blueprint": {
+    "name": "app",
+    "title": "app",
+    "description": "Create a FastAPI app with /hello and /health",
+    "goal": "Create a FastAPI app with /hello and /health"
+  },
+  "options": {},
+  "outputs_dir": "builds\\9aeb58070a1e\\outputs",
+  "files": [
+    "app\\app.py",
+    "app\\Dockerfile",
+    "app\\README.md"
+  ],
+  "warnings": [],
+  "evaluation": {
+    "passed": true,
+    "summary": "/hello: 200; /health: 200",
+    "artifacts": {
+      "files": [
+        "app.py"
+      ]
+    }
+  }
+}

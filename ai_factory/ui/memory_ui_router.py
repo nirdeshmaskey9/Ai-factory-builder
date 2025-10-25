@@ -15,13 +15,24 @@ def memory_index(request: Request):
     q = request.query_params.get("q", "")
     limit = int(request.query_params.get("limit") or 20)
     results: List[Dict[str, Any]] = search_memories(q, limit=limit) if q else []
+    # Normalize tags/summary for safety
+    for r in results:
+        tags = r.get("tags") or ""
+        if isinstance(tags, list):
+            tags = ",".join([str(t).strip() for t in tags if str(t).strip()])
+        r["tags"] = tags
+        r["summary"] = r.get("summary") or "(no summary available)"
     # Pull stats via API-level helper to avoid duplicate logic
     from ai_factory.memory.memory_agent import stats as memory_stats
     s = memory_stats()
-    return templates.TemplateResponse(
-        "dashboard/memory/index.html",
-        {"request": request, "q": q, "limit": limit, "results": results, "stats": s},
-    )
+    try:
+        return templates.TemplateResponse(
+            "dashboard/memory/index.html",
+            {"request": request, "q": q, "limit": limit, "results": results, "stats": s},
+        )
+    except Exception as e:
+        print(f"[ERROR] Memory dashboard render: {e}")
+        raise HTTPException(status_code=500, detail="Memory dashboard render failed")
 
 
 @router.get("/memory/{id}")
@@ -31,12 +42,14 @@ def memory_detail(request: Request, id: int = Path(..., ge=1)):
         row = session.get(MemoryEntry, id)
         if not row or row.deleted:
             raise HTTPException(status_code=404, detail="not found")
+        # Normalize tags/summary for safety
+        tags = row.tags or ""
         entry = {
             "id": row.id,
             "run_id": row.run_id,
             "goal": row.goal,
-            "summary": row.summary,
-            "tags": row.tags,
+            "summary": row.summary or "(no summary available)",
+            "tags": tags,
             "score": row.score,
             "created_at": row.created_at.isoformat() if row.created_at else None,
         }
@@ -47,4 +60,3 @@ def memory_detail(request: Request, id: int = Path(..., ge=1)):
         "dashboard/memory/detail.html",
         {"request": request, "entry": entry, "related": related},
     )
-

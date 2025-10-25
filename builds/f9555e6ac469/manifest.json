@@ -1,0 +1,29 @@
+{
+  "build_id": "f9555e6ac469",
+  "timestamp": "2025-10-25T17:17:46Z",
+  "pid": 27792,
+  "version": "v3.0.1-memory-hotfix",
+  "goal": "Static page",
+  "domain": "web",
+  "blueprint": {
+    "name": "app",
+    "title": "app",
+    "description": "Static page",
+    "goal": "Static page"
+  },
+  "options": {},
+  "outputs_dir": "builds\\f9555e6ac469\\outputs",
+  "files": [
+    "app\\index.html",
+    "app\\README.md"
+  ],
+  "warnings": [],
+  "evaluation": {
+    "passed": true,
+    "summary": "index.html and README present.",
+    "artifacts": {
+      "path": "builds\\f9555e6ac469\\outputs\\app\\index.html",
+      "readme": true
+    }
+  }
+}

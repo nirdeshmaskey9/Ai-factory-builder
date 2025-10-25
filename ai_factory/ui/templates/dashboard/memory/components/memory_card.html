@@ -4,10 +4,11 @@
   </div>
   <div class="mc-body">{{ entry.summary|truncate(200) }}</div>
   <div class="mc-tags">
-    {% for t in (entry.tags or '').split(',') %}
-      {% if t %}<span class="tag">{{ t }}</span>{% endif %}
+    {% for tag in (entry.tags or '').split(',') if tag %}
+      <span class="tag">{{ tag.strip() }}</span>
+    {% else %}
+      <span class="tag" style="opacity:.6">no tags</span>
     {% endfor %}
   </div>
   <div class="mc-meta">Run: {% if entry.run_id %}<a href="/dashboard/summary/{{ entry.run_id }}">#{{ entry.run_id }}</a>{% else %}-{% endif %} · Score: {{ entry.score if entry.score is not none else '-' }} · {{ entry.created_at or '' }}</div>
 </div>
-
