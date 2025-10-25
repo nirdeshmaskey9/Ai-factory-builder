@@ -1,0 +1,45 @@
+{% extends "dashboard/layout.html" %}
+{% block content %}
+<h1 class="text-2xl font-semibold mb-4">Factory Overview</h1>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <div class="bg-white shadow rounded p-4">
+    <h2 class="text-lg font-bold mb-2">Factory Info</h2>
+    <div class="space-y-1 text-sm">
+      <div><span class="font-semibold">Version:</span> {{ factory.version }}</div>
+      <div><span class="font-semibold">Latest Run ID:</span> {{ factory.latest_run_id }}</div>
+      <div><span class="font-semibold">Total Runs:</span> {{ factory.total_runs }}</div>
+      <div><span class="font-semibold">Templates:</span> {{ ", ".join(factory.templates) }}</div>
+    </div>
+    <div class="mt-3">
+      <a class="inline-block bg-teal-600 text-white px-3 py-1 rounded hover:bg-teal-700" href="/dashboard/runs">View Runs</a>
+    </div>
+  </div>
+  <div class="bg-white shadow rounded p-4">
+    <h2 class="text-lg font-bold mb-2">Built Apps</h2>
+    <div class="overflow-auto">
+      <table class="min-w-full text-sm">
+        <thead>
+          <tr class="text-left border-b">
+            <th class="py-2">Build ID</th>
+            <th class="py-2">Apps</th>
+            <th class="py-2">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for b in builds %}
+          <tr class="border-b">
+            <td class="py-1 font-mono">{{ b.build_id }}</td>
+            <td class="py-1">{{ ", ".join(b.apps) }}</td>
+            <td class="py-1">
+              <a class="bg-indigo-600 text-white px-2 py-1 rounded hover:bg-indigo-700" href="/dashboard/launch/{{ b.build_id }}">Launch</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+</div>
+{% endblock %}
+

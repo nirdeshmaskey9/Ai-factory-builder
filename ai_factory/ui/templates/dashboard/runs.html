@@ -1,0 +1,33 @@
+{% extends "dashboard/layout.html" %}
+{% block content %}
+<h1 class="text-2xl font-semibold mb-4">Recent Orchestrator Runs</h1>
+<div class="bg-white shadow rounded p-4">
+  <div class="overflow-auto">
+    <table class="min-w-full text-sm">
+      <thead>
+        <tr class="text-left border-b">
+          <th class="py-2">Run ID</th>
+          <th class="py-2">Goal</th>
+          <th class="py-2">Status</th>
+          <th class="py-2">Score</th>
+          <th class="py-2">Duration</th>
+          <th class="py-2">Timestamp</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in runs %}
+        <tr class="border-b">
+          <td class="py-1"><a class="text-indigo-600 hover:underline" href="/dashboard/summary/{{ r.run_id }}">{{ r.run_id }}</a></td>
+          <td class="py-1">{{ r.goal }}</td>
+          <td class="py-1">{{ r.status }}</td>
+          <td class="py-1">{{ '%.2f'|format(r.score or 0) }}</td>
+          <td class="py-1">{{ '%.2f s'|format(r.duration_sec or 0) }}</td>
+          <td class="py-1">{{ r.timestamp }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
+

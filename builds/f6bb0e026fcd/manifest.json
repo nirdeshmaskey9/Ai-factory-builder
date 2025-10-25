@@ -1,0 +1,29 @@
+{
+  "build_id": "f6bb0e026fcd",
+  "timestamp": "2025-10-25T02:05:26Z",
+  "pid": 25136,
+  "version": "v2.2-dashboard",
+  "goal": "x",
+  "domain": "mobile",
+  "blueprint": {
+    "name": "app",
+    "title": "app",
+    "description": "x",
+    "goal": "x"
+  },
+  "options": {},
+  "outputs_dir": "builds\\f6bb0e026fcd\\outputs",
+  "files": [
+    "app\\app.py",
+    "app\\README.md"
+  ],
+  "warnings": [],
+  "evaluation": {
+    "passed": true,
+    "summary": "CLI entry detected (argparse: True).",
+    "artifacts": {
+      "entry": "builds\\f6bb0e026fcd\\outputs\\app\\app.py",
+      "argparse": true
+    }
+  }
+}

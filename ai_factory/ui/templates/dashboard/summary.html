@@ -1,0 +1,57 @@
+{% extends "dashboard/layout.html" %}
+{% block content %}
+<h1 class="text-2xl font-semibold mb-4">Run Summary #{{ run_id }}</h1>
+
+<div class="grid grid-cols-1 gap-6">
+  <div class="bg-white shadow rounded p-4">
+    <h2 class="text-lg font-bold mb-2">Overview</h2>
+    <div class="text-sm space-y-1">
+      <div><span class="font-semibold">Goal:</span> {{ summary.run.goal }}</div>
+      <div><span class="font-semibold">Status:</span> {{ summary.run.status }}</div>
+      <div><span class="font-semibold">Score:</span> {{ summary.run.score }}</div>
+      <div><span class="font-semibold">Timestamp:</span> {{ summary.run.timestamp }}</div>
+      <div><span class="font-semibold">Duration:</span> {{ summary.run.duration_sec }}s</div>
+    </div>
+    <div class="mt-3 flex gap-2">
+      {% if summary.run.report_path %}
+      <a class="bg-teal-600 text-white px-3 py-1 rounded hover:bg-teal-700" href="/orchestrator/summary/{{ run_id }}">Download JSON</a>
+      {% endif %}
+      <a class="bg-gray-700 text-white px-3 py-1 rounded hover:bg-gray-800" href="/dashboard/runs">Back to Runs</a>
+    </div>
+  </div>
+
+  <div class="bg-white shadow rounded p-4">
+    <h2 class="text-lg font-bold mb-2">Steps</h2>
+    <div class="overflow-auto">
+      <table class="min-w-full text-sm">
+        <thead>
+          <tr class="text-left border-b">
+            <th class="py-2">ID</th>
+            <th class="py-2">Name</th>
+            <th class="py-2">Status</th>
+            <th class="py-2">Log Path</th>
+            <th class="py-2">Timestamp</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for s in summary.steps %}
+          <tr class="border-b">
+            <td class="py-1">{{ s.id }}</td>
+            <td class="py-1">{{ s.step_name }}</td>
+            <td class="py-1">{{ s.step_status }}</td>
+            <td class="py-1 font-mono">{{ s.log_path }}</td>
+            <td class="py-1">{{ s.timestamp }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="bg-white shadow rounded p-4">
+    <h2 class="text-lg font-bold mb-2">Raw JSON</h2>
+    <pre class="text-xs bg-gray-50 p-3 rounded border overflow-auto">{{ pretty }}</pre>
+  </div>
+</div>
+{% endblock %}
+

@@ -32,6 +32,7 @@ from ai_factory.config_env_validator import validate_env
 from ai_factory.services.watchdog_service import start_watchdog
 from ai_factory.routers import factory_info as factory_info_router
 from ai_factory.system.port_finder import find_free_port
+from ai_factory.ui.dashboard_router import router as dashboard_router
 
 
 @asynccontextmanager
@@ -198,6 +199,7 @@ app.include_router(factory_router)
 app.include_router(system_health_router)
 app.include_router(system_report_router)
 app.include_router(factory_info_router.router)
+app.include_router(dashboard_router)
 print("?? Deployer Health route registered at /deployer/health")
 
 
