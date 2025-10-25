@@ -17,6 +17,7 @@
       <a class="bg-teal-600 text-white px-3 py-1 rounded hover:bg-teal-700" href="/orchestrator/summary/{{ run_id }}">Download JSON</a>
       {% endif %}
       <a class="bg-gray-700 text-white px-3 py-1 rounded hover:bg-gray-800" href="/dashboard/runs">Back to Runs</a>
+      <button id="rerun-btn" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-1 rounded">Rerun This Goal</button>
     </div>
   </div>
 
@@ -55,6 +56,9 @@
 
   {% include "dashboard/components/feedback_section.html" %}
 
+  {% include "dashboard/components/progress_bar.html" %}
+  {% include "dashboard/components/error_insight.html" %}
+
   <div class="bg-white shadow rounded p-4">
     <h2 class="text-lg font-bold mb-2">Live Logs</h2>
     <pre id="live-logs" class="text-xs bg-gray-50 p-3 rounded border overflow-auto"></pre>
@@ -64,6 +68,17 @@
           WS.connectLogs({{ run_id }}, (payload) => {
             const el = document.getElementById('live-logs');
             el.textContent = JSON.stringify(payload, null, 2);
+            if (window.Progress) { Progress.updateFromPayload(payload); }
+          });
+        }
+        const rr = document.getElementById('rerun-btn');
+        if (rr) {
+          rr.addEventListener('click', async ()=>{
+            try{
+              const r = await fetch(`/rerun/{{ run_id }}`, {method:'POST'});
+              const j = await r.json();
+              if (j.status==='ok') toast('Rerun started','success'); else toast('Rerun failed','error');
+            }catch(e){ toast('Rerun failed','error'); }
           });
         }
       });

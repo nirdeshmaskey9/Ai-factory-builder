@@ -1,0 +1,33 @@
+{% if summary.run.status == 'failed' %}
+<div class="bg-red-900/30 border border-red-700 rounded p-4">
+  <h3 class="text-lg font-bold mb-2">Error Insight</h3>
+  <div id="error-summary" class="text-sm mb-2">Analyzing logs...</div>
+  <button id="toggle-log" class="bg-red-700 hover:bg-red-800 text-white px-3 py-1 rounded">View Full Log</button>
+  <pre id="full-log" class="hidden mt-3 text-xs bg-gray-950 p-3 rounded overflow-auto"></pre>
+  <script>
+    (function(){
+      async function load(){
+        try{
+          const r = await fetch('/supervisor/report/{{ run_id }}');
+          if(!r.ok){ document.getElementById('error-summary').textContent='Logs unavailable'; return; }
+          const j = await r.json();
+          const txt = (j.result||'')+"\n"+(j.error||'');
+          const lines = txt.split(/\r?\n/).slice(-30).join('\n');
+          document.getElementById('full-log').textContent = lines;
+          let cause = 'Check traceback below.';
+          if(/ModuleNotFoundError/.test(lines)) cause = 'Missing dependency module.';
+          else if(/SyntaxError/.test(lines)) cause = 'Syntax error in generated code.';
+          else if(/ConnectionError|Timeout/.test(lines)) cause = 'Network connectivity issue.';
+          document.getElementById('error-summary').textContent = cause;
+        }catch(e){ document.getElementById('error-summary').textContent='Unable to parse logs.'; }
+      }
+      document.getElementById('toggle-log').addEventListener('click',()=>{
+        const el=document.getElementById('full-log');
+        el.classList.toggle('hidden');
+      });
+      load();
+    })();
+  </script>
+</div>
+{% endif %}
+

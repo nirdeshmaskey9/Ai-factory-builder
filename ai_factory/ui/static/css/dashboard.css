@@ -2,3 +2,6 @@
 body { color-scheme: dark; }
 .dark .bg-white { background-color: #0f172a; color: #e2e8f0; }
 .dark table { color: #e2e8f0; }
+.fade-in{animation:fadeIn .4s ease-in;}@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+button:disabled{opacity:.6;cursor:not-allowed}
+.dark .bg-white:hover{box-shadow:0 4px 10px rgba(0,0,0,0.4)}

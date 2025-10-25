@@ -27,9 +27,12 @@
       {% block content %}{% endblock %}
     </main>
     <footer class="text-center text-xs text-gray-500 py-6">AI Factory Control Center</footer>
+    {% include "dashboard/components/toast.html" %}
     <link rel="stylesheet" href="/static/css/dashboard.css" />
     <script src="/static/js/ws.js"></script>
     <script src="/static/js/feedback.js"></script>
+    <script src="/static/js/ui_helpers.js"></script>
     <script src="/static/js/analytics.js"></script>
+    <script src="/static/js/progress.js"></script>
   </body>
   </html>

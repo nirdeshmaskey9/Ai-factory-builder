@@ -30,4 +30,15 @@
     </table>
   </div>
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const fields=['q','status','sort','limit'];
+    fields.forEach(x=>{
+      const el=document.querySelector(`[name=${x}]`);
+      if(!el) return;
+      if(localStorage.getItem(x)) el.value=localStorage.getItem(x);
+      el.addEventListener('change',()=>localStorage.setItem(x, el.value));
+    });
+  });
+</script>
 {% endblock %}
