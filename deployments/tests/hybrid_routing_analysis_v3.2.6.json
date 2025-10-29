@@ -1,0 +1,245 @@
+{
+  "count": 20,
+  "items": [
+    {
+      "prompt": "Explain Rayleigh scattering.",
+      "status": 200,
+      "ms": 12222,
+      "decision": {
+        "backend": "local",
+        "role": "strategist",
+        "model": "llama3.1:8b",
+        "url": "http://127.0.0.1:11434",
+        "reason": "local strategist available; privacy_strict=True"
+      }
+    },
+    {
+      "prompt": "Summarize Nietzsche’s eternal recurrence.",
+      "status": 200,
+      "ms": 19933,
+      "decision": {
+        "backend": "local",
+        "role": "strategist",
+        "model": "llama3.1:8b",
+        "url": "http://127.0.0.1:11434",
+        "reason": "local strategist available; privacy_strict=True"
+      }
+    },
+    {
+      "prompt": "Draft an outline for a film about memory loss.",
+      "status": 200,
+      "ms": 36546,
+      "decision": {
+        "backend": "local",
+        "role": "memory",
+        "model": "qwen2.5:1.5b",
+        "url": "http://127.0.0.1:11434",
+        "reason": "local memory available; privacy_strict=True"
+      }
+    },
+    {
+      "prompt": "Plan a Flask backend with authentication.",
+      "status": 200,
+      "ms": 11350,
+      "decision": {
+        "backend": "local",
+        "role": "strategist",
+        "model": "llama3.1:8b",
+        "url": "http://127.0.0.1:11434",
+        "reason": "local strategist available; privacy_strict=True"
+      }
+    },
+    {
+      "prompt": "Explain binary search.",
+      "status": 200,
+      "ms": 12051,
+      "decision": {
+        "backend": "local",
+        "role": "strategist",
+        "model": "llama3.1:8b",
+        "url": "http://127.0.0.1:11434",
+        "reason": "local strategist available; privacy_strict=True"
+      }
+    },
+    {
+      "prompt": "Write a haiku about time.",
+      "status": 200,
+      "ms": 18721,
+      "decision": {
+        "backend": "local",
+        "role": "strategist",
+        "model": "llama3.1:8b",
+        "url": "http://127.0.0.1:11434",
+        "reason": "local strategist available; privacy_strict=True"
+      }
+    },
+    {
+      "prompt": "Describe REST vs GraphQL.",
+      "status": 200,
+      "ms": 15516,
+      "decision": {
+        "backend": "local",
+        "role": "strategist",
+        "model": "llama3.1:8b",
+        "url": "http://127.0.0.1:11434",
+        "reason": "local strategist available; privacy_strict=True"
+      }
+    },
+    {
+      "prompt": "Compute the complexity of quicksort.",
+      "status": 200,
+      "ms": 32956,
+      "decision": {
+        "backend": "local",
+        "role": "strategist",
+        "model": "llama3.1:8b",
+        "url": "http://127.0.0.1:11434",
+        "reason": "local strategist available; privacy_strict=True"
+      }
+    },
+    {
+      "prompt": "Outline a blog content calendar.",
+      "status": 200,
+      "ms": 10694,
+      "decision": {
+        "backend": "local",
+        "role": "strategist",
+        "model": "llama3.1:8b",
+        "url": "http://127.0.0.1:11434",
+        "reason": "local strategist available; privacy_strict=True"
+      }
+    },
+    {
+      "prompt": "Suggest unit tests for a calculator.",
+      "status": 200,
+      "ms": 12905,
+      "decision": {
+        "backend": "local",
+        "role": "strategist",
+        "model": "llama3.1:8b",
+        "url": "http://127.0.0.1:11434",
+        "reason": "local strategist available; privacy_strict=True"
+      }
+    },
+    {
+      "prompt": "Explain Rayleigh scattering.",
+      "status": 200,
+      "ms": 12617,
+      "decision": {
+        "backend": "local",
+        "role": "strategist",
+        "model": "llama3.1:8b",
+        "url": "http://127.0.0.1:11434",
+        "reason": "local strategist available; privacy_strict=True"
+      }
+    },
+    {
+      "prompt": "Summarize Nietzsche’s eternal recurrence.",
+      "status": 200,
+      "ms": 17274,
+      "decision": {
+        "backend": "local",
+        "role": "strategist",
+        "model": "llama3.1:8b",
+        "url": "http://127.0.0.1:11434",
+        "reason": "local strategist available; privacy_strict=True"
+      }
+    },
+    {
+      "prompt": "Draft an outline for a film about memory loss.",
+      "status": 200,
+      "ms": 37106,
+      "decision": {
+        "backend": "local",
+        "role": "memory",
+        "model": "qwen2.5:1.5b",
+        "url": "http://127.0.0.1:11434",
+        "reason": "local memory available; privacy_strict=True"
+      }
+    },
+    {
+      "prompt": "Plan a Flask backend with authentication.",
+      "status": 200,
+      "ms": 13413,
+      "decision": {
+        "backend": "local",
+        "role": "strategist",
+        "model": "llama3.1:8b",
+        "url": "http://127.0.0.1:11434",
+        "reason": "local strategist available; privacy_strict=True"
+      }
+    },
+    {
+      "prompt": "Explain binary search.",
+      "status": 200,
+      "ms": 12328,
+      "decision": {
+        "backend": "local",
+        "role": "strategist",
+        "model": "llama3.1:8b",
+        "url": "http://127.0.0.1:11434",
+        "reason": "local strategist available; privacy_strict=True"
+      }
+    },
+    {
+      "prompt": "Write a haiku about time.",
+      "status": 200,
+      "ms": 14681,
+      "decision": {
+        "backend": "local",
+        "role": "strategist",
+        "model": "llama3.1:8b",
+        "url": "http://127.0.0.1:11434",
+        "reason": "local strategist available; privacy_strict=True"
+      }
+    },
+    {
+      "prompt": "Describe REST vs GraphQL.",
+      "status": 200,
+      "ms": 15101,
+      "decision": {
+        "backend": "local",
+        "role": "strategist",
+        "model": "llama3.1:8b",
+        "url": "http://127.0.0.1:11434",
+        "reason": "local strategist available; privacy_strict=True"
+      }
+    },
+    {
+      "prompt": "Compute the complexity of quicksort.",
+      "status": 200,
+      "ms": 35090,
+      "decision": {
+        "backend": "local",
+        "role": "strategist",
+        "model": "llama3.1:8b",
+        "url": "http://127.0.0.1:11434",
+        "reason": "local strategist available; privacy_strict=True"
+      }
+    },
+    {
+      "prompt": "Outline a blog content calendar.",
+      "status": 200,
+      "ms": 11203,
+      "decision": {
+        "backend": "local",
+        "role": "strategist",
+        "model": "llama3.1:8b",
+        "url": "http://127.0.0.1:11434",
+        "reason": "local strategist available; privacy_strict=True"
+      }
+    },
+    {
+      "prompt": "Suggest unit tests for a calculator.",
+      "status": 200,
+      "ms": 10772,
+      "decision": {
+        "backend": "local",
+        "role": "strategist",
+        "model": "llama3.1:8b",
+        "url": "http://127.0.0.1:11434",
+        "reason": "local strategist available; privacy_strict=True"
+      }
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "stored": 5,
+  "queries": [
+    {
+      "q": "Who architected JoJo?",
+      "status": 200,
+      "ms": 13,
+      "topk": null
+    },
+    {
+      "q": "Which daemon setup is used in 3.2.6?",
+      "status": 200,
+      "ms": 118,
+      "topk": null
+    },
+    {
+      "q": "What capabilities can JoJo perform in app lifecycle?",
+      "status": 200,
+      "ms": 48,
+      "topk": null
+    },
+    {
+      "q": "How does JoJo mix local and cloud models?",
+      "status": 200,
+      "ms": 63,
+      "topk": null
+    },
+    {
+      "q": "What is JoJo striving to become?",
+      "status": 200,
+      "ms": 60,
+      "topk": null
+    }
+  ]
+}

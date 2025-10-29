@@ -1,0 +1,156 @@
+{
+  "runs": [
+    {
+      "goal": "Build a CLI text reverser",
+      "status": 200,
+      "ms": 103113,
+      "body": {
+        "run_id": 533,
+        "request_id": "e7a2caae-b044-4936-97d5-5049b5a26bee",
+        "status": "failed",
+        "score": 0.3625,
+        "attempts": 1,
+        "duration_sec": 103.10986614227295,
+        "report_path": "logs\\orchestrator\\run_533.json",
+        "deployment": null
+      }
+    },
+    {
+      "goal": "Build a FastAPI random quote endpoint",
+      "status": 200,
+      "ms": 119750,
+      "body": {
+        "run_id": 534,
+        "request_id": "dd3c0452-6175-4503-88a2-6f3635c8adca",
+        "status": "failed",
+        "score": 0.3625,
+        "attempts": 1,
+        "duration_sec": 119.74732899665833,
+        "report_path": "logs\\orchestrator\\run_534.json",
+        "deployment": null
+      }
+    },
+    {
+      "goal": "Build a 3-module Python app (planner/evaluator/reporter)",
+      "status": 200,
+      "ms": 149712,
+      "body": {
+        "run_id": 535,
+        "request_id": "158edf7d-41c0-4db4-b8e4-5459bb9023ac",
+        "status": "success",
+        "score": 0.85,
+        "attempts": 1,
+        "duration_sec": 126.39270210266113,
+        "report_path": "logs\\orchestrator\\run_535.json",
+        "deployment": null
+      }
+    },
+    {
+      "goal": "Generate a JSON-based to-do tracker",
+      "status": 200,
+      "ms": 105757,
+      "body": {
+        "run_id": 536,
+        "request_id": "c00dc90d-f742-43f5-96fc-6fc24c2cbf19",
+        "status": "failed",
+        "score": 0.3625,
+        "attempts": 1,
+        "duration_sec": 105.75348448753357,
+        "report_path": "logs\\orchestrator\\run_536.json",
+        "deployment": null
+      }
+    },
+    {
+      "goal": "Design a Flask blog skeleton",
+      "status": 200,
+      "ms": 116920,
+      "body": {
+        "run_id": 537,
+        "request_id": "fb15f1d3-f671-44ca-bc41-40c07c1e5ccb",
+        "status": "failed",
+        "score": 0.3625,
+        "attempts": 1,
+        "duration_sec": 116.91765356063843,
+        "report_path": "logs\\orchestrator\\run_537.json",
+        "deployment": null
+      }
+    },
+    {
+      "goal": "Create a CSV data summarizer",
+      "status": 200,
+      "ms": 99932,
+      "body": {
+        "run_id": 538,
+        "request_id": "30ad4c1a-c468-4564-a5c4-55449c44a66e",
+        "status": "failed",
+        "score": 0.3625,
+        "attempts": 1,
+        "duration_sec": 99.92856001853943,
+        "report_path": "logs\\orchestrator\\run_538.json",
+        "deployment": null
+      }
+    },
+    {
+      "goal": "Write a small chatbot CLI",
+      "status": 200,
+      "ms": 138574,
+      "body": {
+        "run_id": 539,
+        "request_id": "469ced0d-5816-46e6-899f-4723b0546376",
+        "status": "failed",
+        "score": 0.3625,
+        "attempts": 1,
+        "duration_sec": 134.43462467193604,
+        "report_path": "logs\\orchestrator\\run_539.json",
+        "deployment": null
+      }
+    },
+    {
+      "goal": "Build a Markdown → HTML converter",
+      "status": 200,
+      "ms": 98214,
+      "body": {
+        "run_id": 540,
+        "request_id": "992637fe-ec77-4261-b0cf-d8e59c02de3a",
+        "status": "failed",
+        "score": 0.3625,
+        "attempts": 1,
+        "duration_sec": 98.21222877502441,
+        "report_path": "logs\\orchestrator\\run_540.json",
+        "deployment": null
+      }
+    },
+    {
+      "goal": "Plan a simple journaling app",
+      "status": 200,
+      "ms": 91925,
+      "body": {
+        "run_id": 541,
+        "request_id": "e2016bdb-36c7-4ac8-821b-f16b2b4bdd6c",
+        "status": "failed",
+        "score": 0.3625,
+        "attempts": 1,
+        "duration_sec": 91.9216001033783,
+        "report_path": "logs\\orchestrator\\run_541.json",
+        "deployment": null
+      }
+    },
+    {
+      "goal": "Build a mini weather CLI using Open-Meteo API",
+      "status": 200,
+      "ms": 107348,
+      "body": {
+        "run_id": 542,
+        "request_id": "c60bc4d2-9b57-42bf-9858-28b771e322bd",
+        "status": "failed",
+        "score": 0.3625,
+        "attempts": 1,
+        "duration_sec": 107.34545755386353,
+        "report_path": "logs\\orchestrator\\run_542.json",
+        "deployment": null
+      }
+    }
+  ],
+  "total": 10,
+  "ok": 10
+}

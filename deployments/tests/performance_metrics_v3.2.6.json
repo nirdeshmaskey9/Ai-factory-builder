@@ -1,0 +1,10 @@
+{
+  "latency_ms_avg": {
+    "advisor_route": 14971,
+    "memory_search": 4,
+    "orchestrator_run": 176378
+  },
+  "thresholds": {
+    "latency_lt_2s": false
+  }
+}
