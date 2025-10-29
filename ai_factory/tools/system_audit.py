@@ -12,8 +12,19 @@ from typing import Any, Dict, List, Optional, Tuple
 import httpx
 
 
-HOST = os.getenv("AI_FACTORY_HOST", "127.0.0.1")
-PORT = int(os.getenv("AI_FACTORY_PORT", "8015"))
+# Determine base URL for probing the running API.
+# Prefer explicit env overrides, otherwise fall back to app settings
+# so it matches the port uvicorn actually uses when launched via CLI.
+try:
+    from ai_factory.config import settings  # type: ignore
+    DEFAULT_HOST = getattr(settings, "host", "127.0.0.1")
+    DEFAULT_PORT = str(getattr(settings, "port", 8000))
+except Exception:
+    DEFAULT_HOST = "127.0.0.1"
+    DEFAULT_PORT = "8000"
+
+HOST = os.getenv("AI_FACTORY_HOST", DEFAULT_HOST)
+PORT = int(os.getenv("AI_FACTORY_PORT", DEFAULT_PORT))
 BASE = f"http://{HOST}:{PORT}"
 
 
@@ -247,4 +258,3 @@ async def run_audit() -> Dict[str, Any]:
 if __name__ == "__main__":
     rep = asyncio.run(run_audit())
     print(json.dumps(rep, ensure_ascii=False, indent=2))
-

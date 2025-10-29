@@ -1,0 +1,28 @@
+{
+  "build_id": "7e0ea6768d41",
+  "timestamp": "2025-10-29T00:34:26Z",
+  "pid": 47848,
+  "version": "v3.2.2-local-trio-fix",
+  "goal": null,
+  "domain": null,
+  "blueprint": {
+    "name": "app",
+    "description": "Generated application",
+    "title": "app"
+  },
+  "options": {},
+  "outputs_dir": "builds\\7e0ea6768d41\\outputs",
+  "files": [
+    "app\\app.py",
+    "app\\README.md"
+  ],
+  "warnings": [],
+  "evaluation": {
+    "passed": true,
+    "summary": "CLI entry detected (argparse: True).",
+    "artifacts": {
+      "entry": "builds\\7e0ea6768d41\\outputs\\app\\app.py",
+      "argparse": true
+    }
+  }
+}

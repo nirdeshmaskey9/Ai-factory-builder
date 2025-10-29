@@ -8,6 +8,8 @@ import json
 import time
 
 from ai_factory.orchestrator.orchestrator_store import list_runs
+from ai_factory.memory.memory_db import SessionLocal, ModelUsage
+from sqlalchemy import select, func
 
 
 router = APIRouter(prefix="/analytics", tags=["Analytics"])
@@ -148,3 +150,40 @@ def system_info() -> Dict[str, Any]:
         "version": os.getenv("FACTORY_VERSION", "v2.4-control-center"),
     }
 
+
+@router.get("/models")
+def model_mix() -> Dict[str, Any]:
+    """Aggregates of model usage by backend/model/role and last 10 records."""
+    out: Dict[str, Any] = {"by_model": [], "recent": []}
+    try:
+        with SessionLocal() as session:
+            # Aggregate by backend, model, role
+            rows = session.execute(
+                select(
+                    ModelUsage.backend,
+                    ModelUsage.model,
+                    ModelUsage.role,
+                    func.count().label("count"),
+                ).group_by(ModelUsage.backend, ModelUsage.model, ModelUsage.role)
+            ).all()
+            out["by_model"] = [
+                {"backend": r[0], "model": r[1], "role": r[2], "count": int(r[3])} for r in rows
+            ]
+            # Recent 10
+            recent = session.execute(
+                select(ModelUsage).order_by(ModelUsage.created_at.desc()).limit(10)
+            ).scalars().all()
+            out["recent"] = [
+                {
+                    "created_at": r.created_at.isoformat() if r.created_at else None,
+                    "backend": r.backend,
+                    "model": r.model,
+                    "role": r.role,
+                    "latency_ms": r.latency_ms,
+                    "success": r.success,
+                }
+                for r in recent
+            ]
+    except Exception:
+        pass
+    return out

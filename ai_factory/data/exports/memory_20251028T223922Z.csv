@@ -1,0 +1,621 @@
+id,run_id,goal,summary,tags,score,created_at
+1,10101,Web app with FastAPI,web api ok,"fastapi,web",0.5,2025-10-25T16:28:05.550162
+2,20202,FastAPI dashboard,dashboard ok,"fastapi,dashboard",0.7,2025-10-25T16:28:05.581409
+4,,CLI app,ok,cli,,2025-10-25T16:28:05.769147
+5,10101,Web app with FastAPI,web api ok,"fastapi,web",0.5,2025-10-25T16:30:06.478737
+6,20202,FastAPI dashboard,dashboard ok,"fastapi,dashboard",0.7,2025-10-25T16:30:06.492417
+7,10101,Web app with FastAPI,web api ok,"fastapi,web",0.5,2025-10-25T16:30:36.023117
+8,20202,FastAPI dashboard,dashboard ok,"fastapi,dashboard",0.7,2025-10-25T16:30:36.030498
+10,,CLI app,ok,cli,,2025-10-25T16:30:36.086106
+11,241,ws logs,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:42.367784
+12,240,ws runs,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:42.398338
+13,239,halt after failure,Goal: . Status: failed. Result: bad.,"failed,fail",,2025-10-25T17:07:42.413798
+14,238,export test,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:42.428795
+15,237,rerun smoke,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:42.447075
+16,236,rerun smoke,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:42.462067
+17,235,steps+summary check,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:42.467042
+18,234,build a minimal hello-world app,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:42.485764
+19,233,build a tiny notes API with one POST/GET endpoint,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:42.502758
+20,232,retry test goal,Goal: . Status: success. Result: ok.,"success,ok",,2025-10-25T17:07:42.518774
+21,241,ws logs,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:44.994735
+22,240,ws runs,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:45.007735
+23,239,halt after failure,Goal: . Status: failed. Result: bad.,"failed,fail",,2025-10-25T17:07:45.016653
+24,238,export test,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:45.025662
+25,237,rerun smoke,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:45.033172
+26,236,rerun smoke,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:45.040180
+27,235,steps+summary check,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:45.047193
+28,234,build a minimal hello-world app,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:45.055207
+29,233,build a tiny notes API with one POST/GET endpoint,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:45.062202
+30,232,retry test goal,Goal: . Status: success. Result: ok.,"success,ok",,2025-10-25T17:07:45.069733
+31,241,ws logs,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:46.770723
+32,240,ws runs,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:46.778638
+33,239,halt after failure,Goal: . Status: failed. Result: bad.,"failed,fail",,2025-10-25T17:07:46.786634
+34,238,export test,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:46.793632
+35,237,rerun smoke,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:46.799651
+36,236,rerun smoke,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:46.805651
+37,235,steps+summary check,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:46.812653
+38,234,build a minimal hello-world app,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:46.821188
+39,233,build a tiny notes API with one POST/GET endpoint,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:46.828180
+40,232,retry test goal,Goal: . Status: success. Result: ok.,"success,ok",,2025-10-25T17:07:46.834183
+41,241,ws logs,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:50.865151
+42,240,ws runs,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:50.875675
+43,239,halt after failure,Goal: . Status: failed. Result: bad.,"failed,fail",,2025-10-25T17:07:50.884183
+44,238,export test,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:50.895349
+45,237,rerun smoke,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:50.905726
+46,236,rerun smoke,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:50.915659
+47,235,steps+summary check,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:50.924657
+48,234,build a minimal hello-world app,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:50.933654
+49,233,build a tiny notes API with one POST/GET endpoint,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:50.941654
+50,232,retry test goal,Goal: . Status: success. Result: ok.,"success,ok",,2025-10-25T17:07:50.948655
+51,10101,Web app with FastAPI,web api ok,"fastapi,web",0.5,2025-10-25T17:15:56.519648
+52,20202,FastAPI dashboard,dashboard ok,"fastapi,dashboard",0.7,2025-10-25T17:15:56.550646
+54,,CLI app,ok,cli,,2025-10-25T17:15:56.659659
+55,10101,Web app with FastAPI,web api ok,"fastapi,web",0.5,2025-10-25T17:17:53.155050
+56,20202,FastAPI dashboard,dashboard ok,"fastapi,dashboard",0.7,2025-10-25T17:17:53.184014
+58,,CLI app,ok,cli,,2025-10-25T17:17:53.315252
+59,55501,Build web,ok,web,,2025-10-25T17:41:38.616119
+60,,Another web,ok,web,,2025-10-25T17:41:38.625700
+61,,Exportable,S,x,0.1,2025-10-25T17:41:59.581685
+62,,Build FastAPI,web,"fastapi,web",,2025-10-25T17:41:59.704574
+63,,Write CLI,cli,cli,,2025-10-25T17:41:59.719130
+64,10101,Web app with FastAPI,web api ok,"fastapi,web",0.5,2025-10-25T17:41:59.740680
+65,20202,FastAPI dashboard,dashboard ok,"fastapi,dashboard",0.7,2025-10-25T17:41:59.751680
+67,,CLI app,ok,cli,,2025-10-25T17:42:00.018379
+68,55501,Build web,ok,web,,2025-10-25T17:44:01.314290
+69,,Another web,ok,web,,2025-10-25T17:44:01.321289
+70,,Exportable,S,x,0.1,2025-10-25T17:44:22.057952
+71,,Build FastAPI,web,"fastapi,web",,2025-10-25T17:44:22.285698
+72,,Write CLI,cli,cli,,2025-10-25T17:44:22.297711
+73,10101,Web app with FastAPI,web api ok,"fastapi,web",0.5,2025-10-25T17:44:22.347888
+74,20202,FastAPI dashboard,dashboard ok,"fastapi,dashboard",0.7,2025-10-25T17:44:22.358912
+76,,CLI app,ok,cli,,2025-10-25T17:44:22.626057
+77,55501,Build web,ok,web,,2025-10-25T17:45:45.424987
+78,,Another web,ok,web,,2025-10-25T17:45:45.432220
+79,,Exportable,S,x,0.1,2025-10-25T17:46:06.425472
+80,,Build FastAPI,web,"fastapi,web",,2025-10-25T17:46:06.644411
+81,,Write CLI,cli,cli,,2025-10-25T17:46:06.657409
+82,10101,Web app with FastAPI,web api ok,"fastapi,web",0.5,2025-10-25T17:46:06.703904
+83,20202,FastAPI dashboard,dashboard ok,"fastapi,dashboard",0.7,2025-10-25T17:46:06.713204
+85,,CLI app,ok,cli,,2025-10-25T17:46:06.987727
+86,55501,Build web,ok,web,,2025-10-25T17:47:34.615310
+87,,Another web,ok,web,,2025-10-25T17:47:34.625230
+88,,Exportable,S,x,0.1,2025-10-25T17:47:55.358912
+89,,Build FastAPI,web,"fastapi,web",,2025-10-25T17:47:55.490955
+90,,Write CLI,cli,cli,,2025-10-25T17:47:55.499962
+91,10101,Web app with FastAPI,web api ok,"fastapi,web",0.5,2025-10-25T17:47:55.549749
+92,20202,FastAPI dashboard,dashboard ok,"fastapi,dashboard",0.7,2025-10-25T17:47:55.608438
+94,,CLI app,ok,cli,,2025-10-25T17:47:55.948918
+95,55501,Build web,ok,web,,2025-10-28T19:44:45.976341
+96,,Another web,ok,web,,2025-10-28T19:44:45.983346
+97,,Exportable,S,x,0.1,2025-10-28T19:45:07.093675
+98,,Build FastAPI,web,"fastapi,web",,2025-10-28T19:45:07.238747
+99,,Write CLI,cli,cli,,2025-10-28T19:45:07.245501
+100,10101,Web app with FastAPI,web api ok,"fastapi,web",0.5,2025-10-28T19:45:07.273440
+101,20202,FastAPI dashboard,dashboard ok,"fastapi,dashboard",0.7,2025-10-28T19:45:07.281023
+103,,CLI app,ok,cli,,2025-10-28T19:45:07.551065
+104,55501,Build web,ok,web,,2025-10-28T20:15:47.603381
+105,,Another web,ok,web,,2025-10-28T20:15:47.634067
+106,,Exportable,S,x,0.1,2025-10-28T20:16:08.183106
+107,,Build FastAPI,web,"fastapi,web",,2025-10-28T20:16:08.332333
+108,,Write CLI,cli,cli,,2025-10-28T20:16:08.363255
+109,,Web App,build app,web,,2025-10-28T20:16:08.391502
+110,,CLI Tool,command line,cli,,2025-10-28T20:16:08.399821
+111,10101,Web app with FastAPI,web api ok,"fastapi,web",0.5,2025-10-28T20:16:08.432454
+112,20202,FastAPI dashboard,dashboard ok,"fastapi,dashboard",0.7,2025-10-28T20:16:08.439507
+114,,CLI app,ok,cli,,2025-10-28T20:16:08.676232
+115,360,create sample app then improve,no-op,"orchestrator,autolearn,create,sample,app,then,improve",,2025-10-28T20:16:16.899286
+116,361,retry test goal,ok,"orchestrator,autolearn,retry,test,goal",,2025-10-28T20:16:18.045636
+117,,CLI app,ok,cli,,2025-10-28T20:18:29.995920
+118,,ui-import,from ui,"ui,import",0.1,2025-10-28T20:18:35.261510
+119,55501,Build web,ok,web,,2025-10-28T20:18:55.209222
+120,,Another web,ok,web,,2025-10-28T20:18:55.240737
+121,,Exportable,S,x,0.1,2025-10-28T20:19:15.760899
+122,,Build FastAPI,web,"fastapi,web",,2025-10-28T20:19:15.884504
+123,,Write CLI,cli,cli,,2025-10-28T20:19:15.892146
+124,,Web App,build app,web,,2025-10-28T20:19:15.916146
+125,,CLI Tool,command line,cli,,2025-10-28T20:19:15.924561
+126,10101,Web app with FastAPI,web api ok,"fastapi,web",0.5,2025-10-28T20:19:15.949083
+127,20202,FastAPI dashboard,dashboard ok,"fastapi,dashboard",0.7,2025-10-28T20:19:15.959839
+129,,CLI app,ok,cli,,2025-10-28T20:19:16.203219
+130,378,create sample app then improve,no-op,"orchestrator,autolearn,create,sample,app,then,improve",,2025-10-28T20:19:24.393576
+131,379,retry test goal,ok,"orchestrator,autolearn,retry,test,goal",,2025-10-28T20:19:25.542214
+132,,Advisor decision for: build fastapi app,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:01:57.834193
+133,,Advisor decision for: build fastapi app,openai/gpt-4o (strategist),"advisor_decision,strategist",,2025-10-28T22:01:58.358818
+134,,Advisor decision for: analytics smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:02:07.707289
+135,,Advisor decision for: analytics smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:02:12.330522
+136,,Advisor decision (run 389),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:02:12.337540
+137,,Advisor decision for: analytics smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:02:16.993485
+138,,Advisor decision for: feedback smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:02:26.913891
+139,,Advisor decision for: feedback smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:02:31.536791
+140,,Advisor decision (run 390),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:02:31.541789
+141,,Advisor decision for: feedback smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:02:36.154078
+142,,Advisor decision for: builder feedback memory check,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:02:40.953201
+143,,Advisor decision for: builder feedback memory check,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:02:45.635276
+144,,Advisor decision for: hello,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:02:50.299454
+145,,Advisor decision for: another goal,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:02:54.988146
+146,,Advisor decision for: builder should improve score by re-run,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:02:59.714569
+147,,Advisor decision for: builder should improve score by re-run,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:03:04.411640
+148,55501,Build web,ok,web,,2025-10-28T22:03:04.449506
+149,,Another web,ok,web,,2025-10-28T22:03:04.455929
+150,,Advisor decision for: dashboard-runs smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:03:09.237694
+151,,Advisor decision for: dashboard-runs smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:03:13.895322
+152,,Advisor decision (run 391),openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:03:13.901661
+153,,Advisor decision for: dashboard-runs smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:03:18.532146
+154,,Advisor decision for: dashboard-summary smoke,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:03:23.373096
+155,,Advisor decision for: dashboard-summary smoke,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:03:27.996755
+156,,Advisor decision (run 392),openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:03:28.002758
+157,,Advisor decision for: dashboard-summary smoke,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:03:32.611274
+158,,Advisor decision for: deploy a tiny app,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:03:37.466530
+159,,Advisor decision for: registry test,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:03:49.267242
+160,,Advisor decision for: evaluation memory feedback smoke,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:04:06.697649
+161,,Advisor decision for: hello,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:04:11.362178
+162,,Advisor decision for: email me at test@example.com with key sk-abc1234567890xxxxx,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:04:16.188127
+163,,Exportable,S,x,0.1,2025-10-28T22:04:16.576562
+164,,Advisor decision for: Write a testable function; add unit tests,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:04:21.344633
+165,,Build FastAPI,web,"fastapi,web",,2025-10-28T22:04:21.381058
+166,,Write CLI,cli,cli,,2025-10-28T22:04:21.390476
+167,,Web App,build app,web,,2025-10-28T22:04:21.418193
+168,,CLI Tool,command line,cli,,2025-10-28T22:04:21.426192
+169,10101,Web app with FastAPI,web api ok,"fastapi,web",0.5,2025-10-28T22:04:21.454207
+170,20202,FastAPI dashboard,dashboard ok,"fastapi,dashboard",0.7,2025-10-28T22:04:21.462205
+171,,Advisor decision for: How to scaffold a repo and add CI,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:04:26.138334
+173,,CLI app,ok,cli,,2025-10-28T22:04:26.388367
+174,,Advisor decision for: plan something,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:04:31.034492
+175,,Advisor decision for: autolearn smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:04:35.705159
+176,,Advisor decision for: autolearn smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:04:40.328265
+177,,Advisor decision (run 393),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:04:40.333258
+178,,Advisor decision for: autolearn smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:04:44.961448
+179,,Advisor decision for: history endpoint smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:04:49.634673
+180,,Advisor decision for: history endpoint smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:04:54.289375
+181,,Advisor decision (run 394),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:04:54.295787
+182,,Advisor decision for: history endpoint smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:04:58.916420
+183,,Advisor decision for: create sample app then improve,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:05:03.644689
+184,,Advisor decision for: create sample app then improve,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:05:08.312782
+185,,Advisor decision (run 395),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:05:08.316783
+186,,Advisor decision for: create sample app then improve,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:05:12.919016
+187,,Advisor decision for: create sample app then improve,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:05:17.627914
+188,,Advisor decision for: create sample app then improve,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:05:23.341427
+189,395,create sample app then improve,no-op,"orchestrator,autolearn,create,sample,app,then,improve",,2025-10-28T22:05:30.256590
+190,,Advisor decision for: hello,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:05:34.879558
+191,,Advisor decision for: retry test goal,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:05:39.542817
+192,,Advisor decision for: retry test goal,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:05:44.194722
+193,,Advisor decision (run 396),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:05:44.198723
+194,,Advisor decision for: create sample app then improve,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:05:48.839965
+195,396,retry test goal,ok,"orchestrator,autolearn,retry,test,goal",,2025-10-28T22:05:49.897837
+196,,Advisor decision for: build a tiny notes API with one POST/GET endpoint,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:05:54.504173
+197,,Advisor decision for: build a tiny notes API with one POST/GET endpoint,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:05:59.182911
+198,,Advisor decision (run 397),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:05:59.188023
+199,,Advisor decision for: build a tiny notes API with one POST/GET endpoint,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:06:03.777912
+200,,Advisor decision for: build a tiny notes API with one POST/GET endpoint,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:06:08.442985
+201,,Advisor decision for: build a tiny notes API with one POST/GET endpoint,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:06:14.113028
+202,,Advisor decision for: build a minimal hello-world app,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:06:18.793575
+203,,Advisor decision for: build a minimal hello-world app,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:06:23.458466
+204,,Advisor decision (run 398),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:06:23.462458
+205,,Advisor decision for: build a minimal hello-world app,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:06:28.088255
+206,,Advisor decision for: steps+summary check,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:06:32.774619
+207,,Advisor decision for: steps+summary check,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:06:37.420067
+208,,Advisor decision (run 399),openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:06:37.424772
+209,,Advisor decision for: steps+summary check,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:06:42.050033
+210,,Advisor decision for: Set up a new repo; write README; add CI,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:06:46.731332
+211,,Advisor decision for: Write tests,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:06:51.390698
+212,,Advisor decision for: rerun smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:07:59.562900
+213,,Advisor decision for: rerun smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:08:04.245896
+214,,Advisor decision (run 400),openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:08:04.251894
+215,,Advisor decision for: rerun smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:08:08.847094
+216,,Advisor decision for: rerun smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:08:13.521405
+217,,Advisor decision for: rerun smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:08:18.207278
+218,,Advisor decision (run 401),openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:08:18.213280
+219,,Advisor decision for: rerun smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:08:22.851065
+220,,Advisor decision for: rerun smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:08:27.506997
+221,,Advisor decision for: rerun smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:08:33.155795
+222,,Advisor decision for: export test,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:08:37.999259
+223,,Advisor decision for: export test,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:08:42.659074
+224,,Advisor decision (run 402),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:08:42.666075
+225,,Advisor decision for: export test,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:08:47.296720
+226,,Advisor decision for: write python code then test it,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:08:52.089762
+227,,Advisor decision for: hello,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:08:56.778826
+228,,Advisor decision for: create a tiny script and print hello,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:09:01.435897
+229,,Advisor decision for: halt after failure,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:09:06.123000
+230,,Advisor decision for: halt after failure,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:09:10.769757
+231,,Advisor decision (run 403),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:09:10.775754
+232,,Advisor decision for: ws runs,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:09:15.491545
+233,,Advisor decision for: ws runs,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:09:20.148436
+234,,Advisor decision (run 404),openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:09:20.154436
+235,,Advisor decision for: ws runs,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:09:24.764082
+236,,Advisor decision for: ws logs,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:09:29.409879
+237,,Advisor decision for: ws logs,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:09:34.057360
+238,,Advisor decision (run 405),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:09:34.063375
+239,,Advisor decision for: ws logs,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:09:38.672646
+240,,CLI app,ok,cli,,2025-10-28T22:10:30.935606
+241,,CLI app,ok,cli,,2025-10-28T22:11:13.071547
+242,,Advisor decision for: build fastapi app,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:11:24.707630
+243,,Advisor decision for: build fastapi app,openai/gpt-4o (strategist),"advisor_decision,strategist",,2025-10-28T22:11:25.246516
+244,,Advisor decision for: analytics smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:11:29.860330
+245,,Advisor decision for: analytics smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:11:34.525929
+246,,Advisor decision (run 406),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:11:34.531930
+247,,Advisor decision for: analytics smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:11:39.143848
+248,,Advisor decision for: feedback smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:11:44.001408
+249,,Advisor decision for: feedback smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:11:48.631676
+250,,Advisor decision (run 407),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:11:48.637746
+251,,Advisor decision for: feedback smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:11:53.245006
+252,,Advisor decision for: builder feedback memory check,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:11:57.972006
+253,,Advisor decision for: builder feedback memory check,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:12:02.669490
+254,,Advisor decision for: hello,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:12:07.322602
+255,,Advisor decision for: another goal,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:12:11.954351
+256,,Advisor decision for: builder should improve score by re-run,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:12:16.633168
+257,,Advisor decision for: builder should improve score by re-run,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:12:21.349426
+258,55501,Build web,ok,web,,2025-10-28T22:12:21.390179
+259,,Another web,ok,web,,2025-10-28T22:12:21.396190
+260,,Advisor decision for: dashboard-runs smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:12:26.257144
+261,,Advisor decision for: dashboard-runs smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:12:30.931372
+262,,Advisor decision (run 408),openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:12:30.937284
+263,,Advisor decision for: dashboard-runs smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:12:35.531829
+264,,Advisor decision for: dashboard-summary smoke,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:12:40.257045
+265,,Advisor decision for: dashboard-summary smoke,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:12:44.933846
+266,,Advisor decision (run 409),openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:12:44.939759
+267,,Advisor decision for: dashboard-summary smoke,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:12:49.559681
+268,,Advisor decision for: deploy a tiny app,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:12:54.396951
+269,,Advisor decision for: registry test,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:13:06.206816
+270,,Advisor decision for: hello world web,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:13:19.403677
+271,,Advisor decision for: hello world web,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:13:20.051360
+272,,Advisor decision (run 410),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:13:20.057373
+273,,Advisor decision for: hello world web,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:13:20.589467
+274,,Advisor decision for: evaluation memory feedback smoke,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:13:25.559583
+275,,Advisor decision for: hello,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:13:30.221171
+276,,Advisor decision for: email me at test@example.com with key sk-abc1234567890xxxxx,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:13:34.945732
+277,,Exportable,S,x,0.1,2025-10-28T22:13:35.354043
+278,,Advisor decision for: Write a testable function; add unit tests,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:13:40.151590
+279,,Build FastAPI,web,"fastapi,web",,2025-10-28T22:13:40.186347
+280,,Write CLI,cli,cli,,2025-10-28T22:13:40.194346
+281,,Web App,build app,web,,2025-10-28T22:13:40.215345
+282,,CLI Tool,command line,cli,,2025-10-28T22:13:40.222347
+283,10101,Web app with FastAPI,web api ok,"fastapi,web",0.5,2025-10-28T22:13:40.250346
+284,20202,FastAPI dashboard,dashboard ok,"fastapi,dashboard",0.7,2025-10-28T22:13:40.257356
+285,,Advisor decision for: How to scaffold a repo and add CI,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:13:44.906846
+287,,CLI app,ok,cli,,2025-10-28T22:13:45.135642
+288,,Advisor decision for: plan something,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:13:49.764702
+289,,Advisor decision for: autolearn smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:13:54.424309
+290,,Advisor decision for: autolearn smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:13:59.082253
+291,,Advisor decision (run 411),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:13:59.089474
+292,,Advisor decision for: autolearn smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:14:03.753170
+293,,Advisor decision for: history endpoint smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:14:08.529269
+294,,Advisor decision for: history endpoint smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:14:13.144641
+295,,Advisor decision (run 412),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:14:13.149639
+296,,Advisor decision for: history endpoint smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:14:17.731352
+297,,Advisor decision for: create sample app then improve,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:14:22.507486
+298,,Advisor decision for: create sample app then improve,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:14:27.163009
+299,,Advisor decision (run 413),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:14:27.170010
+300,,Advisor decision for: create sample app then improve,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:14:31.788580
+301,,Advisor decision for: create sample app then improve,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:14:36.470741
+302,,Advisor decision for: create sample app then improve,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:14:42.073529
+303,413,create sample app then improve,no-op,"orchestrator,autolearn,create,sample,app,then,improve",,2025-10-28T22:14:48.991056
+304,,Advisor decision for: hello,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:14:53.605127
+305,,Advisor decision for: retry test goal,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:14:58.235593
+306,,Advisor decision for: retry test goal,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:15:02.881846
+307,,Advisor decision (run 414),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:15:02.887990
+308,,Advisor decision for: create sample app then improve,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:15:07.523559
+309,414,retry test goal,ok,"orchestrator,autolearn,retry,test,goal",,2025-10-28T22:15:08.579887
+310,,Advisor decision for: build a tiny notes API with one POST/GET endpoint,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:15:13.189870
+311,,Advisor decision for: build a tiny notes API with one POST/GET endpoint,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:15:17.813000
+312,,Advisor decision (run 415),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:15:17.819002
+313,,Advisor decision for: build a tiny notes API with one POST/GET endpoint,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:15:22.470146
+314,,Advisor decision for: build a tiny notes API with one POST/GET endpoint,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:15:27.119111
+315,,Advisor decision for: build a tiny notes API with one POST/GET endpoint,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:15:32.718614
+316,,Advisor decision for: build a minimal hello-world app,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:15:37.425147
+317,,Advisor decision for: build a minimal hello-world app,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:15:42.032896
+318,,Advisor decision (run 416),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:15:42.038368
+319,,Advisor decision for: build a minimal hello-world app,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:15:46.634805
+320,,Advisor decision for: steps+summary check,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:15:51.264462
+321,,Advisor decision for: steps+summary check,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:15:55.904148
+322,,Advisor decision (run 417),openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:15:55.909697
+323,,Advisor decision for: steps+summary check,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:16:00.526736
+324,,Advisor decision for: Set up a new repo; write README; add CI,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:16:05.189051
+325,,Advisor decision for: Write tests,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:16:09.788011
+326,,Advisor decision for: rerun smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:17:10.182095
+327,,Advisor decision for: rerun smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:17:14.799539
+328,,Advisor decision (run 418),openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:17:14.805541
+329,,Advisor decision for: rerun smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:17:19.429833
+330,,Advisor decision for: rerun smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:17:24.101739
+331,,Advisor decision for: rerun smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:17:28.756526
+332,,Advisor decision (run 419),openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:17:28.762528
+333,,Advisor decision for: rerun smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:17:33.391577
+334,,Advisor decision for: rerun smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:17:38.062099
+335,,Advisor decision for: rerun smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:17:43.737297
+336,,Advisor decision for: export test,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:17:48.613243
+337,,Advisor decision for: export test,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:17:53.227294
+338,,Advisor decision (run 420),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:17:53.233782
+339,,Advisor decision for: export test,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:17:57.824745
+340,,Advisor decision for: write python code then test it,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:18:02.612453
+341,,Advisor decision for: hello,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:18:07.275059
+342,,Advisor decision for: create a tiny script and print hello,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:18:11.971603
+343,,Advisor decision for: halt after failure,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:18:16.608952
+344,,Advisor decision for: halt after failure,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:18:21.268703
+345,,Advisor decision (run 421),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:18:21.275403
+346,,Advisor decision for: ws runs,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:18:25.943506
+347,,Advisor decision for: ws runs,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:18:30.601877
+348,,Advisor decision (run 422),openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:18:30.605855
+349,,Advisor decision for: ws runs,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:18:35.245141
+350,,Advisor decision for: ws logs,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:18:39.982481
+351,,Advisor decision for: ws logs,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:18:44.631730
+352,,Advisor decision (run 423),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:18:44.639933
+353,,Advisor decision for: ws logs,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:18:49.238887
+354,,Advisor decision for: hello world web,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:19:08.774402
+355,,Advisor decision for: hello world web,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:19:09.348390
+356,,Advisor decision (run 424),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:19:09.354388
+357,,Advisor decision for: hello world web,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:19:09.883454
+358,,Advisor decision for: build fastapi app,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:19:21.634007
+359,,Advisor decision for: build fastapi app,openai/gpt-4o (strategist),"advisor_decision,strategist",,2025-10-28T22:19:22.172820
+360,,Advisor decision for: analytics smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:19:26.786187
+361,,Advisor decision for: analytics smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:19:31.440742
+362,,Advisor decision (run 425),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:19:31.446632
+363,,Advisor decision for: analytics smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:19:36.080862
+364,,Advisor decision for: feedback smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:19:40.976483
+365,,Advisor decision for: feedback smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:19:45.653268
+366,,Advisor decision (run 426),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:19:45.659208
+367,,Advisor decision for: feedback smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:19:50.300445
+368,,Advisor decision for: builder feedback memory check,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:19:55.063711
+369,,Advisor decision for: builder feedback memory check,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:19:59.734460
+370,,Advisor decision for: hello,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:20:04.396241
+371,,Advisor decision for: another goal,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:20:09.045518
+372,,Advisor decision for: builder should improve score by re-run,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:20:13.748332
+373,,Advisor decision for: builder should improve score by re-run,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:20:18.449023
+374,55501,Build web,ok,web,,2025-10-28T22:20:18.527011
+375,,Another web,ok,web,,2025-10-28T22:20:18.536035
+376,,Advisor decision for: dashboard-runs smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:20:23.415637
+377,,Advisor decision for: dashboard-runs smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:20:28.062732
+378,,Advisor decision (run 427),openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:20:28.068732
+379,,Advisor decision for: dashboard-runs smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:20:32.691604
+380,,Advisor decision for: dashboard-summary smoke,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:20:37.418643
+381,,Advisor decision for: dashboard-summary smoke,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:20:42.051810
+382,,Advisor decision (run 428),openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:20:42.057812
+383,,Advisor decision for: dashboard-summary smoke,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:20:46.705336
+384,,Advisor decision for: deploy a tiny app,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:20:51.497734
+385,,Advisor decision for: registry test,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:21:03.230412
+386,,Advisor decision for: hello world web,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:21:16.388243
+387,,Advisor decision for: hello world web,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:21:16.982005
+388,,Advisor decision (run 429),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:21:16.989006
+389,,Advisor decision for: hello world web,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:21:17.519062
+390,,Advisor decision for: evaluation memory feedback smoke,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:21:22.337947
+391,,Advisor decision for: hello,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:21:26.961492
+392,,Advisor decision for: email me at test@example.com with key sk-abc1234567890xxxxx,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:21:31.654594
+393,,Exportable,S,x,0.1,2025-10-28T22:21:32.042517
+394,,Advisor decision for: Write a testable function; add unit tests,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:21:36.874034
+395,,Build FastAPI,web,"fastapi,web",,2025-10-28T22:21:36.910469
+396,,Write CLI,cli,cli,,2025-10-28T22:21:36.916469
+397,,Web App,build app,web,,2025-10-28T22:21:36.940123
+398,,CLI Tool,command line,cli,,2025-10-28T22:21:36.947633
+399,10101,Web app with FastAPI,web api ok,"fastapi,web",0.5,2025-10-28T22:21:36.972648
+400,20202,FastAPI dashboard,dashboard ok,"fastapi,dashboard",0.7,2025-10-28T22:21:36.979654
+401,,Advisor decision for: How to scaffold a repo and add CI,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:21:41.785760
+403,,CLI app,ok,cli,,2025-10-28T22:21:42.056487
+404,,Advisor decision for: plan something,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:21:46.706124
+405,,Advisor decision for: autolearn smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:21:51.391367
+406,,Advisor decision for: autolearn smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:21:56.038981
+407,,Advisor decision (run 430),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:21:56.045202
+408,,Advisor decision for: autolearn smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:22:00.627495
+409,,Advisor decision for: history endpoint smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:22:05.363086
+410,,Advisor decision for: history endpoint smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:22:09.972904
+411,,Advisor decision (run 431),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:22:09.978907
+412,,Advisor decision for: history endpoint smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:22:14.613952
+413,,Advisor decision for: create sample app then improve,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:22:19.288215
+414,,Advisor decision for: create sample app then improve,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:22:23.905121
+415,,Advisor decision (run 432),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:22:23.909115
+416,,Advisor decision for: create sample app then improve,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:22:28.548826
+417,,Advisor decision for: create sample app then improve,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:22:33.201074
+418,,Advisor decision for: create sample app then improve,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:22:38.874210
+419,432,create sample app then improve,no-op,"orchestrator,autolearn,create,sample,app,then,improve",,2025-10-28T22:22:45.774950
+420,,Advisor decision for: hello,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:22:50.430696
+421,,Advisor decision for: retry test goal,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:22:55.085748
+422,,Advisor decision for: retry test goal,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:22:59.703886
+423,,Advisor decision (run 433),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:22:59.709890
+424,,Advisor decision for: create sample app then improve,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:23:04.351010
+425,433,retry test goal,ok,"orchestrator,autolearn,retry,test,goal",,2025-10-28T22:23:05.407731
+426,,Advisor decision for: build a tiny notes API with one POST/GET endpoint,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:23:10.014062
+427,,Advisor decision for: build a tiny notes API with one POST/GET endpoint,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:23:14.663170
+428,,Advisor decision (run 434),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:23:14.669169
+429,,Advisor decision for: build a tiny notes API with one POST/GET endpoint,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:23:19.272482
+430,,Advisor decision for: build a tiny notes API with one POST/GET endpoint,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:23:23.956393
+431,,Advisor decision for: build a tiny notes API with one POST/GET endpoint,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:23:29.614560
+432,,Advisor decision for: build a minimal hello-world app,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:23:34.325301
+433,,Advisor decision for: build a minimal hello-world app,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:23:38.994878
+434,,Advisor decision (run 435),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:23:39.000487
+435,,Advisor decision for: build a minimal hello-world app,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:23:43.616092
+436,,Advisor decision for: steps+summary check,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:23:48.257891
+437,,Advisor decision for: steps+summary check,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:23:52.941859
+438,,Advisor decision (run 436),openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:23:52.946859
+439,,Advisor decision for: steps+summary check,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:23:57.588701
+440,,Advisor decision for: Set up a new repo; write README; add CI,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:24:02.328966
+441,,Advisor decision for: Write tests,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:24:06.997044
+442,,Advisor decision for: rerun smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:25:30.684704
+443,,Advisor decision for: rerun smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:25:35.338432
+444,,Advisor decision (run 437),openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:25:35.342430
+445,,Advisor decision for: rerun smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:25:39.979908
+446,,Advisor decision for: rerun smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:25:44.681087
+447,,Advisor decision for: rerun smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:25:49.315837
+448,,Advisor decision (run 438),openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:25:49.320837
+449,,Advisor decision for: rerun smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:25:53.975320
+450,,Advisor decision for: rerun smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:25:58.677863
+451,,Advisor decision for: rerun smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:26:04.383107
+452,,Advisor decision for: export test,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:26:09.241487
+453,,Advisor decision for: export test,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:26:13.945886
+454,,Advisor decision (run 439),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:26:13.952035
+455,,Advisor decision for: export test,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:26:18.609620
+456,,Advisor decision for: write python code then test it,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:26:23.411696
+457,,Advisor decision for: hello,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:26:28.144813
+458,,Advisor decision for: create a tiny script and print hello,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:26:32.882492
+459,,Advisor decision for: halt after failure,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:26:37.579271
+460,,Advisor decision for: halt after failure,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:26:42.208282
+461,,Advisor decision (run 440),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:26:42.212751
+462,,Advisor decision for: ws runs,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:26:46.869594
+463,,Advisor decision for: ws runs,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:26:51.504564
+464,,Advisor decision (run 441),openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:26:51.511089
+465,,Advisor decision for: ws runs,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:26:56.124558
+466,,Advisor decision for: ws logs,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:27:00.847164
+467,,Advisor decision for: ws logs,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:27:05.447357
+468,,Advisor decision (run 442),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:27:05.453375
+469,,Advisor decision for: ws logs,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:27:10.096798
+470,10101,Web app with FastAPI,web api ok,"fastapi,web",0.5,2025-10-28T22:27:37.282528
+471,20202,FastAPI dashboard,dashboard ok,"fastapi,dashboard",0.7,2025-10-28T22:27:37.292730
+472,10101,Web app with FastAPI,web api ok,"fastapi,web",0.5,2025-10-28T22:28:04.288452
+473,20202,FastAPI dashboard,dashboard ok,"fastapi,dashboard",0.7,2025-10-28T22:28:04.296447
+474,10101,Web app with FastAPI,web api ok,"fastapi,web",0.5,2025-10-28T22:28:25.204864
+475,20202,FastAPI dashboard,dashboard ok,"fastapi,dashboard",0.7,2025-10-28T22:28:25.215206
+476,10101,Web app with FastAPI,web api ok,"fastapi,web",0.5,2025-10-28T22:28:37.358274
+477,20202,FastAPI dashboard,dashboard ok,"fastapi,dashboard",0.7,2025-10-28T22:28:37.366275
+478,10101,Web app with FastAPI,web api ok,"fastapi,web",0.5,2025-10-28T22:28:58.734796
+479,20202,FastAPI dashboard,dashboard ok,"fastapi,dashboard",0.7,2025-10-28T22:28:58.742789
+480,,Advisor decision for: build fastapi app,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:29:08.258133
+481,,Advisor decision for: build fastapi app,openai/gpt-4o (strategist),"advisor_decision,strategist",,2025-10-28T22:29:08.777269
+482,,Advisor decision for: analytics smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:29:13.403736
+483,,Advisor decision for: analytics smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:29:18.038722
+484,,Advisor decision (run 443),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:29:18.042508
+485,,Advisor decision for: analytics smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:29:22.684972
+486,,Advisor decision for: feedback smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:29:29.547595
+487,,Advisor decision for: feedback smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:29:34.170021
+488,,Advisor decision (run 444),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:29:34.174026
+489,,Advisor decision for: feedback smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:29:38.770434
+490,,Advisor decision for: builder feedback memory check,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:29:43.524039
+491,,Advisor decision for: builder feedback memory check,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:29:48.229883
+492,,Advisor decision for: hello,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:29:52.869776
+493,,Advisor decision for: another goal,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:29:57.556163
+494,,Advisor decision for: builder should improve score by re-run,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:30:02.187672
+495,,Advisor decision for: builder should improve score by re-run,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:30:06.920514
+496,55501,Build web,ok,web,,2025-10-28T22:30:06.956323
+497,,Another web,ok,web,,2025-10-28T22:30:06.964716
+498,,Advisor decision for: dashboard-runs smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:30:11.844380
+499,,Advisor decision for: dashboard-runs smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:30:16.464015
+500,,Advisor decision (run 445),openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:30:16.469021
+501,,Advisor decision for: dashboard-runs smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:30:21.091659
+502,,Advisor decision for: dashboard-summary smoke,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:30:25.780682
+503,,Advisor decision for: dashboard-summary smoke,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:30:30.406679
+504,,Advisor decision (run 446),openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:30:30.412680
+505,,Advisor decision for: dashboard-summary smoke,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:30:35.039381
+506,,Advisor decision for: deploy a tiny app,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:30:39.861583
+507,,Advisor decision for: registry test,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:30:51.635113
+508,,Advisor decision for: hello world web,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:31:04.874712
+509,,Advisor decision for: hello world web,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:31:05.475587
+510,,Advisor decision (run 447),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:31:05.481587
+511,,Advisor decision for: hello world web,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:31:06.012225
+512,,Advisor decision for: evaluation memory feedback smoke,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:31:10.802364
+513,,Advisor decision for: hello,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:31:15.510004
+514,,Advisor decision for: email me at test@example.com with key sk-abc1234567890xxxxx,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:31:20.242403
+515,,Exportable,S,x,0.1,2025-10-28T22:31:20.633016
+516,,Advisor decision for: Write a testable function; add unit tests,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:31:25.422579
+517,,Build FastAPI,web,"fastapi,web",,2025-10-28T22:31:25.461183
+518,,Write CLI,cli,cli,,2025-10-28T22:31:25.466577
+519,,Web App,build app,web,,2025-10-28T22:31:25.490916
+520,,CLI Tool,command line,cli,,2025-10-28T22:31:25.496915
+521,10101,Web app with FastAPI,web api ok,"fastapi,web",0.5,2025-10-28T22:31:25.523429
+522,20202,FastAPI dashboard,dashboard ok,"fastapi,dashboard",0.7,2025-10-28T22:31:25.530429
+523,,Advisor decision for: How to scaffold a repo and add CI,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:31:30.233865
+525,,CLI app,ok,cli,,2025-10-28T22:31:30.510883
+526,,Advisor decision for: plan something,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:31:35.201109
+527,,Advisor decision for: autolearn smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:31:39.819969
+528,,Advisor decision for: autolearn smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:31:44.459078
+529,,Advisor decision (run 448),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:31:44.464077
+530,,Advisor decision for: autolearn smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:31:49.063968
+531,,Advisor decision for: history endpoint smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:31:53.803284
+532,,Advisor decision for: history endpoint smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:31:58.415947
+533,,Advisor decision (run 449),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:31:58.421944
+534,,Advisor decision for: history endpoint smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:32:03.050238
+535,,Advisor decision for: create sample app then improve,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:32:07.740987
+536,,Advisor decision for: create sample app then improve,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:32:12.363031
+537,,Advisor decision (run 450),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:32:12.368546
+538,,Advisor decision for: create sample app then improve,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:32:16.952445
+539,,Advisor decision for: create sample app then improve,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:32:21.650836
+540,,Advisor decision for: create sample app then improve,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:32:27.359212
+541,450,create sample app then improve,no-op,"orchestrator,autolearn,create,sample,app,then,improve",,2025-10-28T22:32:34.261479
+542,,Advisor decision for: hello,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:32:38.891133
+543,,Advisor decision for: retry test goal,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:32:43.559686
+544,,Advisor decision for: retry test goal,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:32:48.212981
+545,,Advisor decision (run 451),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:32:48.219366
+546,,Advisor decision for: create sample app then improve,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:32:52.905824
+547,451,retry test goal,ok,"orchestrator,autolearn,retry,test,goal",,2025-10-28T22:32:53.963006
+548,,Advisor decision for: build a tiny notes API with one POST/GET endpoint,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:32:58.571122
+549,,Advisor decision for: build a tiny notes API with one POST/GET endpoint,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:33:03.249679
+550,,Advisor decision (run 452),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:33:03.255678
+551,,Advisor decision for: build a tiny notes API with one POST/GET endpoint,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:33:07.913310
+552,,Advisor decision for: build a tiny notes API with one POST/GET endpoint,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:33:12.560795
+553,,Advisor decision for: build a tiny notes API with one POST/GET endpoint,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:33:18.197964
+554,,Advisor decision for: build a minimal hello-world app,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:33:22.882444
+555,,Advisor decision for: build a minimal hello-world app,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:33:27.525413
+556,,Advisor decision (run 453),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:33:27.532421
+557,,Advisor decision for: build a minimal hello-world app,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:33:32.162199
+558,,Advisor decision for: steps+summary check,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:33:36.867286
+559,,Advisor decision for: steps+summary check,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:33:41.516805
+560,,Advisor decision (run 454),openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:33:41.523562
+561,,Advisor decision for: steps+summary check,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:33:46.122307
+562,,Advisor decision for: Set up a new repo; write README; add CI,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:33:50.768444
+563,,Advisor decision for: Write tests,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:33:55.408684
+564,,Advisor decision for: rerun smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:34:51.787729
+565,,Advisor decision for: rerun smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:34:56.411403
+566,,Advisor decision (run 455),openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:34:56.418476
+567,,Advisor decision for: rerun smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:35:01.048360
+568,,Advisor decision for: rerun smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:35:05.705141
+569,,Advisor decision for: rerun smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:35:10.329769
+570,,Advisor decision (run 456),openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:35:10.334771
+571,,Advisor decision for: rerun smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:35:14.975776
+572,,Advisor decision for: rerun smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:35:19.649078
+573,,Advisor decision for: rerun smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:35:25.310452
+574,,Advisor decision for: export test,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:35:30.089875
+575,,Advisor decision for: export test,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:35:34.730823
+576,,Advisor decision (run 457),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:35:34.737523
+577,,Advisor decision for: export test,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:35:39.364549
+578,,Advisor decision for: write python code then test it,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:35:44.172069
+579,,Advisor decision for: hello,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:35:48.836984
+580,,Advisor decision for: create a tiny script and print hello,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:35:53.535518
+581,,Advisor decision for: halt after failure,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:35:58.226993
+582,,Advisor decision for: halt after failure,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:36:02.844021
+583,,Advisor decision (run 458),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:36:02.850016
+584,,Advisor decision for: ws runs,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:36:07.503013
+585,,Advisor decision for: ws runs,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:36:12.141788
+586,,Advisor decision (run 459),openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:36:12.148353
+587,,Advisor decision for: ws runs,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:36:16.760851
+588,,Advisor decision for: ws logs,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:36:21.447522
+589,,Advisor decision for: ws logs,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:36:26.102980
+590,,Advisor decision (run 460),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:36:26.107956
+591,,Advisor decision for: ws logs,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:36:30.705406
+592,,Advisor decision for: build fastapi app,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:37:02.168190
+593,,Advisor decision for: build fastapi app,openai/gpt-4o (strategist),"advisor_decision,strategist",,2025-10-28T22:37:02.698688
+594,,Advisor decision for: analytics smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:37:07.332945
+595,,Advisor decision for: analytics smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:37:11.954045
+596,,Advisor decision (run 461),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:37:11.959295
+597,,Advisor decision for: analytics smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:37:16.578117
+598,,Advisor decision for: feedback smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:37:21.460312
+599,,Advisor decision for: feedback smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:37:26.128624
+600,,Advisor decision (run 462),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:37:26.134617
+601,,Advisor decision for: feedback smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:37:30.786896
+602,,Advisor decision for: builder feedback memory check,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:37:35.490611
+603,,Advisor decision for: builder feedback memory check,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:37:40.183541
+604,,Advisor decision for: hello,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:37:44.901900
+605,,Advisor decision for: another goal,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:37:49.545902
+606,,Advisor decision for: builder should improve score by re-run,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:37:54.210822
+607,,Advisor decision for: builder should improve score by re-run,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:37:58.917281
+608,55501,Build web,ok,web,,2025-10-28T22:37:58.955263
+609,,Another web,ok,web,,2025-10-28T22:37:58.961503
+610,,Advisor decision for: dashboard-runs smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:38:03.818271
+611,,Advisor decision for: dashboard-runs smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:38:08.398886
+612,,Advisor decision (run 463),openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:38:08.404885
+613,,Advisor decision for: dashboard-runs smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:38:13.041253
+614,,Advisor decision for: dashboard-summary smoke,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:38:17.697561
+615,,Advisor decision for: dashboard-summary smoke,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:38:22.412721
+616,,Advisor decision (run 464),openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:38:22.418723
+617,,Advisor decision for: dashboard-summary smoke,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:38:27.057986
+618,,Advisor decision for: deploy a tiny app,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:38:31.880511
+619,,Advisor decision for: registry test,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:38:43.637924
+620,,Advisor decision for: hello world web,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:38:56.789301
+621,,Advisor decision for: hello world web,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:38:57.342026
+622,,Advisor decision (run 465),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:38:57.348030
+623,,Advisor decision for: hello world web,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:38:57.878301
+624,,Advisor decision for: evaluation memory feedback smoke,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:39:02.626044
+625,,Advisor decision for: hello,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:39:07.299570
+626,,Advisor decision for: email me at test@example.com with key sk-abc1234567890xxxxx,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:39:12.037528
+627,,Exportable,S,x,0.1,2025-10-28T22:39:12.422181
+628,,Advisor decision for: Write a testable function; add unit tests,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:39:17.314827
+629,,Build FastAPI,web,"fastapi,web",,2025-10-28T22:39:17.351237
+630,,Write CLI,cli,cli,,2025-10-28T22:39:17.359241
+631,,Web App,build app,web,,2025-10-28T22:39:17.380652
+632,,CLI Tool,command line,cli,,2025-10-28T22:39:17.388349
+633,10101,Web app with FastAPI,web api ok,"fastapi,web",0.5,2025-10-28T22:39:17.412649
+634,20202,FastAPI dashboard,dashboard ok,"fastapi,dashboard",0.7,2025-10-28T22:39:17.418650
+635,,Advisor decision for: How to scaffold a repo and add CI,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:39:22.070421

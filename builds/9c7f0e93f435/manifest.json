@@ -1,0 +1,29 @@
+{
+  "build_id": "9c7f0e93f435",
+  "timestamp": "2025-10-28T22:13:13Z",
+  "pid": 5480,
+  "version": "v3.2-hybrid-advisor",
+  "goal": "Static page",
+  "domain": "web",
+  "blueprint": {
+    "name": "app",
+    "title": "app",
+    "description": "Static page",
+    "goal": "Static page"
+  },
+  "options": {},
+  "outputs_dir": "builds\\9c7f0e93f435\\outputs",
+  "files": [
+    "app\\index.html",
+    "app\\README.md"
+  ],
+  "warnings": [],
+  "evaluation": {
+    "passed": true,
+    "summary": "index.html and README present.",
+    "artifacts": {
+      "path": "builds\\9c7f0e93f435\\outputs\\app\\index.html",
+      "readme": true
+    }
+  }
+}

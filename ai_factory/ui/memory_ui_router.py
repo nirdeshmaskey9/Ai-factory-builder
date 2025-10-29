@@ -27,8 +27,9 @@ def memory_index(request: Request):
     s = memory_stats()
     try:
         return templates.TemplateResponse(
+            request,
             "dashboard/memory/index.html",
-            {"request": request, "q": q, "limit": limit, "results": results, "stats": s},
+            {"q": q, "limit": limit, "results": results, "stats": s},
         )
     except Exception as e:
         print(f"[ERROR] Memory dashboard render: {e}")
@@ -57,8 +58,9 @@ def memory_detail(request: Request, id: int = Path(..., ge=1)):
     from ai_factory.memory.memory_agent import recall_for_run
     related = recall_for_run(row.run_id, limit=6) if row.run_id else []
     return templates.TemplateResponse(
+        request,
         "dashboard/memory/detail.html",
-        {"request": request, "entry": entry, "related": related},
+        {"entry": entry, "related": related},
     )
 
 
@@ -67,16 +69,18 @@ def memory_insights(request: Request):
     from ai_factory.memory.memory_agent import stats as memory_stats
     s = memory_stats()
     return templates.TemplateResponse(
+        request,
         "dashboard/memory/insights.html",
-        {"request": request, "stats": s},
+        {"stats": s},
     )
 
 
 @router.get("/memory/timeline")
 def memory_timeline(request: Request):
     return templates.TemplateResponse(
+        request,
         "dashboard/memory/timeline.html",
-        {"request": request},
+        {},
     )
 
 
@@ -85,6 +89,7 @@ def memory_context_preview(request: Request, run_id: int = Path(..., ge=1)):
     from ai_factory.memory.memory_agent import recall_for_run
     rows = recall_for_run(run_id, limit=3)
     return templates.TemplateResponse(
+        request,
         "dashboard/memory/components/context_preview.html",
-        {"request": request, "items": rows, "run_id": run_id},
+        {"items": rows, "run_id": run_id},
     )

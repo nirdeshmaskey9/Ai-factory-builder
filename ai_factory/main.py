@@ -39,6 +39,9 @@ from ai_factory.ui.feedback_router import router as feedback_router
 from ai_factory.ui.ws_router import router as ws_router
 from starlette.staticfiles import StaticFiles
 from ai_factory.routers.rerun_router import router as rerun_router
+from ai_factory.advisor.advisor_router import router as advisor_router
+from ai_factory.advisor.advisor_service import startup_probe as advisor_startup_probe
+from ai_factory.advisor.trio_manager import LocalTrioManager
 
 
 @asynccontextmanager
@@ -122,6 +125,11 @@ async def lifespan(app: FastAPI):
             print(f"? [FAIL] {'; '.join(crit)}")
     except Exception as e:
         logging.getLogger(__name__).warning(f"Startup audit failed: {e}")
+    # Advisor local trio health probe (non-fatal)
+    try:
+        advisor_startup_probe()
+    except Exception:
+        pass
     # Start watchdog loop
     try:
         start_watchdog()
@@ -130,6 +138,28 @@ async def lifespan(app: FastAPI):
     # Config validation (warnings only)
     try:
         validate_config()
+    except Exception:
+        pass
+    # Trio manager (auto-launch + monitor)
+    try:
+        tm = LocalTrioManager()
+        app.state.trio_manager = tm
+        tm.start()
+    except Exception:
+        pass
+    # Additional startup self-diagnostics (migrated from deprecated on_event)
+    try:
+        from ai_factory.system.health_router import full_health_check
+        health = full_health_check()
+        if health.get("status") != "healthy":
+            print("?? Warning: Startup health degraded:", health.get("summary"))
+        else:
+            print("?? Full health check passed on startup.")
+    except Exception as e:
+        print(f"[WARN] Startup diagnostics failed: {e}")
+    # Advisor local trio health probe (non-fatal)
+    try:
+        advisor_startup_probe()
     except Exception:
         pass
     yield
@@ -212,6 +242,7 @@ app.include_router(feedback_router)
 app.include_router(ws_router)
 app.mount("/static", StaticFiles(directory="ai_factory/ui/static"), name="static")
 app.include_router(rerun_router)
+app.include_router(advisor_router)
 print("?? Deployer Health route registered at /deployer/health")
 
 
@@ -221,18 +252,6 @@ def root():
     return {"message": "AI Factory Builder v1.1 - Self-Healing Foundation", "docs": "/docs"}
 
 
-# Startup self diagnostics
-@app.on_event("startup")
-async def run_self_diagnostics():
-    try:
-        from ai_factory.system.health_router import full_health_check
-        health = full_health_check()
-        if health.get("status") != "healthy":
-            print("?? Warning: Startup health degraded:", health.get("summary"))
-        else:
-            print("?? Full health check passed on startup.")
-    except Exception as e:
-        print(f"[WARN] Startup diagnostics failed: {e}")
 
 
 @app.get("/health")
@@ -274,5 +293,13 @@ if __name__ == "__main__":
         print(f"✅ Port {port} selected — Factory online")
     except Exception:
         print(f"[OK] Port {port} selected - Factory online")
+
+    # Propagate chosen port so internal audits use the right base URL
+    try:
+        import os
+        os.environ["AI_FACTORY_PORT"] = str(port)
+        os.environ.setdefault("AI_FACTORY_HOST", settings.host or "127.0.0.1")
+    except Exception:
+        pass
 
     uvicorn.run(app, host=settings.host or "127.0.0.1", port=port, log_level=settings.uvicorn_log_level)

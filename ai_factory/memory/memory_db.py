@@ -4,7 +4,7 @@ import os
 from datetime import datetime, timezone
 from typing import Optional
 
-from sqlalchemy import create_engine, Column, Integer, String, Text, DateTime, select, Float, LargeBinary, ForeignKey
+from sqlalchemy import create_engine, Column, Integer, String, Text, DateTime, select, Float, LargeBinary, ForeignKey, Boolean
 from sqlalchemy.orm import declarative_base, sessionmaker, Session
 from sqlalchemy.exc import OperationalError
 import json
@@ -101,6 +101,22 @@ class MemoryEmbedding(Base):
     entry_id = Column(Integer, ForeignKey("memory_entries.id"), index=True)
     vector = Column(LargeBinary, nullable=False)
     updated_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), index=True)
+
+
+# Phase 3.2 - Model usage metrics
+class ModelUsage(Base):
+    __tablename__ = "model_usage"
+    id = Column(Integer, primary_key=True)
+    run_id = Column(String, nullable=True)
+    step = Column(Text, nullable=True)
+    role = Column(Text, nullable=True)
+    backend = Column(Text, nullable=False)
+    model = Column(Text, nullable=False)
+    latency_ms = Column(Integer, nullable=True)
+    tokens_in = Column(Integer, nullable=True)
+    tokens_out = Column(Integer, nullable=True)
+    success = Column(Boolean, nullable=True)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), index=True)
 
 
 def init_db() -> None:

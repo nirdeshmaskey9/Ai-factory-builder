@@ -12,8 +12,35 @@
     </div>
     <div class="mt-3">
       <a class="inline-block bg-teal-600 text-white px-3 py-1 rounded hover:bg-teal-700" href="/dashboard/runs">View Runs</a>
-    </div>
   </div>
+  <div class="bg-white shadow rounded p-4">
+    <h2 class="text-lg font-bold mb-2">Local Trio</h2>
+    <div id="trio-status" class="text-sm space-y-1">
+      <div>🧠 Strategist – <span id="trio-strategist">checking…</span></div>
+      <div>🧩 Memory – <span id="trio-memory">checking…</span></div>
+      <div>⚙️ Executor – <span id="trio-executor">checking…</span></div>
+    </div>
+    <script>
+      async function refreshTrio(){
+        try{
+          const r = await fetch('/advisor/trio_health');
+          const j = await r.json();
+          const roles = j.roles || {};
+          const s = roles.strategist && (roles.strategist.healthy ?? roles.strategist) ? 'Healthy' : 'Down';
+          const m = roles.memory && (roles.memory.healthy ?? roles.memory) ? 'Healthy' : 'Down';
+          const e = roles.executor && (roles.executor.healthy ?? roles.executor) ? 'Healthy' : 'Down';
+          document.getElementById('trio-strategist').textContent = s;
+          document.getElementById('trio-memory').textContent = m;
+          document.getElementById('trio-executor').textContent = e;
+        }catch(err){ /* ignore */ }
+      }
+      document.addEventListener('DOMContentLoaded', ()=>{
+        refreshTrio();
+        setInterval(refreshTrio, 30000);
+      });
+    </script>
+  </div>
+</div>
   <div class="bg-white shadow rounded p-4">
     <h2 class="text-lg font-bold mb-2">Built Apps</h2>
     <div class="overflow-auto">

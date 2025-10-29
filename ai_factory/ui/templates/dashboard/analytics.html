@@ -10,6 +10,27 @@
   {% include "dashboard/components/chart_block.html" %}
 </div>
 
+<div class="mt-6 bg-white shadow rounded p-4">
+  <h2 class="text-lg font-bold mb-2">Model Mix</h2>
+  <div id="model-mix" class="text-sm overflow-auto"></div>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      try{
+        const r = await fetch('/analytics/models');
+        const j = await r.json();
+        const el = document.getElementById('model-mix');
+        const rows = j.by_model || [];
+        let html = '<table class="min-w-full text-sm"><thead><tr class="text-left border-b"><th class="py-1">Backend</th><th class="py-1">Model</th><th class="py-1">Role</th><th class="py-1">Count</th></tr></thead><tbody>';
+        for(const row of rows){
+          html += `<tr class="border-b"><td class="py-1">${row.backend}</td><td class="py-1">${row.model}</td><td class="py-1">${row.role}</td><td class="py-1">${row.count}</td></tr>`;
+        }
+        html += '</tbody></table>';
+        el.innerHTML = html;
+      }catch(e){ if(window.toast) toast('Model Mix load error','error'); }
+    });
+  </script>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
   // Minimal bootstrap - analytics.js will populate charts
@@ -18,4 +39,3 @@
   });
   </script>
 {% endblock %}
-

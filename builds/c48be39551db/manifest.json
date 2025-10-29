@@ -1,0 +1,29 @@
+{
+  "build_id": "c48be39551db",
+  "timestamp": "2025-10-28T20:19:15Z",
+  "pid": 44544,
+  "version": "v3.1.1-memory-admin",
+  "goal": "x",
+  "domain": "mobile",
+  "blueprint": {
+    "name": "app",
+    "title": "app",
+    "description": "x",
+    "goal": "x"
+  },
+  "options": {},
+  "outputs_dir": "builds\\c48be39551db\\outputs",
+  "files": [
+    "app\\app.py",
+    "app\\README.md"
+  ],
+  "warnings": [],
+  "evaluation": {
+    "passed": true,
+    "summary": "CLI entry detected (argparse: True).",
+    "artifacts": {
+      "entry": "builds\\c48be39551db\\outputs\\app\\app.py",
+      "argparse": true
+    }
+  }
+}

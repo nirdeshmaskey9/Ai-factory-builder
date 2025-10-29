@@ -1,0 +1,10 @@
+{
+  "request_id": "y",
+  "goal": "halt after failure",
+  "plan": {
+    "steps": []
+  },
+  "context": [],
+  "result": "bad",
+  "status": "fail"
+}

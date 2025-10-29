@@ -1,0 +1,29 @@
+{
+  "build_id": "815e0fd89358",
+  "timestamp": "2025-10-29T00:00:17Z",
+  "pid": 41896,
+  "version": "v3.2.1-local-trio-stabilization",
+  "goal": "x",
+  "domain": "mobile",
+  "blueprint": {
+    "name": "app",
+    "title": "app",
+    "description": "x",
+    "goal": "x"
+  },
+  "options": {},
+  "outputs_dir": "builds\\815e0fd89358\\outputs",
+  "files": [
+    "app\\app.py",
+    "app\\README.md"
+  ],
+  "warnings": [],
+  "evaluation": {
+    "passed": true,
+    "summary": "CLI entry detected (argparse: True).",
+    "artifacts": {
+      "entry": "builds\\815e0fd89358\\outputs\\app\\app.py",
+      "argparse": true
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "run_id": 451,
+  "status": "success",
+  "tasks_completed": 0,
+  "attempts": 2,
+  "duration_sec": 15.021433591842651,
+  "advisor_decision": {
+    "backend": "local",
+    "role": "strategist",
+    "model": "mistral:7b-q4_K_M",
+    "url": "http://127.0.0.1:11434",
+    "reason": "local strategist available; privacy_strict=True"
+  }
+}

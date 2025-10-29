@@ -1,0 +1,31 @@
+{
+  "build_id": "d777b1578f8e",
+  "timestamp": "2025-10-28T22:08:33Z",
+  "pid": 35088,
+  "version": "v3.2-hybrid-advisor",
+  "goal": "Create a FastAPI app with /hello",
+  "domain": "web",
+  "blueprint": {
+    "name": "app",
+    "title": "app",
+    "description": "Create a FastAPI app with /hello",
+    "goal": "Create a FastAPI app with /hello"
+  },
+  "options": {},
+  "outputs_dir": "builds\\d777b1578f8e\\outputs",
+  "files": [
+    "app\\app.py",
+    "app\\Dockerfile",
+    "app\\README.md"
+  ],
+  "warnings": [],
+  "evaluation": {
+    "passed": true,
+    "summary": "/hello: 200; /health: 200",
+    "artifacts": {
+      "files": [
+        "app.py"
+      ]
+    }
+  }
+}

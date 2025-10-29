@@ -1,0 +1,14 @@
+{
+  "run_id": 464,
+  "status": "failed",
+  "tasks_completed": 0,
+  "attempts": 1,
+  "duration_sec": 13.98275113105774,
+  "advisor_decision": {
+    "backend": "openai",
+    "role": "memory",
+    "model": "gpt-4o",
+    "url": "",
+    "reason": "fallback to cloud"
+  }
+}

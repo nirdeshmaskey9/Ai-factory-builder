@@ -63,6 +63,19 @@ def run(goal: str, max_attempts: Optional[int] = None, deploy: bool = False) -> 
         notes="orchestrator started",
     )
 
+    # Advisor decision at start (non-fatal); log to memory
+    advisor_decision = None
+    try:
+        from ai_factory.advisor.advisor_service import route_task as advisor_route
+        advisor_decision = advisor_route(goal, domain="code", hint=None, topk=3)
+        try:
+            from ai_factory.memory.memory_agent import store_memory as _store
+            _store(None, goal=f"Advisor decision (run {run_id})", summary=f"{advisor_decision.get('backend')}/{advisor_decision.get('model')} ({advisor_decision.get('role')})", tags=["advisor_decision", str(advisor_decision.get('role'))], score=None)
+        except Exception:
+            pass
+    except Exception:
+        advisor_decision = None
+
     # Ensure log directories
     try:
         os.makedirs(os.path.join("logs", "orchestrator"), exist_ok=True)
@@ -229,6 +242,28 @@ def run(goal: str, max_attempts: Optional[int] = None, deploy: bool = False) -> 
     snippet = make_orch_snippet(goal, chosen_model, float(score if 'score' in locals() else 0.0), status, endpoint)
     add_to_memory(f"orch:{req_id}", snippet)
 
+    # Auto-learn into Memory on successful outcome
+    try:
+        if status in ("success", "deployed"):
+            from ai_factory.memory.memory_agent import auto_learn_from_run
+            auto_learn_from_run(run_id=run_id, goal=goal, summary=dbg_out or goal, tags=["orchestrator","autolearn"])
+            try:
+                log_step(run_id, "memory_autolearn", "ok")
+                # Also append a friendly note into run report file
+                report_path = os.path.join("logs", "orchestrator", f"run_{run_id}.json")
+                if os.path.exists(report_path):
+                    import json as _json
+                    with open(report_path, "r", encoding="utf-8") as f:
+                        _j = _json.load(f)
+                    _j["memory_autolearned"] = True
+                    _j["note"] = f"\ud83e\udde0 Memory auto-learned from run {run_id}"
+                    with open(report_path, "w", encoding="utf-8") as f:
+                        _json.dump(_j, f, ensure_ascii=False, indent=2)
+            except Exception:
+                pass
+    except Exception:
+        pass
+
     # Additional adaptive evaluation memory tag (Phase 10.1)
     try:
         from ai_factory.services.evaluator_v2_service import get_average_reward
@@ -249,6 +284,7 @@ def run(goal: str, max_attempts: Optional[int] = None, deploy: bool = False) -> 
         "tasks_completed": 0,
         "attempts": attempts,
         "duration_sec": duration,
+        "advisor_decision": advisor_decision,
     }
     report_path = os.path.join("logs", "orchestrator", f"run_{run_id}.json")
     try:

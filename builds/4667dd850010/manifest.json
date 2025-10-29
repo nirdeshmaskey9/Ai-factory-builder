@@ -1,0 +1,29 @@
+{
+  "build_id": "4667dd850010",
+  "timestamp": "2025-10-28T20:18:54Z",
+  "pid": 44544,
+  "version": "v3.1.1-memory-admin",
+  "goal": "Landing page",
+  "domain": "web",
+  "blueprint": {
+    "name": "app",
+    "title": "app",
+    "description": "Landing page",
+    "goal": "Landing page"
+  },
+  "options": {},
+  "outputs_dir": "builds\\4667dd850010\\outputs",
+  "files": [
+    "app\\index.html",
+    "app\\README.md"
+  ],
+  "warnings": [],
+  "evaluation": {
+    "passed": true,
+    "summary": "index.html and README present.",
+    "artifacts": {
+      "path": "builds\\4667dd850010\\outputs\\app\\index.html",
+      "readme": true
+    }
+  }
+}

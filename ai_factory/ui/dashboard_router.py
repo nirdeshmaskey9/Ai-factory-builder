@@ -50,7 +50,7 @@ def _list_builds() -> List[Dict[str, Any]]:
 def dashboard_index(request: Request):
     info = get_factory_info()
     builds = _list_builds()
-    return templates.TemplateResponse("dashboard/index.html", {"request": request, "factory": info, "builds": builds})
+    return templates.TemplateResponse(request, "dashboard/index.html", {"factory": info, "builds": builds})
 
 
 @router.get("/runs")
@@ -108,7 +108,7 @@ def dashboard_runs(request: Request):
             w.writerow({k: row.get(k) for k in fieldnames})
         return PlainTextResponse(buf.getvalue(), media_type='text/csv')
 
-    return templates.TemplateResponse("dashboard/runs.html", {"request": request, "runs": view, "q": q, "status": status, "sort": sort, "limit": limit})
+    return templates.TemplateResponse(request, "dashboard/runs.html", {"runs": view, "q": q, "status": status, "sort": sort, "limit": limit})
 
 
 @router.get("/summary/{run_id}")
@@ -117,12 +117,12 @@ def dashboard_summary(request: Request, run_id: int = Path(..., ge=1)):
     if summary.get("not_found"):
         raise HTTPException(status_code=404, detail="run not found")
     pretty = json.dumps(summary, ensure_ascii=False, indent=2)
-    return templates.TemplateResponse("dashboard/summary.html", {"request": request, "run_id": run_id, "summary": summary, "pretty": pretty})
+    return templates.TemplateResponse(request, "dashboard/summary.html", {"run_id": run_id, "summary": summary, "pretty": pretty})
 
 
 @router.get("/analytics")
 def dashboard_analytics(request: Request):
-    return templates.TemplateResponse("dashboard/analytics.html", {"request": request})
+    return templates.TemplateResponse(request, "dashboard/analytics.html", {})
 
 
 @router.get("/launch/{build_id}")

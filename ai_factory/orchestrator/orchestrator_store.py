@@ -139,6 +139,8 @@ def get_run_summary(run_id: int) -> Dict[str, Any]:
     # Read report JSON for duration
     run_report = _read_json(run_report_path) or {}
     base["run"]["duration_sec"] = run_report.get("duration_sec")
+    if "advisor_decision" in run_report:
+        base["run"]["advisor_decision"] = run_report.get("advisor_decision")
     base["run"]["report_path"] = run_report_path if os.path.exists(run_report_path) else None
 
     # Steps

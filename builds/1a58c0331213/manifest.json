@@ -1,0 +1,29 @@
+{
+  "build_id": "1a58c0331213",
+  "timestamp": "2025-10-28T22:31:04Z",
+  "pid": 34236,
+  "version": "v3.2-hybrid-advisor",
+  "goal": "x",
+  "domain": "mobile",
+  "blueprint": {
+    "name": "app",
+    "title": "app",
+    "description": "x",
+    "goal": "x"
+  },
+  "options": {},
+  "outputs_dir": "builds\\1a58c0331213\\outputs",
+  "files": [
+    "app\\app.py",
+    "app\\README.md"
+  ],
+  "warnings": [],
+  "evaluation": {
+    "passed": true,
+    "summary": "CLI entry detected (argparse: True).",
+    "artifacts": {
+      "entry": "builds\\1a58c0331213\\outputs\\app\\app.py",
+      "argparse": true
+    }
+  }
+}

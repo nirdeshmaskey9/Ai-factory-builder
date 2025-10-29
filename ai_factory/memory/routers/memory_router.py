@@ -13,7 +13,7 @@ from ai_factory.memory.memory_agent import (
 from ai_factory.memory.memory_summarizer import summarize_run
 from typing import Optional, List, Dict
 from fastapi.responses import JSONResponse, PlainTextResponse
-from datetime import datetime
+from datetime import datetime, timezone
 import os, json, csv
 from sqlalchemy import select, func
 
@@ -160,7 +160,7 @@ def delete_memory(id: int):
 def export_memory(fmt: str = Query("json", pattern="^(json|csv)$")):
     from ai_factory.memory.memory_db import SessionLocal, MemoryEntry
     os.makedirs("ai_factory/data/exports", exist_ok=True)
-    ts = datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
+    ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     path = os.path.join("ai_factory/data/exports", f"memory_{ts}.{fmt}")
     with SessionLocal() as session:
         rows = list(session.scalars(select(MemoryEntry).where(MemoryEntry.deleted == 0)))

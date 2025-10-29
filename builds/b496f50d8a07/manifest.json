@@ -1,0 +1,29 @@
+{
+  "build_id": "b496f50d8a07",
+  "timestamp": "2025-10-29T00:32:56Z",
+  "pid": 47848,
+  "version": "v3.2.2-local-trio-fix",
+  "goal": "Landing page",
+  "domain": "web",
+  "blueprint": {
+    "name": "app",
+    "title": "app",
+    "description": "Landing page",
+    "goal": "Landing page"
+  },
+  "options": {},
+  "outputs_dir": "builds\\b496f50d8a07\\outputs",
+  "files": [
+    "app\\index.html",
+    "app\\README.md"
+  ],
+  "warnings": [],
+  "evaluation": {
+    "passed": true,
+    "summary": "index.html and README present.",
+    "artifacts": {
+      "path": "builds\\b496f50d8a07\\outputs\\app\\index.html",
+      "readme": true
+    }
+  }
+}

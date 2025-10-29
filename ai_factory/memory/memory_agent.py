@@ -5,7 +5,7 @@ from sqlalchemy import text
 from pathlib import Path
 import time
 from typing import List, Dict, Optional, Tuple
-from datetime import datetime
+from datetime import datetime, timezone
 
 from sqlalchemy import select, func, and_, or_, desc
 
@@ -142,8 +142,25 @@ def recall_for_run(run_id: int, limit: int = 10) -> List[Dict]:
             rec = r.created_at.timestamp() if getattr(r, "created_at", None) else 0.0
             return overlap * 10.0 + sc + rec * 1e-9
 
-        rows.sort(key=rank, reverse=True)
-        rows = rows[: int(limit or 10)]
+        # Prefer candidates that share at least one tag; if none, fall back to all
+        with_overlap = [r for r in rows if len(set(_split_tags(r.tags)) & keytags) > 0]
+        cand = with_overlap if with_overlap else rows
+        cand.sort(key=rank, reverse=True)
+        # Ensure newest overlaps are represented first
+        try:
+            recent = sorted(with_overlap, key=lambda r: (r.created_at or 0), reverse=True)
+        except Exception:
+            recent = with_overlap
+        ordered: list[MemoryEntry] = []
+        for r in recent[:3]:
+            if r not in ordered:
+                ordered.append(r)
+        for r in cand:
+            if len(ordered) >= int(limit or 10):
+                break
+            if r not in ordered:
+                ordered.append(r)
+        rows = ordered[: int(limit or 10)]
         out = [
             {
                 "id": r.id,
@@ -176,15 +193,18 @@ def stats() -> Dict[str, object]:
         # recent 7 days
         # SQLite lacks timezone; compare ISO timestamps via datetime in Python
         rows = list(session.scalars(select(MemoryEntry).where(MemoryEntry.deleted == 0)))
-        now = datetime.utcnow()  # type: ignore
+        now = datetime.now(timezone.utc)
         recent = 0
         last_created = None
         scores: List[float] = []
         tag_counts: Dict[str, int] = {}
         for r in rows:
             if r.created_at:
-                last_created = max(last_created, r.created_at) if last_created else r.created_at
-                if (now - r.created_at).days <= 7:
+                dt = r.created_at
+                if dt.tzinfo is None:
+                    dt = dt.replace(tzinfo=timezone.utc)
+                last_created = max(last_created, dt) if last_created else dt
+                if (now - dt).days <= 7:
                     recent += 1
             if r.score is not None:
                 try:
@@ -327,9 +347,19 @@ def _tag_overlap_score(query: str, tags_csv: str) -> float:
 
 
 def rank_memories(query: str, rows: List[Dict]) -> List[Dict]:
+    import os
+    def _w(name: str, default: float) -> float:
+        try:
+            return float(os.getenv(name, str(default)))
+        except Exception:
+            return default
+    W_SEM = _w('AI_FACTORY_MEMORY_WEIGHT_SEMANTIC', 0.6)
+    W_TAG = _w('AI_FACTORY_MEMORY_WEIGHT_TAG', 0.25)
+    W_REC = _w('AI_FACTORY_MEMORY_WEIGHT_RECENCY', 0.15)
+
     qvec = _hash_vector(query or "")
     scored: List[Tuple[float, Dict]] = []
-    now = datetime.now()
+    now = datetime.now(timezone.utc)
     for r in rows:
         # compute
         try:
@@ -341,6 +371,10 @@ def rank_memories(query: str, rows: List[Dict]) -> List[Dict]:
                     dt = now
             else:
                 dt = now
+            # Ensure dt is aware
+            if dt.tzinfo is None:
+                from datetime import timezone as _tz
+                dt = dt.replace(tzinfo=_tz.utc)
             days = max(0.0, (now - dt).days)
             recency = 1.0 / (1.0 + days)
         except Exception:
@@ -354,7 +388,30 @@ def rank_memories(query: str, rows: List[Dict]) -> List[Dict]:
         except Exception:
             vec = _hash_vector((r.get("summary") or r.get("goal") or ""))
         sem = _cosine(qvec, vec)
-        total = (0.6 * sem) + (0.25 * tag_score) + (0.15 * recency)
+        total = (W_SEM * sem) + (W_TAG * tag_score) + (W_REC * recency)
         scored.append((total, r))
     scored.sort(key=lambda x: x[0], reverse=True)
     return [r for _, r in scored]
+
+
+def log_model_usage(**kwargs) -> int:
+    """Insert a model usage row. kwargs may include: run_id, step, role, backend, model, latency_ms, tokens_in, tokens_out, success.
+    Returns inserted id (best-effort).
+    """
+    init_db()
+    from ai_factory.memory.memory_db import SessionLocal, ModelUsage
+    with SessionLocal() as session:
+        row = ModelUsage(
+            run_id=str(kwargs.get("run_id")) if kwargs.get("run_id") is not None else None,
+            step=str(kwargs.get("step") or ""),
+            role=str(kwargs.get("role") or ""),
+            backend=str(kwargs.get("backend") or ""),
+            model=str(kwargs.get("model") or ""),
+            latency_ms=int(kwargs.get("latency_ms") or 0),
+            tokens_in=int(kwargs.get("tokens_in") or 0),
+            tokens_out=int(kwargs.get("tokens_out") or 0),
+            success=bool(kwargs.get("success")) if kwargs.get("success") is not None else None,
+        )
+        session.add(row)
+        session.commit()
+        return row.id

@@ -1,0 +1,29 @@
+{
+  "build_id": "0df21a3cd583",
+  "timestamp": "2025-10-29T00:34:26Z",
+  "pid": 47848,
+  "version": "v3.2.2-local-trio-fix",
+  "goal": "x",
+  "domain": "mobile",
+  "blueprint": {
+    "name": "app",
+    "title": "app",
+    "description": "x",
+    "goal": "x"
+  },
+  "options": {},
+  "outputs_dir": "builds\\0df21a3cd583\\outputs",
+  "files": [
+    "app\\app.py",
+    "app\\README.md"
+  ],
+  "warnings": [],
+  "evaluation": {
+    "passed": true,
+    "summary": "CLI entry detected (argparse: True).",
+    "artifacts": {
+      "entry": "builds\\0df21a3cd583\\outputs\\app\\app.py",
+      "argparse": true
+    }
+  }
+}

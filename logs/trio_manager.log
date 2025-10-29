@@ -1,0 +1,60 @@
+2025-10-29 14:55:06,499 INFO [TrioManager] strategist spawned on 11434
+2025-10-29 14:55:06,509 INFO [TrioManager] memory spawned on 11435
+2025-10-29 14:55:06,513 INFO [TrioManager] executor spawned on 11436
+2025-10-29 14:55:08,687 INFO [TrioManager] Strategist healthy ✅
+2025-10-29 14:55:10,866 WARNING [TrioManager] Memory unhealthy — restarting ♻️
+2025-10-29 14:55:10,870 INFO [TrioManager] memory spawned on 11435
+2025-10-29 14:55:13,033 WARNING [TrioManager] Executor unhealthy — restarting ♻️
+2025-10-29 14:55:13,034 INFO [TrioManager] executor spawned on 11436
+2025-10-29 14:56:15,404 WARNING [TrioManager] Memory unhealthy — restarting ♻️
+2025-10-29 14:56:15,409 INFO [TrioManager] memory spawned on 11435
+2025-10-29 14:56:17,598 WARNING [TrioManager] Executor unhealthy — restarting ♻️
+2025-10-29 14:56:17,600 INFO [TrioManager] executor spawned on 11436
+2025-10-29 14:57:19,998 WARNING [TrioManager] Memory unhealthy — restarting ♻️
+2025-10-29 14:57:20,000 INFO [TrioManager] memory spawned on 11435
+2025-10-29 14:57:22,189 WARNING [TrioManager] Executor unhealthy — restarting ♻️
+2025-10-29 14:57:22,191 INFO [TrioManager] executor spawned on 11436
+2025-10-29 14:58:24,558 WARNING [TrioManager] Memory unhealthy — restarting ♻️
+2025-10-29 14:58:24,561 INFO [TrioManager] memory spawned on 11435
+2025-10-29 14:58:26,739 WARNING [TrioManager] Executor unhealthy — restarting ♻️
+2025-10-29 14:58:26,742 INFO [TrioManager] executor spawned on 11436
+2025-10-29 14:59:29,152 WARNING [TrioManager] Memory unhealthy — restarting ♻️
+2025-10-29 14:59:29,156 INFO [TrioManager] memory spawned on 11435
+2025-10-29 14:59:31,342 WARNING [TrioManager] Executor unhealthy — restarting ♻️
+2025-10-29 14:59:31,344 INFO [TrioManager] executor spawned on 11436
+2025-10-29 15:28:25,173 INFO [TrioManager] Strategist healthy ✅
+2025-10-29 15:28:25,420 INFO [TrioManager] Memory healthy ✅
+2025-10-29 15:28:25,605 INFO [TrioManager] Executor healthy ✅
+2025-10-29 15:33:31,841 WARNING [TrioManager] Strategist unhealthy ❌
+2025-10-29 15:33:35,001 WARNING [TrioManager] Memory unhealthy ❌
+2025-10-29 15:33:38,184 WARNING [TrioManager] Executor unhealthy ❌
+2025-10-29 15:34:41,355 WARNING [TrioManager] Strategist unhealthy ❌
+2025-10-29 15:34:44,647 WARNING [TrioManager] Memory unhealthy ❌
+2025-10-29 15:34:47,831 WARNING [TrioManager] Executor unhealthy ❌
+2025-10-29 15:35:51,036 WARNING [TrioManager] Strategist unhealthy ❌
+2025-10-29 15:35:53,640 INFO [TrioManager] Memory healthy ✅
+2025-10-29 15:35:56,829 WARNING [TrioManager] Executor unhealthy ❌
+2025-10-29 15:39:23,932 WARNING [TrioManager] Strategist unhealthy ❌
+2025-10-29 15:39:26,786 INFO [TrioManager] Memory healthy ✅
+2025-10-29 15:39:29,948 INFO [TrioManager] Executor healthy ✅
+2025-10-29 15:40:33,128 WARNING [TrioManager] Strategist unhealthy ❌
+2025-10-29 15:40:39,274 WARNING [TrioManager] Executor unhealthy ❌
+2025-10-29 15:41:42,495 WARNING [TrioManager] Strategist unhealthy ❌
+2025-10-29 15:41:45,701 WARNING [TrioManager] Memory unhealthy ❌
+2025-10-29 15:41:48,185 INFO [TrioManager] Executor healthy ✅
+2025-10-29 15:42:51,376 WARNING [TrioManager] Strategist unhealthy ❌
+2025-10-29 15:42:54,391 INFO [TrioManager] Memory healthy ✅
+2025-10-29 15:43:06,760 WARNING [TrioManager] Strategist unhealthy ❌
+2025-10-29 15:43:09,702 INFO [TrioManager] Memory healthy ✅
+2025-10-29 15:43:12,894 WARNING [TrioManager] Executor unhealthy ❌
+2025-10-29 15:43:59,931 WARNING [TrioManager] Strategist unhealthy ❌
+2025-10-29 15:44:05,803 WARNING [TrioManager] Executor unhealthy ❌
+2025-10-29 15:44:16,083 WARNING [TrioManager] Strategist unhealthy ❌
+2025-10-29 15:44:21,988 WARNING [TrioManager] Executor unhealthy ❌
+2025-10-29 15:45:08,978 WARNING [TrioManager] Strategist unhealthy ❌
+2025-10-29 15:45:15,118 WARNING [TrioManager] Executor unhealthy ❌
+2025-10-29 15:45:25,177 WARNING [TrioManager] Strategist unhealthy ❌
+2025-10-29 15:45:31,072 WARNING [TrioManager] Executor unhealthy ❌
+2025-10-29 15:46:34,256 WARNING [TrioManager] Strategist unhealthy ❌
+2025-10-29 15:46:37,440 WARNING [TrioManager] Memory unhealthy ❌
+2025-10-29 15:46:39,939 INFO [TrioManager] Executor healthy ✅

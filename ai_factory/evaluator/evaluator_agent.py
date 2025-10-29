@@ -14,6 +14,8 @@ from ai_factory.services.evaluator_service import (
     make_memory_snippet,
 )
 from ai_factory.memory.memory_embeddings import add_to_memory
+from ai_factory.memory.memory_agent import log_model_usage
+from ai_factory.advisor.advisor_service import route_task as advisor_route
 
 
 def evaluate(session_id: Optional[int] = None, goal: Optional[str] = None) -> Dict[str, Any]:
@@ -54,3 +56,10 @@ def evaluate(session_id: Optional[int] = None, goal: Optional[str] = None) -> Di
         "recommendations": recs,
         "status": status,
     }
+
+    # Advisor usage logging (best-effort)
+    try:
+        dec = advisor_route(goal_text, domain="summary", hint=None, topk=3)
+        log_model_usage(step="evaluator", role=dec.get("role"), backend=dec.get("backend"), model=dec.get("model"), latency_ms=0, tokens_in=0, tokens_out=0, success=True)
+    except Exception:
+        pass

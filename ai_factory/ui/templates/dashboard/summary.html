@@ -11,6 +11,9 @@
       <div><span class="font-semibold">Score:</span> {{ summary.run.score }}</div>
       <div><span class="font-semibold">Timestamp:</span> {{ summary.run.timestamp }}</div>
       <div><span class="font-semibold">Duration:</span> {{ summary.run.duration_sec }}s</div>
+      {% if summary.run.advisor_decision %}
+      <div><span class="font-semibold">Advisor Decision:</span> {{ summary.run.advisor_decision.backend }}/{{ summary.run.advisor_decision.model }} ({{ summary.run.advisor_decision.role }})</div>
+      {% endif %}
     </div>
     <div class="mt-3 flex gap-2">
       {% if summary.run.report_path %}

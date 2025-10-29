@@ -1,0 +1,161 @@
+id,run_id,goal,summary,tags,score,created_at
+1,10101,Web app with FastAPI,web api ok,"fastapi,web",0.5,2025-10-25T16:28:05.550162
+2,20202,FastAPI dashboard,dashboard ok,"fastapi,dashboard",0.7,2025-10-25T16:28:05.581409
+4,,CLI app,ok,cli,,2025-10-25T16:28:05.769147
+5,10101,Web app with FastAPI,web api ok,"fastapi,web",0.5,2025-10-25T16:30:06.478737
+6,20202,FastAPI dashboard,dashboard ok,"fastapi,dashboard",0.7,2025-10-25T16:30:06.492417
+7,10101,Web app with FastAPI,web api ok,"fastapi,web",0.5,2025-10-25T16:30:36.023117
+8,20202,FastAPI dashboard,dashboard ok,"fastapi,dashboard",0.7,2025-10-25T16:30:36.030498
+10,,CLI app,ok,cli,,2025-10-25T16:30:36.086106
+11,241,ws logs,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:42.367784
+12,240,ws runs,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:42.398338
+13,239,halt after failure,Goal: . Status: failed. Result: bad.,"failed,fail",,2025-10-25T17:07:42.413798
+14,238,export test,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:42.428795
+15,237,rerun smoke,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:42.447075
+16,236,rerun smoke,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:42.462067
+17,235,steps+summary check,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:42.467042
+18,234,build a minimal hello-world app,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:42.485764
+19,233,build a tiny notes API with one POST/GET endpoint,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:42.502758
+20,232,retry test goal,Goal: . Status: success. Result: ok.,"success,ok",,2025-10-25T17:07:42.518774
+21,241,ws logs,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:44.994735
+22,240,ws runs,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:45.007735
+23,239,halt after failure,Goal: . Status: failed. Result: bad.,"failed,fail",,2025-10-25T17:07:45.016653
+24,238,export test,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:45.025662
+25,237,rerun smoke,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:45.033172
+26,236,rerun smoke,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:45.040180
+27,235,steps+summary check,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:45.047193
+28,234,build a minimal hello-world app,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:45.055207
+29,233,build a tiny notes API with one POST/GET endpoint,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:45.062202
+30,232,retry test goal,Goal: . Status: success. Result: ok.,"success,ok",,2025-10-25T17:07:45.069733
+31,241,ws logs,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:46.770723
+32,240,ws runs,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:46.778638
+33,239,halt after failure,Goal: . Status: failed. Result: bad.,"failed,fail",,2025-10-25T17:07:46.786634
+34,238,export test,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:46.793632
+35,237,rerun smoke,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:46.799651
+36,236,rerun smoke,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:46.805651
+37,235,steps+summary check,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:46.812653
+38,234,build a minimal hello-world app,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:46.821188
+39,233,build a tiny notes API with one POST/GET endpoint,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:46.828180
+40,232,retry test goal,Goal: . Status: success. Result: ok.,"success,ok",,2025-10-25T17:07:46.834183
+41,241,ws logs,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:50.865151
+42,240,ws runs,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:50.875675
+43,239,halt after failure,Goal: . Status: failed. Result: bad.,"failed,fail",,2025-10-25T17:07:50.884183
+44,238,export test,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:50.895349
+45,237,rerun smoke,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:50.905726
+46,236,rerun smoke,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:50.915659
+47,235,steps+summary check,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:50.924657
+48,234,build a minimal hello-world app,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:50.933654
+49,233,build a tiny notes API with one POST/GET endpoint,Goal: . Status: failed. Result: no-op.,"failed,success",,2025-10-25T17:07:50.941654
+50,232,retry test goal,Goal: . Status: success. Result: ok.,"success,ok",,2025-10-25T17:07:50.948655
+51,10101,Web app with FastAPI,web api ok,"fastapi,web",0.5,2025-10-25T17:15:56.519648
+52,20202,FastAPI dashboard,dashboard ok,"fastapi,dashboard",0.7,2025-10-25T17:15:56.550646
+54,,CLI app,ok,cli,,2025-10-25T17:15:56.659659
+55,10101,Web app with FastAPI,web api ok,"fastapi,web",0.5,2025-10-25T17:17:53.155050
+56,20202,FastAPI dashboard,dashboard ok,"fastapi,dashboard",0.7,2025-10-25T17:17:53.184014
+58,,CLI app,ok,cli,,2025-10-25T17:17:53.315252
+59,55501,Build web,ok,web,,2025-10-25T17:41:38.616119
+60,,Another web,ok,web,,2025-10-25T17:41:38.625700
+61,,Exportable,S,x,0.1,2025-10-25T17:41:59.581685
+62,,Build FastAPI,web,"fastapi,web",,2025-10-25T17:41:59.704574
+63,,Write CLI,cli,cli,,2025-10-25T17:41:59.719130
+64,10101,Web app with FastAPI,web api ok,"fastapi,web",0.5,2025-10-25T17:41:59.740680
+65,20202,FastAPI dashboard,dashboard ok,"fastapi,dashboard",0.7,2025-10-25T17:41:59.751680
+67,,CLI app,ok,cli,,2025-10-25T17:42:00.018379
+68,55501,Build web,ok,web,,2025-10-25T17:44:01.314290
+69,,Another web,ok,web,,2025-10-25T17:44:01.321289
+70,,Exportable,S,x,0.1,2025-10-25T17:44:22.057952
+71,,Build FastAPI,web,"fastapi,web",,2025-10-25T17:44:22.285698
+72,,Write CLI,cli,cli,,2025-10-25T17:44:22.297711
+73,10101,Web app with FastAPI,web api ok,"fastapi,web",0.5,2025-10-25T17:44:22.347888
+74,20202,FastAPI dashboard,dashboard ok,"fastapi,dashboard",0.7,2025-10-25T17:44:22.358912
+76,,CLI app,ok,cli,,2025-10-25T17:44:22.626057
+77,55501,Build web,ok,web,,2025-10-25T17:45:45.424987
+78,,Another web,ok,web,,2025-10-25T17:45:45.432220
+79,,Exportable,S,x,0.1,2025-10-25T17:46:06.425472
+80,,Build FastAPI,web,"fastapi,web",,2025-10-25T17:46:06.644411
+81,,Write CLI,cli,cli,,2025-10-25T17:46:06.657409
+82,10101,Web app with FastAPI,web api ok,"fastapi,web",0.5,2025-10-25T17:46:06.703904
+83,20202,FastAPI dashboard,dashboard ok,"fastapi,dashboard",0.7,2025-10-25T17:46:06.713204
+85,,CLI app,ok,cli,,2025-10-25T17:46:06.987727
+86,55501,Build web,ok,web,,2025-10-25T17:47:34.615310
+87,,Another web,ok,web,,2025-10-25T17:47:34.625230
+88,,Exportable,S,x,0.1,2025-10-25T17:47:55.358912
+89,,Build FastAPI,web,"fastapi,web",,2025-10-25T17:47:55.490955
+90,,Write CLI,cli,cli,,2025-10-25T17:47:55.499962
+91,10101,Web app with FastAPI,web api ok,"fastapi,web",0.5,2025-10-25T17:47:55.549749
+92,20202,FastAPI dashboard,dashboard ok,"fastapi,dashboard",0.7,2025-10-25T17:47:55.608438
+94,,CLI app,ok,cli,,2025-10-25T17:47:55.948918
+95,55501,Build web,ok,web,,2025-10-28T19:44:45.976341
+96,,Another web,ok,web,,2025-10-28T19:44:45.983346
+97,,Exportable,S,x,0.1,2025-10-28T19:45:07.093675
+98,,Build FastAPI,web,"fastapi,web",,2025-10-28T19:45:07.238747
+99,,Write CLI,cli,cli,,2025-10-28T19:45:07.245501
+100,10101,Web app with FastAPI,web api ok,"fastapi,web",0.5,2025-10-28T19:45:07.273440
+101,20202,FastAPI dashboard,dashboard ok,"fastapi,dashboard",0.7,2025-10-28T19:45:07.281023
+103,,CLI app,ok,cli,,2025-10-28T19:45:07.551065
+104,55501,Build web,ok,web,,2025-10-28T20:15:47.603381
+105,,Another web,ok,web,,2025-10-28T20:15:47.634067
+106,,Exportable,S,x,0.1,2025-10-28T20:16:08.183106
+107,,Build FastAPI,web,"fastapi,web",,2025-10-28T20:16:08.332333
+108,,Write CLI,cli,cli,,2025-10-28T20:16:08.363255
+109,,Web App,build app,web,,2025-10-28T20:16:08.391502
+110,,CLI Tool,command line,cli,,2025-10-28T20:16:08.399821
+111,10101,Web app with FastAPI,web api ok,"fastapi,web",0.5,2025-10-28T20:16:08.432454
+112,20202,FastAPI dashboard,dashboard ok,"fastapi,dashboard",0.7,2025-10-28T20:16:08.439507
+114,,CLI app,ok,cli,,2025-10-28T20:16:08.676232
+115,360,create sample app then improve,no-op,"orchestrator,autolearn,create,sample,app,then,improve",,2025-10-28T20:16:16.899286
+116,361,retry test goal,ok,"orchestrator,autolearn,retry,test,goal",,2025-10-28T20:16:18.045636
+117,,CLI app,ok,cli,,2025-10-28T20:18:29.995920
+118,,ui-import,from ui,"ui,import",0.1,2025-10-28T20:18:35.261510
+119,55501,Build web,ok,web,,2025-10-28T20:18:55.209222
+120,,Another web,ok,web,,2025-10-28T20:18:55.240737
+121,,Exportable,S,x,0.1,2025-10-28T20:19:15.760899
+122,,Build FastAPI,web,"fastapi,web",,2025-10-28T20:19:15.884504
+123,,Write CLI,cli,cli,,2025-10-28T20:19:15.892146
+124,,Web App,build app,web,,2025-10-28T20:19:15.916146
+125,,CLI Tool,command line,cli,,2025-10-28T20:19:15.924561
+126,10101,Web app with FastAPI,web api ok,"fastapi,web",0.5,2025-10-28T20:19:15.949083
+127,20202,FastAPI dashboard,dashboard ok,"fastapi,dashboard",0.7,2025-10-28T20:19:15.959839
+129,,CLI app,ok,cli,,2025-10-28T20:19:16.203219
+130,378,create sample app then improve,no-op,"orchestrator,autolearn,create,sample,app,then,improve",,2025-10-28T20:19:24.393576
+131,379,retry test goal,ok,"orchestrator,autolearn,retry,test,goal",,2025-10-28T20:19:25.542214
+132,,Advisor decision for: build fastapi app,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:01:57.834193
+133,,Advisor decision for: build fastapi app,openai/gpt-4o (strategist),"advisor_decision,strategist",,2025-10-28T22:01:58.358818
+134,,Advisor decision for: analytics smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:02:07.707289
+135,,Advisor decision for: analytics smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:02:12.330522
+136,,Advisor decision (run 389),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:02:12.337540
+137,,Advisor decision for: analytics smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:02:16.993485
+138,,Advisor decision for: feedback smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:02:26.913891
+139,,Advisor decision for: feedback smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:02:31.536791
+140,,Advisor decision (run 390),local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:02:31.541789
+141,,Advisor decision for: feedback smoke,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:02:36.154078
+142,,Advisor decision for: builder feedback memory check,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:02:40.953201
+143,,Advisor decision for: builder feedback memory check,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:02:45.635276
+144,,Advisor decision for: hello,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:02:50.299454
+145,,Advisor decision for: another goal,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:02:54.988146
+146,,Advisor decision for: builder should improve score by re-run,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:02:59.714569
+147,,Advisor decision for: builder should improve score by re-run,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:03:04.411640
+148,55501,Build web,ok,web,,2025-10-28T22:03:04.449506
+149,,Another web,ok,web,,2025-10-28T22:03:04.455929
+150,,Advisor decision for: dashboard-runs smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:03:09.237694
+151,,Advisor decision for: dashboard-runs smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:03:13.895322
+152,,Advisor decision (run 391),openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:03:13.901661
+153,,Advisor decision for: dashboard-runs smoke,openai/gpt-4o (executor),"advisor_decision,executor",,2025-10-28T22:03:18.532146
+154,,Advisor decision for: dashboard-summary smoke,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:03:23.373096
+155,,Advisor decision for: dashboard-summary smoke,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:03:27.996755
+156,,Advisor decision (run 392),openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:03:28.002758
+157,,Advisor decision for: dashboard-summary smoke,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:03:32.611274
+158,,Advisor decision for: deploy a tiny app,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:03:37.466530
+159,,Advisor decision for: registry test,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:03:49.267242
+160,,Advisor decision for: evaluation memory feedback smoke,openai/gpt-4o (memory),"advisor_decision,memory",,2025-10-28T22:04:06.697649
+161,,Advisor decision for: hello,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:04:11.362178
+162,,Advisor decision for: email me at test@example.com with key sk-abc1234567890xxxxx,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:04:16.188127
+163,,Exportable,S,x,0.1,2025-10-28T22:04:16.576562
+164,,Advisor decision for: Write a testable function; add unit tests,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:04:21.344633
+165,,Build FastAPI,web,"fastapi,web",,2025-10-28T22:04:21.381058
+166,,Write CLI,cli,cli,,2025-10-28T22:04:21.390476
+167,,Web App,build app,web,,2025-10-28T22:04:21.418193
+168,,CLI Tool,command line,cli,,2025-10-28T22:04:21.426192
+169,10101,Web app with FastAPI,web api ok,"fastapi,web",0.5,2025-10-28T22:04:21.454207
+170,20202,FastAPI dashboard,dashboard ok,"fastapi,dashboard",0.7,2025-10-28T22:04:21.462205
+171,,Advisor decision for: How to scaffold a repo and add CI,local/mistral:7b-q4_K_M (strategist),"advisor_decision,strategist",,2025-10-28T22:04:26.138334

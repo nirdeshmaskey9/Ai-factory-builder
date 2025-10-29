@@ -1,11 +1,42 @@
 document.addEventListener('DOMContentLoaded', async () => {
-  // Simple placeholder: draw counts over time if needed; here, no-op.
   const c = document.getElementById('timelineChart');
   if (!c) return;
-  const ctx = c.getContext('2d');
-  ctx.fillStyle = '#ddd';
-  ctx.fillRect(0,0,c.width,c.height);
-  ctx.fillStyle = '#333';
-  ctx.fillText('Memory timeline (placeholder)', 20, 20);
+  try {
+    const res = await fetch('/memory/insights');
+    const data = await res.json();
+    const stats = data && data.stats ? data.stats : data;
+    const tags = (stats && stats.tags) || [];
+    // Build a simple series using tag counts as a stand-in for timeseries
+    const labels = tags.map(t => t.tag);
+    const values = tags.map(t => t.count);
+    const ctx = c.getContext('2d');
+    // eslint-disable-next-line no-undef
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels,
+        datasets: [{
+          label: 'Entries (by top tags)',
+          data: values,
+          borderColor: 'rgb(34,197,94)',
+          backgroundColor: 'rgba(34,197,94,0.2)',
+          tension: 0.3,
+          fill: true,
+        }]
+      },
+      options: {
+        responsive: true,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+          legend: { display: true }
+        },
+        scales: {
+          x: { title: { display: true, text: 'Tag' } },
+          y: { title: { display: true, text: 'Count' }, beginAtZero: true }
+        }
+      }
+    });
+  } catch (e) {
+    if (window.toast) toast(`Timeline load error: ${e}`, 'error');
+  }
 });
-

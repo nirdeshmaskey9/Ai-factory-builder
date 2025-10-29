@@ -1,0 +1,3422 @@
+[
+  {
+    "id": 1,
+    "run_id": 10101,
+    "goal": "Web app with FastAPI",
+    "summary": "web api ok",
+    "tags": "fastapi,web",
+    "score": 0.5,
+    "created_at": "2025-10-25T16:28:05.550162"
+  },
+  {
+    "id": 2,
+    "run_id": 20202,
+    "goal": "FastAPI dashboard",
+    "summary": "dashboard ok",
+    "tags": "fastapi,dashboard",
+    "score": 0.7,
+    "created_at": "2025-10-25T16:28:05.581409"
+  },
+  {
+    "id": 4,
+    "run_id": null,
+    "goal": "CLI app",
+    "summary": "ok",
+    "tags": "cli",
+    "score": null,
+    "created_at": "2025-10-25T16:28:05.769147"
+  },
+  {
+    "id": 5,
+    "run_id": 10101,
+    "goal": "Web app with FastAPI",
+    "summary": "web api ok",
+    "tags": "fastapi,web",
+    "score": 0.5,
+    "created_at": "2025-10-25T16:30:06.478737"
+  },
+  {
+    "id": 6,
+    "run_id": 20202,
+    "goal": "FastAPI dashboard",
+    "summary": "dashboard ok",
+    "tags": "fastapi,dashboard",
+    "score": 0.7,
+    "created_at": "2025-10-25T16:30:06.492417"
+  },
+  {
+    "id": 7,
+    "run_id": 10101,
+    "goal": "Web app with FastAPI",
+    "summary": "web api ok",
+    "tags": "fastapi,web",
+    "score": 0.5,
+    "created_at": "2025-10-25T16:30:36.023117"
+  },
+  {
+    "id": 8,
+    "run_id": 20202,
+    "goal": "FastAPI dashboard",
+    "summary": "dashboard ok",
+    "tags": "fastapi,dashboard",
+    "score": 0.7,
+    "created_at": "2025-10-25T16:30:36.030498"
+  },
+  {
+    "id": 10,
+    "run_id": null,
+    "goal": "CLI app",
+    "summary": "ok",
+    "tags": "cli",
+    "score": null,
+    "created_at": "2025-10-25T16:30:36.086106"
+  },
+  {
+    "id": 11,
+    "run_id": 241,
+    "goal": "ws logs",
+    "summary": "Goal: . Status: failed. Result: no-op.",
+    "tags": "failed,success",
+    "score": null,
+    "created_at": "2025-10-25T17:07:42.367784"
+  },
+  {
+    "id": 12,
+    "run_id": 240,
+    "goal": "ws runs",
+    "summary": "Goal: . Status: failed. Result: no-op.",
+    "tags": "failed,success",
+    "score": null,
+    "created_at": "2025-10-25T17:07:42.398338"
+  },
+  {
+    "id": 13,
+    "run_id": 239,
+    "goal": "halt after failure",
+    "summary": "Goal: . Status: failed. Result: bad.",
+    "tags": "failed,fail",
+    "score": null,
+    "created_at": "2025-10-25T17:07:42.413798"
+  },
+  {
+    "id": 14,
+    "run_id": 238,
+    "goal": "export test",
+    "summary": "Goal: . Status: failed. Result: no-op.",
+    "tags": "failed,success",
+    "score": null,
+    "created_at": "2025-10-25T17:07:42.428795"
+  },
+  {
+    "id": 15,
+    "run_id": 237,
+    "goal": "rerun smoke",
+    "summary": "Goal: . Status: failed. Result: no-op.",
+    "tags": "failed,success",
+    "score": null,
+    "created_at": "2025-10-25T17:07:42.447075"
+  },
+  {
+    "id": 16,
+    "run_id": 236,
+    "goal": "rerun smoke",
+    "summary": "Goal: . Status: failed. Result: no-op.",
+    "tags": "failed,success",
+    "score": null,
+    "created_at": "2025-10-25T17:07:42.462067"
+  },
+  {
+    "id": 17,
+    "run_id": 235,
+    "goal": "steps+summary check",
+    "summary": "Goal: . Status: failed. Result: no-op.",
+    "tags": "failed,success",
+    "score": null,
+    "created_at": "2025-10-25T17:07:42.467042"
+  },
+  {
+    "id": 18,
+    "run_id": 234,
+    "goal": "build a minimal hello-world app",
+    "summary": "Goal: . Status: failed. Result: no-op.",
+    "tags": "failed,success",
+    "score": null,
+    "created_at": "2025-10-25T17:07:42.485764"
+  },
+  {
+    "id": 19,
+    "run_id": 233,
+    "goal": "build a tiny notes API with one POST/GET endpoint",
+    "summary": "Goal: . Status: failed. Result: no-op.",
+    "tags": "failed,success",
+    "score": null,
+    "created_at": "2025-10-25T17:07:42.502758"
+  },
+  {
+    "id": 20,
+    "run_id": 232,
+    "goal": "retry test goal",
+    "summary": "Goal: . Status: success. Result: ok.",
+    "tags": "success,ok",
+    "score": null,
+    "created_at": "2025-10-25T17:07:42.518774"
+  },
+  {
+    "id": 21,
+    "run_id": 241,
+    "goal": "ws logs",
+    "summary": "Goal: . Status: failed. Result: no-op.",
+    "tags": "failed,success",
+    "score": null,
+    "created_at": "2025-10-25T17:07:44.994735"
+  },
+  {
+    "id": 22,
+    "run_id": 240,
+    "goal": "ws runs",
+    "summary": "Goal: . Status: failed. Result: no-op.",
+    "tags": "failed,success",
+    "score": null,
+    "created_at": "2025-10-25T17:07:45.007735"
+  },
+  {
+    "id": 23,
+    "run_id": 239,
+    "goal": "halt after failure",
+    "summary": "Goal: . Status: failed. Result: bad.",
+    "tags": "failed,fail",
+    "score": null,
+    "created_at": "2025-10-25T17:07:45.016653"
+  },
+  {
+    "id": 24,
+    "run_id": 238,
+    "goal": "export test",
+    "summary": "Goal: . Status: failed. Result: no-op.",
+    "tags": "failed,success",
+    "score": null,
+    "created_at": "2025-10-25T17:07:45.025662"
+  },
+  {
+    "id": 25,
+    "run_id": 237,
+    "goal": "rerun smoke",
+    "summary": "Goal: . Status: failed. Result: no-op.",
+    "tags": "failed,success",
+    "score": null,
+    "created_at": "2025-10-25T17:07:45.033172"
+  },
+  {
+    "id": 26,
+    "run_id": 236,
+    "goal": "rerun smoke",
+    "summary": "Goal: . Status: failed. Result: no-op.",
+    "tags": "failed,success",
+    "score": null,
+    "created_at": "2025-10-25T17:07:45.040180"
+  },
+  {
+    "id": 27,
+    "run_id": 235,
+    "goal": "steps+summary check",
+    "summary": "Goal: . Status: failed. Result: no-op.",
+    "tags": "failed,success",
+    "score": null,
+    "created_at": "2025-10-25T17:07:45.047193"
+  },
+  {
+    "id": 28,
+    "run_id": 234,
+    "goal": "build a minimal hello-world app",
+    "summary": "Goal: . Status: failed. Result: no-op.",
+    "tags": "failed,success",
+    "score": null,
+    "created_at": "2025-10-25T17:07:45.055207"
+  },
+  {
+    "id": 29,
+    "run_id": 233,
+    "goal": "build a tiny notes API with one POST/GET endpoint",
+    "summary": "Goal: . Status: failed. Result: no-op.",
+    "tags": "failed,success",
+    "score": null,
+    "created_at": "2025-10-25T17:07:45.062202"
+  },
+  {
+    "id": 30,
+    "run_id": 232,
+    "goal": "retry test goal",
+    "summary": "Goal: . Status: success. Result: ok.",
+    "tags": "success,ok",
+    "score": null,
+    "created_at": "2025-10-25T17:07:45.069733"
+  },
+  {
+    "id": 31,
+    "run_id": 241,
+    "goal": "ws logs",
+    "summary": "Goal: . Status: failed. Result: no-op.",
+    "tags": "failed,success",
+    "score": null,
+    "created_at": "2025-10-25T17:07:46.770723"
+  },
+  {
+    "id": 32,
+    "run_id": 240,
+    "goal": "ws runs",
+    "summary": "Goal: . Status: failed. Result: no-op.",
+    "tags": "failed,success",
+    "score": null,
+    "created_at": "2025-10-25T17:07:46.778638"
+  },
+  {
+    "id": 33,
+    "run_id": 239,
+    "goal": "halt after failure",
+    "summary": "Goal: . Status: failed. Result: bad.",
+    "tags": "failed,fail",
+    "score": null,
+    "created_at": "2025-10-25T17:07:46.786634"
+  },
+  {
+    "id": 34,
+    "run_id": 238,
+    "goal": "export test",
+    "summary": "Goal: . Status: failed. Result: no-op.",
+    "tags": "failed,success",
+    "score": null,
+    "created_at": "2025-10-25T17:07:46.793632"
+  },
+  {
+    "id": 35,
+    "run_id": 237,
+    "goal": "rerun smoke",
+    "summary": "Goal: . Status: failed. Result: no-op.",
+    "tags": "failed,success",
+    "score": null,
+    "created_at": "2025-10-25T17:07:46.799651"
+  },
+  {
+    "id": 36,
+    "run_id": 236,
+    "goal": "rerun smoke",
+    "summary": "Goal: . Status: failed. Result: no-op.",
+    "tags": "failed,success",
+    "score": null,
+    "created_at": "2025-10-25T17:07:46.805651"
+  },
+  {
+    "id": 37,
+    "run_id": 235,
+    "goal": "steps+summary check",
+    "summary": "Goal: . Status: failed. Result: no-op.",
+    "tags": "failed,success",
+    "score": null,
+    "created_at": "2025-10-25T17:07:46.812653"
+  },
+  {
+    "id": 38,
+    "run_id": 234,
+    "goal": "build a minimal hello-world app",
+    "summary": "Goal: . Status: failed. Result: no-op.",
+    "tags": "failed,success",
+    "score": null,
+    "created_at": "2025-10-25T17:07:46.821188"
+  },
+  {
+    "id": 39,
+    "run_id": 233,
+    "goal": "build a tiny notes API with one POST/GET endpoint",
+    "summary": "Goal: . Status: failed. Result: no-op.",
+    "tags": "failed,success",
+    "score": null,
+    "created_at": "2025-10-25T17:07:46.828180"
+  },
+  {
+    "id": 40,
+    "run_id": 232,
+    "goal": "retry test goal",
+    "summary": "Goal: . Status: success. Result: ok.",
+    "tags": "success,ok",
+    "score": null,
+    "created_at": "2025-10-25T17:07:46.834183"
+  },
+  {
+    "id": 41,
+    "run_id": 241,
+    "goal": "ws logs",
+    "summary": "Goal: . Status: failed. Result: no-op.",
+    "tags": "failed,success",
+    "score": null,
+    "created_at": "2025-10-25T17:07:50.865151"
+  },
+  {
+    "id": 42,
+    "run_id": 240,
+    "goal": "ws runs",
+    "summary": "Goal: . Status: failed. Result: no-op.",
+    "tags": "failed,success",
+    "score": null,
+    "created_at": "2025-10-25T17:07:50.875675"
+  },
+  {
+    "id": 43,
+    "run_id": 239,
+    "goal": "halt after failure",
+    "summary": "Goal: . Status: failed. Result: bad.",
+    "tags": "failed,fail",
+    "score": null,
+    "created_at": "2025-10-25T17:07:50.884183"
+  },
+  {
+    "id": 44,
+    "run_id": 238,
+    "goal": "export test",
+    "summary": "Goal: . Status: failed. Result: no-op.",
+    "tags": "failed,success",
+    "score": null,
+    "created_at": "2025-10-25T17:07:50.895349"
+  },
+  {
+    "id": 45,
+    "run_id": 237,
+    "goal": "rerun smoke",
+    "summary": "Goal: . Status: failed. Result: no-op.",
+    "tags": "failed,success",
+    "score": null,
+    "created_at": "2025-10-25T17:07:50.905726"
+  },
+  {
+    "id": 46,
+    "run_id": 236,
+    "goal": "rerun smoke",
+    "summary": "Goal: . Status: failed. Result: no-op.",
+    "tags": "failed,success",
+    "score": null,
+    "created_at": "2025-10-25T17:07:50.915659"
+  },
+  {
+    "id": 47,
+    "run_id": 235,
+    "goal": "steps+summary check",
+    "summary": "Goal: . Status: failed. Result: no-op.",
+    "tags": "failed,success",
+    "score": null,
+    "created_at": "2025-10-25T17:07:50.924657"
+  },
+  {
+    "id": 48,
+    "run_id": 234,
+    "goal": "build a minimal hello-world app",
+    "summary": "Goal: . Status: failed. Result: no-op.",
+    "tags": "failed,success",
+    "score": null,
+    "created_at": "2025-10-25T17:07:50.933654"
+  },
+  {
+    "id": 49,
+    "run_id": 233,
+    "goal": "build a tiny notes API with one POST/GET endpoint",
+    "summary": "Goal: . Status: failed. Result: no-op.",
+    "tags": "failed,success",
+    "score": null,
+    "created_at": "2025-10-25T17:07:50.941654"
+  },
+  {
+    "id": 50,
+    "run_id": 232,
+    "goal": "retry test goal",
+    "summary": "Goal: . Status: success. Result: ok.",
+    "tags": "success,ok",
+    "score": null,
+    "created_at": "2025-10-25T17:07:50.948655"
+  },
+  {
+    "id": 51,
+    "run_id": 10101,
+    "goal": "Web app with FastAPI",
+    "summary": "web api ok",
+    "tags": "fastapi,web",
+    "score": 0.5,
+    "created_at": "2025-10-25T17:15:56.519648"
+  },
+  {
+    "id": 52,
+    "run_id": 20202,
+    "goal": "FastAPI dashboard",
+    "summary": "dashboard ok",
+    "tags": "fastapi,dashboard",
+    "score": 0.7,
+    "created_at": "2025-10-25T17:15:56.550646"
+  },
+  {
+    "id": 54,
+    "run_id": null,
+    "goal": "CLI app",
+    "summary": "ok",
+    "tags": "cli",
+    "score": null,
+    "created_at": "2025-10-25T17:15:56.659659"
+  },
+  {
+    "id": 55,
+    "run_id": 10101,
+    "goal": "Web app with FastAPI",
+    "summary": "web api ok",
+    "tags": "fastapi,web",
+    "score": 0.5,
+    "created_at": "2025-10-25T17:17:53.155050"
+  },
+  {
+    "id": 56,
+    "run_id": 20202,
+    "goal": "FastAPI dashboard",
+    "summary": "dashboard ok",
+    "tags": "fastapi,dashboard",
+    "score": 0.7,
+    "created_at": "2025-10-25T17:17:53.184014"
+  },
+  {
+    "id": 58,
+    "run_id": null,
+    "goal": "CLI app",
+    "summary": "ok",
+    "tags": "cli",
+    "score": null,
+    "created_at": "2025-10-25T17:17:53.315252"
+  },
+  {
+    "id": 59,
+    "run_id": 55501,
+    "goal": "Build web",
+    "summary": "ok",
+    "tags": "web",
+    "score": null,
+    "created_at": "2025-10-25T17:41:38.616119"
+  },
+  {
+    "id": 60,
+    "run_id": null,
+    "goal": "Another web",
+    "summary": "ok",
+    "tags": "web",
+    "score": null,
+    "created_at": "2025-10-25T17:41:38.625700"
+  },
+  {
+    "id": 61,
+    "run_id": null,
+    "goal": "Exportable",
+    "summary": "S",
+    "tags": "x",
+    "score": 0.1,
+    "created_at": "2025-10-25T17:41:59.581685"
+  },
+  {
+    "id": 62,
+    "run_id": null,
+    "goal": "Build FastAPI",
+    "summary": "web",
+    "tags": "fastapi,web",
+    "score": null,
+    "created_at": "2025-10-25T17:41:59.704574"
+  },
+  {
+    "id": 63,
+    "run_id": null,
+    "goal": "Write CLI",
+    "summary": "cli",
+    "tags": "cli",
+    "score": null,
+    "created_at": "2025-10-25T17:41:59.719130"
+  },
+  {
+    "id": 64,
+    "run_id": 10101,
+    "goal": "Web app with FastAPI",
+    "summary": "web api ok",
+    "tags": "fastapi,web",
+    "score": 0.5,
+    "created_at": "2025-10-25T17:41:59.740680"
+  },
+  {
+    "id": 65,
+    "run_id": 20202,
+    "goal": "FastAPI dashboard",
+    "summary": "dashboard ok",
+    "tags": "fastapi,dashboard",
+    "score": 0.7,
+    "created_at": "2025-10-25T17:41:59.751680"
+  },
+  {
+    "id": 67,
+    "run_id": null,
+    "goal": "CLI app",
+    "summary": "ok",
+    "tags": "cli",
+    "score": null,
+    "created_at": "2025-10-25T17:42:00.018379"
+  },
+  {
+    "id": 68,
+    "run_id": 55501,
+    "goal": "Build web",
+    "summary": "ok",
+    "tags": "web",
+    "score": null,
+    "created_at": "2025-10-25T17:44:01.314290"
+  },
+  {
+    "id": 69,
+    "run_id": null,
+    "goal": "Another web",
+    "summary": "ok",
+    "tags": "web",
+    "score": null,
+    "created_at": "2025-10-25T17:44:01.321289"
+  },
+  {
+    "id": 70,
+    "run_id": null,
+    "goal": "Exportable",
+    "summary": "S",
+    "tags": "x",
+    "score": 0.1,
+    "created_at": "2025-10-25T17:44:22.057952"
+  },
+  {
+    "id": 71,
+    "run_id": null,
+    "goal": "Build FastAPI",
+    "summary": "web",
+    "tags": "fastapi,web",
+    "score": null,
+    "created_at": "2025-10-25T17:44:22.285698"
+  },
+  {
+    "id": 72,
+    "run_id": null,
+    "goal": "Write CLI",
+    "summary": "cli",
+    "tags": "cli",
+    "score": null,
+    "created_at": "2025-10-25T17:44:22.297711"
+  },
+  {
+    "id": 73,
+    "run_id": 10101,
+    "goal": "Web app with FastAPI",
+    "summary": "web api ok",
+    "tags": "fastapi,web",
+    "score": 0.5,
+    "created_at": "2025-10-25T17:44:22.347888"
+  },
+  {
+    "id": 74,
+    "run_id": 20202,
+    "goal": "FastAPI dashboard",
+    "summary": "dashboard ok",
+    "tags": "fastapi,dashboard",
+    "score": 0.7,
+    "created_at": "2025-10-25T17:44:22.358912"
+  },
+  {
+    "id": 76,
+    "run_id": null,
+    "goal": "CLI app",
+    "summary": "ok",
+    "tags": "cli",
+    "score": null,
+    "created_at": "2025-10-25T17:44:22.626057"
+  },
+  {
+    "id": 77,
+    "run_id": 55501,
+    "goal": "Build web",
+    "summary": "ok",
+    "tags": "web",
+    "score": null,
+    "created_at": "2025-10-25T17:45:45.424987"
+  },
+  {
+    "id": 78,
+    "run_id": null,
+    "goal": "Another web",
+    "summary": "ok",
+    "tags": "web",
+    "score": null,
+    "created_at": "2025-10-25T17:45:45.432220"
+  },
+  {
+    "id": 79,
+    "run_id": null,
+    "goal": "Exportable",
+    "summary": "S",
+    "tags": "x",
+    "score": 0.1,
+    "created_at": "2025-10-25T17:46:06.425472"
+  },
+  {
+    "id": 80,
+    "run_id": null,
+    "goal": "Build FastAPI",
+    "summary": "web",
+    "tags": "fastapi,web",
+    "score": null,
+    "created_at": "2025-10-25T17:46:06.644411"
+  },
+  {
+    "id": 81,
+    "run_id": null,
+    "goal": "Write CLI",
+    "summary": "cli",
+    "tags": "cli",
+    "score": null,
+    "created_at": "2025-10-25T17:46:06.657409"
+  },
+  {
+    "id": 82,
+    "run_id": 10101,
+    "goal": "Web app with FastAPI",
+    "summary": "web api ok",
+    "tags": "fastapi,web",
+    "score": 0.5,
+    "created_at": "2025-10-25T17:46:06.703904"
+  },
+  {
+    "id": 83,
+    "run_id": 20202,
+    "goal": "FastAPI dashboard",
+    "summary": "dashboard ok",
+    "tags": "fastapi,dashboard",
+    "score": 0.7,
+    "created_at": "2025-10-25T17:46:06.713204"
+  },
+  {
+    "id": 85,
+    "run_id": null,
+    "goal": "CLI app",
+    "summary": "ok",
+    "tags": "cli",
+    "score": null,
+    "created_at": "2025-10-25T17:46:06.987727"
+  },
+  {
+    "id": 86,
+    "run_id": 55501,
+    "goal": "Build web",
+    "summary": "ok",
+    "tags": "web",
+    "score": null,
+    "created_at": "2025-10-25T17:47:34.615310"
+  },
+  {
+    "id": 87,
+    "run_id": null,
+    "goal": "Another web",
+    "summary": "ok",
+    "tags": "web",
+    "score": null,
+    "created_at": "2025-10-25T17:47:34.625230"
+  },
+  {
+    "id": 88,
+    "run_id": null,
+    "goal": "Exportable",
+    "summary": "S",
+    "tags": "x",
+    "score": 0.1,
+    "created_at": "2025-10-25T17:47:55.358912"
+  },
+  {
+    "id": 89,
+    "run_id": null,
+    "goal": "Build FastAPI",
+    "summary": "web",
+    "tags": "fastapi,web",
+    "score": null,
+    "created_at": "2025-10-25T17:47:55.490955"
+  },
+  {
+    "id": 90,
+    "run_id": null,
+    "goal": "Write CLI",
+    "summary": "cli",
+    "tags": "cli",
+    "score": null,
+    "created_at": "2025-10-25T17:47:55.499962"
+  },
+  {
+    "id": 91,
+    "run_id": 10101,
+    "goal": "Web app with FastAPI",
+    "summary": "web api ok",
+    "tags": "fastapi,web",
+    "score": 0.5,
+    "created_at": "2025-10-25T17:47:55.549749"
+  },
+  {
+    "id": 92,
+    "run_id": 20202,
+    "goal": "FastAPI dashboard",
+    "summary": "dashboard ok",
+    "tags": "fastapi,dashboard",
+    "score": 0.7,
+    "created_at": "2025-10-25T17:47:55.608438"
+  },
+  {
+    "id": 94,
+    "run_id": null,
+    "goal": "CLI app",
+    "summary": "ok",
+    "tags": "cli",
+    "score": null,
+    "created_at": "2025-10-25T17:47:55.948918"
+  },
+  {
+    "id": 95,
+    "run_id": 55501,
+    "goal": "Build web",
+    "summary": "ok",
+    "tags": "web",
+    "score": null,
+    "created_at": "2025-10-28T19:44:45.976341"
+  },
+  {
+    "id": 96,
+    "run_id": null,
+    "goal": "Another web",
+    "summary": "ok",
+    "tags": "web",
+    "score": null,
+    "created_at": "2025-10-28T19:44:45.983346"
+  },
+  {
+    "id": 97,
+    "run_id": null,
+    "goal": "Exportable",
+    "summary": "S",
+    "tags": "x",
+    "score": 0.1,
+    "created_at": "2025-10-28T19:45:07.093675"
+  },
+  {
+    "id": 98,
+    "run_id": null,
+    "goal": "Build FastAPI",
+    "summary": "web",
+    "tags": "fastapi,web",
+    "score": null,
+    "created_at": "2025-10-28T19:45:07.238747"
+  },
+  {
+    "id": 99,
+    "run_id": null,
+    "goal": "Write CLI",
+    "summary": "cli",
+    "tags": "cli",
+    "score": null,
+    "created_at": "2025-10-28T19:45:07.245501"
+  },
+  {
+    "id": 100,
+    "run_id": 10101,
+    "goal": "Web app with FastAPI",
+    "summary": "web api ok",
+    "tags": "fastapi,web",
+    "score": 0.5,
+    "created_at": "2025-10-28T19:45:07.273440"
+  },
+  {
+    "id": 101,
+    "run_id": 20202,
+    "goal": "FastAPI dashboard",
+    "summary": "dashboard ok",
+    "tags": "fastapi,dashboard",
+    "score": 0.7,
+    "created_at": "2025-10-28T19:45:07.281023"
+  },
+  {
+    "id": 103,
+    "run_id": null,
+    "goal": "CLI app",
+    "summary": "ok",
+    "tags": "cli",
+    "score": null,
+    "created_at": "2025-10-28T19:45:07.551065"
+  },
+  {
+    "id": 104,
+    "run_id": 55501,
+    "goal": "Build web",
+    "summary": "ok",
+    "tags": "web",
+    "score": null,
+    "created_at": "2025-10-28T20:15:47.603381"
+  },
+  {
+    "id": 105,
+    "run_id": null,
+    "goal": "Another web",
+    "summary": "ok",
+    "tags": "web",
+    "score": null,
+    "created_at": "2025-10-28T20:15:47.634067"
+  },
+  {
+    "id": 106,
+    "run_id": null,
+    "goal": "Exportable",
+    "summary": "S",
+    "tags": "x",
+    "score": 0.1,
+    "created_at": "2025-10-28T20:16:08.183106"
+  },
+  {
+    "id": 107,
+    "run_id": null,
+    "goal": "Build FastAPI",
+    "summary": "web",
+    "tags": "fastapi,web",
+    "score": null,
+    "created_at": "2025-10-28T20:16:08.332333"
+  },
+  {
+    "id": 108,
+    "run_id": null,
+    "goal": "Write CLI",
+    "summary": "cli",
+    "tags": "cli",
+    "score": null,
+    "created_at": "2025-10-28T20:16:08.363255"
+  },
+  {
+    "id": 109,
+    "run_id": null,
+    "goal": "Web App",
+    "summary": "build app",
+    "tags": "web",
+    "score": null,
+    "created_at": "2025-10-28T20:16:08.391502"
+  },
+  {
+    "id": 110,
+    "run_id": null,
+    "goal": "CLI Tool",
+    "summary": "command line",
+    "tags": "cli",
+    "score": null,
+    "created_at": "2025-10-28T20:16:08.399821"
+  },
+  {
+    "id": 111,
+    "run_id": 10101,
+    "goal": "Web app with FastAPI",
+    "summary": "web api ok",
+    "tags": "fastapi,web",
+    "score": 0.5,
+    "created_at": "2025-10-28T20:16:08.432454"
+  },
+  {
+    "id": 112,
+    "run_id": 20202,
+    "goal": "FastAPI dashboard",
+    "summary": "dashboard ok",
+    "tags": "fastapi,dashboard",
+    "score": 0.7,
+    "created_at": "2025-10-28T20:16:08.439507"
+  },
+  {
+    "id": 114,
+    "run_id": null,
+    "goal": "CLI app",
+    "summary": "ok",
+    "tags": "cli",
+    "score": null,
+    "created_at": "2025-10-28T20:16:08.676232"
+  },
+  {
+    "id": 115,
+    "run_id": 360,
+    "goal": "create sample app then improve",
+    "summary": "no-op",
+    "tags": "orchestrator,autolearn,create,sample,app,then,improve",
+    "score": null,
+    "created_at": "2025-10-28T20:16:16.899286"
+  },
+  {
+    "id": 116,
+    "run_id": 361,
+    "goal": "retry test goal",
+    "summary": "ok",
+    "tags": "orchestrator,autolearn,retry,test,goal",
+    "score": null,
+    "created_at": "2025-10-28T20:16:18.045636"
+  },
+  {
+    "id": 117,
+    "run_id": null,
+    "goal": "CLI app",
+    "summary": "ok",
+    "tags": "cli",
+    "score": null,
+    "created_at": "2025-10-28T20:18:29.995920"
+  },
+  {
+    "id": 118,
+    "run_id": null,
+    "goal": "ui-import",
+    "summary": "from ui",
+    "tags": "ui,import",
+    "score": 0.1,
+    "created_at": "2025-10-28T20:18:35.261510"
+  },
+  {
+    "id": 119,
+    "run_id": 55501,
+    "goal": "Build web",
+    "summary": "ok",
+    "tags": "web",
+    "score": null,
+    "created_at": "2025-10-28T20:18:55.209222"
+  },
+  {
+    "id": 120,
+    "run_id": null,
+    "goal": "Another web",
+    "summary": "ok",
+    "tags": "web",
+    "score": null,
+    "created_at": "2025-10-28T20:18:55.240737"
+  },
+  {
+    "id": 121,
+    "run_id": null,
+    "goal": "Exportable",
+    "summary": "S",
+    "tags": "x",
+    "score": 0.1,
+    "created_at": "2025-10-28T20:19:15.760899"
+  },
+  {
+    "id": 122,
+    "run_id": null,
+    "goal": "Build FastAPI",
+    "summary": "web",
+    "tags": "fastapi,web",
+    "score": null,
+    "created_at": "2025-10-28T20:19:15.884504"
+  },
+  {
+    "id": 123,
+    "run_id": null,
+    "goal": "Write CLI",
+    "summary": "cli",
+    "tags": "cli",
+    "score": null,
+    "created_at": "2025-10-28T20:19:15.892146"
+  },
+  {
+    "id": 124,
+    "run_id": null,
+    "goal": "Web App",
+    "summary": "build app",
+    "tags": "web",
+    "score": null,
+    "created_at": "2025-10-28T20:19:15.916146"
+  },
+  {
+    "id": 125,
+    "run_id": null,
+    "goal": "CLI Tool",
+    "summary": "command line",
+    "tags": "cli",
+    "score": null,
+    "created_at": "2025-10-28T20:19:15.924561"
+  },
+  {
+    "id": 126,
+    "run_id": 10101,
+    "goal": "Web app with FastAPI",
+    "summary": "web api ok",
+    "tags": "fastapi,web",
+    "score": 0.5,
+    "created_at": "2025-10-28T20:19:15.949083"
+  },
+  {
+    "id": 127,
+    "run_id": 20202,
+    "goal": "FastAPI dashboard",
+    "summary": "dashboard ok",
+    "tags": "fastapi,dashboard",
+    "score": 0.7,
+    "created_at": "2025-10-28T20:19:15.959839"
+  },
+  {
+    "id": 129,
+    "run_id": null,
+    "goal": "CLI app",
+    "summary": "ok",
+    "tags": "cli",
+    "score": null,
+    "created_at": "2025-10-28T20:19:16.203219"
+  },
+  {
+    "id": 130,
+    "run_id": 378,
+    "goal": "create sample app then improve",
+    "summary": "no-op",
+    "tags": "orchestrator,autolearn,create,sample,app,then,improve",
+    "score": null,
+    "created_at": "2025-10-28T20:19:24.393576"
+  },
+  {
+    "id": 131,
+    "run_id": 379,
+    "goal": "retry test goal",
+    "summary": "ok",
+    "tags": "orchestrator,autolearn,retry,test,goal",
+    "score": null,
+    "created_at": "2025-10-28T20:19:25.542214"
+  },
+  {
+    "id": 132,
+    "run_id": null,
+    "goal": "Advisor decision for: build fastapi app",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:01:57.834193"
+  },
+  {
+    "id": 133,
+    "run_id": null,
+    "goal": "Advisor decision for: build fastapi app",
+    "summary": "openai/gpt-4o (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:01:58.358818"
+  },
+  {
+    "id": 134,
+    "run_id": null,
+    "goal": "Advisor decision for: analytics smoke",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:02:07.707289"
+  },
+  {
+    "id": 135,
+    "run_id": null,
+    "goal": "Advisor decision for: analytics smoke",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:02:12.330522"
+  },
+  {
+    "id": 136,
+    "run_id": null,
+    "goal": "Advisor decision (run 389)",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:02:12.337540"
+  },
+  {
+    "id": 137,
+    "run_id": null,
+    "goal": "Advisor decision for: analytics smoke",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:02:16.993485"
+  },
+  {
+    "id": 138,
+    "run_id": null,
+    "goal": "Advisor decision for: feedback smoke",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:02:26.913891"
+  },
+  {
+    "id": 139,
+    "run_id": null,
+    "goal": "Advisor decision for: feedback smoke",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:02:31.536791"
+  },
+  {
+    "id": 140,
+    "run_id": null,
+    "goal": "Advisor decision (run 390)",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:02:31.541789"
+  },
+  {
+    "id": 141,
+    "run_id": null,
+    "goal": "Advisor decision for: feedback smoke",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:02:36.154078"
+  },
+  {
+    "id": 142,
+    "run_id": null,
+    "goal": "Advisor decision for: builder feedback memory check",
+    "summary": "openai/gpt-4o (memory)",
+    "tags": "advisor_decision,memory",
+    "score": null,
+    "created_at": "2025-10-28T22:02:40.953201"
+  },
+  {
+    "id": 143,
+    "run_id": null,
+    "goal": "Advisor decision for: builder feedback memory check",
+    "summary": "openai/gpt-4o (memory)",
+    "tags": "advisor_decision,memory",
+    "score": null,
+    "created_at": "2025-10-28T22:02:45.635276"
+  },
+  {
+    "id": 144,
+    "run_id": null,
+    "goal": "Advisor decision for: hello",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:02:50.299454"
+  },
+  {
+    "id": 145,
+    "run_id": null,
+    "goal": "Advisor decision for: another goal",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:02:54.988146"
+  },
+  {
+    "id": 146,
+    "run_id": null,
+    "goal": "Advisor decision for: builder should improve score by re-run",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:02:59.714569"
+  },
+  {
+    "id": 147,
+    "run_id": null,
+    "goal": "Advisor decision for: builder should improve score by re-run",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:03:04.411640"
+  },
+  {
+    "id": 148,
+    "run_id": 55501,
+    "goal": "Build web",
+    "summary": "ok",
+    "tags": "web",
+    "score": null,
+    "created_at": "2025-10-28T22:03:04.449506"
+  },
+  {
+    "id": 149,
+    "run_id": null,
+    "goal": "Another web",
+    "summary": "ok",
+    "tags": "web",
+    "score": null,
+    "created_at": "2025-10-28T22:03:04.455929"
+  },
+  {
+    "id": 150,
+    "run_id": null,
+    "goal": "Advisor decision for: dashboard-runs smoke",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:03:09.237694"
+  },
+  {
+    "id": 151,
+    "run_id": null,
+    "goal": "Advisor decision for: dashboard-runs smoke",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:03:13.895322"
+  },
+  {
+    "id": 152,
+    "run_id": null,
+    "goal": "Advisor decision (run 391)",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:03:13.901661"
+  },
+  {
+    "id": 153,
+    "run_id": null,
+    "goal": "Advisor decision for: dashboard-runs smoke",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:03:18.532146"
+  },
+  {
+    "id": 154,
+    "run_id": null,
+    "goal": "Advisor decision for: dashboard-summary smoke",
+    "summary": "openai/gpt-4o (memory)",
+    "tags": "advisor_decision,memory",
+    "score": null,
+    "created_at": "2025-10-28T22:03:23.373096"
+  },
+  {
+    "id": 155,
+    "run_id": null,
+    "goal": "Advisor decision for: dashboard-summary smoke",
+    "summary": "openai/gpt-4o (memory)",
+    "tags": "advisor_decision,memory",
+    "score": null,
+    "created_at": "2025-10-28T22:03:27.996755"
+  },
+  {
+    "id": 156,
+    "run_id": null,
+    "goal": "Advisor decision (run 392)",
+    "summary": "openai/gpt-4o (memory)",
+    "tags": "advisor_decision,memory",
+    "score": null,
+    "created_at": "2025-10-28T22:03:28.002758"
+  },
+  {
+    "id": 157,
+    "run_id": null,
+    "goal": "Advisor decision for: dashboard-summary smoke",
+    "summary": "openai/gpt-4o (memory)",
+    "tags": "advisor_decision,memory",
+    "score": null,
+    "created_at": "2025-10-28T22:03:32.611274"
+  },
+  {
+    "id": 158,
+    "run_id": null,
+    "goal": "Advisor decision for: deploy a tiny app",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:03:37.466530"
+  },
+  {
+    "id": 159,
+    "run_id": null,
+    "goal": "Advisor decision for: registry test",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:03:49.267242"
+  },
+  {
+    "id": 160,
+    "run_id": null,
+    "goal": "Advisor decision for: evaluation memory feedback smoke",
+    "summary": "openai/gpt-4o (memory)",
+    "tags": "advisor_decision,memory",
+    "score": null,
+    "created_at": "2025-10-28T22:04:06.697649"
+  },
+  {
+    "id": 161,
+    "run_id": null,
+    "goal": "Advisor decision for: hello",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:04:11.362178"
+  },
+  {
+    "id": 162,
+    "run_id": null,
+    "goal": "Advisor decision for: email me at test@example.com with key sk-abc1234567890xxxxx",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:04:16.188127"
+  },
+  {
+    "id": 163,
+    "run_id": null,
+    "goal": "Exportable",
+    "summary": "S",
+    "tags": "x",
+    "score": 0.1,
+    "created_at": "2025-10-28T22:04:16.576562"
+  },
+  {
+    "id": 164,
+    "run_id": null,
+    "goal": "Advisor decision for: Write a testable function; add unit tests",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:04:21.344633"
+  },
+  {
+    "id": 165,
+    "run_id": null,
+    "goal": "Build FastAPI",
+    "summary": "web",
+    "tags": "fastapi,web",
+    "score": null,
+    "created_at": "2025-10-28T22:04:21.381058"
+  },
+  {
+    "id": 166,
+    "run_id": null,
+    "goal": "Write CLI",
+    "summary": "cli",
+    "tags": "cli",
+    "score": null,
+    "created_at": "2025-10-28T22:04:21.390476"
+  },
+  {
+    "id": 167,
+    "run_id": null,
+    "goal": "Web App",
+    "summary": "build app",
+    "tags": "web",
+    "score": null,
+    "created_at": "2025-10-28T22:04:21.418193"
+  },
+  {
+    "id": 168,
+    "run_id": null,
+    "goal": "CLI Tool",
+    "summary": "command line",
+    "tags": "cli",
+    "score": null,
+    "created_at": "2025-10-28T22:04:21.426192"
+  },
+  {
+    "id": 169,
+    "run_id": 10101,
+    "goal": "Web app with FastAPI",
+    "summary": "web api ok",
+    "tags": "fastapi,web",
+    "score": 0.5,
+    "created_at": "2025-10-28T22:04:21.454207"
+  },
+  {
+    "id": 170,
+    "run_id": 20202,
+    "goal": "FastAPI dashboard",
+    "summary": "dashboard ok",
+    "tags": "fastapi,dashboard",
+    "score": 0.7,
+    "created_at": "2025-10-28T22:04:21.462205"
+  },
+  {
+    "id": 171,
+    "run_id": null,
+    "goal": "Advisor decision for: How to scaffold a repo and add CI",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:04:26.138334"
+  },
+  {
+    "id": 173,
+    "run_id": null,
+    "goal": "CLI app",
+    "summary": "ok",
+    "tags": "cli",
+    "score": null,
+    "created_at": "2025-10-28T22:04:26.388367"
+  },
+  {
+    "id": 174,
+    "run_id": null,
+    "goal": "Advisor decision for: plan something",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:04:31.034492"
+  },
+  {
+    "id": 175,
+    "run_id": null,
+    "goal": "Advisor decision for: autolearn smoke",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:04:35.705159"
+  },
+  {
+    "id": 176,
+    "run_id": null,
+    "goal": "Advisor decision for: autolearn smoke",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:04:40.328265"
+  },
+  {
+    "id": 177,
+    "run_id": null,
+    "goal": "Advisor decision (run 393)",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:04:40.333258"
+  },
+  {
+    "id": 178,
+    "run_id": null,
+    "goal": "Advisor decision for: autolearn smoke",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:04:44.961448"
+  },
+  {
+    "id": 179,
+    "run_id": null,
+    "goal": "Advisor decision for: history endpoint smoke",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:04:49.634673"
+  },
+  {
+    "id": 180,
+    "run_id": null,
+    "goal": "Advisor decision for: history endpoint smoke",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:04:54.289375"
+  },
+  {
+    "id": 181,
+    "run_id": null,
+    "goal": "Advisor decision (run 394)",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:04:54.295787"
+  },
+  {
+    "id": 182,
+    "run_id": null,
+    "goal": "Advisor decision for: history endpoint smoke",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:04:58.916420"
+  },
+  {
+    "id": 183,
+    "run_id": null,
+    "goal": "Advisor decision for: create sample app then improve",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:05:03.644689"
+  },
+  {
+    "id": 184,
+    "run_id": null,
+    "goal": "Advisor decision for: create sample app then improve",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:05:08.312782"
+  },
+  {
+    "id": 185,
+    "run_id": null,
+    "goal": "Advisor decision (run 395)",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:05:08.316783"
+  },
+  {
+    "id": 186,
+    "run_id": null,
+    "goal": "Advisor decision for: create sample app then improve",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:05:12.919016"
+  },
+  {
+    "id": 187,
+    "run_id": null,
+    "goal": "Advisor decision for: create sample app then improve",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:05:17.627914"
+  },
+  {
+    "id": 188,
+    "run_id": null,
+    "goal": "Advisor decision for: create sample app then improve",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:05:23.341427"
+  },
+  {
+    "id": 189,
+    "run_id": 395,
+    "goal": "create sample app then improve",
+    "summary": "no-op",
+    "tags": "orchestrator,autolearn,create,sample,app,then,improve",
+    "score": null,
+    "created_at": "2025-10-28T22:05:30.256590"
+  },
+  {
+    "id": 190,
+    "run_id": null,
+    "goal": "Advisor decision for: hello",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:05:34.879558"
+  },
+  {
+    "id": 191,
+    "run_id": null,
+    "goal": "Advisor decision for: retry test goal",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:05:39.542817"
+  },
+  {
+    "id": 192,
+    "run_id": null,
+    "goal": "Advisor decision for: retry test goal",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:05:44.194722"
+  },
+  {
+    "id": 193,
+    "run_id": null,
+    "goal": "Advisor decision (run 396)",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:05:44.198723"
+  },
+  {
+    "id": 194,
+    "run_id": null,
+    "goal": "Advisor decision for: create sample app then improve",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:05:48.839965"
+  },
+  {
+    "id": 195,
+    "run_id": 396,
+    "goal": "retry test goal",
+    "summary": "ok",
+    "tags": "orchestrator,autolearn,retry,test,goal",
+    "score": null,
+    "created_at": "2025-10-28T22:05:49.897837"
+  },
+  {
+    "id": 196,
+    "run_id": null,
+    "goal": "Advisor decision for: build a tiny notes API with one POST/GET endpoint",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:05:54.504173"
+  },
+  {
+    "id": 197,
+    "run_id": null,
+    "goal": "Advisor decision for: build a tiny notes API with one POST/GET endpoint",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:05:59.182911"
+  },
+  {
+    "id": 198,
+    "run_id": null,
+    "goal": "Advisor decision (run 397)",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:05:59.188023"
+  },
+  {
+    "id": 199,
+    "run_id": null,
+    "goal": "Advisor decision for: build a tiny notes API with one POST/GET endpoint",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:06:03.777912"
+  },
+  {
+    "id": 200,
+    "run_id": null,
+    "goal": "Advisor decision for: build a tiny notes API with one POST/GET endpoint",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:06:08.442985"
+  },
+  {
+    "id": 201,
+    "run_id": null,
+    "goal": "Advisor decision for: build a tiny notes API with one POST/GET endpoint",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:06:14.113028"
+  },
+  {
+    "id": 202,
+    "run_id": null,
+    "goal": "Advisor decision for: build a minimal hello-world app",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:06:18.793575"
+  },
+  {
+    "id": 203,
+    "run_id": null,
+    "goal": "Advisor decision for: build a minimal hello-world app",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:06:23.458466"
+  },
+  {
+    "id": 204,
+    "run_id": null,
+    "goal": "Advisor decision (run 398)",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:06:23.462458"
+  },
+  {
+    "id": 205,
+    "run_id": null,
+    "goal": "Advisor decision for: build a minimal hello-world app",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:06:28.088255"
+  },
+  {
+    "id": 206,
+    "run_id": null,
+    "goal": "Advisor decision for: steps+summary check",
+    "summary": "openai/gpt-4o (memory)",
+    "tags": "advisor_decision,memory",
+    "score": null,
+    "created_at": "2025-10-28T22:06:32.774619"
+  },
+  {
+    "id": 207,
+    "run_id": null,
+    "goal": "Advisor decision for: steps+summary check",
+    "summary": "openai/gpt-4o (memory)",
+    "tags": "advisor_decision,memory",
+    "score": null,
+    "created_at": "2025-10-28T22:06:37.420067"
+  },
+  {
+    "id": 208,
+    "run_id": null,
+    "goal": "Advisor decision (run 399)",
+    "summary": "openai/gpt-4o (memory)",
+    "tags": "advisor_decision,memory",
+    "score": null,
+    "created_at": "2025-10-28T22:06:37.424772"
+  },
+  {
+    "id": 209,
+    "run_id": null,
+    "goal": "Advisor decision for: steps+summary check",
+    "summary": "openai/gpt-4o (memory)",
+    "tags": "advisor_decision,memory",
+    "score": null,
+    "created_at": "2025-10-28T22:06:42.050033"
+  },
+  {
+    "id": 210,
+    "run_id": null,
+    "goal": "Advisor decision for: Set up a new repo; write README; add CI",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:06:46.731332"
+  },
+  {
+    "id": 211,
+    "run_id": null,
+    "goal": "Advisor decision for: Write tests",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:06:51.390698"
+  },
+  {
+    "id": 212,
+    "run_id": null,
+    "goal": "Advisor decision for: rerun smoke",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:07:59.562900"
+  },
+  {
+    "id": 213,
+    "run_id": null,
+    "goal": "Advisor decision for: rerun smoke",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:08:04.245896"
+  },
+  {
+    "id": 214,
+    "run_id": null,
+    "goal": "Advisor decision (run 400)",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:08:04.251894"
+  },
+  {
+    "id": 215,
+    "run_id": null,
+    "goal": "Advisor decision for: rerun smoke",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:08:08.847094"
+  },
+  {
+    "id": 216,
+    "run_id": null,
+    "goal": "Advisor decision for: rerun smoke",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:08:13.521405"
+  },
+  {
+    "id": 217,
+    "run_id": null,
+    "goal": "Advisor decision for: rerun smoke",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:08:18.207278"
+  },
+  {
+    "id": 218,
+    "run_id": null,
+    "goal": "Advisor decision (run 401)",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:08:18.213280"
+  },
+  {
+    "id": 219,
+    "run_id": null,
+    "goal": "Advisor decision for: rerun smoke",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:08:22.851065"
+  },
+  {
+    "id": 220,
+    "run_id": null,
+    "goal": "Advisor decision for: rerun smoke",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:08:27.506997"
+  },
+  {
+    "id": 221,
+    "run_id": null,
+    "goal": "Advisor decision for: rerun smoke",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:08:33.155795"
+  },
+  {
+    "id": 222,
+    "run_id": null,
+    "goal": "Advisor decision for: export test",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:08:37.999259"
+  },
+  {
+    "id": 223,
+    "run_id": null,
+    "goal": "Advisor decision for: export test",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:08:42.659074"
+  },
+  {
+    "id": 224,
+    "run_id": null,
+    "goal": "Advisor decision (run 402)",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:08:42.666075"
+  },
+  {
+    "id": 225,
+    "run_id": null,
+    "goal": "Advisor decision for: export test",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:08:47.296720"
+  },
+  {
+    "id": 226,
+    "run_id": null,
+    "goal": "Advisor decision for: write python code then test it",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:08:52.089762"
+  },
+  {
+    "id": 227,
+    "run_id": null,
+    "goal": "Advisor decision for: hello",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:08:56.778826"
+  },
+  {
+    "id": 228,
+    "run_id": null,
+    "goal": "Advisor decision for: create a tiny script and print hello",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:09:01.435897"
+  },
+  {
+    "id": 229,
+    "run_id": null,
+    "goal": "Advisor decision for: halt after failure",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:09:06.123000"
+  },
+  {
+    "id": 230,
+    "run_id": null,
+    "goal": "Advisor decision for: halt after failure",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:09:10.769757"
+  },
+  {
+    "id": 231,
+    "run_id": null,
+    "goal": "Advisor decision (run 403)",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:09:10.775754"
+  },
+  {
+    "id": 232,
+    "run_id": null,
+    "goal": "Advisor decision for: ws runs",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:09:15.491545"
+  },
+  {
+    "id": 233,
+    "run_id": null,
+    "goal": "Advisor decision for: ws runs",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:09:20.148436"
+  },
+  {
+    "id": 234,
+    "run_id": null,
+    "goal": "Advisor decision (run 404)",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:09:20.154436"
+  },
+  {
+    "id": 235,
+    "run_id": null,
+    "goal": "Advisor decision for: ws runs",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:09:24.764082"
+  },
+  {
+    "id": 236,
+    "run_id": null,
+    "goal": "Advisor decision for: ws logs",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:09:29.409879"
+  },
+  {
+    "id": 237,
+    "run_id": null,
+    "goal": "Advisor decision for: ws logs",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:09:34.057360"
+  },
+  {
+    "id": 238,
+    "run_id": null,
+    "goal": "Advisor decision (run 405)",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:09:34.063375"
+  },
+  {
+    "id": 239,
+    "run_id": null,
+    "goal": "Advisor decision for: ws logs",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:09:38.672646"
+  },
+  {
+    "id": 240,
+    "run_id": null,
+    "goal": "CLI app",
+    "summary": "ok",
+    "tags": "cli",
+    "score": null,
+    "created_at": "2025-10-28T22:10:30.935606"
+  },
+  {
+    "id": 241,
+    "run_id": null,
+    "goal": "CLI app",
+    "summary": "ok",
+    "tags": "cli",
+    "score": null,
+    "created_at": "2025-10-28T22:11:13.071547"
+  },
+  {
+    "id": 242,
+    "run_id": null,
+    "goal": "Advisor decision for: build fastapi app",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:11:24.707630"
+  },
+  {
+    "id": 243,
+    "run_id": null,
+    "goal": "Advisor decision for: build fastapi app",
+    "summary": "openai/gpt-4o (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:11:25.246516"
+  },
+  {
+    "id": 244,
+    "run_id": null,
+    "goal": "Advisor decision for: analytics smoke",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:11:29.860330"
+  },
+  {
+    "id": 245,
+    "run_id": null,
+    "goal": "Advisor decision for: analytics smoke",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:11:34.525929"
+  },
+  {
+    "id": 246,
+    "run_id": null,
+    "goal": "Advisor decision (run 406)",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:11:34.531930"
+  },
+  {
+    "id": 247,
+    "run_id": null,
+    "goal": "Advisor decision for: analytics smoke",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:11:39.143848"
+  },
+  {
+    "id": 248,
+    "run_id": null,
+    "goal": "Advisor decision for: feedback smoke",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:11:44.001408"
+  },
+  {
+    "id": 249,
+    "run_id": null,
+    "goal": "Advisor decision for: feedback smoke",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:11:48.631676"
+  },
+  {
+    "id": 250,
+    "run_id": null,
+    "goal": "Advisor decision (run 407)",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:11:48.637746"
+  },
+  {
+    "id": 251,
+    "run_id": null,
+    "goal": "Advisor decision for: feedback smoke",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:11:53.245006"
+  },
+  {
+    "id": 252,
+    "run_id": null,
+    "goal": "Advisor decision for: builder feedback memory check",
+    "summary": "openai/gpt-4o (memory)",
+    "tags": "advisor_decision,memory",
+    "score": null,
+    "created_at": "2025-10-28T22:11:57.972006"
+  },
+  {
+    "id": 253,
+    "run_id": null,
+    "goal": "Advisor decision for: builder feedback memory check",
+    "summary": "openai/gpt-4o (memory)",
+    "tags": "advisor_decision,memory",
+    "score": null,
+    "created_at": "2025-10-28T22:12:02.669490"
+  },
+  {
+    "id": 254,
+    "run_id": null,
+    "goal": "Advisor decision for: hello",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:12:07.322602"
+  },
+  {
+    "id": 255,
+    "run_id": null,
+    "goal": "Advisor decision for: another goal",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:12:11.954351"
+  },
+  {
+    "id": 256,
+    "run_id": null,
+    "goal": "Advisor decision for: builder should improve score by re-run",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:12:16.633168"
+  },
+  {
+    "id": 257,
+    "run_id": null,
+    "goal": "Advisor decision for: builder should improve score by re-run",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:12:21.349426"
+  },
+  {
+    "id": 258,
+    "run_id": 55501,
+    "goal": "Build web",
+    "summary": "ok",
+    "tags": "web",
+    "score": null,
+    "created_at": "2025-10-28T22:12:21.390179"
+  },
+  {
+    "id": 259,
+    "run_id": null,
+    "goal": "Another web",
+    "summary": "ok",
+    "tags": "web",
+    "score": null,
+    "created_at": "2025-10-28T22:12:21.396190"
+  },
+  {
+    "id": 260,
+    "run_id": null,
+    "goal": "Advisor decision for: dashboard-runs smoke",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:12:26.257144"
+  },
+  {
+    "id": 261,
+    "run_id": null,
+    "goal": "Advisor decision for: dashboard-runs smoke",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:12:30.931372"
+  },
+  {
+    "id": 262,
+    "run_id": null,
+    "goal": "Advisor decision (run 408)",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:12:30.937284"
+  },
+  {
+    "id": 263,
+    "run_id": null,
+    "goal": "Advisor decision for: dashboard-runs smoke",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:12:35.531829"
+  },
+  {
+    "id": 264,
+    "run_id": null,
+    "goal": "Advisor decision for: dashboard-summary smoke",
+    "summary": "openai/gpt-4o (memory)",
+    "tags": "advisor_decision,memory",
+    "score": null,
+    "created_at": "2025-10-28T22:12:40.257045"
+  },
+  {
+    "id": 265,
+    "run_id": null,
+    "goal": "Advisor decision for: dashboard-summary smoke",
+    "summary": "openai/gpt-4o (memory)",
+    "tags": "advisor_decision,memory",
+    "score": null,
+    "created_at": "2025-10-28T22:12:44.933846"
+  },
+  {
+    "id": 266,
+    "run_id": null,
+    "goal": "Advisor decision (run 409)",
+    "summary": "openai/gpt-4o (memory)",
+    "tags": "advisor_decision,memory",
+    "score": null,
+    "created_at": "2025-10-28T22:12:44.939759"
+  },
+  {
+    "id": 267,
+    "run_id": null,
+    "goal": "Advisor decision for: dashboard-summary smoke",
+    "summary": "openai/gpt-4o (memory)",
+    "tags": "advisor_decision,memory",
+    "score": null,
+    "created_at": "2025-10-28T22:12:49.559681"
+  },
+  {
+    "id": 268,
+    "run_id": null,
+    "goal": "Advisor decision for: deploy a tiny app",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:12:54.396951"
+  },
+  {
+    "id": 269,
+    "run_id": null,
+    "goal": "Advisor decision for: registry test",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:13:06.206816"
+  },
+  {
+    "id": 270,
+    "run_id": null,
+    "goal": "Advisor decision for: hello world web",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:13:19.403677"
+  },
+  {
+    "id": 271,
+    "run_id": null,
+    "goal": "Advisor decision for: hello world web",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:13:20.051360"
+  },
+  {
+    "id": 272,
+    "run_id": null,
+    "goal": "Advisor decision (run 410)",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:13:20.057373"
+  },
+  {
+    "id": 273,
+    "run_id": null,
+    "goal": "Advisor decision for: hello world web",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:13:20.589467"
+  },
+  {
+    "id": 274,
+    "run_id": null,
+    "goal": "Advisor decision for: evaluation memory feedback smoke",
+    "summary": "openai/gpt-4o (memory)",
+    "tags": "advisor_decision,memory",
+    "score": null,
+    "created_at": "2025-10-28T22:13:25.559583"
+  },
+  {
+    "id": 275,
+    "run_id": null,
+    "goal": "Advisor decision for: hello",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:13:30.221171"
+  },
+  {
+    "id": 276,
+    "run_id": null,
+    "goal": "Advisor decision for: email me at test@example.com with key sk-abc1234567890xxxxx",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:13:34.945732"
+  },
+  {
+    "id": 277,
+    "run_id": null,
+    "goal": "Exportable",
+    "summary": "S",
+    "tags": "x",
+    "score": 0.1,
+    "created_at": "2025-10-28T22:13:35.354043"
+  },
+  {
+    "id": 278,
+    "run_id": null,
+    "goal": "Advisor decision for: Write a testable function; add unit tests",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:13:40.151590"
+  },
+  {
+    "id": 279,
+    "run_id": null,
+    "goal": "Build FastAPI",
+    "summary": "web",
+    "tags": "fastapi,web",
+    "score": null,
+    "created_at": "2025-10-28T22:13:40.186347"
+  },
+  {
+    "id": 280,
+    "run_id": null,
+    "goal": "Write CLI",
+    "summary": "cli",
+    "tags": "cli",
+    "score": null,
+    "created_at": "2025-10-28T22:13:40.194346"
+  },
+  {
+    "id": 281,
+    "run_id": null,
+    "goal": "Web App",
+    "summary": "build app",
+    "tags": "web",
+    "score": null,
+    "created_at": "2025-10-28T22:13:40.215345"
+  },
+  {
+    "id": 282,
+    "run_id": null,
+    "goal": "CLI Tool",
+    "summary": "command line",
+    "tags": "cli",
+    "score": null,
+    "created_at": "2025-10-28T22:13:40.222347"
+  },
+  {
+    "id": 283,
+    "run_id": 10101,
+    "goal": "Web app with FastAPI",
+    "summary": "web api ok",
+    "tags": "fastapi,web",
+    "score": 0.5,
+    "created_at": "2025-10-28T22:13:40.250346"
+  },
+  {
+    "id": 284,
+    "run_id": 20202,
+    "goal": "FastAPI dashboard",
+    "summary": "dashboard ok",
+    "tags": "fastapi,dashboard",
+    "score": 0.7,
+    "created_at": "2025-10-28T22:13:40.257356"
+  },
+  {
+    "id": 285,
+    "run_id": null,
+    "goal": "Advisor decision for: How to scaffold a repo and add CI",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:13:44.906846"
+  },
+  {
+    "id": 287,
+    "run_id": null,
+    "goal": "CLI app",
+    "summary": "ok",
+    "tags": "cli",
+    "score": null,
+    "created_at": "2025-10-28T22:13:45.135642"
+  },
+  {
+    "id": 288,
+    "run_id": null,
+    "goal": "Advisor decision for: plan something",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:13:49.764702"
+  },
+  {
+    "id": 289,
+    "run_id": null,
+    "goal": "Advisor decision for: autolearn smoke",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:13:54.424309"
+  },
+  {
+    "id": 290,
+    "run_id": null,
+    "goal": "Advisor decision for: autolearn smoke",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:13:59.082253"
+  },
+  {
+    "id": 291,
+    "run_id": null,
+    "goal": "Advisor decision (run 411)",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:13:59.089474"
+  },
+  {
+    "id": 292,
+    "run_id": null,
+    "goal": "Advisor decision for: autolearn smoke",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:14:03.753170"
+  },
+  {
+    "id": 293,
+    "run_id": null,
+    "goal": "Advisor decision for: history endpoint smoke",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:14:08.529269"
+  },
+  {
+    "id": 294,
+    "run_id": null,
+    "goal": "Advisor decision for: history endpoint smoke",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:14:13.144641"
+  },
+  {
+    "id": 295,
+    "run_id": null,
+    "goal": "Advisor decision (run 412)",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:14:13.149639"
+  },
+  {
+    "id": 296,
+    "run_id": null,
+    "goal": "Advisor decision for: history endpoint smoke",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:14:17.731352"
+  },
+  {
+    "id": 297,
+    "run_id": null,
+    "goal": "Advisor decision for: create sample app then improve",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:14:22.507486"
+  },
+  {
+    "id": 298,
+    "run_id": null,
+    "goal": "Advisor decision for: create sample app then improve",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:14:27.163009"
+  },
+  {
+    "id": 299,
+    "run_id": null,
+    "goal": "Advisor decision (run 413)",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:14:27.170010"
+  },
+  {
+    "id": 300,
+    "run_id": null,
+    "goal": "Advisor decision for: create sample app then improve",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:14:31.788580"
+  },
+  {
+    "id": 301,
+    "run_id": null,
+    "goal": "Advisor decision for: create sample app then improve",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:14:36.470741"
+  },
+  {
+    "id": 302,
+    "run_id": null,
+    "goal": "Advisor decision for: create sample app then improve",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:14:42.073529"
+  },
+  {
+    "id": 303,
+    "run_id": 413,
+    "goal": "create sample app then improve",
+    "summary": "no-op",
+    "tags": "orchestrator,autolearn,create,sample,app,then,improve",
+    "score": null,
+    "created_at": "2025-10-28T22:14:48.991056"
+  },
+  {
+    "id": 304,
+    "run_id": null,
+    "goal": "Advisor decision for: hello",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:14:53.605127"
+  },
+  {
+    "id": 305,
+    "run_id": null,
+    "goal": "Advisor decision for: retry test goal",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:14:58.235593"
+  },
+  {
+    "id": 306,
+    "run_id": null,
+    "goal": "Advisor decision for: retry test goal",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:15:02.881846"
+  },
+  {
+    "id": 307,
+    "run_id": null,
+    "goal": "Advisor decision (run 414)",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:15:02.887990"
+  },
+  {
+    "id": 308,
+    "run_id": null,
+    "goal": "Advisor decision for: create sample app then improve",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:15:07.523559"
+  },
+  {
+    "id": 309,
+    "run_id": 414,
+    "goal": "retry test goal",
+    "summary": "ok",
+    "tags": "orchestrator,autolearn,retry,test,goal",
+    "score": null,
+    "created_at": "2025-10-28T22:15:08.579887"
+  },
+  {
+    "id": 310,
+    "run_id": null,
+    "goal": "Advisor decision for: build a tiny notes API with one POST/GET endpoint",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:15:13.189870"
+  },
+  {
+    "id": 311,
+    "run_id": null,
+    "goal": "Advisor decision for: build a tiny notes API with one POST/GET endpoint",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:15:17.813000"
+  },
+  {
+    "id": 312,
+    "run_id": null,
+    "goal": "Advisor decision (run 415)",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:15:17.819002"
+  },
+  {
+    "id": 313,
+    "run_id": null,
+    "goal": "Advisor decision for: build a tiny notes API with one POST/GET endpoint",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:15:22.470146"
+  },
+  {
+    "id": 314,
+    "run_id": null,
+    "goal": "Advisor decision for: build a tiny notes API with one POST/GET endpoint",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:15:27.119111"
+  },
+  {
+    "id": 315,
+    "run_id": null,
+    "goal": "Advisor decision for: build a tiny notes API with one POST/GET endpoint",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:15:32.718614"
+  },
+  {
+    "id": 316,
+    "run_id": null,
+    "goal": "Advisor decision for: build a minimal hello-world app",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:15:37.425147"
+  },
+  {
+    "id": 317,
+    "run_id": null,
+    "goal": "Advisor decision for: build a minimal hello-world app",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:15:42.032896"
+  },
+  {
+    "id": 318,
+    "run_id": null,
+    "goal": "Advisor decision (run 416)",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:15:42.038368"
+  },
+  {
+    "id": 319,
+    "run_id": null,
+    "goal": "Advisor decision for: build a minimal hello-world app",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:15:46.634805"
+  },
+  {
+    "id": 320,
+    "run_id": null,
+    "goal": "Advisor decision for: steps+summary check",
+    "summary": "openai/gpt-4o (memory)",
+    "tags": "advisor_decision,memory",
+    "score": null,
+    "created_at": "2025-10-28T22:15:51.264462"
+  },
+  {
+    "id": 321,
+    "run_id": null,
+    "goal": "Advisor decision for: steps+summary check",
+    "summary": "openai/gpt-4o (memory)",
+    "tags": "advisor_decision,memory",
+    "score": null,
+    "created_at": "2025-10-28T22:15:55.904148"
+  },
+  {
+    "id": 322,
+    "run_id": null,
+    "goal": "Advisor decision (run 417)",
+    "summary": "openai/gpt-4o (memory)",
+    "tags": "advisor_decision,memory",
+    "score": null,
+    "created_at": "2025-10-28T22:15:55.909697"
+  },
+  {
+    "id": 323,
+    "run_id": null,
+    "goal": "Advisor decision for: steps+summary check",
+    "summary": "openai/gpt-4o (memory)",
+    "tags": "advisor_decision,memory",
+    "score": null,
+    "created_at": "2025-10-28T22:16:00.526736"
+  },
+  {
+    "id": 324,
+    "run_id": null,
+    "goal": "Advisor decision for: Set up a new repo; write README; add CI",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:16:05.189051"
+  },
+  {
+    "id": 325,
+    "run_id": null,
+    "goal": "Advisor decision for: Write tests",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:16:09.788011"
+  },
+  {
+    "id": 326,
+    "run_id": null,
+    "goal": "Advisor decision for: rerun smoke",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:17:10.182095"
+  },
+  {
+    "id": 327,
+    "run_id": null,
+    "goal": "Advisor decision for: rerun smoke",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:17:14.799539"
+  },
+  {
+    "id": 328,
+    "run_id": null,
+    "goal": "Advisor decision (run 418)",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:17:14.805541"
+  },
+  {
+    "id": 329,
+    "run_id": null,
+    "goal": "Advisor decision for: rerun smoke",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:17:19.429833"
+  },
+  {
+    "id": 330,
+    "run_id": null,
+    "goal": "Advisor decision for: rerun smoke",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:17:24.101739"
+  },
+  {
+    "id": 331,
+    "run_id": null,
+    "goal": "Advisor decision for: rerun smoke",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:17:28.756526"
+  },
+  {
+    "id": 332,
+    "run_id": null,
+    "goal": "Advisor decision (run 419)",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:17:28.762528"
+  },
+  {
+    "id": 333,
+    "run_id": null,
+    "goal": "Advisor decision for: rerun smoke",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:17:33.391577"
+  },
+  {
+    "id": 334,
+    "run_id": null,
+    "goal": "Advisor decision for: rerun smoke",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:17:38.062099"
+  },
+  {
+    "id": 335,
+    "run_id": null,
+    "goal": "Advisor decision for: rerun smoke",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:17:43.737297"
+  },
+  {
+    "id": 336,
+    "run_id": null,
+    "goal": "Advisor decision for: export test",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:17:48.613243"
+  },
+  {
+    "id": 337,
+    "run_id": null,
+    "goal": "Advisor decision for: export test",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:17:53.227294"
+  },
+  {
+    "id": 338,
+    "run_id": null,
+    "goal": "Advisor decision (run 420)",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:17:53.233782"
+  },
+  {
+    "id": 339,
+    "run_id": null,
+    "goal": "Advisor decision for: export test",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:17:57.824745"
+  },
+  {
+    "id": 340,
+    "run_id": null,
+    "goal": "Advisor decision for: write python code then test it",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:18:02.612453"
+  },
+  {
+    "id": 341,
+    "run_id": null,
+    "goal": "Advisor decision for: hello",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:18:07.275059"
+  },
+  {
+    "id": 342,
+    "run_id": null,
+    "goal": "Advisor decision for: create a tiny script and print hello",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:18:11.971603"
+  },
+  {
+    "id": 343,
+    "run_id": null,
+    "goal": "Advisor decision for: halt after failure",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:18:16.608952"
+  },
+  {
+    "id": 344,
+    "run_id": null,
+    "goal": "Advisor decision for: halt after failure",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:18:21.268703"
+  },
+  {
+    "id": 345,
+    "run_id": null,
+    "goal": "Advisor decision (run 421)",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:18:21.275403"
+  },
+  {
+    "id": 346,
+    "run_id": null,
+    "goal": "Advisor decision for: ws runs",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:18:25.943506"
+  },
+  {
+    "id": 347,
+    "run_id": null,
+    "goal": "Advisor decision for: ws runs",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:18:30.601877"
+  },
+  {
+    "id": 348,
+    "run_id": null,
+    "goal": "Advisor decision (run 422)",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:18:30.605855"
+  },
+  {
+    "id": 349,
+    "run_id": null,
+    "goal": "Advisor decision for: ws runs",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:18:35.245141"
+  },
+  {
+    "id": 350,
+    "run_id": null,
+    "goal": "Advisor decision for: ws logs",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:18:39.982481"
+  },
+  {
+    "id": 351,
+    "run_id": null,
+    "goal": "Advisor decision for: ws logs",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:18:44.631730"
+  },
+  {
+    "id": 352,
+    "run_id": null,
+    "goal": "Advisor decision (run 423)",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:18:44.639933"
+  },
+  {
+    "id": 353,
+    "run_id": null,
+    "goal": "Advisor decision for: ws logs",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:18:49.238887"
+  },
+  {
+    "id": 354,
+    "run_id": null,
+    "goal": "Advisor decision for: hello world web",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:19:08.774402"
+  },
+  {
+    "id": 355,
+    "run_id": null,
+    "goal": "Advisor decision for: hello world web",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:19:09.348390"
+  },
+  {
+    "id": 356,
+    "run_id": null,
+    "goal": "Advisor decision (run 424)",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:19:09.354388"
+  },
+  {
+    "id": 357,
+    "run_id": null,
+    "goal": "Advisor decision for: hello world web",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:19:09.883454"
+  },
+  {
+    "id": 358,
+    "run_id": null,
+    "goal": "Advisor decision for: build fastapi app",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:19:21.634007"
+  },
+  {
+    "id": 359,
+    "run_id": null,
+    "goal": "Advisor decision for: build fastapi app",
+    "summary": "openai/gpt-4o (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:19:22.172820"
+  },
+  {
+    "id": 360,
+    "run_id": null,
+    "goal": "Advisor decision for: analytics smoke",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:19:26.786187"
+  },
+  {
+    "id": 361,
+    "run_id": null,
+    "goal": "Advisor decision for: analytics smoke",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:19:31.440742"
+  },
+  {
+    "id": 362,
+    "run_id": null,
+    "goal": "Advisor decision (run 425)",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:19:31.446632"
+  },
+  {
+    "id": 363,
+    "run_id": null,
+    "goal": "Advisor decision for: analytics smoke",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:19:36.080862"
+  },
+  {
+    "id": 364,
+    "run_id": null,
+    "goal": "Advisor decision for: feedback smoke",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:19:40.976483"
+  },
+  {
+    "id": 365,
+    "run_id": null,
+    "goal": "Advisor decision for: feedback smoke",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:19:45.653268"
+  },
+  {
+    "id": 366,
+    "run_id": null,
+    "goal": "Advisor decision (run 426)",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:19:45.659208"
+  },
+  {
+    "id": 367,
+    "run_id": null,
+    "goal": "Advisor decision for: feedback smoke",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:19:50.300445"
+  },
+  {
+    "id": 368,
+    "run_id": null,
+    "goal": "Advisor decision for: builder feedback memory check",
+    "summary": "openai/gpt-4o (memory)",
+    "tags": "advisor_decision,memory",
+    "score": null,
+    "created_at": "2025-10-28T22:19:55.063711"
+  },
+  {
+    "id": 369,
+    "run_id": null,
+    "goal": "Advisor decision for: builder feedback memory check",
+    "summary": "openai/gpt-4o (memory)",
+    "tags": "advisor_decision,memory",
+    "score": null,
+    "created_at": "2025-10-28T22:19:59.734460"
+  },
+  {
+    "id": 370,
+    "run_id": null,
+    "goal": "Advisor decision for: hello",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:20:04.396241"
+  },
+  {
+    "id": 371,
+    "run_id": null,
+    "goal": "Advisor decision for: another goal",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:20:09.045518"
+  },
+  {
+    "id": 372,
+    "run_id": null,
+    "goal": "Advisor decision for: builder should improve score by re-run",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:20:13.748332"
+  },
+  {
+    "id": 373,
+    "run_id": null,
+    "goal": "Advisor decision for: builder should improve score by re-run",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:20:18.449023"
+  },
+  {
+    "id": 374,
+    "run_id": 55501,
+    "goal": "Build web",
+    "summary": "ok",
+    "tags": "web",
+    "score": null,
+    "created_at": "2025-10-28T22:20:18.527011"
+  },
+  {
+    "id": 375,
+    "run_id": null,
+    "goal": "Another web",
+    "summary": "ok",
+    "tags": "web",
+    "score": null,
+    "created_at": "2025-10-28T22:20:18.536035"
+  },
+  {
+    "id": 376,
+    "run_id": null,
+    "goal": "Advisor decision for: dashboard-runs smoke",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:20:23.415637"
+  },
+  {
+    "id": 377,
+    "run_id": null,
+    "goal": "Advisor decision for: dashboard-runs smoke",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:20:28.062732"
+  },
+  {
+    "id": 378,
+    "run_id": null,
+    "goal": "Advisor decision (run 427)",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:20:28.068732"
+  },
+  {
+    "id": 379,
+    "run_id": null,
+    "goal": "Advisor decision for: dashboard-runs smoke",
+    "summary": "openai/gpt-4o (executor)",
+    "tags": "advisor_decision,executor",
+    "score": null,
+    "created_at": "2025-10-28T22:20:32.691604"
+  },
+  {
+    "id": 380,
+    "run_id": null,
+    "goal": "Advisor decision for: dashboard-summary smoke",
+    "summary": "openai/gpt-4o (memory)",
+    "tags": "advisor_decision,memory",
+    "score": null,
+    "created_at": "2025-10-28T22:20:37.418643"
+  },
+  {
+    "id": 381,
+    "run_id": null,
+    "goal": "Advisor decision for: dashboard-summary smoke",
+    "summary": "openai/gpt-4o (memory)",
+    "tags": "advisor_decision,memory",
+    "score": null,
+    "created_at": "2025-10-28T22:20:42.051810"
+  },
+  {
+    "id": 382,
+    "run_id": null,
+    "goal": "Advisor decision (run 428)",
+    "summary": "openai/gpt-4o (memory)",
+    "tags": "advisor_decision,memory",
+    "score": null,
+    "created_at": "2025-10-28T22:20:42.057812"
+  },
+  {
+    "id": 383,
+    "run_id": null,
+    "goal": "Advisor decision for: dashboard-summary smoke",
+    "summary": "openai/gpt-4o (memory)",
+    "tags": "advisor_decision,memory",
+    "score": null,
+    "created_at": "2025-10-28T22:20:46.705336"
+  },
+  {
+    "id": 384,
+    "run_id": null,
+    "goal": "Advisor decision for: deploy a tiny app",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:20:51.497734"
+  },
+  {
+    "id": 385,
+    "run_id": null,
+    "goal": "Advisor decision for: registry test",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:21:03.230412"
+  },
+  {
+    "id": 386,
+    "run_id": null,
+    "goal": "Advisor decision for: hello world web",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:21:16.388243"
+  },
+  {
+    "id": 387,
+    "run_id": null,
+    "goal": "Advisor decision for: hello world web",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:21:16.982005"
+  },
+  {
+    "id": 388,
+    "run_id": null,
+    "goal": "Advisor decision (run 429)",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:21:16.989006"
+  },
+  {
+    "id": 389,
+    "run_id": null,
+    "goal": "Advisor decision for: hello world web",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:21:17.519062"
+  },
+  {
+    "id": 390,
+    "run_id": null,
+    "goal": "Advisor decision for: evaluation memory feedback smoke",
+    "summary": "openai/gpt-4o (memory)",
+    "tags": "advisor_decision,memory",
+    "score": null,
+    "created_at": "2025-10-28T22:21:22.337947"
+  },
+  {
+    "id": 391,
+    "run_id": null,
+    "goal": "Advisor decision for: hello",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:21:26.961492"
+  },
+  {
+    "id": 392,
+    "run_id": null,
+    "goal": "Advisor decision for: email me at test@example.com with key sk-abc1234567890xxxxx",
+    "summary": "local/mistral:7b-q4_K_M (strategist)",
+    "tags": "advisor_decision,strategist",
+    "score": null,
+    "created_at": "2025-10-28T22:21:31.654594"
+  },
+  {
+    "id": 393,
+    "run_id": null,
+    "goal": "Exportable",
+    "summary": "S",
+    "tags": "x",
+    "score": 0.1,
+    "created_at": "2025-10-28T22:21:32.042517"
+  }
+]
