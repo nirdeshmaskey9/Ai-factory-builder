@@ -21,3 +21,14 @@ Info:
 
 - GET /factory/info (version: 1.2-master)
 - POST /factory/create
+
+## Windows PowerShell Execution Policy
+
+If you see a script execution error on Windows, allow local scripts once:
+
+`Set-ExecutionPolicy RemoteSigned -Scope CurrentUser`
+
+Then run lifecycle scripts from `scripts/`:
+
+- `scripts\resume_jojo.ps1` — start Ollama and AI Factory
+- `scripts\pause_jojo.ps1` — stop services and snapshot
