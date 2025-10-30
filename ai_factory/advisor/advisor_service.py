@@ -19,22 +19,17 @@ def _env(key: str, default: Optional[str] = None) -> str | None:
 def _ping_generate(host: str, model: str, timeout: float) -> bool:
     try:
         with httpx.Client(timeout=timeout) as c:
+            # Require daemon version AND simple generate to count as healthy (advisor strict path)
             v = c.get(host.rstrip("/") + "/api/version")
             if v.status_code != 200:
                 return False
             r = c.post(host.rstrip("/") + "/api/generate", json={"model": model, "prompt": "ping", "stream": False})
-            if r.status_code != 200:
-                return False
-            try:
-                j = r.json()
-                return bool(j)
-            except Exception:
-                return bool(getattr(r, "text", ""))
+            return r.status_code == 200
     except Exception:
         return False
 
 
-def verify_local_health() -> Dict[str, Any]:
+def verify_local_health(urls: Optional[Dict[str, str]] = None) -> Dict[str, Any]:
     """Check unified local trio health by model name against one Ollama host.
 
     Returns: {"roles": {role: {"healthy": bool, "model": str}}}
@@ -59,24 +54,38 @@ def verify_local_health() -> Dict[str, Any]:
         base_delay = int(_env("AI_FACTORY_HEALTH_BACKOFF_BASE", "10") or 10)
     except Exception:
         pass
-    out: Dict[str, Dict[str, Any]] = {}
+    out_roles: Dict[str, Dict[str, Any]] = {}
     for role, model in roles.items():
         healthy = False
         delays = (base_delay, base_delay * 2, base_delay * 3)
         if os.getenv("PYTEST_CURRENT_TEST"):
             delays = (0,)
-        for delay in delays:
-            healthy = _ping_generate(host, model, to)
-            if healthy:
-                break
+        if urls is not None:
+            # Back-compat path: treat provided mapping as direct endpoints; only GET /api/version
             try:
-                # Sleep between retries without blocking tests too long
-                import time as _t
-                _t.sleep(0 if os.getenv("PYTEST_CURRENT_TEST") else delay)
+                import httpx
+                with httpx.Client(timeout=to) as c:
+                    u = (urls.get(role) or host).rstrip("/")
+                    r = c.get(u + "/api/version")
+                    healthy = (r.status_code == 200)
             except Exception:
-                pass
-        out[role] = {"healthy": healthy, "model": model}
-    return {"roles": out}
+                healthy = False
+        else:
+            for delay in delays:
+                healthy = _ping_generate(host, model, to)
+                if healthy:
+                    break
+                try:
+                    # Sleep between retries without blocking tests too long
+                    import time as _t
+                    _t.sleep(0 if os.getenv("PYTEST_CURRENT_TEST") else delay)
+                except Exception:
+                    pass
+        out_roles[role] = {"healthy": healthy, "model": model}
+    # Back-compat: if caller provided explicit URLs mapping, return role->bool
+    if urls is not None:
+        return {k: bool(v.get("healthy")) for k, v in out_roles.items()}  # type: ignore[return-value]
+    return {"roles": out_roles}
 
 
 def _local_map() -> Dict[str, Dict[str, str]]:

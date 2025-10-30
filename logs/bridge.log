@@ -1,0 +1,45 @@
+INTEGRATED ok
+CHAT ceo.session=conv-1 ok
+{"ts": "2025-10-30T16:53:46Z", "event": "chat", "len": 110}
+INTEGRATED ok
+CHAT ceo.session=conv-ctx ok
+{"ts": "2025-10-30T16:53:46Z", "event": "chat", "len": 329}
+INTEGRATED ok
+CHAT ceo.session=conv-2 ok
+{"ts": "2025-10-30T16:53:46Z", "event": "chat", "len": 278}
+INTEGRATED ok
+CHAT ceo.session=conv-3 ok
+{"ts": "2025-10-30T16:53:47Z", "event": "chat", "len": 931}
+INTEGRATED ok
+CHAT ceo.session=conv-5 ok
+{"ts": "2025-10-30T16:53:47Z", "event": "chat", "len": 1190}
+INTEGRATED ok
+CHAT ceo.session=conv-1 ok
+{"ts": "2025-10-30T17:19:57Z", "event": "chat", "len": 1377}
+INTEGRATED ok
+CHAT ceo.session=conv-ctx ok
+{"ts": "2025-10-30T17:19:57Z", "event": "chat", "len": 234}
+INTEGRATED ok
+CHAT ceo.session=conv-2 ok
+{"ts": "2025-10-30T17:19:57Z", "event": "chat", "len": 623}
+INTEGRATED ok
+CHAT ceo.session=conv-3 ok
+{"ts": "2025-10-30T17:19:58Z", "event": "chat", "len": 1048}
+INTEGRATED ok
+CHAT ceo.session=conv-5 ok
+{"ts": "2025-10-30T17:19:58Z", "event": "chat", "len": 1588}
+INTEGRATED ok
+CHAT ceo.session=conv-1 ok
+{"ts": "2025-10-30T17:41:51Z", "event": "chat", "len": 2149}
+INTEGRATED ok
+CHAT ceo.session=conv-ctx ok
+{"ts": "2025-10-30T17:41:51Z", "event": "chat", "len": 234}
+INTEGRATED ok
+CHAT ceo.session=conv-2 ok
+{"ts": "2025-10-30T17:41:51Z", "event": "chat", "len": 623}
+INTEGRATED ok
+CHAT ceo.session=conv-3 ok
+{"ts": "2025-10-30T17:41:51Z", "event": "chat", "len": 1048}
+INTEGRATED ok
+CHAT ceo.session=conv-5 ok
+{"ts": "2025-10-30T17:41:51Z", "event": "chat", "len": 1588}

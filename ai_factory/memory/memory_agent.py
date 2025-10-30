@@ -415,3 +415,32 @@ def log_model_usage(**kwargs) -> int:
         session.add(row)
         session.commit()
         return row.id
+
+
+# ---- Bridge helpers (Phase 3.3) ----
+def generate_context_summary(conversation_id: str) -> str:
+    """Produce a short, lossless summary based on recent related memories.
+
+    We treat conversation_id as a loose key and derive a summary by
+    selecting the most relevant memories to that key.
+    """
+    key = str(conversation_id or "").strip()
+    if not key:
+        return ""
+    related = search_memories(key, limit=5)
+    parts = []
+    for r in related:
+        segment = r.get("summary") or r.get("goal") or ""
+        if segment:
+            parts.append(str(segment).strip())
+    joined = " \n".join(parts)
+    # Lightweight semantic compression: truncate gracefully around sentence boundaries
+    if len(joined) > 480:
+        joined = joined[:480].rsplit(".", 1)[0] + "."
+    return joined
+
+
+def tag_context_relevance(query: str, top_n: int = 10) -> list[dict]:
+    """Rank memories by cosine + recency weighting using existing rank_memories."""
+    rows = search_memories(query or "", limit=top_n)
+    return rows

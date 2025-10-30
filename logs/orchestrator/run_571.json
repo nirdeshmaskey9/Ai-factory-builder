@@ -1,0 +1,14 @@
+{
+  "run_id": 571,
+  "status": "deployed",
+  "tasks_completed": 0,
+  "attempts": 2,
+  "duration_sec": 73.0494863986969,
+  "advisor_decision": {
+    "backend": "local",
+    "role": "strategist",
+    "model": "llama3.1:8b",
+    "url": "http://127.0.0.1:11434",
+    "reason": "local strategist available; privacy_strict=True"
+  }
+}

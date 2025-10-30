@@ -57,7 +57,24 @@ def models() -> Dict[str, Any]:
 def trio_health(request: Request) -> Dict[str, Any]:
     tm = getattr(request.app.state, "trio_manager", None)
     if tm and getattr(tm, "health_map", None):
-        return {"roles": tm.health_map}
+        roles = tm.health_map
+        # If any not yet healthy, perform a quick synchronous probe via POST only
+        if any(not bool(v.get("healthy")) for v in roles.values()):
+            try:
+                import os as _os
+                import httpx as _hx
+                host = (_os.getenv("OLLAMA_HOST", "http://127.0.0.1:11434") or "http://127.0.0.1:11434").rstrip("/")
+                with _hx.Client(timeout=float(_os.getenv("AI_FACTORY_LOCAL_TIMEOUT", "2") or 2)) as c:
+                    for role, state in roles.items():
+                        model = state.get("model") or ""
+                        try:
+                            r = c.post(f"{host}/api/generate", json={"model": model, "prompt": "ping", "stream": False})
+                            roles[role]["healthy"] = (r.status_code == 200)
+                        except Exception:
+                            roles[role]["healthy"] = False
+            except Exception:
+                pass
+        return {"roles": roles}
     return verify_local_health()
 
 

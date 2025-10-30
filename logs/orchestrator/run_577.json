@@ -1,0 +1,14 @@
+{
+  "run_id": 577,
+  "status": "failed",
+  "tasks_completed": 0,
+  "attempts": 2,
+  "duration_sec": 90.0962986946106,
+  "advisor_decision": {
+    "backend": "local",
+    "role": "executor",
+    "model": "phi3:mini",
+    "url": "http://127.0.0.1:11434",
+    "reason": "local executor available; privacy_strict=True"
+  }
+}

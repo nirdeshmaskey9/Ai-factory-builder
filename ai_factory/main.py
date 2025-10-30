@@ -37,6 +37,7 @@ from ai_factory.ui.memory_ui_router import router as memory_ui_router
 from ai_factory.ui.analytics_router import router as analytics_router
 from ai_factory.ui.feedback_router import router as feedback_router
 from ai_factory.ui.ws_router import router as ws_router
+from ai_factory.bridge.bridge_router import router as bridge_router
 from starlette.staticfiles import StaticFiles
 from ai_factory.routers.rerun_router import router as rerun_router
 from ai_factory.advisor.advisor_router import router as advisor_router
@@ -240,6 +241,7 @@ app.include_router(memory_ui_router)
 app.include_router(analytics_router)
 app.include_router(feedback_router)
 app.include_router(ws_router)
+app.include_router(bridge_router)
 app.mount("/static", StaticFiles(directory="ai_factory/ui/static"), name="static")
 app.include_router(rerun_router)
 app.include_router(advisor_router)

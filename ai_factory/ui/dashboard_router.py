@@ -48,7 +48,7 @@ def _list_builds() -> List[Dict[str, Any]]:
 @router.get("")
 @router.get("/")
 def dashboard_index(request: Request):
-    info = get_factory_info()
+    info = get_factory_info(request)
     builds = _list_builds()
     return templates.TemplateResponse(request, "dashboard/index.html", {"factory": info, "builds": builds})
 
