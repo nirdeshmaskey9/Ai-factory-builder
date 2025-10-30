@@ -27,6 +27,11 @@ if (Test-Path $activatePath) {
     Write-Host "⚠️  Python venv not found at .venv — continuing without activation."
 }
 
+# 🧩 Ollama Port Guardian — Startup Cleanse (v3.3.5-TCE)
+Write-Host "🧩 Ensuring clean Ollama environment before startup..." -ForegroundColor Cyan
+& "$PSScriptRoot\kill_ollama.ps1"
+Start-Sleep -Seconds 2
+
 # Start Ollama daemon (safe auto-launch)
 try {
     $ollamaProc = Get-Process ollama -ErrorAction SilentlyContinue

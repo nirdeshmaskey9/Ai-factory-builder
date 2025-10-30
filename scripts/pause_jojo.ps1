@@ -9,6 +9,11 @@ $ErrorActionPreference = 'Stop'
 
 Write-Host "🧠 Starting pause_jojo.ps1..."
 Write-Host "🌙 Pausing JoJo safely..."
+ 
+# 🧩 Ollama Guardian — Shutdown Purge (v3.3.5-TCE)
+Write-Host "🧩 Killing any remaining Ollama processes before snapshot..." -ForegroundColor Cyan
+& "$PSScriptRoot\kill_ollama.ps1"
+Start-Sleep -Seconds 2
 Set-Location "C:\projects\ai_factory_builder"
 
 # Optional dry-run mode: set JOJO_DRY_RUN=1 to skip side effects
