@@ -1,4 +1,5 @@
 $ports = @(11434, 11435, 11436)
+Write-Host "🧠 Starting check_local_trio.ps1..."
 Write-Host "Checking local trio health..."
 foreach ($p in $ports) {
   try {
@@ -8,3 +9,4 @@ foreach ($p in $ports) {
     Write-Host ("Port {0} not responding" -f $p)
   }
 }
+Write-Host "✅ check_local_trio.ps1 completed successfully."

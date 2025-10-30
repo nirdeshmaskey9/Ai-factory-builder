@@ -1,5 +1,6 @@
 param()
 
+Write-Host "🧠 Starting run_local_trio.ps1..."
 Write-Host "Launching local AI trio..."
 
 $ports = @(11434, 11435, 11436)
@@ -24,4 +25,5 @@ foreach ($p in $ports) {
 }
 
 Write-Host "Local trio check complete."
+Write-Host "✅ run_local_trio.ps1 completed successfully."
 

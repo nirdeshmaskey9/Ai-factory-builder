@@ -7,6 +7,7 @@ param()
 
 $ErrorActionPreference = 'Stop'
 
+Write-Host "🧠 Starting resume_jojo.ps1..."
 Write-Host "🌅 Resuming JoJo..."
 Set-Location "C:\projects\ai_factory_builder"
 
@@ -19,8 +20,7 @@ $activatePath = Join-Path (Get-Location) ".venv\Scripts\Activate.ps1"
 if (Test-Path $activatePath) {
     if (-not $isDry) {
         & $activatePath
-    }
-    else {
+} else {
         Write-Host "(dry-run) Would activate venv: $activatePath"
     }
 } else {
@@ -37,26 +37,27 @@ try {
             if (-not $isDry) {
                 Start-Process "ollama" -ArgumentList "serve" | Out-Null
                 Start-Sleep -Seconds 5
-            } else {
+} else {
                 Write-Host "(dry-run) Would run: ollama serve"
             }
-        } else {
-            Write-Host "⚠️  Ollama not found in PATH. Please install from https://ollama.ai and ensure it's available."
+} else {
+            Write-Host "⚠️  Ollama not found in PATH. Please install from https://ollama.ai and ensure it is available."
         }
-    } else {
+} else {
         Write-Host "✅ Ollama already running."
     }
 } catch {
     Write-Host "⚠️  Could not start or detect Ollama: $($_.Exception.Message)"
 }
 
-# Start AI Factory backend
-Write-Host "⚙️ Launching AI Factory..."
-if (-not $isDry) {
-    pwsh -File .\scripts\start_ai_factory.ps1
-} else {
-    Write-Host "(dry-run) Would launch: pwsh -File .\scripts\start_ai_factory.ps1"
-}
+try {
+    # Start AI Factory backend
+    Write-Host "⚙️ Launching AI Factory..."
+    if (-not $isDry) {
+        pwsh -File .\scripts\start_ai_factory.ps1
+    } else {
+        Write-Host "(dry-run) Would launch: pwsh -File .\scripts\start_ai_factory.ps1"
+    }
 
 # Verify health
 Write-Host "🔍 Checking health..."
@@ -67,7 +68,7 @@ if (-not $isDry) {
             $ver = $response.version
             if (-not $ver) { $ver = "unknown" }
             Write-Host "✅ JoJo Online — Version: $ver"
-        } else {
+} else {
             Write-Host "⚠️  Health endpoint returned no data."
         }
     } catch {
@@ -76,4 +77,10 @@ if (-not $isDry) {
 } else {
     Write-Host "(dry-run) Would check: GET http://127.0.0.1:8000/factory/info"
 }
+} catch {
+    Write-Host "❌ Error in resume_jojo.ps1: $($_.Exception.Message)"
+} finally {
+    Write-Host "✅ resume_jojo.ps1 completed successfully."
+}
+
 
