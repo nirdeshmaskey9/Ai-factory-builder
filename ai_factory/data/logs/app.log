@@ -2979,3 +2979,28 @@
 2025-10-29T18:44:21-0500 | INFO | httpx | HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
 2025-10-29T18:44:21-0500 | INFO | httpx | HTTP Request: POST http://testserver/advisor/route "HTTP/1.1 200 OK"
 2025-10-29T18:44:21-0500 | INFO | ai_factory.main | Shutting down AI Factory
+2025-10-30T14:24:15-0500 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-10-30T14:24:15-0500 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
+2025-10-30T14:24:26-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:11434/api/version "HTTP/1.1 200 OK"
+2025-10-30T14:24:29-0500 | INFO | httpx | HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-10-30T14:24:29-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:11434/api/version "HTTP/1.1 200 OK"
+2025-10-30T14:24:31-0500 | INFO | httpx | HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-10-30T14:24:31-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:11434/api/version "HTTP/1.1 200 OK"
+2025-10-30T14:24:34-0500 | INFO | httpx | HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-10-30T14:24:34-0500 | INFO | ai_factory.config | DB_PATH not set; defaulting to C:\projects\ai_factory_builder\ai_factory\memory\..\data\memory.db
+2025-10-30T14:24:34-0500 | INFO | ai_factory.config | TEMPLATES_PATH not set; using internal ai_factory/templates
+2025-10-30T14:24:35-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:11434/api/version "HTTP/1.1 200 OK"
+2025-10-30T14:24:35-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:11434/api/version "HTTP/1.1 200 OK"
+2025-10-30T14:24:43-0500 | INFO | httpx | HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-10-30T14:24:43-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:11434/api/version "HTTP/1.1 200 OK"
+2025-10-30T14:24:43-0500 | INFO | httpx | HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-10-30T14:24:43-0500 | INFO | ai_factory.trio_manager | [TrioManager] Strategist healthy ✅
+2025-10-30T14:24:44-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:11434/api/version "HTTP/1.1 200 OK"
+2025-10-30T14:24:46-0500 | INFO | httpx | HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-10-30T14:24:46-0500 | INFO | httpx | HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-10-30T14:24:46-0500 | INFO | ai_factory.trio_manager | [TrioManager] Memory healthy ✅
+2025-10-30T14:24:46-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:11434/api/version "HTTP/1.1 200 OK"
+2025-10-30T14:24:46-0500 | INFO | httpx | HTTP Request: GET http://127.0.0.1:11434/api/version "HTTP/1.1 200 OK"
+2025-10-30T14:24:49-0500 | INFO | httpx | HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-10-30T14:24:50-0500 | INFO | httpx | HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-10-30T14:24:50-0500 | INFO | ai_factory.trio_manager | [TrioManager] Executor healthy ✅

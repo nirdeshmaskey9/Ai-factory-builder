@@ -43,3 +43,18 @@ CHAT ceo.session=conv-3 ok
 INTEGRATED ok
 CHAT ceo.session=conv-5 ok
 {"ts": "2025-10-30T17:41:51Z", "event": "chat", "len": 1588}
+INTEGRATED ok
+CHAT ceo.session=conv-1 ok
+{"ts": "2025-10-30T18:52:28Z", "event": "chat", "len": 2149}
+INTEGRATED ok
+CHAT ceo.session=conv-ctx ok
+{"ts": "2025-10-30T18:52:28Z", "event": "chat", "len": 208}
+INTEGRATED ok
+CHAT ceo.session=conv-2 ok
+{"ts": "2025-10-30T18:52:28Z", "event": "chat", "len": 253}
+INTEGRATED ok
+CHAT ceo.session=conv-3 ok
+{"ts": "2025-10-30T18:52:28Z", "event": "chat", "len": 660}
+INTEGRATED ok
+CHAT ceo.session=conv-5 ok
+{"ts": "2025-10-30T18:52:28Z", "event": "chat", "len": 822}

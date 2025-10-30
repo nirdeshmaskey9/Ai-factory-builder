@@ -1,0 +1,3 @@
+normalized C:\projects\ai_factory_builder\scripts\check_local_trio.ps1
+fail51 C:\projects\ai_factory_builder\scripts\check_local_trio.ps1 rc=2
+fail C:\projects\ai_factory_builder\scripts\check_local_trio.ps1 5.1 validation failed for C:\projects\ai_factory_builder\scripts\check_local_trio.ps1
