@@ -20,7 +20,12 @@ def call_chatgpt(ceo: Dict[str, Any], timeout_sec: int = 90) -> Dict[str, Any]:
     api_key = os.getenv("OPENAI_API_KEY")
     mode = os.getenv("JOJO_BRIDGE_MODE", "exact_relay").lower()
     model = os.getenv("JOJO_BRIDGE_MODEL", os.getenv("AI_FACTORY_CLOUD_MODEL", "gpt-4o"))
-    if not api_key or "mock" in mode:
+    try:
+        # Runtime override from control panel
+        from ai_factory.config_runtime_flags import mock_mode as _MOCK
+    except Exception:
+        _MOCK = False
+    if _MOCK or (not api_key) or ("mock" in mode):
         return _mock_response(ceo)
 
     # Avoid recursive network calls; only single-shot outbound
@@ -54,8 +59,21 @@ def call_chatgpt(ceo: Dict[str, Any], timeout_sec: int = 90) -> Dict[str, Any]:
         )
         latency_ms = int((time.time() - t0) * 1000)
         text = resp.choices[0].message.content if resp and resp.choices else ""
+        # Usage accounting (best-effort)
+        try:
+            total_tokens = int(getattr(resp, 'usage', None).total_tokens)  # type: ignore[attr-defined]
+        except Exception:
+            try:
+                total_tokens = int((resp.usage or {}).get('total_tokens', 0))  # type: ignore[attr-defined]
+            except Exception:
+                total_tokens = 0
+        try:
+            from ai_factory.config_runtime_flags import add_usage
+            # Approximate pricing: $0.01 per 1K tokens
+            add_usage(total_tokens, (total_tokens / 1000.0) * 0.01)
+        except Exception:
+            pass
         return {"response_text": text, "model": model, "latency_ms": latency_ms}
     except Exception:
         # Fallback to mock in error scenarios to keep pipeline robust
         return _mock_response(ceo)
-

@@ -24,7 +24,14 @@
   <main class="p-4">
     {% block content %}{% endblock %}
   </main>
-  <footer class="p-4 text-sm text-slate-400">© JoJo Planet</footer>
+  <footer class="p-4 text-sm text-slate-400">
+    © JoJo Planet
+    <div id="controlPanel" class="mt-2 p-2 border-t border-slate-800 text-sm">
+      <span>Mock Mode: <b id="mockModeStatus">loading...</b></span>
+      <button onclick="toggleMock()" class="ml-3 px-2 py-1 bg-slate-700 hover:bg-slate-600 rounded">Toggle</button>
+      <span class="ml-6">Usage: <span id="usageStats">0 tokens ≈ $0.0000</span></span>
+    </div>
+    <script src="/static/js/system_status.js"></script>
+  </footer>
 </body>
 </html>
-
