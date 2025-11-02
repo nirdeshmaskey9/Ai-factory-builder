@@ -185,3 +185,9 @@ CHAT ceo.session=conv-001 ok
 {"ts": "2025-11-02T18:53:00Z", "event": "chat", "len": 853}
 {"ts": "2025-11-02T18:53:00Z", "event": "chat", "len": 919}
 {"ts": "2025-11-02T19:42:09Z", "event": "chat", "len": 5047}
+{"ts": "2025-11-02T20:00:23Z", "event": "chat", "len": 853}
+{"ts": "2025-11-02T20:00:25Z", "event": "chat", "len": 1596}
+{"ts": "2025-11-02T20:00:25Z", "event": "chat", "len": 785}
+{"ts": "2025-11-02T20:00:25Z", "event": "chat", "len": 811}
+{"ts": "2025-11-02T20:00:25Z", "event": "chat", "len": 853}
+{"ts": "2025-11-02T20:00:25Z", "event": "chat", "len": 919}

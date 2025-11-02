@@ -31,4 +31,9 @@ If you see a script execution error on Windows, allow local scripts once:
 Then run lifecycle scripts from `scripts/`:
 
 - `scripts\resume_jojo.ps1` — start Ollama and AI Factory
-- `scripts\pause_jojo.ps1` — stop services and snapshot
+- `scripts\pause_jojo.ps1` - stop services and snapshot
+
+## 🪶 Milestone History
+
+- **v3.3.5 — JoJo First Contact (2025-11-02)**  
+  > JoJo achieved first verified autonomous local conversation with empathy and memory recall, proving full hybrid bridge stability.
