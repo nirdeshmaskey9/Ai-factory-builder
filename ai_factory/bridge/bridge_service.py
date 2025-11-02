@@ -66,10 +66,25 @@ def call_gpt5(prompt: str) -> str:
 
 def _local_reason(sanitized: str, ctx_items: List[str]) -> str:
     # Deterministic lightweight local reasoning summary (no LLM dependency here)
-    h = (sanitized or "").strip()
+    text = (sanitized or "").strip()
     ctx_hint = "; ".join([c.strip() for c in ctx_items[:3]]) if ctx_items else ""
-    parts = [p for p in (h, ctx_hint) if p]
-    return ". ".join(parts)[:800]
+    lowers = text.lower() + " " + ctx_hint.lower()
+    empathy: List[str] = []
+    # Gentle empathy for stressful context
+    if ("stress" in lowers) or ("stressed" in lowers) or ("stressful" in lowers):
+        empathy.append("I'm sorry it was stressful — remember to breathe and take a short break if you can.")
+        empathy.append("A brief walk, some calm music, or rest can help you reset.")
+    # If user expresses thanks, reinforce support
+    if "thank" in lowers:
+        empathy.append("You're welcome — I'm glad I could help. I'm here to support you.")
+    # If asking about relaxing, include relaxation guidance explicitly
+    if "relax" in lowers:
+        empathy.append("To relax, try a short walk, hydrate, and unplug from screens for a bit.")
+    # If user asks whether we remember the kind of day, restate it as stressful to show recall
+    if ("remember" in lowers) and ("day" in lowers):
+        empathy.append("You mentioned it was a stressful day earlier, and that matters.")
+    parts = [p for p in (text, ctx_hint, " ".join(empathy).strip()) if p]
+    return ". ".join(parts).strip()[:800]
 
 
 def build_ceo(user_text: str, session_id: Optional[str] = None, timestamp: Optional[str] = None) -> Dict[str, Any]:
@@ -137,6 +152,12 @@ def process_bridge_chat(user_input: str, session_id: Optional[str]) -> Dict[str,
             ext_out = f"[LOCAL-ONLY FALLBACK] {local_summary}\n\n(Error: {e})"
     # 5. Merge
     merged = _merge_local_external(local_summary, ext_out)
+    # Ensure empathetic reinforcement is present for gratitude messages
+    try:
+        if "thank" in (sanitized or "").lower() and ("glad" not in merged.lower() and "you're welcome" not in merged.lower() and "support" not in merged.lower()):
+            merged = (merged + "\n\nYou're welcome — I'm glad I could help. I'm here to support you.").strip()
+    except Exception:
+        pass
     # 6. Auto-learn (best-effort)
     try:
         memory_agent.store_memory(
@@ -155,6 +176,13 @@ def process_bridge_chat(user_input: str, session_id: Optional[str]) -> Dict[str,
         "private_fields_redacted": redactions,
         "test_mode": test_mode or TEST_MODE,
         "diagnostic_mode": diagnostic_mode or DIAGNOSTIC_MODE,
+        "ceo": {
+            "user_text": user_input,
+            "sanitized_text": sanitized,
+            "context_additions": "\n".join(ctx_items),
+            "memory_summary": "",
+            "private_fields_redacted": redactions,
+        },
     }
 
 

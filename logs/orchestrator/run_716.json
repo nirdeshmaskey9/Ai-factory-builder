@@ -1,0 +1,14 @@
+{
+  "run_id": 716,
+  "status": "failed",
+  "tasks_completed": 0,
+  "attempts": 1,
+  "duration_sec": 43.625463247299194,
+  "advisor_decision": {
+    "backend": "local",
+    "role": "memory",
+    "model": "qwen2.5:1.5b",
+    "url": "http://127.0.0.1:11434",
+    "reason": "local memory available; privacy_strict=True"
+  }
+}

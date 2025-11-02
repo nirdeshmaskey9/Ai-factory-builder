@@ -1,0 +1,29 @@
+{
+  "build_id": "661193a9fc0d",
+  "timestamp": "2025-11-02T18:51:35Z",
+  "pid": 38828,
+  "version": "v3.2.6-TCE",
+  "goal": "Landing page",
+  "domain": "web",
+  "blueprint": {
+    "name": "app",
+    "title": "app",
+    "description": "Landing page",
+    "goal": "Landing page"
+  },
+  "options": {},
+  "outputs_dir": "builds\\661193a9fc0d\\outputs",
+  "files": [
+    "app\\index.html",
+    "app\\README.md"
+  ],
+  "warnings": [],
+  "evaluation": {
+    "passed": true,
+    "summary": "index.html and README present.",
+    "artifacts": {
+      "path": "builds\\661193a9fc0d\\outputs\\app\\index.html",
+      "readme": true
+    }
+  }
+}
