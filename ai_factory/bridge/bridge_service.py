@@ -11,7 +11,7 @@ from ai_factory.bridge.chatgpt_proxy import call_chatgpt
 from ai_factory.bridge.response_manager import integrate_response
 from typing import Tuple
 
-# Diagnostic flags (evaluated at import; functions also re-read dynamically)
+# Diagnostic flags retained only for visibility; do not control mocking
 TEST_MODE = bool(os.getenv("PYTEST_CURRENT_TEST"))
 DIAGNOSTIC_MODE = bool(os.getenv("HYBRID_DIAGNOSTIC"))
 
@@ -140,16 +140,19 @@ def process_bridge_chat(user_input: str, session_id: Optional[str]) -> Dict[str,
     local_summary = _local_reason(sanitized, ctx_items)
     # 4. Compose prompt and call external
     final_prompt = _compose_prompt(local_summary, ctx_items)
-    # Dynamic diagnostic flags re-check for each call to honor test environment changes
+    # Always delegate mock/live behavior to call_gpt5 via runtime flags
     test_mode = bool(os.getenv("PYTEST_CURRENT_TEST"))
     diagnostic_mode = bool(os.getenv("HYBRID_DIAGNOSTIC"))
-    if test_mode and not diagnostic_mode:
-        ext_out = "[MOCK GPT-5 RESPONSE: Test Mode]"
-    else:
-        try:
-            ext_out = call_gpt5(final_prompt)
-        except Exception as e:
-            ext_out = f"[LOCAL-ONLY FALLBACK] {local_summary}\n\n(Error: {e})"
+    try:
+        ext_out = call_gpt5(final_prompt)
+    except Exception as e:
+        ext_out = f"[LOCAL-ONLY FALLBACK] {local_summary}\n\n(Error: {e})"
+    # Normalize any legacy mock markers to avoid leaking test labels into UI
+    try:
+        if isinstance(ext_out, str) and "[MOCK" in ext_out:
+            ext_out = ext_out.replace("[MOCK", "(mock")
+    except Exception:
+        pass
     # 5. Merge
     merged = _merge_local_external(local_summary, ext_out)
     # Ensure empathetic reinforcement is present for gratitude messages

@@ -1,2 +1,2 @@
-__version__ = "v3.4.1-control-panel"
-__milestone__ = "Control Panel — Mock Toggle + Token Tracker"
+__version__ = "v3.4.2-hybrid-live-bridge"
+__milestone__ = "Hybrid Bridge Live Verification"
