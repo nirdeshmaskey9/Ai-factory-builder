@@ -19,7 +19,8 @@ def call_chatgpt(ceo: Dict[str, Any], timeout_sec: int = 90) -> Dict[str, Any]:
     # Ephemeral by design; do not persist any raw content here.
     api_key = os.getenv("OPENAI_API_KEY")
     mode = os.getenv("JOJO_BRIDGE_MODE", "exact_relay").lower()
-    model = os.getenv("JOJO_BRIDGE_MODEL", os.getenv("AI_FACTORY_CLOUD_MODEL", "gpt-4o"))
+    # Temporary stable model until gpt-5 is generally available
+    model = "gpt-4o"
     try:
         # Runtime override from control panel
         from ai_factory.config_runtime_flags import mock_mode as _MOCK
@@ -32,33 +33,26 @@ def call_chatgpt(ceo: Dict[str, Any], timeout_sec: int = 90) -> Dict[str, Any]:
     try:
         from openai import OpenAI  # type: ignore
         client = OpenAI(api_key=api_key)
-        sys_prompt = (
-            "You are the external reasoning engine for JoJo."
-            " Respond naturally to the user_text. Consider the context_additions and memory_summary."
-            " The user_text must be preserved in meaning and phrasing; do not overwrite wording."
-        )
+        sys_prompt = "You are JoJo’s external reasoning engine."
+        # Compose a single prompt string from ceo
+        prompt = str(ceo.get("sanitized_text") or ceo.get("user_text") or "")
         messages = [
             {"role": "system", "content": sys_prompt},
-            {
-                "role": "user",
-                "content": (
-                    f"User text (verbatim):\n{ceo.get('sanitized_text') or ceo.get('user_text') or ''}\n\n"
-                    f"Context additions:\n{ceo.get('context_additions','')}\n\n"
-                    f"Memory summary:\n{ceo.get('memory_summary','')}"
-                ),
-            },
+            {"role": "user", "content": prompt},
         ]
         t0 = time.time()
-        # Single request with sane max-tokens
+        # Single request with aligned API payload
         resp = client.chat.completions.create(
-            model=model or "gpt-4o",
+            model=model,
             messages=messages,
             temperature=0.7,
-            max_tokens=800,
-            timeout=timeout_sec,
         )
         latency_ms = int((time.time() - t0) * 1000)
         text = resp.choices[0].message.content if resp and resp.choices else ""
+        try:
+            print(f"[GPT-5 Bridge] ✅ Response received ({len(text)} chars)")
+        except Exception:
+            pass
         # Usage accounting (best-effort)
         try:
             total_tokens = int(getattr(resp, 'usage', None).total_tokens)  # type: ignore[attr-defined]

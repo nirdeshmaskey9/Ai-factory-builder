@@ -1,2 +1,2 @@
-__version__ = "v3.4.2-hybrid-live-bridge"
-__milestone__ = "Hybrid Bridge Live Verification"
+__version__ = "v3.4.3-hybrid-gpt5-fix"
+__milestone__ = "Aligned GPT API payload for live bridge"
