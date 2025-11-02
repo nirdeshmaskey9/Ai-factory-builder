@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ title or 'JoJo Planet' }}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background: #0b0d16; color: #f8f8f8; }
+    .accent { color: #f5c86d; }
+    .accent-bg { background: #f5c86d; color: #0b0d16; }
+    .card { background: #101323; border: 1px solid #1b2038; border-radius: 8px; }
+    .pulse { animation: pulse 1.6s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1 } 50% { opacity: .5 } }
+  </style>
+</head>
+<body class="min-h-screen">
+  <header class="p-4 border-b border-slate-800">
+    <h1 class="text-xl font-semibold">
+      <span class="accent">JoJo Planet</span> v3.4.0 — First Contact
+      <span class="ml-2 text-green-400">Online ✓ Hybrid Mode</span>
+    </h1>
+  </header>
+  <main class="p-4">
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="p-4 text-sm text-slate-400">© JoJo Planet</footer>
+</body>
+</html>
+

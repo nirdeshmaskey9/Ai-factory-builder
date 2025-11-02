@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+  <div class="md:col-span-2 card p-4" id="chatPane">
+    <div id="chatLog" class="space-y-3 h-[60vh] overflow-y-auto"></div>
+    <form id="chatForm" class="mt-4 flex gap-2">
+      <input id="chatInput" class="flex-1 p-2 rounded bg-slate-900 border border-slate-700" placeholder="Type a message..." />
+      <button class="accent-bg px-4 py-2 rounded">Send</button>
+    </form>
+  </div>
+  <div class="card p-4" id="statusPane">
+    <h2 class="font-semibold mb-2">System Status</h2>
+    <div class="text-sm text-slate-300">
+      <div>Version: <span id="ver" class="accent"></span></div>
+      <div>Milestone: <span id="ms"></span></div>
+      <div>Bridge: <span id="bridge">hybrid</span> <span class="pulse">●</span></div>
+      <div class="mt-2">Trio Health:</div>
+      <pre id="trio" class="text-xs bg-slate-900 p-2 rounded border border-slate-800"></pre>
+    </div>
+  </div>
+  <script src="/static/js/chat.js"></script>
+  <script src="/static/js/system_status.js"></script>
+</div>
+{% endblock %}
+

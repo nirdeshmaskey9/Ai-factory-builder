@@ -1,3 +1,2 @@
-__version__ = "v3.3.5-first-contact"
-__milestone__ = "JoJo’s First Contact — Verified Local Cognition"
-
+__version__ = "v3.4.0-ui-awakening"
+__milestone__ = "UI Awakening — Chat UI + Presence"

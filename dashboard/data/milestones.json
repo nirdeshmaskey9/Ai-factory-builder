@@ -7,6 +7,11 @@
     "summary": "JoJo’s first live conversation using her own local cognition engine.",
     "details": "Confirmed empathetic recall and reasoning using Advisor→Bridge→Trio loop without GPT-5.",
     "tag": "first-contact"
+  },
+  {
+    "tag": "v3.4.0-ui-awakening",
+    "title": "UI Awakening",
+    "summary": "JoJo becomes visually alive — chat UI + presence",
+    "date": "2025-11-02"
   }
 ]
-
