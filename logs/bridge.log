@@ -136,3 +136,11 @@ CHAT ceo.session=conv-5 ok
 INTEGRATED ok
 CHAT ceo.session=conv-001 ok
 {"ts": "2025-10-30T22:14:47Z", "event": "chat", "len": 2125}
+{"ts": "2025-10-30T22:27:48Z", "event": "chat", "len": 5888}
+{"ts": "2025-10-30T22:27:48Z", "event": "chat", "len": 1480}
+{"ts": "2025-10-30T22:27:48Z", "event": "chat", "len": 780}
+{"ts": "2025-10-30T22:27:48Z", "event": "chat", "len": 3270}
+{"ts": "2025-10-30T22:27:48Z", "event": "chat", "len": 3644}
+{"ts": "2025-10-30T22:27:48Z", "event": "chat", "len": 852}
+{"ts": "2025-11-02T18:09:29Z", "event": "chat", "len": 562}
+{"ts": "2025-11-02T18:09:30Z", "event": "chat", "len": 1950}

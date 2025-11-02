@@ -168,10 +168,17 @@ def route_task(goal: str, domain: Optional[str], hint: Optional[str], topk: int 
     except Exception:
         pass
 
-    return {
+    out = {
         "backend": backend,
         "role": role,
         "model": model,
         "url": url,
         "reason": reason,
     }
+    try:
+        g = (goal or "").lower()
+        if "bridge" in g or "chat" in g:
+            out["advisor_tag"] = "hybrid_reasoning"
+    except Exception:
+        pass
+    return out
