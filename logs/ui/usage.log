@@ -24,3 +24,9 @@
 [2025-11-02T22:21:17Z] +2043 tokens ≈ $0.02043 (live)
 [2025-11-02T22:21:21Z] +1908 tokens ≈ $0.01908 (live)
 [2025-11-02T22:21:22Z] +1729 tokens ≈ $0.01729 (live)
+[2025-11-02T22:25:21Z] [Toggle] mock_mode=False
+[2025-11-02T22:26:06Z] +2177 tokens ≈ $0.02177 (live)
+[2025-11-02T22:26:21Z] +2033 tokens ≈ $0.02033 (live)
+[2025-11-02T22:29:24Z] [Toggle] mock_mode=True
+[2025-11-02T22:48:05Z] [Toggle] mock_mode=False
+[2025-11-02T22:49:03Z] +1775 tokens ≈ $0.01775 (live)
