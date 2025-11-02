@@ -3295,3 +3295,5 @@
 2025-11-02T13:46:20-0600 | INFO | httpx | HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
 2025-11-02T13:46:20-0600 | INFO | httpx | HTTP Request: GET http://127.0.0.1:11434/api/version "HTTP/1.1 200 OK"
 2025-11-02T13:46:28-0600 | INFO | httpx | HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-11-02T15:25:16-0600 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-11-02T15:25:16-0600 | INFO | __main__ | AI Factory v1.3-gpt4o-builder - Live Planner Active
