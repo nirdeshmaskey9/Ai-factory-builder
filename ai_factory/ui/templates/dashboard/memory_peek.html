@@ -1,14 +1,22 @@
 {% extends "layout.html" %}
 {% block content %}
-<div class="card p-4">
-  <h2 class="font-semibold mb-3">Memory Peek</h2>
-  <div id="memGrid" class="grid grid-cols-1 md:grid-cols-3 gap-3"></div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+  <div class="card p-4">
+    <h3 class="font-semibold mb-2">Recent Dialogue</h3>
+    <div id="jp-mem-recent">
+      {% for t in recent %}
+        <div class="p-2 border border-slate-800 rounded mb-2"><b>{{t.role}}</b>: {{t.content}}</div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="card p-4">
+    <h3 class="font-semibold mb-2">Session Summaries</h3>
+    <div id="jp-mem-summaries">
+      {% for s in summaries %}
+        <div class="p-2 border border-slate-800 rounded mb-2">{{s.created_at}} — {{s.summary|tojson}}</div>
+      {% endfor %}
+    </div>
+  </div>
 </div>
 <script src="/static/js/memory_peek.js"></script>
-<script>
-  window.addEventListener('DOMContentLoaded', () => {
-    if (window.renderMemoryPeek) window.renderMemoryPeek({{ items|tojson|safe }});
-  });
-  </script>
 {% endblock %}
-

@@ -15,7 +15,8 @@ router = APIRouter(prefix="/dialogue", tags=["Dialogue"])
 
 @router.get("/recent")
 def dialogue_recent(request: Request):
-    sid = request.query_params.get("session") or request.cookies.get("jp_session") or "default"
+    raw = request.query_params.get("session") or request.cookies.get("jp_session") or "default"
+    sid = raw if raw and raw != "current" else "current"
     try:
         n = int(request.query_params.get("n") or 40)
     except Exception:
@@ -43,7 +44,8 @@ def _mock_summary(last_turns: list[dict[str, Any]]) -> Dict[str, Any]:
 
 @router.post("/close")
 def dialogue_close(request: Request):
-    sid = request.query_params.get("session") or request.cookies.get("jp_session") or "default"
+    raw = request.query_params.get("session") or request.cookies.get("jp_session") or "default"
+    sid = raw if raw and raw != "current" else "current"
     dry_run = (request.query_params.get("dry-run") or request.query_params.get("dry_run")) in ("1", "true", "True")
     last = load_recent(sid, n=50)
     # Build a compact prompt
@@ -91,4 +93,3 @@ def dialogue_reinject(request: Request):
     else:
         ctx = (summary.get("topic") or "")
     return JSONResponse({"context": ctx})
-

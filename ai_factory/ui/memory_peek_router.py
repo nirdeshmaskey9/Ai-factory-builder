@@ -3,7 +3,7 @@ from __future__ import annotations
 from fastapi import APIRouter, Request
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import JSONResponse
-from ai_factory.memory.dialogue_store import list_summaries
+from ai_factory.memory.dialogue_store import list_summaries, load_recent
 
 
 templates = Jinja2Templates(directory="ai_factory/ui/templates")
@@ -13,7 +13,8 @@ router = APIRouter(prefix="/ui", tags=["UI"])
 @router.get("/memory_peek")
 def memory_peek_page(request: Request):
     items = list_summaries()
-    return templates.TemplateResponse(request, "dashboard/memory_peek.html", {"items": items})
+    recent = load_recent("current", n=12)
+    return templates.TemplateResponse(request, "dashboard/memory_peek.html", {"items": items, "recent": recent, "summaries": items})
 
 
 @router.get("/user_snapshot")
@@ -41,4 +42,3 @@ def set_user_snapshot(request: Request):
     p.mkdir(exist_ok=True)
     Path("data/user_snapshot.json").write_text(json.dumps(body or {}), encoding="utf-8")
     return JSONResponse({"ok": True})
-

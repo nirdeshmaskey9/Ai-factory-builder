@@ -41,6 +41,10 @@ def save_turn(session_id: str, role: str, content: str, meta: Optional[Dict[str,
 def load_recent(session_id: str, n: int = 40) -> List[Dict[str, Any]]:
     _ensure_db()
     n = int(n or 40)
+    sid = str(session_id or "default")
+    # Map 'current' to default UI session alias
+    if sid.lower() == "current":
+        sid = "ui-session"
     with SessionLocal() as sess:
         try:
             sess.execute(text("SELECT 1"))
@@ -48,7 +52,7 @@ def load_recent(session_id: str, n: int = 40) -> List[Dict[str, Any]]:
             pass
         q = (
             sess.query(DialogueTurn)
-            .filter(DialogueTurn.session_id == str(session_id or "default"))
+            .filter(DialogueTurn.session_id == sid)
             .order_by(DialogueTurn.id.desc())
             .limit(n)
         )
@@ -122,4 +126,3 @@ def list_summaries(limit_newest: int = 3, limit_oldest: int = 3) -> List[Dict[st
                 }
             )
         return out
-

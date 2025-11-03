@@ -17,6 +17,27 @@
   </style>
 </head>
 <body class="min-h-screen">
+  <!-- JP_HEADER_START -->
+  <header class="jp-header">
+    <div class="jp-left">
+      <img src="/static/img/jojo-pup.svg" alt="JoJo" class="jp-logo" />
+      <div class="jp-title">JoJo Planet</div>
+      <div id="jp-memory-dot" class="jp-dot" title="Memory pulse"></div>
+    </div>
+    <div class="jp-center">
+      <div class="jp-persona">
+        <button data-persona="empath" class="jp-pill">Empath</button>
+        <button data-persona="strategist" class="jp-pill">Strategist</button>
+        <button data-persona="builder" class="jp-pill">Builder</button>
+        <button data-persona="analyst" class="jp-pill">Analyst</button>
+      </div>
+    </div>
+    <div class="jp-right">
+      <button id="jp-theme" class="jp-icon" title="Toggle theme" onclick="jpThemeToggle()">🌓</button>
+      <div id="jp-usage" class="jp-usage">Usage: <span id="jp-usage-tokens">0</span> tokens ≈ $<span id="jp-usage-usd">0.0000</span></div>
+    </div>
+  </header>
+  <!-- JP_HEADER_END -->
   <header class="p-4 border-b border-slate-800">
     <h1 class="text-xl font-semibold">
       <span class="accent">JoJo Planet</span> v3.4.0 — First Contact
@@ -34,12 +55,13 @@
       <span class="ml-6">Usage: <span id="usageStats">0 tokens ≈ $0.0000</span></span>
     </div>
     <script src="/static/js/theme.js"></script>
-    <script src="/static/js/system_status.js"></script>
     <script src="/static/js/persona.js"></script>
     <script src="/static/js/commands.js"></script>
     <script src="/static/js/profile.js"></script>
+    <script src="/static/js/memory_peek.js"></script>
     <script src="/static/js/voice.js"></script>
-    <script>window.addEventListener('jp:memory-pulse', ()=>{ const d=document.getElementById('memDot'); if(!d) return; d.style.opacity='0.3'; setTimeout(()=>{ d.style.opacity='1'; }, 400); }); if (window.jpPersonaInit) jpPersonaInit();</script>
+    <script src="/static/js/chat_hooks.js"></script>
+    <script src="/static/js/system_status.js"></script>
   </footer>
 </body>
 </html>
