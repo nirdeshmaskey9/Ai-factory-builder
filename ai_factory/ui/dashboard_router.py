@@ -125,6 +125,16 @@ def dashboard_analytics(request: Request):
     return templates.TemplateResponse(request, "dashboard/analytics.html", {})
 
 
+@router.get("/reflection")
+def dashboard_reflection(request: Request):
+    return templates.TemplateResponse(request, "dashboard/reflection.html", {})
+
+
+@router.get("/system_health")
+def dashboard_system_health(request: Request):
+    return templates.TemplateResponse(request, "dashboard/system_health.html", {})
+
+
 @router.get("/launch/{build_id}")
 def dashboard_launch(build_id: str = Path(...)):
     # Non-blocking spawn of the script

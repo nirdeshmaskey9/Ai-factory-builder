@@ -487,3 +487,8 @@
 {"ts": "2025-11-02T18:55:18Z", "build_id": "aa9c5fde45fe", "domain": "cli", "passed": true, "summary": "CLI entry detected (argparse: True)."}
 {"ts": "2025-11-02T18:55:18Z", "build_id": "cc54597fa6db", "domain": "cli", "passed": true, "summary": "CLI entry detected (argparse: True)."}
 {"ts": "2025-11-02T19:07:31Z", "build_id": "3516d6f3ed9f", "domain": "web", "passed": true, "summary": "/hello: 200; /health: 200"}
+{"ts": "2025-11-03T04:51:17Z", "build_id": "1b1b224afcbf", "domain": "web", "passed": true, "summary": "index.html and README present."}
+{"ts": "2025-11-03T04:53:07Z", "build_id": "135638f511cf", "domain": "web", "passed": true, "summary": "index.html and README present."}
+{"ts": "2025-11-03T04:53:07Z", "build_id": "510c6157ef32", "domain": "web", "passed": true, "summary": "/hello: 200; /health: 200"}
+{"ts": "2025-11-03T04:53:13Z", "build_id": "208a25e21f80", "domain": "cli", "passed": true, "summary": "CLI entry detected (argparse: True)."}
+{"ts": "2025-11-03T04:53:13Z", "build_id": "f92bcef6ffa7", "domain": "cli", "passed": true, "summary": "CLI entry detected (argparse: True)."}

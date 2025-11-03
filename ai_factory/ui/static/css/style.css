@@ -1,0 +1,9 @@
+:root{
+  --primary:#4B63FF; --secondary:#C084FC; --accent:#FACC15;
+}
+.breathing-bg{ background: radial-gradient(600px 300px at 10% 10%, rgba(75,99,255,0.12), transparent), linear-gradient(120deg,#1E293B,#0F172A); transition: background 800ms ease }
+.pulse-ring{ position:relative }
+.pulse-ring::after{ content:""; position:absolute; inset:-6px; border:2px solid rgba(250,204,21,0.4); border-radius:999px; animation:pulse 2.6s infinite ease-in-out }
+@keyframes pulse{ 0%{ opacity:.6; transform: scale(.9) } 70%{ opacity:0; transform: scale(1.6) } 100%{ opacity:0 } }
+.soft-glow{ box-shadow: 0 0 40px rgba(192,132,252,.15) }
+.chip{ border:1px solid rgba(255,255,255,.14); padding:6px 10px; border-radius:999px }

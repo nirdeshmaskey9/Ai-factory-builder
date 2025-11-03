@@ -1,0 +1,39 @@
+{% extends "dashboard/layout.html" %}
+{% block content %}
+<div class="bg-white/5 border border-white/10 rounded p-4">
+  <h1 class="text-xl font-semibold mb-2">Reflection</h1>
+  <p class="text-sm opacity-80">Daily summaries and mood analytics.</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3">
+    <div class="bg-white/5 border border-white/10 rounded p-3">
+      <h3 class="font-semibold mb-2">Mood Trend</h3>
+      <canvas id="moodLine" width="600" height="200"></canvas>
+    </div>
+    <div class="bg-white/5 border border-white/10 rounded p-3">
+      <h3 class="font-semibold mb-2">Reflection Frequency</h3>
+      <canvas id="freqBar" width="600" height="200"></canvas>
+    </div>
+  </div>
+  <div class="mt-3">
+    <button class="px-3 py-1 bg-teal-600 rounded" id="genSummary">Generate Reflection Summary</button>
+  </div>
+  <pre id="summaryOut" class="mt-2 text-xs bg-black/30 p-2 rounded"></pre>
+</div>
+<script>
+  async function draw(){
+    try{
+      const r = await fetch('/memory/analytics'); const d = await r.json();
+      const moods = d.mood_trend || []; const freq = d.daily_reflections || [];
+      const lc = document.getElementById('moodLine').getContext('2d');
+      lc.clearRect(0,0,600,200); lc.strokeStyle = '#C084FC'; lc.beginPath(); lc.moveTo(0,180);
+      moods.forEach((m,i)=>{ const x=i*(600/(moods.length||1)); const y=180-(m.score||0)*20; lc.lineTo(x,y); }); lc.stroke();
+      const bc = document.getElementById('freqBar').getContext('2d'); bc.clearRect(0,0,600,200); bc.fillStyle='#FACC15';
+      freq.forEach((f,i)=>{ const bw= (600/(freq.length||1))*0.6; const x=i*(600/(freq.length||1))+5; const h=(f.count||0)*15; bc.fillRect(x, 190-h, bw, h); });
+    }catch(e){}
+  }
+  draw();
+  document.getElementById('genSummary').addEventListener('click', async ()=>{
+    try{ const r= await fetch('/memory/summarize',{method:'POST'}); const j= await r.json(); document.getElementById('summaryOut').textContent = JSON.stringify(j,null,2);}catch(e){}
+  });
+</script>
+{% endblock %}
+

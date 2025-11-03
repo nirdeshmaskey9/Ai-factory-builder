@@ -405,6 +405,19 @@ def add_memory(text: str, tags: Optional[List[str]] = None, importance: Optional
     return store_memory(run_id=None, goal=goal, summary=summary, tags=tags or [], score=importance)
 
 
+# Public helper expected by lightweight training scripts
+def add_memory_public(persona: str, tag: str, text: str, importance: int = 1) -> int:
+    """
+    Add a memory entry with persona + tag context.
+    Maps to store_memory, combining persona and tag into tags list.
+    Idempotent at API level; DB may store duplicates by design.
+    """
+    p = (persona or '').strip().lower()
+    t = (tag or '').strip().lower()
+    tags = [x for x in [t, p] if x]
+    return add_memory(text=text, tags=tags, importance=float(importance))
+
+
 def log_model_usage(**kwargs) -> int:
     """Insert a model usage row. kwargs may include: run_id, step, role, backend, model, latency_ms, tokens_in, tokens_out, success.
     Returns inserted id (best-effort).

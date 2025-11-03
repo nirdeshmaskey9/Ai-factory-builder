@@ -238,3 +238,8 @@
 {"build_id": "aa9c5fde45fe", "domain": "cli", "passed": true, "time_taken": 0.002, "errors": []}
 {"build_id": "cc54597fa6db", "domain": "cli", "passed": true, "time_taken": 0.001, "errors": []}
 {"build_id": "3516d6f3ed9f", "domain": "web", "passed": true, "time_taken": 0.006, "errors": []}
+{"build_id": "1b1b224afcbf", "domain": "web", "passed": true, "time_taken": 0.006, "errors": []}
+{"build_id": "135638f511cf", "domain": "web", "passed": true, "time_taken": 0.018, "errors": []}
+{"build_id": "510c6157ef32", "domain": "web", "passed": true, "time_taken": 0.003, "errors": []}
+{"build_id": "208a25e21f80", "domain": "cli", "passed": true, "time_taken": 0.002, "errors": []}
+{"build_id": "f92bcef6ffa7", "domain": "cli", "passed": true, "time_taken": 0.002, "errors": []}

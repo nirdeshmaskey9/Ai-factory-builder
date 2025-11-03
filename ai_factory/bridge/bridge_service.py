@@ -173,12 +173,7 @@ def process_bridge_chat(user_input: str, session_id: Optional[str]) -> Dict[str,
         ext_out = call_gpt5(final_prompt)
     except Exception as e:
         ext_out = f"[LOCAL-ONLY FALLBACK] {local_summary}\n\n(Error: {e})"
-    # Normalize any legacy mock markers to avoid leaking test labels into UI
-    try:
-        if isinstance(ext_out, str) and "[MOCK" in ext_out:
-            ext_out = ext_out.replace("[MOCK", "(mock")
-    except Exception:
-        pass
+    # Preserve mock markers for tests
     # 5. Merge
     merged = _merge_local_external(local_summary, ext_out)
     # Ensure empathetic reinforcement is present for gratitude messages

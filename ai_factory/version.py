@@ -1,2 +1,3 @@
-__version__ = "v5.1-b-life-layer"
-__milestone__ = "Header + Slash Commands + Persistence Fix"
+__version__ = "v3.4.3-state-scan"
+__milestone__ = "Full Project State Synchronization"
+PHASE = "3.4.3"

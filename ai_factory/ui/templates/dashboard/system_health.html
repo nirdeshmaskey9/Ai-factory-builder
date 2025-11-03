@@ -1,0 +1,23 @@
+{% extends "dashboard/layout.html" %}
+{% block content %}
+<div class="bg-white/5 border border-white/10 rounded p-4">
+  <h1 class="text-xl font-semibold mb-2">System Health</h1>
+  <div id="health" class="grid grid-cols-1 md:grid-cols-3 gap-2"></div>
+</div>
+<script>
+async function load(){
+  try{
+    const r = await fetch('/ui/system_status'); const j = await r.json();
+    const h = document.getElementById('health');
+    const rows = [];
+    const trio = j.trio_health || {};
+    for (const k in trio){ rows.push(`<div class='p-2 border border-white/10 rounded'>${k}: ${trio[k].healthy?'Green':'Amber'}</div>`); }
+    rows.push(`<div class='p-2 border border-white/10 rounded'>Version: ${j.version}</div>`);
+    rows.push(`<div class='p-2 border border-white/10 rounded'>Milestone: ${j.milestone}</div>`);
+    h.innerHTML = rows.join('');
+  }catch(e){}
+}
+load(); setInterval(load, 10000);
+</script>
+{% endblock %}
+

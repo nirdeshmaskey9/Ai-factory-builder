@@ -42,6 +42,12 @@ def factory_info(request: Request):
         latest_run_id = None
         total_runs = 0
 
+    # Phase/version from ai_factory.version if available
+    try:
+        from ai_factory.version import PHASE as _PHASE
+    except Exception:
+        _PHASE = None
+
     info = {
         "name": "AI Factory",
         "version": version,
@@ -49,6 +55,7 @@ def factory_info(request: Request):
         "status": "online",
         "banner": f"AI Factory {version} - Cognitive Engine Active",
         "healthy": True,
+        "phase": _PHASE or "",
         "templates": templates,
         "latest_run_id": latest_run_id,
         "total_runs": total_runs,

@@ -1,0 +1,28 @@
+{
+  "build_id": "f92bcef6ffa7",
+  "timestamp": "2025-11-03T04:53:13Z",
+  "pid": 35956,
+  "version": "v3.2.6-TCE",
+  "goal": null,
+  "domain": null,
+  "blueprint": {
+    "name": "app",
+    "description": "Generated application",
+    "title": "app"
+  },
+  "options": {},
+  "outputs_dir": "builds\\f92bcef6ffa7\\outputs",
+  "files": [
+    "app\\app.py",
+    "app\\README.md"
+  ],
+  "warnings": [],
+  "evaluation": {
+    "passed": true,
+    "summary": "CLI entry detected (argparse: True).",
+    "artifacts": {
+      "entry": "builds\\f92bcef6ffa7\\outputs\\app\\app.py",
+      "argparse": true
+    }
+  }
+}
