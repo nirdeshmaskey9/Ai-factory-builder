@@ -108,3 +108,6 @@
 2025-11-02 16:50:17,447 INFO [TrioManager] Executor healthy ✅
 2025-11-02 20:13:47,024 INFO [TrioManager] Strategist healthy ✅
 2025-11-02 20:13:49,066 INFO [TrioManager] Memory healthy ✅
+2025-11-02 20:17:44,386 INFO [TrioManager] Strategist healthy ✅
+2025-11-02 20:17:47,760 INFO [TrioManager] Memory healthy ✅
+2025-11-02 20:17:50,565 INFO [TrioManager] Executor healthy ✅
