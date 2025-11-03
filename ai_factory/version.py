@@ -1,3 +1,3 @@
-__version__ = "v3.4.3-state-scan"
-__milestone__ = "Full Project State Synchronization"
-PHASE = "3.4.3"
+__version__ = "v3.5.2-rational-core"
+__milestone__ = "Rational Core Alignment + MCP Sync"
+PHASE = "3.5.2"

@@ -418,6 +418,21 @@ def add_memory_public(persona: str, tag: str, text: str, importance: int = 1) ->
     return add_memory(text=text, tags=tags, importance=float(importance))
 
 
+def load_core_identity():
+    import json as _json, os as _os
+    path = _os.path.join("ai_factory", "data", "doctrine", "core_identity.json")
+    try:
+        if not _os.path.exists(path):
+            return {}
+        with open(path, "r", encoding="utf-8") as f:
+            return _json.load(f)
+    except Exception:
+        return {}
+
+
+CORE_IDENTITY = load_core_identity()
+
+
 def log_model_usage(**kwargs) -> int:
     """Insert a model usage row. kwargs may include: run_id, step, role, backend, model, latency_ms, tokens_in, tokens_out, success.
     Returns inserted id (best-effort).

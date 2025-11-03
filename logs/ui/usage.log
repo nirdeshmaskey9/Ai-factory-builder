@@ -79,3 +79,8 @@
 [2025-11-03T07:26:54Z] +997 tokens ≈ $0.00997 (live)
 [2025-11-03T07:27:10Z] +1048 tokens ≈ $0.01048 (live)
 [2025-11-03T07:27:23Z] +1079 tokens ≈ $0.01079 (live)
+[2025-11-03T07:44:04Z] [Toggle] mock_mode=False
+[2025-11-03T07:44:04Z] [Toggle] mock_mode=True
+[2025-11-03T07:54:36Z] [Toggle] mock_mode=False
+[2025-11-03T07:54:36Z] [Toggle] mock_mode=True
+[2025-11-03T08:10:16Z] [Toggle] mock_mode=False

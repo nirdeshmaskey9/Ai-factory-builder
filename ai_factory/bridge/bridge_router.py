@@ -63,3 +63,19 @@ async def bridge_health():
     if _os.getenv("PYTEST_CURRENT_TEST"):
         return JSONResponse({"status": "mocked", "message": "Bridge OK (test)"})
     return JSONResponse({"status": "ok"})
+
+
+@router.post("/reflect")
+async def reflect_now():
+    try:
+        from ai_factory.memory.memory_agent import store_memory as _store
+        _store(
+            run_id=None,
+            goal="manual_reflection",
+            summary="Manual reflection trigger",
+            tags=["manual", "reflection"],
+            score=0.8,
+        )
+    except Exception:
+        pass
+    return {"status": "ok"}

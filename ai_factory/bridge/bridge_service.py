@@ -8,9 +8,10 @@ from pathlib import Path
 
 from ai_factory.memory import memory_agent
 from ai_factory.bridge.chatgpt_proxy import call_chatgpt
-from ai_factory.bridge.response_manager import integrate_response
+from ai_factory.bridge.response_manager import integrate_response, stabilize_persona_tone
 from typing import Tuple
 from ai_factory.memory import memory_agent
+from ai_factory.memory.memory_agent import CORE_IDENTITY
 from ai_factory.memory.dialogue_store import save_turn as _save_turn
 from ai_factory.mood.mood_engine import analyze_mood, log_mood
 import json
@@ -163,9 +164,23 @@ def process_bridge_chat(user_input: str, session_id: Optional[str]) -> Dict[str,
     sanitized, redactions = _redact_private(user_input or "")
     # 3. Local summary (deterministic synthesis)
     local_summary = _local_reason(sanitized, ctx_items)
-    # 4. Compose prompt and call external
-    # Persona prefix
-    final_prompt = _persona_prefix() + _compose_prompt(local_summary, ctx_items)
+    # 4. Compose prompt and call external with grounding + tone
+    try:
+        name = CORE_IDENTITY.get('identity', {}).get('name', 'JoJo') if isinstance(CORE_IDENTITY, dict) else 'JoJo'
+        definition = CORE_IDENTITY.get('identity', {}).get('definition', '') if isinstance(CORE_IDENTITY, dict) else ''
+        tone_style = CORE_IDENTITY.get('tone', {}).get('style', 'balanced, clear, and empathetic') if isinstance(CORE_IDENTITY, dict) else 'balanced, clear, and empathetic'
+    except Exception:
+        name, definition, tone_style = 'JoJo', '', 'balanced, clear, and empathetic'
+    grounding = (
+        f"You are {name}, an AI companion. {definition} "
+        f"Speak in a tone that is {tone_style}."
+    ).strip()
+    persona_tone = stabilize_persona_tone(user_input or "")
+    final_prompt = (
+        grounding + "\n" +
+        f"Tone: {persona_tone}\n\n" +
+        _persona_prefix() + _compose_prompt(local_summary, ctx_items)
+    )
     # Always delegate mock/live behavior to call_gpt5 via runtime flags
     test_mode = bool(os.getenv("PYTEST_CURRENT_TEST"))
     diagnostic_mode = bool(os.getenv("HYBRID_DIAGNOSTIC"))
@@ -210,6 +225,21 @@ def process_bridge_chat(user_input: str, session_id: Optional[str]) -> Dict[str,
         )
     except Exception:
         pass
+    # 8. Auto-reflection persistent save (best-effort)
+    try:
+        from ai_factory.memory.memory_agent import store_memory as _store
+        _store(
+            run_id=None,
+            goal="auto_reflection",
+            summary=(merged[:400] if merged else ""),
+            tags=["reflection", "autosave", "session"],
+            score=0.7,
+        )
+    except Exception as e:
+        try:
+            print("Auto-reflection save skipped:", e)
+        except Exception:
+            pass
     return {
         "response_text": merged,
         "model": "hybrid",

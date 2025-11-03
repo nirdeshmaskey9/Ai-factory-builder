@@ -6,6 +6,21 @@ from pathlib import Path
 from ai_factory.memory import memory_agent
 
 
+def stabilize_persona_tone(user_input: str) -> str:
+    """
+    Keeps JoJo grounded; prevents over-philosophizing or random persona jumps.
+    Returns a simple tone descriptor for the hybrid generator.
+    """
+    text = (user_input or "").lower()
+    if any(k in text for k in ["existence", "dream", "life", "soul"]):
+        weight = 0.6
+    elif any(k in text for k in ["task", "project", "explain", "code", "fix"]):
+        weight = 0.3
+    else:
+        weight = 0.4
+    return f"Balanced analytical empathy (intensity={weight})"
+
+
 def _infer_memory_updates(text: str) -> List[Dict[str, str]]:
     # Very lightweight inference: extract lines that look like preferences/facts
     updates: List[Dict[str, str]] = []
@@ -55,4 +70,3 @@ def integrate_response(ceo: Dict[str, Any], proxy_result: Dict[str, Any]) -> Dic
             "context_additions": ceo.get("context_additions"),
         },
     }
-
