@@ -394,6 +394,17 @@ def rank_memories(query: str, rows: List[Dict]) -> List[Dict]:
     return [r for _, r in scored]
 
 
+# Convenience wrapper for training scripts
+def add_memory(text: str, tags: Optional[List[str]] = None, importance: Optional[float] = None) -> int:
+    """
+    Add a memory entry using a single text field.
+    Maps to store_memory with text as summary and a truncated goal.
+    """
+    goal = (text or "").strip().split("\n", 1)[0][:80]
+    summary = (text or "").strip()
+    return store_memory(run_id=None, goal=goal, summary=summary, tags=tags or [], score=importance)
+
+
 def log_model_usage(**kwargs) -> int:
     """Insert a model usage row. kwargs may include: run_id, step, role, backend, model, latency_ms, tokens_in, tokens_out, success.
     Returns inserted id (best-effort).
