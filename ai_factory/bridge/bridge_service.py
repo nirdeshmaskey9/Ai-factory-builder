@@ -10,6 +10,10 @@ from ai_factory.memory import memory_agent
 from ai_factory.bridge.chatgpt_proxy import call_chatgpt
 from ai_factory.bridge.response_manager import integrate_response
 from typing import Tuple
+from ai_factory.memory import memory_agent
+from ai_factory.memory.dialogue_store import save_turn as _save_turn
+from ai_factory.mood.mood_engine import analyze_mood, log_mood
+import json
 
 # Diagnostic flags retained only for visibility; do not control mocking
 TEST_MODE = bool(os.getenv("PYTEST_CURRENT_TEST"))
@@ -129,6 +133,27 @@ def handle_chat(user_text: str, session_id: Optional[str] = None, timestamp: Opt
     return integrated
 
 
+def _persona_prefix() -> str:
+    """Read persona mode from control state file and return system prefix."""
+    try:
+        from pathlib import Path
+        p = Path("logs/ui/control_state.json")
+        if p.exists():
+            data = json.loads(p.read_text(encoding="utf-8"))
+            mode = (data.get("persona_mode") or "builder").lower()
+        else:
+            mode = "builder"
+    except Exception:
+        mode = "builder"
+    mapping = {
+        "empath": "Be supportive, concise, emotionally attuned.",
+        "strategist": "Plan multi-step strategies with tradeoffs.",
+        "builder": "Return actionable steps, code blocks when useful.",
+        "analyst": "Be precise, quantify, cite calculations.",
+    }
+    return mapping.get(mode, mapping["builder"]) + "\n"
+
+
 def process_bridge_chat(user_input: str, session_id: Optional[str]) -> Dict[str, Any]:
     """Hybrid reasoning flow: memory, redaction, local summarize, external enrich, merge, autolearn."""
     # 1. Retrieve contextual memory
@@ -139,7 +164,8 @@ def process_bridge_chat(user_input: str, session_id: Optional[str]) -> Dict[str,
     # 3. Local summary (deterministic synthesis)
     local_summary = _local_reason(sanitized, ctx_items)
     # 4. Compose prompt and call external
-    final_prompt = _compose_prompt(local_summary, ctx_items)
+    # Persona prefix
+    final_prompt = _persona_prefix() + _compose_prompt(local_summary, ctx_items)
     # Always delegate mock/live behavior to call_gpt5 via runtime flags
     test_mode = bool(os.getenv("PYTEST_CURRENT_TEST"))
     diagnostic_mode = bool(os.getenv("HYBRID_DIAGNOSTIC"))
@@ -161,7 +187,24 @@ def process_bridge_chat(user_input: str, session_id: Optional[str]) -> Dict[str,
             merged = (merged + "\n\nYou're welcome — I'm glad I could help. I'm here to support you.").strip()
     except Exception:
         pass
-    # 6. Auto-learn (best-effort)
+    # 6. Persist dialogue + mood (best-effort)
+    try:
+        sid = session_id or "default"
+        _save_turn(sid, "user", user_input or "", meta={"source": "ui"})
+    except Exception:
+        pass
+    try:
+        sid = session_id or "default"
+        _save_turn(sid, "assistant", merged or "", meta={"source": "bridge"})
+    except Exception:
+        pass
+    try:
+        m = analyze_mood(user_input or "")
+        log_mood(session_id or "default", m)
+    except Exception:
+        pass
+
+    # 7. Auto-learn (best-effort)
     try:
         memory_agent.store_memory(
             run_id=None,

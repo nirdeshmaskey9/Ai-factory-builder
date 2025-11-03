@@ -35,11 +35,13 @@ from ai_factory.system.port_finder import find_free_port
 from ai_factory.ui.dashboard_router import router as dashboard_router
 from ai_factory.ui.chat_router import router as chat_router
 from ai_factory.ui.system_status_router import router as system_status_router
+from ai_factory.ui.memory_peek_router import router as memory_peek_router
 from ai_factory.ui.memory_ui_router import router as memory_ui_router
 from ai_factory.ui.analytics_router import router as analytics_router
 from ai_factory.ui.feedback_router import router as feedback_router
 from ai_factory.ui.ws_router import router as ws_router
 from ai_factory.bridge.bridge_router import router as bridge_router
+from ai_factory.bridge.dialogue_router import router as dialogue_router
 from starlette.staticfiles import StaticFiles
 from ai_factory.routers.rerun_router import router as rerun_router
 from ai_factory.advisor.advisor_router import router as advisor_router
@@ -241,11 +243,13 @@ app.include_router(factory_info_router.router)
 app.include_router(dashboard_router)
 app.include_router(chat_router)
 app.include_router(system_status_router)
+app.include_router(memory_peek_router)
 app.include_router(memory_ui_router)
 app.include_router(analytics_router)
 app.include_router(feedback_router)
 app.include_router(ws_router)
 app.include_router(bridge_router)
+app.include_router(dialogue_router)
 app.mount("/static", StaticFiles(directory="ai_factory/ui/static"), name="static")
 app.include_router(rerun_router)
 app.include_router(advisor_router)

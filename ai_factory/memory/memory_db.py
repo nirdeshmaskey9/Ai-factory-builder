@@ -4,7 +4,7 @@ import os
 from datetime import datetime, timezone
 from typing import Optional
 
-from sqlalchemy import create_engine, Column, Integer, String, Text, DateTime, select, Float, LargeBinary, ForeignKey, Boolean
+from sqlalchemy import create_engine, Column, Integer, String, Text, DateTime, select, Float, LargeBinary, ForeignKey, Boolean, text
 from sqlalchemy.orm import declarative_base, sessionmaker, Session
 from sqlalchemy.exc import OperationalError
 import json
@@ -117,6 +117,33 @@ class ModelUsage(Base):
     tokens_out = Column(Integer, nullable=True)
     success = Column(Boolean, nullable=True)
     created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), index=True)
+
+
+# Phase 5.1 - Dialogue turns and summaries
+class DialogueTurn(Base):
+    __tablename__ = "dialogue_turns"
+    id = Column(Integer, primary_key=True)
+    session_id = Column(String, index=True, nullable=False)
+    role = Column(String, nullable=False)  # 'user' | 'assistant' | 'system'
+    content = Column(Text, nullable=False)
+    meta = Column(Text, nullable=True)  # JSON string
+    timestamp = Column(DateTime, default=lambda: datetime.now(timezone.utc), index=True)
+
+
+class DialogueSummary(Base):
+    __tablename__ = "dialogue_summaries"
+    id = Column(Integer, primary_key=True)
+    session_id = Column(String, index=True, nullable=False)
+    summary = Column(Text, nullable=False)  # JSON string
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), index=True)
+
+
+class MoodLog(Base):
+    __tablename__ = "mood_log"
+    id = Column(Integer, primary_key=True)
+    session_id = Column(String, index=True, nullable=False)
+    mood = Column(String, nullable=False)  # upbeat | neutral | stressed | sad | focused
+    timestamp = Column(DateTime, default=lambda: datetime.now(timezone.utc), index=True)
 
 
 def init_db() -> None:

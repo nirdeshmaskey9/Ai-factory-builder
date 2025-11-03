@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="card p-4">
+  <h2 class="font-semibold mb-3">Memory Peek</h2>
+  <div id="memGrid" class="grid grid-cols-1 md:grid-cols-3 gap-3"></div>
+</div>
+<script src="/static/js/memory_peek.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    if (window.renderMemoryPeek) window.renderMemoryPeek({{ items|tojson|safe }});
+  });
+  </script>
+{% endblock %}
+

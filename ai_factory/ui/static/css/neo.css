@@ -1,0 +1,15 @@
+:root[data-theme="dark"][data-accent="blue"]{
+  --accent: #6db1f5;
+}
+:root[data-theme="light"][data-accent="blue"]{
+  --accent: #2a67b8;
+}
+body.neo{
+  border-top: 4px solid var(--accent);
+}
+.neo-logo{ filter: drop-shadow(3px 3px 0 #0008); }
+.neo-btn{ border: 3px solid #111; box-shadow: 4px 4px 0 #000; }
+.neo-dot{ display:inline-block; width:8px; height:8px; border-radius:50%; background: var(--accent); }
+@keyframes wag{ 0%{ transform: rotate(0) } 50%{ transform: rotate(8deg) } 100%{ transform: rotate(0) } }
+.pup-wag{ animation: wag 1.6s infinite; transform-origin: bottom center; }
+
