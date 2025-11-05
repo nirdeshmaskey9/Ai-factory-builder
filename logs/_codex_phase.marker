@@ -12,3 +12,4 @@
 {"ts": "2025-11-03T07:17:58Z", "phase": "3.4.3", "step": "start", "git_head": "1f2acd03f63f2dda55ba020c8886932e323dea5e"}
 {"ts": "2025-11-03T07:18:00Z", "phase": "3.4.3", "step": "complete", "git_head": "1f2acd03f63f2dda55ba020c8886932e323dea5e"}
 {"ts": "2025-11-03T07:18:00Z", "phase": "3.5", "step": "Hybrid Soul Training executed and verified"}
+{"phase": "3.9", "name": "Local Trio v4 Swap", "status": "completed", "changes": [{"file": "ai_factory/advisor/local_trio.py", "action": "added_single_source_trio"}, {"file": "ai_factory/advisor/advisor_service.py", "action": "updated_health_logic_to_trio"}, {"file": "ai_factory/advisor/trio_manager.py", "action": "use_trio_models"}, {"file": "ai_factory/advisor/advisor_router.py", "action": "models_endpoint_uses_trio"}, {"file": "ai_factory/routers/factory_info.py", "action": "lists_new_trio_models"}]}

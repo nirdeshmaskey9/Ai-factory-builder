@@ -24,11 +24,17 @@ class LocalTrioManager:
     """
 
     def __init__(self) -> None:
-        self.models = {
-            "strategist": os.getenv("STRATEGIST_MODEL") or os.getenv("AI_FACTORY_LOCAL_STRATEGIST_MODEL", "llama3.1:8b"),
-            "memory": os.getenv("MEMORY_MODEL") or os.getenv("AI_FACTORY_LOCAL_MEMORY_MODEL", "phi3:mini"),
-            "executor": os.getenv("EXECUTOR_MODEL") or os.getenv("AI_FACTORY_LOCAL_EXECUTION_MODEL", "qwen2.5:1.5b"),
-        }
+        # Single source of truth: import from local_trio
+        try:
+            from ai_factory.advisor.local_trio import local_trio as _lt
+            self.models = dict(_lt)
+        except Exception:
+            # Fallback to env if import fails
+            self.models = {
+                "strategist": os.getenv("STRATEGIST_MODEL") or os.getenv("AI_FACTORY_LOCAL_STRATEGIST_MODEL", "phi3:medium"),
+                "memory": os.getenv("MEMORY_MODEL") or os.getenv("AI_FACTORY_LOCAL_MEMORY_MODEL", "mistral"),
+                "executor": os.getenv("EXECUTOR_MODEL") or os.getenv("AI_FACTORY_LOCAL_EXECUTION_MODEL", "phi3:mini"),
+            }
         self.host = os.getenv("OLLAMA_HOST", "http://127.0.0.1:11434").rstrip("/")
         self.interval = float(os.getenv("AI_FACTORY_TRIO_INTERVAL", "60"))
         self.health_map: Dict[str, Dict[str, object]] = {

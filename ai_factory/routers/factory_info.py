@@ -66,11 +66,16 @@ def factory_info(request: Request):
     try:
         info["advisor_enabled"] = (os.getenv("AI_FACTORY_ADVISOR_ENABLED", "true").lower() == "true")
         info["cloud_backend"] = os.getenv("AI_FACTORY_CLOUD_BACKEND", "openai")
-        info["local_models"] = [
-            os.getenv("AI_FACTORY_LOCAL_STRATEGIST_MODEL", "mistral:7b-q4_K_M"),
-            os.getenv("AI_FACTORY_LOCAL_MEMORY_MODEL", "phi3:3b-q4"),
-            os.getenv("AI_FACTORY_LOCAL_EXECUTION_MODEL", "phi:mini"),
-        ]
+        try:
+            from ai_factory.advisor.local_trio import local_trio
+            trio = dict(local_trio)
+        except Exception:
+            trio = {
+                "strategist": os.getenv("AI_FACTORY_LOCAL_STRATEGIST_MODEL", "phi3:medium"),
+                "memory": os.getenv("AI_FACTORY_LOCAL_MEMORY_MODEL", "mistral"),
+                "executor": os.getenv("AI_FACTORY_LOCAL_EXECUTION_MODEL", "phi3:mini"),
+            }
+        info["local_models"] = [trio["strategist"], trio["memory"], trio["executor"]]
         # Prefer live status from trio manager if available
         tm = getattr(request.app.state, 'trio_manager', None)
         if tm and getattr(tm, 'health_map', None):

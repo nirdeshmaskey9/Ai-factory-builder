@@ -1,0 +1,14 @@
+{
+  "run_id": 764,
+  "status": "failed",
+  "tasks_completed": 0,
+  "attempts": 1,
+  "duration_sec": 130.10050630569458,
+  "advisor_decision": {
+    "backend": "local",
+    "role": "memory",
+    "model": "mistral",
+    "url": "http://127.0.0.1:11434",
+    "reason": "local memory available; privacy_strict=True"
+  }
+}

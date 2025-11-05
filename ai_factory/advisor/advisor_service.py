@@ -36,11 +36,16 @@ def verify_local_health(urls: Optional[Dict[str, str]] = None) -> Dict[str, Any]
     with simple exponential backoff tolerance (10s, 20s, 30s) per role.
     """
     host = (_env("OLLAMA_HOST", "http://127.0.0.1:11434") or "http://127.0.0.1:11434").rstrip("/")
-    roles = {
-        "strategist": _env("AI_FACTORY_LOCAL_STRATEGIST_MODEL", "llama3.1:8b") or "llama3.1:8b",
-        "memory": _env("AI_FACTORY_LOCAL_MEMORY_MODEL", "qwen2.5:1.5b") or "qwen2.5:1.5b",
-        "executor": _env("AI_FACTORY_LOCAL_EXECUTION_MODEL", "phi3:mini") or "phi3:mini",
-    }
+    # Single source of truth for trio
+    try:
+        from ai_factory.advisor.local_trio import local_trio
+        roles = dict(local_trio)
+    except Exception:
+        roles = {
+            "strategist": _env("AI_FACTORY_LOCAL_STRATEGIST_MODEL", "phi3:medium") or "phi3:medium",
+            "memory": _env("AI_FACTORY_LOCAL_MEMORY_MODEL", "mistral") or "mistral",
+            "executor": _env("AI_FACTORY_LOCAL_EXECUTION_MODEL", "phi3:mini") or "phi3:mini",
+        }
     to = 2.0
     try:
         to = float(_env("AI_FACTORY_LOCAL_TIMEOUT", "2") or 2)
@@ -89,21 +94,21 @@ def verify_local_health(urls: Optional[Dict[str, str]] = None) -> Dict[str, Any]
 
 
 def _local_map() -> Dict[str, Dict[str, str]]:
-    # Kept for backward-compat callers; use unified host for URLs
+    # Use unified host for all roles; models from central trio
     host = (_env("OLLAMA_HOST", "http://127.0.0.1:11434") or "http://127.0.0.1:11434").rstrip("/")
+    try:
+        from ai_factory.advisor.local_trio import local_trio
+        m = dict(local_trio)
+    except Exception:
+        m = {
+            "strategist": _env("AI_FACTORY_LOCAL_STRATEGIST_MODEL", "phi3:medium") or "phi3:medium",
+            "memory": _env("AI_FACTORY_LOCAL_MEMORY_MODEL", "mistral") or "mistral",
+            "executor": _env("AI_FACTORY_LOCAL_EXECUTION_MODEL", "phi3:mini") or "phi3:mini",
+        }
     return {
-        "strategist": {
-            "model": _env("AI_FACTORY_LOCAL_STRATEGIST_MODEL", "mistral:7b-q4_K_M") or "mistral:7b-q4_K_M",
-            "url": host,
-        },
-        "memory": {
-            "model": _env("AI_FACTORY_LOCAL_MEMORY_MODEL", "phi3:3b-q4") or "phi3:3b-q4",
-            "url": host,
-        },
-        "executor": {
-            "model": _env("AI_FACTORY_LOCAL_EXECUTION_MODEL", "phi:mini") or "phi:mini",
-            "url": host,
-        },
+        "strategist": {"model": m["strategist"], "url": host},
+        "memory": {"model": m["memory"], "url": host},
+        "executor": {"model": m["executor"], "url": host},
     }
 
 

@@ -1,0 +1,8 @@
+{
+  "trio": {
+    "strategist": { "model": "phi3:medium", "purpose": "reasoning" },
+    "memory": { "model": "mistral", "purpose": "summaries" },
+    "executor": { "model": "phi3:mini", "purpose": "actions" }
+  }
+}
+
