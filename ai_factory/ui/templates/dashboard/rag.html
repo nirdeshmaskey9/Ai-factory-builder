@@ -20,6 +20,18 @@
       <ul id="rag-results" class="mt-3 space-y-2 text-sm"></ul>
     </div>
   </div>
+  <div class="grid gap-4 md:grid-cols-2 mt-6">
+    <div class="p-4 rounded border">
+      <h2 class="font-medium mb-2">RAG Nodes</h2>
+      <button id="rag-sync" class="px-3 py-1 bg-purple-600 text-white rounded">Sync Memory Now</button>
+      <div id="rag-sync-msg" class="text-sm mt-2 text-gray-600"></div>
+      <div id="rag-nodes" class="text-sm mt-2"></div>
+    </div>
+    <div class="p-4 rounded border">
+      <h2 class="font-medium mb-2">RAG Metrics</h2>
+      <pre id="rag-metrics" class="text-xs"></pre>
+    </div>
+  </div>
   <script>
   (function(){
     const $ = sel => document.querySelector(sel);
@@ -44,8 +56,27 @@
         ul.appendChild(li);
       });
     });
+    async function refreshNodes(){
+      const r = await fetch('/dashboard/rag_nodes');
+      const j = await r.json();
+      const div = $('#rag-nodes');
+      const nodes = (j.nodes||[]).map(n => `${n.name||''} (${n.enabled?'on':'off'}) — ${n.path||''}`).join('\n');
+      div.textContent = `Vector size: ${(j.vector&&j.vector.size)||0}, last_sync: ${(j.vector&&j.vector.last_sync)||0}\n` + nodes;
+    }
+    async function refreshMetrics(){
+      const r = await fetch('/dashboard/rag_metrics');
+      const j = await r.json();
+      $('#rag-metrics').textContent = JSON.stringify(j.metrics||{}, null, 2);
+    }
+    $('#rag-sync').addEventListener('click', async () => {
+      const r = await fetch('/dashboard/rag_sync_memory', {method:'POST'});
+      const j = await r.json();
+      $('#rag-sync-msg').textContent = r.ok ? `Synced: ${JSON.stringify(j)}` : `Error: ${j.detail||'failed'}`;
+      refreshNodes();
+    });
+    refreshNodes();
+    refreshMetrics();
   })();
   </script>
 </section>
 {% endblock %}
-

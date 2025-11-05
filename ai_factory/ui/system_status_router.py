@@ -7,6 +7,7 @@ from pydantic import BaseModel
 
 from ai_factory.advisor.advisor_service import verify_local_health
 from ai_factory import config_runtime_flags as r
+from pathlib import Path
 
 try:
     from ai_factory.version import __version__ as _VER, __milestone__ as _MS
@@ -29,6 +30,7 @@ def system_status(request: Request) -> JSONResponse:
         "trio_health": health,
         "mock_mode": r.mock_mode,
         "rag_enabled": r.rag_enabled,
+        "rag_last_sync": _read_last_sync(),
         "tokens": r.api_tokens,
         "usd": r.api_usd,
     }
@@ -81,3 +83,13 @@ def toggle_mock() -> JSONResponse:
 def toggle_rag() -> JSONResponse:
     r.set_rag_enabled(not r.rag_enabled)
     return JSONResponse({"rag_enabled": r.rag_enabled})
+
+
+def _read_last_sync() -> float:
+    try:
+        p = Path("data/vector_db/last_sync.txt")
+        if p.exists():
+            return float((p.read_text(encoding="utf-8").strip() or "0"))
+    except Exception:
+        pass
+    return 0.0

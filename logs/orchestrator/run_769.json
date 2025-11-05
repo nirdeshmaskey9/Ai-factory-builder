@@ -1,0 +1,14 @@
+{
+  "run_id": 769,
+  "status": "failed",
+  "tasks_completed": 0,
+  "attempts": 1,
+  "duration_sec": 137.2949230670929,
+  "advisor_decision": {
+    "backend": "local",
+    "role": "strategist",
+    "model": "phi3:medium",
+    "url": "http://127.0.0.1:11434",
+    "reason": "local strategist available; privacy_strict=True"
+  }
+}

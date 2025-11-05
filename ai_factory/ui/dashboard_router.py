@@ -12,6 +12,7 @@ import json
 
 from ai_factory.routers.factory_info import factory_info as get_factory_info
 from ai_factory.orchestrator.orchestrator_store import list_runs, get_run_summary
+from ai_factory.rag.rag_service import sync_with_memory_mcp
 
 
 templates = Jinja2Templates(directory="ai_factory/ui/templates")
@@ -143,6 +144,61 @@ def dashboard_rag(request: Request):
 @router.get("/feedback_review")
 def dashboard_feedback_review(request: Request):
     return templates.TemplateResponse(request, "dashboard/feedback_review.html", {})
+
+
+@router.get("/rag_nodes")
+def dashboard_rag_nodes():
+    # List nodes from optional registry and include vector db info
+    reg_path = PPath("ai_factory/rag/node_registry.json")
+    nodes = []
+    try:
+        if reg_path.exists():
+            import json
+            obj = json.loads(reg_path.read_text(encoding="utf-8"))
+            nodes = list((obj or {}).get("nodes") or [])
+    except Exception:
+        nodes = []
+    # vector db stats
+    base = PPath("data/vector_db")
+    idx = (base / "index.faiss").exists()
+    docs_path = base / "docs.txt"
+    size = 0
+    if docs_path.exists():
+        try:
+            raw = docs_path.read_text(encoding="utf-8")
+            size = len([x for x in raw.split("\u0001") if x])
+        except Exception:
+            size = 0
+    last_sync = 0.0
+    try:
+        ls = (base / "last_sync.txt")
+        if ls.exists():
+            last_sync = float(ls.read_text(encoding="utf-8").strip() or 0)
+    except Exception:
+        pass
+    return JSONResponse({"nodes": nodes, "vector": {"size": size, "index": bool(idx), "last_sync": last_sync}})
+
+
+@router.post("/rag_sync_memory")
+def dashboard_rag_sync_memory():
+    try:
+        res = sync_with_memory_mcp(limit=200)
+        return JSONResponse({"status": "ok", **res})
+    except Exception as e:
+        # Return 200 with error payload to avoid breaking UI/tests
+        return JSONResponse({"status": "error", "detail": str(e)})
+
+
+@router.get("/rag_metrics")
+def dashboard_rag_metrics():
+    p = PPath("data/memory/metrics.json")
+    if not p.exists():
+        return JSONResponse({"metrics": {}})
+    try:
+        import json
+        return JSONResponse({"metrics": json.loads(p.read_text(encoding="utf-8"))})
+    except Exception:
+        return JSONResponse({"metrics": {}})
 
 
 @router.get("/launch/{build_id}")

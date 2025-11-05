@@ -199,6 +199,19 @@ def route_task(goal: str, domain: Optional[str], hint: Optional[str], topk: int 
         "url": url,
         "reason": reason,
     }
+    # Advisor fusion preview (caps and stitching)
+    try:
+        # memory preview via safe selection
+        mem_preview_list = select_safe_snippets([], topk)
+        mem_ctx = "\n".join(mem_preview_list)[:512]
+        rag_ctx = "\n".join(rag_snips)[:512] if rag_snips else ""
+        out["context_preview"] = {
+            "memory_context": mem_ctx,
+            "rag_context": rag_ctx,
+            "stitched": f"{mem_ctx}\n\n---\n\n{rag_ctx}".strip(),
+        }
+    except Exception:
+        pass
     try:
         g = (goal or "").lower()
         if "bridge" in g or "chat" in g:
