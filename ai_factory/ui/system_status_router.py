@@ -28,6 +28,7 @@ def system_status(request: Request) -> JSONResponse:
         "bridge_mode": "hybrid",
         "trio_health": health,
         "mock_mode": r.mock_mode,
+        "rag_enabled": r.rag_enabled,
         "tokens": r.api_tokens,
         "usd": r.api_usd,
     }
@@ -48,6 +49,7 @@ def get_control_state() -> JSONResponse:
         pass
     return JSONResponse({
         "mock_mode": r.mock_mode,
+        "rag_enabled": r.rag_enabled,
         "tokens": r.api_tokens,
         "usd": r.api_usd,
         "persona_mode": persona,
@@ -73,3 +75,9 @@ def set_control_state(payload: ControlStateIn) -> JSONResponse:
 def toggle_mock() -> JSONResponse:
     r.set_mock_mode(not r.mock_mode)
     return JSONResponse({"mock_mode": r.mock_mode})
+
+
+@router.post("/toggle_rag")
+def toggle_rag() -> JSONResponse:
+    r.set_rag_enabled(not r.rag_enabled)
+    return JSONResponse({"rag_enabled": r.rag_enabled})

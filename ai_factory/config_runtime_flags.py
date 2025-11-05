@@ -14,6 +14,7 @@ LOG_PATH: Final[str] = "logs/ui/usage.log"
 mock_mode: bool = True
 api_tokens: int = 0
 api_usd: float = 0.0
+rag_enabled: bool = True
 
 
 def _ts() -> str:
@@ -30,6 +31,16 @@ def set_mock_mode(state: bool) -> None:
     try:
         with open(LOG_PATH, "a", encoding="utf8") as f:
             f.write(f"[{_ts()}] [Toggle] mock_mode={mock_mode}\n")
+    except Exception:
+        pass
+
+
+def set_rag_enabled(state: bool) -> None:
+    global rag_enabled
+    rag_enabled = bool(state)
+    try:
+        with open(LOG_PATH, "a", encoding="utf8") as f:
+            f.write(f"[{_ts()}] [Toggle] rag_enabled={rag_enabled}\n")
     except Exception:
         pass
 

@@ -47,6 +47,7 @@ from ai_factory.routers.rerun_router import router as rerun_router
 from ai_factory.advisor.advisor_router import router as advisor_router
 from ai_factory.advisor.advisor_service import startup_probe as advisor_startup_probe
 from ai_factory.advisor.trio_manager import LocalTrioManager
+from ai_factory.rag.rag_router import router as rag_router
 
 
 @asynccontextmanager
@@ -248,6 +249,7 @@ app.include_router(memory_ui_router)
 app.include_router(analytics_router)
 app.include_router(feedback_router)
 app.include_router(ws_router)
+app.include_router(rag_router)
 app.include_router(bridge_router)
 app.include_router(dialogue_router)
 app.mount("/static", StaticFiles(directory="ai_factory/ui/static"), name="static")

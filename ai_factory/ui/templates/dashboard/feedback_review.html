@@ -1,0 +1,25 @@
+{% extends "dashboard/layout.html" %}
+{% block content %}
+<section class="p-6">
+  <h1 class="text-2xl font-semibold mb-4">Feedback Review</h1>
+  <div class="text-sm" id="fb-table">Loading...</div>
+  <script>
+  (async function(){
+    try{
+      const r = await fetch('/feedback/all');
+      const rows = await r.json();
+      const wrap = document.getElementById('fb-table');
+      const html = ['<table class="w-full text-sm"><thead><tr><th class="text-left">Date</th><th>ID</th><th>Run</th><th>Rating</th><th>Comment</th></tr></thead><tbody>'];
+      (rows||[]).forEach(x => {
+        html.push(`<tr><td>${x.ts||''}</td><td>${x.id||''}</td><td>${x.run_id||''}</td><td>${x.rating||''}</td><td>${(x.comment||'').replace(/</g,'&lt;')}</td></tr>`);
+      });
+      html.push('</tbody></table>');
+      wrap.innerHTML = html.join('');
+    }catch(e){
+      document.getElementById('fb-table').textContent = 'Failed to load feedback.';
+    }
+  })();
+  </script>
+</section>
+{% endblock %}
+

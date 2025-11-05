@@ -38,13 +38,31 @@ def run(goal: str, max_attempts: Optional[int] = None, deploy: bool = False) -> 
     dbg_err = ""
 
     # Plan & route once per run (can be refined per attempt)
+    # Optional: pull RAG context before planning (Phase 4.0)
+    try:
+        from ai_factory import config_runtime_flags as _r
+        if _r.rag_enabled and goal:
+            try:
+                from ai_factory.rag import rag_service as _rag
+                rag_ctx = _rag.retrieve(goal, top_k=3)
+            except Exception:
+                rag_ctx = []
+        else:
+            rag_ctx = []
+    except Exception:
+        rag_ctx = []
+
     plan = generate_plan(goal)
     plan_json = json.dumps(plan, ensure_ascii=False)
     task_type = choose_primary_task_type(plan_json)
     route_dec = router_decide(task_type)
     chosen_model = route_dec.get("model_name", chosen_model)
     context_docs = fetch_context(goal, n=3)
-    context_text = "\n---\n".join(context_docs)
+    try:
+        rag_texts = [x.get("text", "") for x in rag_ctx][:3]
+    except Exception:
+        rag_texts = []
+    context_text = "\n---\n".join(context_docs + rag_texts)
 
     status = "running"
     run_id = create_run(

@@ -135,6 +135,16 @@ def dashboard_system_health(request: Request):
     return templates.TemplateResponse(request, "dashboard/system_health.html", {})
 
 
+@router.get("/rag")
+def dashboard_rag(request: Request):
+    return templates.TemplateResponse(request, "dashboard/rag.html", {})
+
+
+@router.get("/feedback_review")
+def dashboard_feedback_review(request: Request):
+    return templates.TemplateResponse(request, "dashboard/feedback_review.html", {})
+
+
 @router.get("/launch/{build_id}")
 def dashboard_launch(build_id: str = Path(...)):
     # Non-blocking spawn of the script

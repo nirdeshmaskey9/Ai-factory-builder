@@ -9,6 +9,12 @@ from ai_factory.advisor import policy
 from ai_factory.advisor.context_filter import select_safe_snippets
 from ai_factory.memory.memory_agent import stats as memory_stats
 from ai_factory.memory.memory_agent import store_memory
+from ai_factory import config_runtime_flags as r
+
+try:
+    from ai_factory.rag import rag_service as _rag
+except Exception:
+    _rag = None
 
 
 def _env(key: str, default: Optional[str] = None) -> str | None:
@@ -136,6 +142,19 @@ def route_task(goal: str, domain: Optional[str], hint: Optional[str], topk: int 
             "url": "",
             "reason": "advisor disabled; default cloud",
         }
+
+    # Optional RAG context fetch (Phase 4.0)
+    try:
+        rag_snips = []
+        if r.rag_enabled and _rag is not None and goal:
+            rag_snips = [x.get("text", "")[:400] for x in (_rag.retrieve(goal, top_k=5) or [])]
+            if rag_snips:
+                try:
+                    store_memory(None, goal=f"RAG ctx for: {goal[:60]}", summary="\n---\n".join(rag_snips), tags=["rag_ctx", "advisor"], score=None)
+                except Exception:
+                    pass
+    except Exception:
+        pass
 
     local = _local_map()
     timeout = float(_env("AI_FACTORY_LOCAL_TIMEOUT", "5") or "5")
