@@ -514,3 +514,5 @@
 {"ts": "2025-11-05T20:51:28Z", "build_id": "9eb6be259a7e", "domain": "cli", "passed": true, "summary": "CLI entry detected (argparse: True)."}
 {"ts": "2025-11-05T20:51:28Z", "build_id": "38235eace5b6", "domain": "cli", "passed": true, "summary": "CLI entry detected (argparse: True)."}
 {"ts": "2025-11-05T21:19:22Z", "build_id": "b9e7ac6b9dc5", "domain": "web", "passed": true, "summary": "/hello: 200; /health: 200"}
+{"ts": "2025-11-06T01:41:21Z", "build_id": "b0519da6c311", "domain": "web", "passed": true, "summary": "index.html and README present."}
+{"ts": "2025-11-06T19:17:24Z", "build_id": "bd873cec1d4a", "domain": "web", "passed": true, "summary": "index.html and README present."}

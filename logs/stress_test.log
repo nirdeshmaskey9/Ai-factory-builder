@@ -265,3 +265,5 @@
 {"build_id": "9eb6be259a7e", "domain": "cli", "passed": true, "time_taken": 0.005, "errors": []}
 {"build_id": "38235eace5b6", "domain": "cli", "passed": true, "time_taken": 0.003, "errors": []}
 {"build_id": "b9e7ac6b9dc5", "domain": "web", "passed": true, "time_taken": 0.006, "errors": []}
+{"build_id": "b0519da6c311", "domain": "web", "passed": true, "time_taken": 0.035, "errors": []}
+{"build_id": "bd873cec1d4a", "domain": "web", "passed": true, "time_taken": 0.005, "errors": []}

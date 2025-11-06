@@ -1,3 +1,4 @@
+# UI router exposing system status, flags, and lightweight control toggles.
 from __future__ import annotations
 
 from fastapi import APIRouter, Request

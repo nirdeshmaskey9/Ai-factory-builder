@@ -1,0 +1,19 @@
+{
+  "run_id": 789,
+  "status": "failed",
+  "tasks_completed": 0,
+  "attempts": 1,
+  "duration_sec": 122.50043535232544,
+  "advisor_decision": {
+    "backend": "local",
+    "role": "strategist",
+    "model": "phi3:medium",
+    "url": "http://127.0.0.1:11434",
+    "reason": "local strategist available; privacy_strict=True",
+    "context_preview": {
+      "memory_context": "",
+      "rag_context": "Name: Nirdesh Maskey\nDate of Birth: July 8, 2001\nBirthplace: Kathmandu, Nepal\nCurrent City: Milwaukee, Wisconsin, USA\nProfession: Filmmaker, Video Editor, Photographer, and AI Creator\nStudent at: Milwaukee Area Technical College (MATC)\nKnown For: Building JOJO — a personal AI companion\nPersonality Traits: Reflective, Creative, Detail-oriented, Visionary\n\nName: JoJo\nOrigin: Created by Nirdesh Maskey\nBirthdate: April 8, 2025 (AI Factory v3.0 Awakening)\nCore Purpose: To assist, learn, and evolve with Nirdesh a",
+      "stitched": "---\n\nName: Nirdesh Maskey\nDate of Birth: July 8, 2001\nBirthplace: Kathmandu, Nepal\nCurrent City: Milwaukee, Wisconsin, USA\nProfession: Filmmaker, Video Editor, Photographer, and AI Creator\nStudent at: Milwaukee Area Technical College (MATC)\nKnown For: Building JOJO — a personal AI companion\nPersonality Traits: Reflective, Creative, Detail-oriented, Visionary\n\nName: JoJo\nOrigin: Created by Nirdesh Maskey\nBirthdate: April 8, 2025 (AI Factory v3.0 Awakening)\nCore Purpose: To assist, learn, and evolve with Nirdesh a"
+    }
+  }
+}

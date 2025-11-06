@@ -1,0 +1,19 @@
+{
+  "run_id": 788,
+  "status": "failed",
+  "tasks_completed": 0,
+  "attempts": 1,
+  "duration_sec": 20.920576810836792,
+  "advisor_decision": {
+    "backend": "openai",
+    "role": "strategist",
+    "model": "gpt-4o",
+    "url": "",
+    "reason": "fallback to cloud",
+    "context_preview": {
+      "memory_context": "",
+      "rag_context": "JoJo is a helpful AI assistant that loves RAG.\nJoJo is a helpful AI assistant that loves RAG.\nJoJo is a helpful AI assistant that loves RAG.\nName: Nirdesh Maskey\nDate of Birth: July 8, 2001\nBirthplace: Kathmandu, Nepal\nCurrent City: Milwaukee, Wisconsin, USA\nProfession: Filmmaker, Video Editor, Photographer, and AI Creator\nStudent at: Milwaukee Area Technical College (MATC)\nKnown For: Building JOJO — a personal AI companion\nPersonality Traits: Reflective, Creative, Detail-oriented, Visionary\n\nName: JoJo\nOri",
+      "stitched": "---\n\nJoJo is a helpful AI assistant that loves RAG.\nJoJo is a helpful AI assistant that loves RAG.\nJoJo is a helpful AI assistant that loves RAG.\nName: Nirdesh Maskey\nDate of Birth: July 8, 2001\nBirthplace: Kathmandu, Nepal\nCurrent City: Milwaukee, Wisconsin, USA\nProfession: Filmmaker, Video Editor, Photographer, and AI Creator\nStudent at: Milwaukee Area Technical College (MATC)\nKnown For: Building JOJO — a personal AI companion\nPersonality Traits: Reflective, Creative, Detail-oriented, Visionary\n\nName: JoJo\nOri"
+    }
+  }
+}

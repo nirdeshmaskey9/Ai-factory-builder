@@ -1,0 +1,39 @@
+{
+  "summary": "Moved legacy UI server, templates, and temp files to archive_legacy. No changes to active imports.",
+  "unchanged_core": [
+    "ai_factory/",
+    "tests/",
+    "scripts/",
+    "requirements.txt",
+    "ai_factory/main.py",
+    "ai_factory/version.py"
+  ],
+  "moved": [
+    {
+      "to": "archive_legacy/dashboard",
+      "from": "dashboard"
+    },
+    {
+      "to": "archive_legacy/ui_templates",
+      "from": "ui_templates"
+    },
+    {
+      "to": "archive_legacy/ui_server.py",
+      "from": "ui_server.py"
+    },
+    {
+      "to": "archive_legacy/tmp_main_copy.py",
+      "from": "tmp_main_copy.py"
+    },
+    {
+      "to": "archive_legacy/tmpnull",
+      "from": "tmpnull"
+    }
+  ],
+  "notes": [
+    "Kept chromadb vendored as required by memory embeddings.",
+    "Kept ai_factory/tests/stress_tester.py because orchestrator imports it.",
+    "No code refactors beyond header note in UI system_status router."
+  ],
+  "phase": "4.9"
+}
