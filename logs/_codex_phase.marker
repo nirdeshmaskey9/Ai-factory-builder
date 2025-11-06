@@ -15,3 +15,4 @@
 {"phase": "3.9", "name": "Local Trio v4 Swap", "status": "completed", "changes": [{"file": "ai_factory/advisor/local_trio.py", "action": "added_single_source_trio"}, {"file": "ai_factory/advisor/advisor_service.py", "action": "updated_health_logic_to_trio"}, {"file": "ai_factory/advisor/trio_manager.py", "action": "use_trio_models"}, {"file": "ai_factory/advisor/advisor_router.py", "action": "models_endpoint_uses_trio"}, {"file": "ai_factory/routers/factory_info.py", "action": "lists_new_trio_models"}]}
 {"phase":"4.0","name":"RAG + Memory Feedback Integration","status":"completed"}
 {"ts":"2025-11-05T23:31:35.8153690Z","notes":"memory sync + feedback weighting + retry + self-eval + node UI","git_head":"da6de34295617e654490741b427b826c1b40ae1f","step":"rag-perfection","phase":"4.0-R"}
+{"phase":"4.0-ID","step":"rag-identity-seed","status":"completed"}

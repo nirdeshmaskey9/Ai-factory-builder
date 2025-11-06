@@ -36,7 +36,25 @@ def _chunk_hash(text: str) -> str:
 
 
 def ingest_document(path: str, tags: List[str] | None = None) -> Dict:
-    docs = load_document(path)
+    p = Path(path)
+    docs: List[Dict]
+    if p.exists() and p.is_dir():
+        docs = []
+        for sub in p.rglob("*"):
+            if not sub.is_file():
+                continue
+            if sub.suffix.lower() not in (".txt", ".md", ".pdf", ".json"):
+                continue
+            try:
+                docs.extend(load_document(str(sub)))
+            except Exception:
+                continue
+        # tag dataset path
+        if tags is None:
+            tags = []
+        tags = list(tags) + [f"dataset:{str(p)}"]
+    else:
+        docs = load_document(path)
     m = _emb_model()
     index, store_docs, store_meta, files = build_or_load_index(m)
 

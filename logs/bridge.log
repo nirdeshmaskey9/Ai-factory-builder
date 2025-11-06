@@ -267,3 +267,5 @@ CHAT ceo.session=conv-001 ok
 {"ts": "2025-11-05T20:46:54Z", "event": "chat", "len": 4752}
 {"ts": "2025-11-05T21:13:11Z", "event": "chat", "len": 1588}
 {"ts": "2025-11-05T21:13:11Z", "event": "chat", "len": 3404}
+{"ts": "2025-11-06T00:51:02Z", "event": "chat", "len": 1086}
+{"ts": "2025-11-06T00:51:05Z", "event": "chat", "len": 1067}

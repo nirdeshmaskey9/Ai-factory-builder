@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "event": "identity_boost",
+    "rating": 5,
+    "notes": "prefer jojo identity",
+    "context": {
+      "chunk_hash": "22e8915c2b43f3dcbb97608dccdc9f2b3f7ef60d"
+    },
+    "ts": 0
+  }
+]

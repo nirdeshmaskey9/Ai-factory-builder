@@ -1,0 +1,30 @@
+{
+  "rag_result_nirdesh": [
+    {
+      "text": "Name: Nirdesh Maskey\nDate of Birth: July 8, 2001\nBirthplace: Kathmandu, Nepal\nCurrent City: Milwaukee, Wisconsin, USA\nProfession: Filmmaker, Video Editor, Photographer, and AI Creator\nStudent at: Milwaukee Area Technical College (MATC)\nKnown For: Building JOJO — a personal AI companion\nPersonality Traits: Reflective, Creative, Detail-oriented, Visionary\n",
+      "score": 0.6940954923629761,
+      "metadata": {
+        "source": "data\\personal\\nirdesh_profile.txt",
+        "type": "txt",
+        "tags": [
+          "dataset:data\\personal"
+        ],
+        "hash": "17a8ec27d2e416d63de1b8325f9db5605b1ec019"
+      }
+    }
+  ],
+  "rag_result_jojo": [
+    {
+      "text": "JoJo is a helpful AI assistant that loves RAG.",
+      "score": 0.7193892598152161,
+      "metadata": {
+        "source": "C:\\Users\\nirde\\AppData\\Local\\Temp\\pytest-of-nirde\\pytest-4\\test_ingest_and_retrieve0\\doc.txt",
+        "type": "txt",
+        "hash": "8b61ea4781f43aaf4affe1a5b485355688ebd22c"
+      }
+    }
+  ],
+  "chat_response_jojo": "[Local]\nJoJo, who are you?. [3549] [Local]\nmy name is nirdesh maskey and i  ade you jojo. [3547] [Local]\nwhat is your purpose?. [3545] [Local]\nhi who are you jojo?. [3539] local/phi3:medium (strategist); [3536] local/phi3:medium (strategist",
+  "chat_response_nirdesh": "[Local]\nWho am I to you?. [3549] [Local]\nmy name is nirdesh maskey and i  ade you jojo. [3547] [Local]\nwhat is your purpose?. [3545] [Local]\nhi who are you jojo?. [3539] local/phi3:medium (strategist); [3536] local/phi3:medium (strategist);",
+  "status": "success"
+}
