@@ -87,6 +87,32 @@ def filter_memory_chunks(text: str) -> str:
     return text.strip()
 
 
+def clean_output(text: str) -> str:
+    """
+    Final clean filter that removes all internal noise from text output.
+    This MUST be applied at the very end of the chain, after hybrid enrichment.
+    """
+    if not text:
+        return text
+    
+    # Remove unified reasoning prefix
+    text = re.sub(r"JoJo['']s unified reasoning:\s*", "", text, flags=re.IGNORECASE)
+    
+    # Remove [Local], [External]
+    text = re.sub(r"\[(Local|External)\]", "", text)
+    
+    # Remove numeric memory brackets like [3641]
+    text = re.sub(r"\[\d+\]", "", text)
+    
+    # Remove any remaining bracketed metadata
+    text = re.sub(r"\[[^\]]+\]", "", text)
+    
+    # Collapse multiple spaces
+    text = re.sub(r"\s+", " ", text).strip()
+    
+    return text
+
+
 def filter_output(text: str) -> str:
     """
     Robust filter function that removes all internal noise from text output.

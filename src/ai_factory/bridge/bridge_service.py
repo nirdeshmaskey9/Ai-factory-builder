@@ -9,7 +9,7 @@ from pathlib import Path
 from ai_factory.memory import memory_agent
 from ai_factory.bridge.chatgpt_proxy import call_chatgpt
 from ai_factory.bridge.response_manager import integrate_response, stabilize_persona_tone
-from ai_factory.bridge.filter_chain import clean_hybrid_output, filter_output
+from ai_factory.bridge.filter_chain import clean_hybrid_output, filter_output, clean_output
 from ai_factory.identity.jojo_identity import (
     build_identity_system_prompt,
     build_identity_context_for_local,
@@ -161,12 +161,26 @@ def process_bridge_chat(user_input: str, session_id: Optional[str]) -> Dict[str,
     # Inject identity context for local reasoning
     local_summary = f"{local_prefix}\nUser: {sanitized}\n{local_summary}"
     
+    # Memory recall hook - retrieve relevant user memory BEFORE generating final hybrid prompt
+    user_memory = memory_agent.search_memories(user_input or "", limit=5)
+    clean_memory = []
+    for m in user_memory or []:
+        # Ensure we use only clean summaries
+        summary = m.get("summary") or m.get("goal") or ""
+        if summary:
+            clean_memory.append(summary)
+    memory_context = "\n".join(clean_memory).strip()
+    
     # 4. Compose prompt and call external with unified JoJo identity
     # Build messages format with identity system prompt
     persona_tone = stabilize_persona_tone(user_input or "")
+    # Build system context with identity and memory recall
+    system_context = get_identity_prompt()
+    if memory_context:
+        system_context += f"\n\nRelevant user memory:\n{memory_context}\n\nUse this memory to answer clearly."
     # For external call, inject identity as system message context
     final_prompt = (
-        identity_prompt + "\n\n" +
+        system_context + "\n\n" +
         f"Tone: {persona_tone}\n\n" +
         get_external_enrichment_context() + "\n\n" +
         _compose_prompt(local_summary, [])  # No raw memory chunks in prompt
@@ -230,11 +244,15 @@ def process_bridge_chat(user_input: str, session_id: Optional[str]) -> Dict[str,
             print("Auto-reflection save skipped:", e)
         except Exception:
             pass
-    # Clean the output using filter_output (robust filter chain) before returning
-    cleaned_response = filter_output(merged)
+    # FINAL CLEAN BEFORE RETURN - MUST be applied after hybrid enrichment
+    final_text = merged
+    if isinstance(final_text, str):
+        final_text = clean_output(final_text)
+    else:
+        final_text = clean_output(str(final_text))
     
     return {
-        "response_text": cleaned_response,
+        "response_text": final_text,
         "model": "hybrid",
         "memory_updates": [],
         "private_fields_redacted": redactions,

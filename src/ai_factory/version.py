@@ -1,3 +1,3 @@
-__version__ = "v3.9.1-hotfix-unified-clean"
+__version__ = "v3.9.2-unified-clean-final"
 __milestone__ = "Unified JoJo Identity - Final Cleanup + Hybrid Brain"
-PHASE = "3.9.1"
+PHASE = "3.9.2"
