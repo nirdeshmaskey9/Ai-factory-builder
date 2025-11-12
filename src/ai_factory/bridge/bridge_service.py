@@ -159,8 +159,7 @@ def process_bridge_chat(user_input: str, session_id: Optional[str]) -> Dict[str,
     # 3. Local summary (deterministic synthesis) with unified identity
     local_summary = _local_reason(sanitized, ctx_items)
     # Inject identity context for local reasoning
-    local_prompt = f"{local_prefix}\nUser: {sanitized}"
-    local_summary = local_prefix + local_summary
+    local_summary = f"{local_prefix}\nUser: {sanitized}\n{local_summary}"
     
     # 4. Compose prompt and call external with unified JoJo identity
     # Build messages format with identity system prompt
