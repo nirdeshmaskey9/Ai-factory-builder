@@ -1,3 +1,3 @@
-__version__ = "v3.5.2-rational-core"
-__milestone__ = "Rational Core Alignment + MCP Sync"
-PHASE = "3.5.2"
+__version__ = "v3.7.0-hybrid-brain-initialization"
+__milestone__ = "Hybrid Brain Upgrade - Optimized Local Trio for 8GB VRAM"
+PHASE = "3.7.0"

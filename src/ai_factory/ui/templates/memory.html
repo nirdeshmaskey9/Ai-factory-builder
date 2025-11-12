@@ -1,7 +1,159 @@
-{% extends "layout.html" %}
-{% block content %}
-<div class="card p-4">
-  <h2 class="font-semibold mb-2">Memory Browser (Coming Soon)</h2>
-  <p class="text-slate-300 text-sm">Phase V will introduce a live memory timeline and semantic search.</p>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memory Viewer - AI Factory Builder</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background: #0b0d16; color: #f8f8f8; }
+    .accent { color: #f5c86d; }
+    .accent-bg { background: #f5c86d; color: #0b0d16; }
+    .card { background: #101323; border: 1px solid #1b2038; border-radius: 8px; }
+  </style>
+</head>
+<body class="min-h-screen">
+  <div class="container mx-auto px-4 py-8">
+    <div class="mb-6">
+      <h1 class="text-3xl font-bold mb-2">
+        <span class="accent">Memory</span> Viewer
+      </h1>
+      <p class="text-slate-400">Browse and search AI Factory memory entries</p>
+    </div>
 
+    <!-- Stats -->
+    {% if stats %}
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+      <div class="card p-4">
+        <div class="text-sm text-slate-400">Total Entries</div>
+        <div class="text-2xl font-bold accent">{{ stats.get('total', 0) }}</div>
+      </div>
+      <div class="card p-4">
+        <div class="text-sm text-slate-400">Recent (7d)</div>
+        <div class="text-2xl font-bold accent">{{ stats.get('recent_7d', 0) }}</div>
+      </div>
+      <div class="card p-4">
+        <div class="text-sm text-slate-400">Avg Score</div>
+        <div class="text-2xl font-bold accent">
+          {{ "%.2f"|format(stats.get('avg_score', 0)) if stats.get('avg_score') else '-' }}
+        </div>
+      </div>
+      <div class="card p-4">
+        <div class="text-sm text-slate-400">Top Tags</div>
+        <div class="text-2xl font-bold accent">{{ stats.get('tags', [])|length }}</div>
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- Search Form -->
+    <div class="card p-4 mb-6">
+      <form method="get" action="/ui/memory" class="flex gap-4 items-end">
+        <div class="flex-1">
+          <label class="block text-sm text-slate-400 mb-2">Search</label>
+          <input
+            type="text"
+            name="q"
+            value="{{ q }}"
+            placeholder="Search by goal, summary, or tags..."
+            class="w-full px-4 py-2 rounded bg-slate-900 border border-slate-700 text-white focus:outline-none focus:border-accent"
+          />
+        </div>
+        <div class="w-24">
+          <label class="block text-sm text-slate-400 mb-2">Limit</label>
+          <input
+            type="number"
+            name="limit"
+            value="{{ limit }}"
+            min="1"
+            max="100"
+            class="w-full px-4 py-2 rounded bg-slate-900 border border-slate-700 text-white focus:outline-none focus:border-accent"
+          />
+        </div>
+        <button
+          type="submit"
+          class="px-6 py-2 rounded accent-bg font-semibold hover:opacity-90 transition"
+        >
+          Search
+        </button>
+        {% if q %}
+        <a
+          href="/ui/memory"
+          class="px-6 py-2 rounded bg-slate-700 hover:bg-slate-600 font-semibold transition"
+        >
+          Clear
+        </a>
+        {% endif %}
+      </form>
+    </div>
+
+    <!-- Results -->
+    <div class="space-y-4">
+      {% if results %}
+        {% for entry in results %}
+        <div class="card p-6 hover:border-slate-600 transition">
+          <div class="flex items-start justify-between mb-3">
+            <div class="flex-1">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="text-sm font-mono text-slate-400">#{{ entry.id }}</span>
+                {% if entry.run_id %}
+                <span class="text-xs px-2 py-1 rounded bg-slate-800 text-slate-300">
+                  Run #{{ entry.run_id }}
+                </span>
+                {% endif %}
+                {% if entry.score is not none %}
+                <span class="text-xs px-2 py-1 rounded {% if entry.score >= 0.7 %}bg-green-900 text-green-300{% elif entry.score >= 0.4 %}bg-yellow-900 text-yellow-300{% else %}bg-red-900 text-red-300{% endif %}">
+                  Score: {{ "%.2f"|format(entry.score) }}
+                </span>
+                {% endif %}
+              </div>
+              <h3 class="text-lg font-semibold text-white mb-2">
+                {{ entry.goal or "(no goal)" }}
+              </h3>
+            </div>
+            {% if entry.created_at %}
+            <div class="text-xs text-slate-500 ml-4">
+              {{ entry.created_at[:10] }}
+            </div>
+            {% endif %}
+          </div>
+          
+          <p class="text-slate-300 mb-4 leading-relaxed">
+            {{ entry.summary }}
+          </p>
+          
+          {% if entry.tags %}
+          <div class="flex flex-wrap gap-2">
+            {% for tag in entry.tags.split(',') if tag.strip() %}
+            <span class="text-xs px-2 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">
+              {{ tag.strip() }}
+            </span>
+            {% endfor %}
+          </div>
+          {% else %}
+          <div class="text-xs text-slate-600 italic">No tags</div>
+          {% endif %}
+        </div>
+        {% endfor %}
+      {% else %}
+        <div class="card p-8 text-center">
+          <p class="text-slate-400 text-lg mb-2">No memory entries found</p>
+          {% if q %}
+          <p class="text-sm text-slate-500">Try a different search query</p>
+          {% else %}
+          <p class="text-sm text-slate-500">Memory entries will appear here as the system learns</p>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+
+    <!-- Navigation -->
+    <div class="mt-8 pt-6 border-t border-slate-800">
+      <div class="flex gap-4 text-sm">
+        <a href="/" class="text-slate-400 hover:text-accent transition">← Home</a>
+        <a href="/chat" class="text-slate-400 hover:text-accent transition">Chat</a>
+        <a href="/ui/system_status" class="text-slate-400 hover:text-accent transition">System Status</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -48,9 +48,9 @@ def verify_local_health(urls: Optional[Dict[str, str]] = None) -> Dict[str, Any]
         roles = dict(local_trio)
     except Exception:
         roles = {
-            "strategist": _env("AI_FACTORY_LOCAL_STRATEGIST_MODEL", "phi3:medium") or "phi3:medium",
-            "memory": _env("AI_FACTORY_LOCAL_MEMORY_MODEL", "mistral") or "mistral",
-            "executor": _env("AI_FACTORY_LOCAL_EXECUTION_MODEL", "phi3:mini") or "phi3:mini",
+            "strategist": _env("AI_FACTORY_LOCAL_STRATEGIST_MODEL", "qwen2:1.5b-instruct-q4_K_M") or "qwen2:1.5b-instruct-q4_K_M",
+            "memory": _env("AI_FACTORY_LOCAL_MEMORY_MODEL", "mistral:7b-instruct-v0.3-q4_K_M") or "mistral:7b-instruct-v0.3-q4_K_M",
+            "executor": _env("AI_FACTORY_LOCAL_EXECUTION_MODEL", "phi3:mini-4k-instruct-q4_K_M") or "phi3:mini-4k-instruct-q4_K_M",
         }
     to = 2.0
     try:
@@ -107,9 +107,9 @@ def _local_map() -> Dict[str, Dict[str, str]]:
         m = dict(local_trio)
     except Exception:
         m = {
-            "strategist": _env("AI_FACTORY_LOCAL_STRATEGIST_MODEL", "phi3:medium") or "phi3:medium",
-            "memory": _env("AI_FACTORY_LOCAL_MEMORY_MODEL", "mistral") or "mistral",
-            "executor": _env("AI_FACTORY_LOCAL_EXECUTION_MODEL", "phi3:mini") or "phi3:mini",
+            "strategist": _env("AI_FACTORY_LOCAL_STRATEGIST_MODEL", "qwen2:1.5b-instruct-q4_K_M") or "qwen2:1.5b-instruct-q4_K_M",
+            "memory": _env("AI_FACTORY_LOCAL_MEMORY_MODEL", "mistral:7b-instruct-v0.3-q4_K_M") or "mistral:7b-instruct-v0.3-q4_K_M",
+            "executor": _env("AI_FACTORY_LOCAL_EXECUTION_MODEL", "phi3:mini-4k-instruct-q4_K_M") or "phi3:mini-4k-instruct-q4_K_M",
         }
     return {
         "strategist": {"model": m["strategist"], "url": host},

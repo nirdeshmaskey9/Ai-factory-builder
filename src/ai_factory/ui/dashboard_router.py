@@ -15,7 +15,7 @@ from ai_factory.orchestrator.orchestrator_store import list_runs, get_run_summar
 from ai_factory.rag.rag_service import sync_with_memory_mcp
 
 
-templates = Jinja2Templates(directory="ai_factory/ui/templates")
+templates = Jinja2Templates(directory="src/ai_factory/ui/templates")
 router = APIRouter(prefix="/dashboard", tags=["Dashboard"])
 
 

@@ -6,8 +6,76 @@ from typing import List, Dict, Any
 
 from ai_factory.memory.memory_agent import search_memories
 
-templates = Jinja2Templates(directory="ai_factory/ui/templates")
+templates = Jinja2Templates(directory="src/ai_factory/ui/templates")
 router = APIRouter(prefix="/dashboard", tags=["Dashboard"])
+
+# UI router for /ui/memory
+ui_router = APIRouter(prefix="/ui", tags=["UI"])
+
+
+@ui_router.get("/memory")
+def ui_memory_viewer(request: Request):
+    """Simple memory viewer page using Tailwind CSS."""
+    q = request.query_params.get("q", "")
+    limit = int(request.query_params.get("limit") or 20)
+    
+    # Get memory entries
+    results: List[Dict[str, Any]] = []
+    stats = {}
+    
+    try:
+        if q:
+            results = search_memories(q, limit=limit)
+        else:
+            # Get recent memory entries from database
+            from ai_factory.memory.memory_db import SessionLocal, MemoryEntry
+            from sqlalchemy import desc, select
+            with SessionLocal() as session:
+                stmt = (
+                    select(MemoryEntry)
+                    .where(MemoryEntry.deleted == 0)
+                    .order_by(desc(MemoryEntry.created_at))
+                    .limit(limit)
+                )
+                rows = list(session.scalars(stmt))
+                results = [
+                    {
+                        "id": r.id,
+                        "goal": r.goal or "",
+                        "summary": r.summary or "(no summary)",
+                        "tags": r.tags or "",
+                        "score": r.score,
+                        "created_at": r.created_at.isoformat() if r.created_at else None,
+                        "run_id": r.run_id,
+                    }
+                    for r in rows
+                ]
+        
+        # Normalize tags
+        for r in results:
+            tags = r.get("tags") or ""
+            if isinstance(tags, list):
+                tags = ",".join([str(t).strip() for t in tags if str(t).strip()])
+            r["tags"] = tags
+            r["summary"] = r.get("summary") or "(no summary available)"
+        
+        # Get stats
+        from ai_factory.memory.memory_agent import stats as memory_stats
+        stats = memory_stats()
+    except Exception as e:
+        print(f"[ERROR] Memory viewer error: {e}")
+        # Continue with empty results
+    
+    return templates.TemplateResponse(
+        request,
+        "memory.html",
+        {
+            "q": q,
+            "limit": limit,
+            "results": results,
+            "stats": stats,
+        },
+    )
 
 
 @router.get("/memory")

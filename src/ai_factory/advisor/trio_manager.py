@@ -31,9 +31,9 @@ class LocalTrioManager:
         except Exception:
             # Fallback to env if import fails
             self.models = {
-                "strategist": os.getenv("STRATEGIST_MODEL") or os.getenv("AI_FACTORY_LOCAL_STRATEGIST_MODEL", "phi3:medium"),
-                "memory": os.getenv("MEMORY_MODEL") or os.getenv("AI_FACTORY_LOCAL_MEMORY_MODEL", "mistral"),
-                "executor": os.getenv("EXECUTOR_MODEL") or os.getenv("AI_FACTORY_LOCAL_EXECUTION_MODEL", "phi3:mini"),
+                "strategist": os.getenv("STRATEGIST_MODEL") or os.getenv("AI_FACTORY_LOCAL_STRATEGIST_MODEL", "qwen2:1.5b-instruct-q4_K_M"),
+                "memory": os.getenv("MEMORY_MODEL") or os.getenv("AI_FACTORY_LOCAL_MEMORY_MODEL", "mistral:7b-instruct-v0.3-q4_K_M"),
+                "executor": os.getenv("EXECUTOR_MODEL") or os.getenv("AI_FACTORY_LOCAL_EXECUTION_MODEL", "phi3:mini-4k-instruct-q4_K_M"),
             }
         self.host = os.getenv("OLLAMA_HOST", "http://127.0.0.1:11434").rstrip("/")
         self.interval = float(os.getenv("AI_FACTORY_TRIO_INTERVAL", "60"))

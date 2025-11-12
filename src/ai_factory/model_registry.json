@@ -1,8 +1,11 @@
 {
   "trio": {
-    "strategist": { "model": "phi3:medium", "purpose": "reasoning" },
-    "memory": { "model": "mistral", "purpose": "summaries" },
-    "executor": { "model": "phi3:mini", "purpose": "actions" }
-  }
+    "strategist": { "model": "qwen2:1.5b-instruct-q4_K_M", "purpose": "reasoning", "vram_estimate_mb": 900 },
+    "memory": { "model": "mistral:7b-instruct-v0.3-q4_K_M", "purpose": "summaries", "vram_estimate_mb": 4200 },
+    "executor": { "model": "phi3:mini-4k-instruct-q4_K_M", "purpose": "actions", "vram_estimate_mb": 2400 }
+  },
+  "total_vram_estimate_mb": 7500,
+  "phase": "v3.7.0-hybrid-brain-initialization",
+  "hardware_target": "Alienware m18 R2 (8GB VRAM / 32GB RAM)"
 }
 

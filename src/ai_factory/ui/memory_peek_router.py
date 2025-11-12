@@ -6,7 +6,7 @@ from fastapi.responses import JSONResponse
 from ai_factory.memory.dialogue_store import list_summaries, load_recent
 
 
-templates = Jinja2Templates(directory="ai_factory/ui/templates")
+templates = Jinja2Templates(directory="src/ai_factory/ui/templates")
 router = APIRouter(prefix="/ui", tags=["UI"])
 
 

@@ -71,9 +71,9 @@ def factory_info(request: Request):
             trio = dict(local_trio)
         except Exception:
             trio = {
-                "strategist": os.getenv("AI_FACTORY_LOCAL_STRATEGIST_MODEL", "phi3:medium"),
-                "memory": os.getenv("AI_FACTORY_LOCAL_MEMORY_MODEL", "mistral"),
-                "executor": os.getenv("AI_FACTORY_LOCAL_EXECUTION_MODEL", "phi3:mini"),
+                "strategist": os.getenv("AI_FACTORY_LOCAL_STRATEGIST_MODEL", "qwen2:1.5b-instruct-q4_K_M"),
+                "memory": os.getenv("AI_FACTORY_LOCAL_MEMORY_MODEL", "mistral:7b-instruct-v0.3-q4_K_M"),
+                "executor": os.getenv("AI_FACTORY_LOCAL_EXECUTION_MODEL", "phi3:mini-4k-instruct-q4_K_M"),
             }
         info["local_models"] = [trio["strategist"], trio["memory"], trio["executor"]]
         # Prefer live status from trio manager if available

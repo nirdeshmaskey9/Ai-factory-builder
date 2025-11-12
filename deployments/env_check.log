@@ -197,3 +197,8 @@
 2025-11-05 17:47:51 | OPENAI_API_KEY: OK (prefix=sk-proj...) | DB_PATH: ai_factory\data\memory.db (dir exists=True) | DEPLOYMENTS_DIR: deployments (exists=True)
 2025-11-05 18:15:53 | OPENAI_API_KEY: OK (prefix=sk-proj...) | DB_PATH: ai_factory\data\memory.db (dir exists=True) | DEPLOYMENTS_DIR: deployments (exists=True)
 2025-11-05 18:53:46 | OPENAI_API_KEY: OK (prefix=sk-proj...) | DB_PATH: ai_factory\data\memory.db (dir exists=True) | DEPLOYMENTS_DIR: deployments (exists=True)
+2025-11-12 16:23:49 | OPENAI_API_KEY: OK (prefix=sk-proj...) | DB_PATH: data\memory.db (dir exists=True) | DEPLOYMENTS_DIR: deployments (exists=True)
+2025-11-12 16:26:55 | OPENAI_API_KEY: OK (prefix=sk-proj...) | DB_PATH: data\memory.db (dir exists=True) | DEPLOYMENTS_DIR: deployments (exists=True)
+2025-11-12 16:36:35 | OPENAI_API_KEY: OK (prefix=sk-proj...) | DB_PATH: data\memory.db (dir exists=True) | DEPLOYMENTS_DIR: deployments (exists=True)
+2025-11-12 16:39:20 | OPENAI_API_KEY: OK (prefix=sk-proj...) | DB_PATH: data\memory.db (dir exists=True) | DEPLOYMENTS_DIR: deployments (exists=True)
+2025-11-12 16:50:48 | OPENAI_API_KEY: OK (prefix=sk-proj...) | DB_PATH: data\memory.db (dir exists=True) | DEPLOYMENTS_DIR: deployments (exists=True)

@@ -36,7 +36,7 @@ from ai_factory.ui.dashboard_router import router as dashboard_router
 from ai_factory.ui.chat_router import router as chat_router
 from ai_factory.ui.system_status_router import router as system_status_router
 from ai_factory.ui.memory_peek_router import router as memory_peek_router
-from ai_factory.ui.memory_ui_router import router as memory_ui_router
+from ai_factory.ui.memory_ui_router import router as memory_ui_router, ui_router as memory_ui_router_ui
 from ai_factory.ui.analytics_router import router as analytics_router
 from ai_factory.ui.feedback_router import router as feedback_router
 from ai_factory.ui.ws_router import router as ws_router
@@ -246,6 +246,7 @@ app.include_router(chat_router)
 app.include_router(system_status_router)
 app.include_router(memory_peek_router)
 app.include_router(memory_ui_router)
+app.include_router(memory_ui_router_ui)
 app.include_router(analytics_router)
 app.include_router(feedback_router)
 app.include_router(ws_router)

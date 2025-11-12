@@ -10,7 +10,7 @@ import time
 from ai_factory.bridge.bridge_service import process_bridge_chat
 
 
-templates = Jinja2Templates(directory="ai_factory/ui/templates")
+templates = Jinja2Templates(directory="src/ai_factory/ui/templates")
 router = APIRouter(tags=["Chat UI"])
 
 
