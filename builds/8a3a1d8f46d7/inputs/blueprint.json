@@ -1,6 +1,0 @@
-{
-  "name": "app",
-  "title": "app",
-  "description": "Upgrade the Daily Mood Logger FastAPI app.\r\nAdd POST /log, GET /recent, DELETE /clear, and GET /moods routes.\r\nSave logs as JSON in mood_log.json, and keep only the 50 most recent.\r\nEach log should include mood, note, and timestamp.\r\n",
-  "goal": "Upgrade the Daily Mood Logger FastAPI app.\r\nAdd POST /log, GET /recent, DELETE /clear, and GET /moods routes.\r\nSave logs as JSON in mood_log.json, and keep only the 50 most recent.\r\nEach log should include mood, note, and timestamp.\r\n"
-}

@@ -1,6 +1,0 @@
-{
-  "name": "file_organizer_cli",
-  "title": "File Organizer CLI",
-  "description": "automation CLI tool to sort files by type into folders",
-  "goal": "Create an automation CLI that organizes files by extension into subfolders"
-}

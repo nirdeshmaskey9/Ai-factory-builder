@@ -1,6 +1,0 @@
-{
-  "name": "prompt_writer",
-  "title": "Prompt Writer",
-  "description": "Generate image prompts from keywords via /generate endpoint (image)",
-  "goal": "Build a small image prompt generator with /generate route that accepts keywords"
-}

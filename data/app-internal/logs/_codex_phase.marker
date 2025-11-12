@@ -1,0 +1,11 @@
+{"phase":"3.4.3","step":"state-scan-start"}
+{"phase":"3.4.3","step":"state-scan-complete"}
+{"phase":"3.5","step":"train-script-added","ts":"2025-11-03T07:17:17Z"}
+{"phase":"3.5","step":"preflight-ok","ts":"2025-11-03T07:17:17Z"}
+{"phase":"3.5","step":"add_memory_public-ok","ts":"2025-11-03T07:17:17Z"}
+{"phase":"3.5","step":"smoke-tests-ok","ts":"2025-11-03T07:18:19Z"}
+{"phase":"3.5","step":"hybrid-soul-complete","ts":"2025-11-03T07:18:19Z"}
+{"phase":"3.5.2","step":"core-identity-ok","ts":"2025-11-03T07:42:28Z"}
+{"phase":"3.5.2","step":"tone-stabilizer-ok","ts":"2025-11-03T07:42:28Z"}
+{"phase":"3.5.2","step":"reflection-endpoint-ok","ts":"2025-11-03T07:42:28Z"}
+{"phase":"3.5.2","step":"mcp-sync-ok","ts":"2025-11-03T07:42:28Z"}

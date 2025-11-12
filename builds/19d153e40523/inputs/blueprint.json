@@ -1,6 +1,0 @@
-{
-  "name": "notes_tags",
-  "title": "Notes + Tags",
-  "description": "Multiple routes and multi-table relations; routes /, /notes, /tags",
-  "goal": "Notes+Tags system with multiple routes and relations"
-}

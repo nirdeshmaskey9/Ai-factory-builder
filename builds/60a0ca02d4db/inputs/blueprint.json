@@ -1,6 +1,0 @@
-{
-  "name": "app",
-  "title": "app",
-  "description": "Create a FastAPI app with /hello",
-  "goal": "Create a FastAPI app with /hello"
-}

@@ -1,6 +1,0 @@
-{
-  "name": "mood_tracker",
-  "title": "mood_tracker",
-  "description": "Create a FastAPI app called Daily Mood Tracker with routes /, /log, /history, /summary. It should store id, date (unique), mood (1-5), note in SQLite, have a minimal Jinja2 UI, and compute a 7-day average with an emoji.",
-  "goal": "Create a FastAPI app called Daily Mood Tracker with routes /, /log, /history, /summary. It should store id, date (unique), mood (1-5), note in SQLite, have a minimal Jinja2 UI, and compute a 7-day average with an emoji."
-}

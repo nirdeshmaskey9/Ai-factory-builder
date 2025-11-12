@@ -1,8 +1,0 @@
-{
-  "name": "test_app",
-  "title": "test_app",
-  "description": "Test app",
-  "goal": "Build a FastAPI app with one route '/' returning 'Hello, world! from AI Factory'",
-  "route": "/",
-  "hello_text": "Hello, world! from AI Factory"
-}

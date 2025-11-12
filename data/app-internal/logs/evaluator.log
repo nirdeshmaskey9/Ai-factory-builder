@@ -1,0 +1,3 @@
+{"ts": "2025-10-18T18:29:07Z", "build_id": "6d799cf61919", "domain": "web", "passed": true, "summary": "index.html found."}
+{"ts": "2025-10-18T18:29:17Z", "build_id": "1ddd629759ea", "domain": "cli", "passed": true, "summary": "CLI entry detected."}
+{"ts": "2025-10-18T18:29:25Z", "build_id": "b02c26026bd2", "domain": "ml", "passed": true, "summary": "Notebook found."}

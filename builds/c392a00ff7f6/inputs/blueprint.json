@@ -1,6 +1,0 @@
-{
-  "name": "expense_tracker",
-  "title": "Expense Tracker",
-  "description": "FastAPI CRUD entries in SQLite with totals view; routes /, /add, /summary",
-  "goal": "Expense tracker with SQLite and summary totals at /summary"
-}

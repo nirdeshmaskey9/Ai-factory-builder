@@ -1,6 +1,0 @@
-{
-  "name": "data_plotter",
-  "title": "data_plotter",
-  "description": "Build a Python app that uses matplotlib to plot random data points in a scatter plot.",
-  "goal": "Build a Python app that uses matplotlib to plot random data points in a scatter plot."
-}

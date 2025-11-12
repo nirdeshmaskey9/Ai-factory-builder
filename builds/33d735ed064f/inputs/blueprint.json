@@ -1,6 +1,0 @@
-{
-  "name": "app",
-  "title": "app",
-  "description": "Create a Daily Mood Logger micro-app using FastAPI. \r\n- Should let the user select mood (Happy, Sad, Angry, Calm, etc.)\r\n- Add an optional note for each entry\r\n- Store entries in memory or a simple JSON file\r\n- Display the last 5 mood entries on the homepage\r\n- Include a “Clear Logs” button\r\n",
-  "goal": "Create a Daily Mood Logger micro-app using FastAPI. \r\n- Should let the user select mood (Happy, Sad, Angry, Calm, etc.)\r\n- Add an optional note for each entry\r\n- Store entries in memory or a simple JSON file\r\n- Display the last 5 mood entries on the homepage\r\n- Include a “Clear Logs” button\r\n"
-}
