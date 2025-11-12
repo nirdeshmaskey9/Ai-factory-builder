@@ -10,7 +10,7 @@
       if (verEl) verEl.textContent = j.version || '';
       if (msEl) msEl.textContent = j.milestone || '';
       if (bridgeEl) bridgeEl.textContent = j.bridge_mode || 'hybrid';
-      if (trioEl) trioEl.textContent = JSON.stringify(j.trio_health || {}, null, 2);
+      // Trio health now handled by trio_status.js - no raw JSON dump
     } catch(e){}
   }
 

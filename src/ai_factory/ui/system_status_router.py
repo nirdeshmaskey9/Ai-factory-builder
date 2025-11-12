@@ -40,38 +40,24 @@ def system_status(request: Request) -> JSONResponse:
 
 @router.get("/control_state")
 def get_control_state() -> JSONResponse:
-    # Load persona from file if present
-    persona = "builder"
-    try:
-        import json, os
-        from pathlib import Path
-        p = Path("logs/ui/control_state.json")
-        if p.exists():
-            persona = (json.loads(p.read_text(encoding="utf-8")).get("persona_mode") or "builder").lower()
-    except Exception:
-        pass
+    # Persona mode removed - unified JoJo identity
     return JSONResponse({
         "mock_mode": r.mock_mode,
         "rag_enabled": r.rag_enabled,
         "tokens": r.api_tokens,
         "usd": r.api_usd,
-        "persona_mode": persona,
     })
 
 
 class ControlStateIn(BaseModel):
-    persona_mode: str | None = None
+    # Persona mode removed - unified JoJo identity
+    pass
 
 
 @router.post("/control_state")
 def set_control_state(payload: ControlStateIn) -> JSONResponse:
-    # Persist persona_mode only (other fields remain via runtime flags)
-    import json
-    from pathlib import Path
-    persona = (payload.persona_mode or "builder").lower()
-    Path("logs/ui").mkdir(parents=True, exist_ok=True)
-    Path("logs/ui/control_state.json").write_text(json.dumps({"persona_mode": persona}), encoding="utf-8")
-    return JSONResponse({"persona_mode": persona})
+    # Persona mode removed - unified JoJo identity
+    return JSONResponse({"status": "ok"})
 
 
 @router.post("/toggle_mock")

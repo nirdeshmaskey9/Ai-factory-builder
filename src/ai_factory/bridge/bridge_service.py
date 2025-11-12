@@ -9,6 +9,8 @@ from pathlib import Path
 from ai_factory.memory import memory_agent
 from ai_factory.bridge.chatgpt_proxy import call_chatgpt
 from ai_factory.bridge.response_manager import integrate_response, stabilize_persona_tone
+from ai_factory.bridge.filter_chain import clean_hybrid_output
+from ai_factory.identity.jojo_identity import get_identity_prompt, get_local_reasoning_prefix, get_external_enrichment_context
 from typing import Tuple
 from ai_factory.memory import memory_agent
 from ai_factory.memory.memory_agent import CORE_IDENTITY
@@ -134,25 +136,7 @@ def handle_chat(user_text: str, session_id: Optional[str] = None, timestamp: Opt
     return integrated
 
 
-def _persona_prefix() -> str:
-    """Read persona mode from control state file and return system prefix."""
-    try:
-        from pathlib import Path
-        p = Path("logs/ui/control_state.json")
-        if p.exists():
-            data = json.loads(p.read_text(encoding="utf-8"))
-            mode = (data.get("persona_mode") or "builder").lower()
-        else:
-            mode = "builder"
-    except Exception:
-        mode = "builder"
-    mapping = {
-        "empath": "Be supportive, concise, emotionally attuned.",
-        "strategist": "Plan multi-step strategies with tradeoffs.",
-        "builder": "Return actionable steps, code blocks when useful.",
-        "analyst": "Be precise, quantify, cite calculations.",
-    }
-    return mapping.get(mode, mapping["builder"]) + "\n"
+# Removed _persona_prefix() - using unified JoJo identity instead
 
 
 def process_bridge_chat(user_input: str, session_id: Optional[str]) -> Dict[str, Any]:
@@ -162,24 +146,18 @@ def process_bridge_chat(user_input: str, session_id: Optional[str]) -> Dict[str,
     ctx_items = [f"[{r.get('id')}] {r.get('summary') or r.get('goal')}" for r in related[:10]]
     # 2. Redact sensitive
     sanitized, redactions = _redact_private(user_input or "")
-    # 3. Local summary (deterministic synthesis)
+    # 3. Local summary (deterministic synthesis) with unified identity
     local_summary = _local_reason(sanitized, ctx_items)
-    # 4. Compose prompt and call external with grounding + tone
-    try:
-        name = CORE_IDENTITY.get('identity', {}).get('name', 'JoJo') if isinstance(CORE_IDENTITY, dict) else 'JoJo'
-        definition = CORE_IDENTITY.get('identity', {}).get('definition', '') if isinstance(CORE_IDENTITY, dict) else ''
-        tone_style = CORE_IDENTITY.get('tone', {}).get('style', 'balanced, clear, and empathetic') if isinstance(CORE_IDENTITY, dict) else 'balanced, clear, and empathetic'
-    except Exception:
-        name, definition, tone_style = 'JoJo', '', 'balanced, clear, and empathetic'
-    grounding = (
-        f"You are {name}, an AI companion. {definition} "
-        f"Speak in a tone that is {tone_style}."
-    ).strip()
+    # Add JoJo identity prefix to local reasoning
+    local_summary = get_local_reasoning_prefix() + local_summary
+    
+    # 4. Compose prompt and call external with unified JoJo identity
     persona_tone = stabilize_persona_tone(user_input or "")
     final_prompt = (
-        grounding + "\n" +
+        get_identity_prompt() + "\n\n" +
         f"Tone: {persona_tone}\n\n" +
-        _persona_prefix() + _compose_prompt(local_summary, ctx_items)
+        get_external_enrichment_context() + "\n\n" +
+        _compose_prompt(local_summary, ctx_items)
     )
     # Always delegate mock/live behavior to call_gpt5 via runtime flags
     test_mode = bool(os.getenv("PYTEST_CURRENT_TEST"))
@@ -240,8 +218,14 @@ def process_bridge_chat(user_input: str, session_id: Optional[str]) -> Dict[str,
             print("Auto-reflection save skipped:", e)
         except Exception:
             pass
-    return {
+    # Clean the output using filter chain before returning
+    cleaned_response = clean_hybrid_output({
         "response_text": merged,
+        "model": "hybrid",
+    })
+    
+    return {
+        "response_text": cleaned_response,
         "model": "hybrid",
         "memory_updates": [],
         "private_fields_redacted": redactions,

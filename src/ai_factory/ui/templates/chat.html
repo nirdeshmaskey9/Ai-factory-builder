@@ -14,10 +14,26 @@
       <div>Version: <span id="ver" class="accent"></span></div>
       <div>Milestone: <span id="ms"></span></div>
       <div>Bridge: <span id="bridge">hybrid</span> <span class="pulse">●</span></div>
-      <div class="mt-2">Trio Health:</div>
-      <pre id="trio" class="text-xs bg-slate-900 p-2 rounded border border-slate-800"></pre>
+      <div class="mt-3">
+        <div class="font-semibold mb-2">Local Trio:</div>
+        <div class="space-y-1 text-xs">
+          <div id="trio-strategist" class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-slate-600"></span>
+            <span>Strategist ● checking...</span>
+          </div>
+          <div id="trio-memory" class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-slate-600"></span>
+            <span>Memory ● checking...</span>
+          </div>
+          <div id="trio-executor" class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-slate-600"></span>
+            <span>Executor ● checking...</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <script src="/static/js/chat.js"></script>
+  <script src="/static/js/trio_status.js"></script>
 </div>
 {% endblock %}

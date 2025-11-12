@@ -287,32 +287,30 @@ if __name__ == "__main__":
     except Exception as e:
         raise SystemExit(f"uvicorn not installed: {e}")
 
-    # Choose a port starting from 8015 up to 8050
-    try:
-        port = find_free_port(8015, 8050)
-    except Exception as e:
-        raise SystemExit(f"No free port found in 8015-8050: {e}")
+    # Enforce port 8000 (v3.9.0)
+    port = 8000
+    host = "127.0.0.1"
 
     # Log to startup.log and console
     try:
         from pathlib import Path
         Path("logs").mkdir(parents=True, exist_ok=True)
         with open("logs/startup.log", "a", encoding="utf-8") as f:
-            f.write(f"selected_port {port}\n")
+            f.write(f"port {port} (enforced v3.9.0)\n")
     except Exception:
         pass
     # Console: prefer ASCII to avoid encoding issues on some terminals
     try:
-        print(f"✅ Port {port} selected — Factory online")
+        print(f"✅ AI Factory online at http://{host}:{port}")
     except Exception:
-        print(f"[OK] Port {port} selected - Factory online")
+        print(f"[OK] AI Factory online at http://{host}:{port}")
 
-    # Propagate chosen port so internal audits use the right base URL
+    # Propagate port for internal audits
     try:
         import os
         os.environ["AI_FACTORY_PORT"] = str(port)
-        os.environ.setdefault("AI_FACTORY_HOST", settings.host or "127.0.0.1")
+        os.environ["AI_FACTORY_HOST"] = host
     except Exception:
         pass
 
-    uvicorn.run(app, host=settings.host or "127.0.0.1", port=port, log_level=settings.uvicorn_log_level)
+    uvicorn.run(app, host=host, port=port, log_level=settings.uvicorn_log_level)

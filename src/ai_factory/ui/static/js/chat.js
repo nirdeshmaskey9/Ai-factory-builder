@@ -13,7 +13,19 @@
 
   const ws = new WebSocket((location.protocol === 'https:' ? 'wss://' : 'ws://') + location.host + '/ws/chat');
   ws.onmessage = (ev) => {
-    try { const j = JSON.parse(ev.data); append(j.role || 'assistant', j.content || ''); } catch(e) { append('assistant', ev.data); }
+    try { 
+      const j = JSON.parse(ev.data); 
+      // Clean content - remove any internal debug markers
+      let content = j.content || '';
+      // Remove [Local], [External] prefixes if present
+      content = content.replace(/\[Local\]\s*/gi, '').replace(/\[External\]\s*/gi, '');
+      append(j.role || 'assistant', content); 
+    } catch(e) { 
+      // Fallback: clean raw text
+      let content = ev.data || '';
+      content = content.replace(/\[Local\]\s*/gi, '').replace(/\[External\]\s*/gi, '');
+      append('assistant', content); 
+    }
   };
   ws.onopen = () => { /* nop */ };
   ws.onerror = () => { append('system', 'Connection error.'); };

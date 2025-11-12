@@ -11,7 +11,13 @@ async function load(){
     const h = document.getElementById('health');
     const rows = [];
     const trio = j.trio_health || {};
-    for (const k in trio){ rows.push(`<div class='p-2 border border-white/10 rounded'>${k}: ${trio[k].healthy?'Green':'Amber'}</div>`); }
+    for (const k in trio){ 
+      const roleData = trio[k] || {};
+      const healthy = roleData.healthy === true;
+      const model = roleData.model || '';
+      const shortModel = model.split(':')[0] || (model.length > 15 ? model.substring(0, 15) + '...' : model);
+      rows.push(`<div class='p-2 border border-white/10 rounded flex items-center gap-2'><span class='w-2 h-2 rounded-full ${healthy ? 'bg-green-500' : 'bg-red-500'}'></span><span>${k.charAt(0).toUpperCase() + k.slice(1)} ${healthy ? '● healthy' : '● down'} | ${shortModel}</span></div>`); 
+    }
     rows.push(`<div class='p-2 border border-white/10 rounded'>Version: ${j.version}</div>`);
     rows.push(`<div class='p-2 border border-white/10 rounded'>Milestone: ${j.milestone}</div>`);
     h.innerHTML = rows.join('');

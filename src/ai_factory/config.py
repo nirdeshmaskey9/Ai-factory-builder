@@ -34,7 +34,7 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
 
     host: str = "127.0.0.1"
-    port: int = 8000
+    port: int = 8000  # Enforced v3.9.0
     log_level: Literal["DEBUG", "INFO", "WARNING", "ERROR"] = "INFO"
 
     @property
@@ -76,5 +76,5 @@ def validate_config() -> None:
     if not tpath:
         logger.info("TEMPLATES_PATH not set; using internal ai_factory/templates")
 
-# API port constant for local UI helpers
-API_PORT = 8015
+# API port constant for local UI helpers (enforced v3.9.0)
+API_PORT = 8000

@@ -1,3 +1,3 @@
-__version__ = "v3.7.0-hybrid-brain-initialization"
-__milestone__ = "Hybrid Brain Upgrade - Optimized Local Trio for 8GB VRAM"
-PHASE = "3.7.0"
+__version__ = "v3.9.0-unified-jojo"
+__milestone__ = "Unified JoJo Identity - Final Cleanup + Hybrid Brain"
+PHASE = "3.9.0"
