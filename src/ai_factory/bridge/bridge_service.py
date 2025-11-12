@@ -9,8 +9,14 @@ from pathlib import Path
 from ai_factory.memory import memory_agent
 from ai_factory.bridge.chatgpt_proxy import call_chatgpt
 from ai_factory.bridge.response_manager import integrate_response, stabilize_persona_tone
-from ai_factory.bridge.filter_chain import clean_hybrid_output
-from ai_factory.identity.jojo_identity import get_identity_prompt, get_local_reasoning_prefix, get_external_enrichment_context
+from ai_factory.bridge.filter_chain import clean_hybrid_output, filter_output
+from ai_factory.identity.jojo_identity import (
+    build_identity_system_prompt,
+    build_identity_context_for_local,
+    get_identity_prompt,
+    get_local_reasoning_prefix,
+    get_external_enrichment_context,
+)
 from typing import Tuple
 from ai_factory.memory import memory_agent
 from ai_factory.memory.memory_agent import CORE_IDENTITY
@@ -46,12 +52,12 @@ def _redact_private(text: str) -> (str, List[str]):
 
 # --- Hybrid Reasoning Helpers (v3.3-hybrid) ---
 def _compose_prompt(local_summary: str, ctx_items: List[str]) -> str:
-    ctx_block = "\n".join(ctx_items[:10]) if ctx_items else ""
+    # No raw memory injection — memory is used only by the advisor internally
+    # ctx_items should be empty list to prevent raw memory chunks in prompts
     return (
         "You are JoJo's external reasoning partner.\n"
-        "Summarized local reasoning follows, along with contextual memory.\n\n"
+        "Summarized local reasoning follows.\n\n"
         f"Local summary:\n{local_summary}\n\n"
-        f"Context:\n{ctx_block}\n"
     )
 
 
@@ -141,23 +147,30 @@ def handle_chat(user_text: str, session_id: Optional[str] = None, timestamp: Opt
 
 def process_bridge_chat(user_input: str, session_id: Optional[str]) -> Dict[str, Any]:
     """Hybrid reasoning flow: memory, redaction, local summarize, external enrich, merge, autolearn."""
-    # 1. Retrieve contextual memory
+    # Always apply identity layer at the top
+    identity_prompt = build_identity_system_prompt()
+    local_prefix = build_identity_context_for_local()
+    
+    # 1. Retrieve contextual memory (internal use only, not appended to prompts)
     related = memory_agent.search_memories(user_input or "", limit=10)
     ctx_items = [f"[{r.get('id')}] {r.get('summary') or r.get('goal')}" for r in related[:10]]
     # 2. Redact sensitive
     sanitized, redactions = _redact_private(user_input or "")
     # 3. Local summary (deterministic synthesis) with unified identity
     local_summary = _local_reason(sanitized, ctx_items)
-    # Add JoJo identity prefix to local reasoning
-    local_summary = get_local_reasoning_prefix() + local_summary
+    # Inject identity context for local reasoning
+    local_prompt = f"{local_prefix}\nUser: {sanitized}"
+    local_summary = local_prefix + local_summary
     
     # 4. Compose prompt and call external with unified JoJo identity
+    # Build messages format with identity system prompt
     persona_tone = stabilize_persona_tone(user_input or "")
+    # For external call, inject identity as system message context
     final_prompt = (
-        get_identity_prompt() + "\n\n" +
+        identity_prompt + "\n\n" +
         f"Tone: {persona_tone}\n\n" +
         get_external_enrichment_context() + "\n\n" +
-        _compose_prompt(local_summary, ctx_items)
+        _compose_prompt(local_summary, [])  # No raw memory chunks in prompt
     )
     # Always delegate mock/live behavior to call_gpt5 via runtime flags
     test_mode = bool(os.getenv("PYTEST_CURRENT_TEST"))
@@ -218,11 +231,8 @@ def process_bridge_chat(user_input: str, session_id: Optional[str]) -> Dict[str,
             print("Auto-reflection save skipped:", e)
         except Exception:
             pass
-    # Clean the output using filter chain before returning
-    cleaned_response = clean_hybrid_output({
-        "response_text": merged,
-        "model": "hybrid",
-    })
+    # Clean the output using filter_output (robust filter chain) before returning
+    cleaned_response = filter_output(merged)
     
     return {
         "response_text": cleaned_response,

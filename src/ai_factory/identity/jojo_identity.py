@@ -42,3 +42,13 @@ def get_external_enrichment_context() -> str:
 Maintain {JOJO_IDENTITY['voice']} and follow the purpose: {JOJO_IDENTITY['purpose']}.
 Do not mention internal systems, personas, or modes."""
 
+
+def build_identity_system_prompt() -> str:
+    """Build the full system prompt for identity injection into external calls."""
+    return get_identity_prompt()
+
+
+def build_identity_context_for_local() -> str:
+    """Build the identity context prefix for local reasoning."""
+    return get_local_reasoning_prefix()
+
