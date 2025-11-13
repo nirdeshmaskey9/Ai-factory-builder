@@ -11,6 +11,7 @@ from ai_factory.routers import planner as planner_router
 # Phase 2+ imports
 from ai_factory.memory.memory_db import init_db
 from ai_factory.memory.routers import memory_router
+from ai_factory.memory.routers.memory_router import debug_router as memory_debug_router
 from ai_factory.services.middleware import MemoryLoggerMiddleware, DebugLoggerMiddleware, SupervisorLoggerMiddleware, EvaluatorLoggerMiddleware
 from starlette.middleware.base import BaseHTTPMiddleware
 from ai_factory.supervisor.supervisor_router import router as supervisor_router
@@ -58,6 +59,13 @@ async def lifespan(app: FastAPI):
     # Confirm .env visibility for Phase 11 by logging key prefix
     log_openai_key_prefix()
     init_db()
+    # Seed identity memories on startup (Phase 3.9.4)
+    try:
+        from ai_factory.memory.identity_seeder import seed_identity_memories
+        seed_result = seed_identity_memories()
+        logging.getLogger(__name__).info(f"Identity memories seeded: {seed_result['created']} created, {seed_result['existing']} existing")
+    except Exception as e:
+        logging.getLogger(__name__).warning(f"Failed to seed identity memories: {e}")
     # Ensure core directories and log creation
     from pathlib import Path
     created = []
@@ -228,6 +236,7 @@ def graceful_shutdown():
 app.include_router(health_router.router)
 app.include_router(planner_router.router)
 app.include_router(memory_router.router)
+app.include_router(memory_debug_router)  # Debug endpoints for memory testing
 app.include_router(debugger_router.router)
 app.include_router(supervisor_router)
 app.include_router(evaluator_router)

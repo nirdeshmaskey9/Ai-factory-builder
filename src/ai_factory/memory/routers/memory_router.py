@@ -19,6 +19,51 @@ from sqlalchemy import select, func
 
 router = APIRouter(prefix="/memory", tags=["memory"])
 
+# Debug router for testing (Phase 3.9.4)
+debug_router = APIRouter(prefix="/debug/memory", tags=["debug", "memory"])
+
+
+@debug_router.get("/list")
+def debug_list_memories(limit: int = Query(50, ge=1, le=500)):
+    """List all memories for debugging."""
+    from ai_factory.memory.memory_db import SessionLocal, MemoryEntry, select, and_
+    from ai_factory.memory.memory_db import init_db
+    
+    init_db()
+    with SessionLocal() as session:
+        memories = session.scalars(
+            select(MemoryEntry)
+            .where(MemoryEntry.deleted == 0)
+            .order_by(MemoryEntry.created_at.desc())
+            .limit(limit)
+        ).all()
+        
+        return {
+            "total": len(memories),
+            "memories": [
+                {
+                    "id": m.id,
+                    "goal": m.goal,
+                    "summary": m.summary,
+                    "tags": m.tags,
+                    "score": m.score,
+                    "created_at": m.created_at.isoformat() if m.created_at else None,
+                }
+                for m in memories
+            ]
+        }
+
+
+@debug_router.get("/search")
+def debug_search_memory(q: str = Query(..., min_length=1)):
+    """Search memories for debugging."""
+    results = search_memories(q, limit=10)
+    return {
+        "query": q,
+        "count": len(results),
+        "results": results,
+    }
+
 
 @router.get("/logs")
 def read_logs(limit: int = Query(10, ge=1, le=500)):
