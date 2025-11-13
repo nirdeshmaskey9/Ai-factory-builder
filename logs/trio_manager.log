@@ -251,3 +251,6 @@
 2025-11-13 12:37:10,344 INFO [TrioManager] Strategist healthy ✅
 2025-11-13 12:37:22,536 INFO [TrioManager] Memory healthy ✅
 2025-11-13 12:37:27,267 INFO [TrioManager] Executor healthy ✅
+2025-11-13 12:43:44,108 WARNING [TrioManager] Strategist unhealthy ❌
+2025-11-13 12:44:52,788 WARNING [TrioManager] Memory unhealthy ❌
+2025-11-13 12:46:01,548 WARNING [TrioManager] Executor unhealthy ❌

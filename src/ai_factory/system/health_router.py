@@ -6,7 +6,6 @@ from pathlib import Path
 from typing import Any
 
 from fastapi import APIRouter
-from sqlalchemy import text
 
 from ai_factory.memory.memory_db import get_session
 from ai_factory.deployer.preview_service import list_active_previews
@@ -43,7 +42,7 @@ def full_health_check():
     # DB check
     try:
         sess = get_session()
-        list(sess.execute(text("SELECT 1")))
+        list(sess.execute("SELECT 1"))
         try:
             sess.close()
         except Exception:

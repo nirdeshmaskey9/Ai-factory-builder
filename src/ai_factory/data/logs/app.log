@@ -8145,3 +8145,20 @@
 2025-11-13T12:38:05-0600 | INFO | httpx | HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
 2025-11-13T12:38:05-0600 | INFO | ai_factory.trio_manager | [TrioManager] Strategist healthy ✅
 2025-11-13T12:38:05-0600 | INFO | httpx | HTTP Request: GET http://127.0.0.1:11434/api/version "HTTP/1.1 200 OK"
+2025-11-13T12:39:04-0600 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-11-13T12:39:04-0600 | ERROR | ai_factory.memory.memory_db | [Memory Diagnostic] Error during diagnostic: name 'func' is not defined
+Traceback (most recent call last):
+  File "C:\projects\ai_factory_builder\src\ai_factory\memory\memory_db.py", line 206, in print_memory_diagnostic
+    select(func.count()).select_from(MemoryEntry).where(MemoryEntry.deleted == 0)
+           ^^^^
+NameError: name 'func' is not defined
+2025-11-13T12:39:04-0600 | INFO | ai_factory.main | Identity seed summary: inserted=0 skipped=9 errors=0
+2025-11-13T12:39:04-0600 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
+2025-11-13T12:42:35-0600 | INFO | ai_factory.config | DB_PATH not set; defaulting to C:\projects\ai_factory_builder\data\memory.db
+2025-11-13T12:42:35-0600 | INFO | ai_factory.config | TEMPLATES_PATH not set; using internal ai_factory/templates
+2025-11-13T12:43:44-0600 | WARNING | ai_factory.trio_manager | [TrioManager] Strategist unhealthy ❌
+2025-11-13T12:44:52-0600 | WARNING | ai_factory.trio_manager | [TrioManager] Memory unhealthy ❌
+2025-11-13T12:46:01-0600 | WARNING | ai_factory.trio_manager | [TrioManager] Executor unhealthy ❌
+2025-11-13T12:46:34-0600 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-11-13T12:46:34-0600 | INFO | ai_factory.main | Identity seed summary: inserted=0 skipped=9 errors=0
+2025-11-13T12:46:34-0600 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active

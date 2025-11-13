@@ -2,15 +2,12 @@ from __future__ import annotations
 
 import json
 import os
-import logging
 from datetime import datetime
 from typing import Iterable, List, Dict, Any
 
 from sqlalchemy import select, desc
 
 from ai_factory.memory.memory_db import SessionLocal, MemoryEvent, init_db, DATA_DIR
-
-logger = logging.getLogger(__name__)
 
 # Snapshots directory
 SNAPSHOT_DIR = os.path.join(DATA_DIR, "snapshots")
@@ -22,20 +19,15 @@ def log_event(request_id: str, task_type: str, prompt: str, response: str) -> No
     """
     # Ensure DB is initialized (safe to call repeatedly)
     init_db()
-    try:
-        with SessionLocal() as session:
-            evt = MemoryEvent(
-                request_id=request_id,
-                task_type=task_type,
-                prompt=prompt,
-                response=response,
-            )
-            session.add(evt)
-            session.commit()
-            logger.debug(f"[Memory Event] Logged event id={evt.id} request_id={request_id} task_type={task_type}")
-    except Exception as e:
-        logger.error(f"[Memory Event] FAILED to log event request_id={request_id}: {e}", exc_info=True)
-        raise
+    with SessionLocal() as session:
+        evt = MemoryEvent(
+            request_id=request_id,
+            task_type=task_type,
+            prompt=prompt,
+            response=response,
+        )
+        session.add(evt)
+        session.commit()
 
 
 def get_recent(limit: int = 10) -> List[MemoryEvent]:
