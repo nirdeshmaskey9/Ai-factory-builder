@@ -163,6 +163,7 @@ def verify_identity_memories() -> Dict[str, any]:
         }
     
     # Check if all identity memories exist
+    from sqlalchemy import and_
     with SessionLocal() as session:
         for mem in IDENTITY_MEMORIES:
             existing = session.scalars(

@@ -25,9 +25,9 @@ debug_router = APIRouter(prefix="/debug/memory", tags=["debug", "memory"])
 
 @debug_router.get("/list")
 def debug_list_memories(limit: int = Query(50, ge=1, le=500)):
-    """List all memories for debugging."""
-    from ai_factory.memory.memory_db import SessionLocal, MemoryEntry, select, and_
-    from ai_factory.memory.memory_db import init_db
+    """List all memories for debugging. Returns id, key (goal), value (summary), tags."""
+    from sqlalchemy import select
+    from ai_factory.memory.memory_db import SessionLocal, MemoryEntry, init_db
     
     init_db()
     with SessionLocal() as session:
@@ -43,11 +43,9 @@ def debug_list_memories(limit: int = Query(50, ge=1, le=500)):
             "memories": [
                 {
                     "id": m.id,
-                    "goal": m.goal,
-                    "summary": m.summary,
+                    "key": m.goal,  # goal is the key
+                    "value": m.summary,  # summary is the value
                     "tags": m.tags,
-                    "score": m.score,
-                    "created_at": m.created_at.isoformat() if m.created_at else None,
                 }
                 for m in memories
             ]
@@ -56,13 +54,40 @@ def debug_list_memories(limit: int = Query(50, ge=1, le=500)):
 
 @debug_router.get("/search")
 def debug_search_memory(q: str = Query(..., min_length=1)):
-    """Search memories for debugging."""
-    results = search_memories(q, limit=10)
-    return {
-        "query": q,
-        "count": len(results),
-        "results": results,
-    }
+    """Search memories for debugging. Case-insensitive LIKE over key/value/tags."""
+    from sqlalchemy import select, or_, func
+    from ai_factory.memory.memory_db import SessionLocal, MemoryEntry, init_db
+    
+    init_db()
+    q_lower = q.lower()
+    with SessionLocal() as session:
+        memories = session.scalars(
+            select(MemoryEntry)
+            .where(
+                MemoryEntry.deleted == 0,
+                or_(
+                    func.lower(MemoryEntry.goal).like(f"%{q_lower}%"),
+                    func.lower(MemoryEntry.summary).like(f"%{q_lower}%"),
+                    func.lower(MemoryEntry.tags).like(f"%{q_lower}%"),
+                )
+            )
+            .order_by(MemoryEntry.created_at.desc())
+            .limit(10)
+        ).all()
+        
+        return {
+            "query": q,
+            "count": len(memories),
+            "results": [
+                {
+                    "id": m.id,
+                    "key": m.goal,
+                    "value": m.summary,
+                    "tags": m.tags,
+                }
+                for m in memories
+            ],
+        }
 
 
 @router.get("/logs")

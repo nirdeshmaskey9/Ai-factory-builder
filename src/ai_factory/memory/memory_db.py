@@ -156,6 +156,20 @@ def init_db() -> None:
     Base.metadata.create_all(engine)
 
 
+def db_ping() -> bool:
+    """
+    Ping the database with a trivial query using SQLAlchemy text() to avoid warnings.
+    Returns True if successful, False otherwise.
+    """
+    try:
+        with engine.connect() as conn:
+            result = conn.execute(text("SELECT 1"))
+            result.fetchone()
+            return True
+    except Exception:
+        return False
+
+
 def get_session() -> Session:
     return SessionLocal()
 

@@ -59,11 +59,20 @@ async def lifespan(app: FastAPI):
     # Confirm .env visibility for Phase 11 by logging key prefix
     log_openai_key_prefix()
     init_db()
+    # Ping database to verify connection (Phase 3.9.4.1)
+    try:
+        from ai_factory.memory.memory_db import db_ping
+        if db_ping():
+            logging.getLogger(__name__).debug("Database ping successful")
+        else:
+            logging.getLogger(__name__).warning("Database ping failed")
+    except Exception as e:
+        logging.getLogger(__name__).warning(f"Database ping error: {e}")
     # Seed identity memories on startup (Phase 3.9.4)
     try:
         from ai_factory.memory.identity_seeder import seed_identity_memories
         seed_result = seed_identity_memories()
-        logging.getLogger(__name__).info(f"Identity memories seeded: {seed_result['created']} created, {seed_result['existing']} existing")
+        logging.getLogger(__name__).info(f"Identity seed summary: inserted={seed_result['inserted']} skipped={seed_result['skipped']} errors={seed_result['errors']}")
     except Exception as e:
         logging.getLogger(__name__).warning(f"Failed to seed identity memories: {e}")
     # Ensure core directories and log creation
