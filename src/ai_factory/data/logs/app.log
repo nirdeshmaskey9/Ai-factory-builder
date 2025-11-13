@@ -8064,3 +8064,84 @@
 2025-11-13T11:51:00-0600 | INFO | httpx | HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
 2025-11-13T11:51:03-0600 | INFO | httpx | HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
 2025-11-13T11:51:03-0600 | INFO | httpx | HTTP Request: GET http://127.0.0.1:11434/api/version "HTTP/1.1 200 OK"
+2025-11-13T12:01:33-0600 | WARNING | ai_factory.config | ⚠️ OpenAI key missing — set OPENAI_API_KEY in .env
+2025-11-13T12:01:33-0600 | INFO | ai_factory.main | Identity seed summary: inserted=0 skipped=9 errors=0
+2025-11-13T12:01:33-0600 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
+2025-11-13T12:05:04-0600 | WARNING | ai_factory.config | .env file not found at project root
+2025-11-13T12:05:04-0600 | WARNING | ai_factory.config | OPENAI_API_KEY missing; model features may be limited
+2025-11-13T12:05:04-0600 | INFO | ai_factory.config | DB_PATH not set; defaulting to C:\projects\ai_factory_builder\data\memory.db
+2025-11-13T12:05:04-0600 | INFO | ai_factory.config | TEMPLATES_PATH not set; using internal ai_factory/templates
+2025-11-13T12:06:13-0600 | WARNING | ai_factory.trio_manager | [TrioManager] Strategist unhealthy ❌
+2025-11-13T12:07:21-0600 | WARNING | ai_factory.trio_manager | [TrioManager] Memory unhealthy ❌
+2025-11-13T12:08:30-0600 | WARNING | ai_factory.trio_manager | [TrioManager] Executor unhealthy ❌
+2025-11-13T12:09:03-0600 | WARNING | ai_factory.config | ⚠️ OpenAI key missing — set OPENAI_API_KEY in .env
+2025-11-13T12:09:03-0600 | INFO | ai_factory.main | Identity seed summary: inserted=0 skipped=9 errors=0
+2025-11-13T12:09:03-0600 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
+2025-11-13T12:12:48-0600 | WARNING | ai_factory.config | .env file not found at project root
+2025-11-13T12:12:48-0600 | WARNING | ai_factory.config | OPENAI_API_KEY missing; model features may be limited
+2025-11-13T12:12:48-0600 | INFO | ai_factory.config | DB_PATH not set; defaulting to C:\projects\ai_factory_builder\data\memory.db
+2025-11-13T12:12:48-0600 | INFO | ai_factory.config | TEMPLATES_PATH not set; using internal ai_factory/templates
+2025-11-13T12:13:57-0600 | WARNING | ai_factory.trio_manager | [TrioManager] Strategist unhealthy ❌
+2025-11-13T12:15:05-0600 | WARNING | ai_factory.trio_manager | [TrioManager] Memory unhealthy ❌
+2025-11-13T12:16:14-0600 | WARNING | ai_factory.trio_manager | [TrioManager] Executor unhealthy ❌
+2025-11-13T12:16:47-0600 | WARNING | ai_factory.config | ⚠️ OpenAI key missing — set OPENAI_API_KEY in .env
+2025-11-13T12:16:47-0600 | INFO | ai_factory.main | Identity seed summary: inserted=0 skipped=9 errors=0
+2025-11-13T12:16:47-0600 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
+2025-11-13T12:16:53-0600 | WARNING | ai_factory.config | ⚠️ OpenAI key missing — set OPENAI_API_KEY in .env
+2025-11-13T12:16:53-0600 | INFO | ai_factory.main | Identity seed summary: inserted=0 skipped=9 errors=0
+2025-11-13T12:16:53-0600 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
+2025-11-13T12:20:38-0600 | WARNING | ai_factory.config | .env file not found at project root
+2025-11-13T12:20:38-0600 | WARNING | ai_factory.config | OPENAI_API_KEY missing; model features may be limited
+2025-11-13T12:20:38-0600 | INFO | ai_factory.config | DB_PATH not set; defaulting to C:\projects\ai_factory_builder\data\memory.db
+2025-11-13T12:20:38-0600 | INFO | ai_factory.config | TEMPLATES_PATH not set; using internal ai_factory/templates
+2025-11-13T12:21:47-0600 | WARNING | ai_factory.trio_manager | [TrioManager] Strategist unhealthy ❌
+2025-11-13T12:22:55-0600 | WARNING | ai_factory.trio_manager | [TrioManager] Memory unhealthy ❌
+2025-11-13T12:24:04-0600 | WARNING | ai_factory.trio_manager | [TrioManager] Executor unhealthy ❌
+2025-11-13T12:26:12-0600 | WARNING | ai_factory.trio_manager | [TrioManager] Strategist unhealthy ❌
+2025-11-13T12:27:21-0600 | WARNING | ai_factory.trio_manager | [TrioManager] Memory unhealthy ❌
+2025-11-13T12:28:30-0600 | WARNING | ai_factory.trio_manager | [TrioManager] Executor unhealthy ❌
+2025-11-13T12:30:38-0600 | WARNING | ai_factory.trio_manager | [TrioManager] Strategist unhealthy ❌
+2025-11-13T12:31:47-0600 | WARNING | ai_factory.trio_manager | [TrioManager] Memory unhealthy ❌
+2025-11-13T12:32:56-0600 | WARNING | ai_factory.trio_manager | [TrioManager] Executor unhealthy ❌
+2025-11-13T12:35:04-0600 | WARNING | ai_factory.trio_manager | [TrioManager] Strategist unhealthy ❌
+2025-11-13T12:36:13-0600 | WARNING | ai_factory.trio_manager | [TrioManager] Memory unhealthy ❌
+2025-11-13T12:36:35-0600 | INFO | ai_factory.config | ✅ OpenAI key loaded (prefix: sk-proj-…)
+2025-11-13T12:36:35-0600 | INFO | ai_factory.main | Identity seed summary: inserted=0 skipped=9 errors=0
+2025-11-13T12:36:35-0600 | INFO | ai_factory.main | AI Factory v1.3-gpt4o-builder - Live Planner Active
+2025-11-13T12:36:52-0600 | INFO | httpx | HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-11-13T12:36:52-0600 | INFO | ai_factory.trio_manager | [TrioManager] Executor healthy ✅
+2025-11-13T12:36:53-0600 | INFO | httpx | HTTP Request: POST http://127.0.0.1:8000/evaluator/learn "HTTP/1.1 200 OK"
+2025-11-13T12:36:53-0600 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8000/deployer/list "HTTP/1.1 200 OK"
+2025-11-13T12:36:53-0600 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8002/hello "HTTP/1.1 200 OK"
+2025-11-13T12:36:53-0600 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8001/hello "HTTP/1.1 200 OK"
+2025-11-13T12:36:53-0600 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8002/hello "HTTP/1.1 200 OK"
+2025-11-13T12:36:53-0600 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8003/hello "HTTP/1.1 200 OK"
+2025-11-13T12:36:53-0600 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8001/hello "HTTP/1.1 200 OK"
+2025-11-13T12:36:53-0600 | INFO | httpx | HTTP Request: GET http://127.0.0.1:8001/hello "HTTP/1.1 200 OK"
+2025-11-13T12:36:53-0600 | INFO | httpx | HTTP Request: GET http://127.0.0.1:11434/api/version "HTTP/1.1 200 OK"
+2025-11-13T12:36:56-0600 | INFO | httpx | HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-11-13T12:36:57-0600 | INFO | httpx | HTTP Request: GET http://127.0.0.1:11434/api/version "HTTP/1.1 200 OK"
+2025-11-13T12:37:03-0600 | INFO | httpx | HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-11-13T12:37:03-0600 | INFO | httpx | HTTP Request: GET http://127.0.0.1:11434/api/version "HTTP/1.1 200 OK"
+2025-11-13T12:37:07-0600 | INFO | httpx | HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-11-13T12:37:07-0600 | INFO | ai_factory.config | DB_PATH not set; defaulting to C:\projects\ai_factory_builder\data\memory.db
+2025-11-13T12:37:07-0600 | INFO | ai_factory.config | TEMPLATES_PATH not set; using internal ai_factory/templates
+2025-11-13T12:37:08-0600 | INFO | httpx | HTTP Request: GET http://127.0.0.1:11434/api/version "HTTP/1.1 200 OK"
+2025-11-13T12:37:08-0600 | INFO | httpx | HTTP Request: GET http://127.0.0.1:11434/api/version "HTTP/1.1 200 OK"
+2025-11-13T12:37:10-0600 | INFO | httpx | HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-11-13T12:37:10-0600 | INFO | httpx | HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-11-13T12:37:10-0600 | INFO | ai_factory.trio_manager | [TrioManager] Strategist healthy ✅
+2025-11-13T12:37:10-0600 | INFO | httpx | HTTP Request: GET http://127.0.0.1:11434/api/version "HTTP/1.1 200 OK"
+2025-11-13T12:37:10-0600 | INFO | httpx | HTTP Request: GET http://127.0.0.1:11434/api/version "HTTP/1.1 200 OK"
+2025-11-13T12:37:19-0600 | INFO | httpx | HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-11-13T12:37:19-0600 | INFO | httpx | HTTP Request: GET http://127.0.0.1:11434/api/version "HTTP/1.1 200 OK"
+2025-11-13T12:37:22-0600 | INFO | httpx | HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-11-13T12:37:22-0600 | INFO | ai_factory.trio_manager | [TrioManager] Memory healthy ✅
+2025-11-13T12:37:22-0600 | INFO | httpx | HTTP Request: GET http://127.0.0.1:11434/api/version "HTTP/1.1 200 OK"
+2025-11-13T12:37:26-0600 | INFO | httpx | HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-11-13T12:37:27-0600 | INFO | httpx | HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-11-13T12:37:27-0600 | INFO | ai_factory.trio_manager | [TrioManager] Executor healthy ✅
+2025-11-13T12:37:52-0600 | INFO | httpx | HTTP Request: GET http://127.0.0.1:11434/api/version "HTTP/1.1 200 OK"
+2025-11-13T12:38:05-0600 | INFO | httpx | HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-11-13T12:38:05-0600 | INFO | ai_factory.trio_manager | [TrioManager] Strategist healthy ✅
+2025-11-13T12:38:05-0600 | INFO | httpx | HTTP Request: GET http://127.0.0.1:11434/api/version "HTTP/1.1 200 OK"

@@ -59,15 +59,14 @@ async def lifespan(app: FastAPI):
     # Confirm .env visibility for Phase 11 by logging key prefix
     log_openai_key_prefix()
     init_db()
-    # Ping database to verify connection (Phase 3.9.4.1)
+    
+    # Phase 4.1: Print comprehensive memory diagnostic on startup
     try:
-        from ai_factory.memory.memory_db import db_ping
-        if db_ping():
-            logging.getLogger(__name__).debug("Database ping successful")
-        else:
-            logging.getLogger(__name__).warning("Database ping failed")
+        from ai_factory.memory.memory_db import print_memory_diagnostic
+        memory_report = print_memory_diagnostic()
     except Exception as e:
-        logging.getLogger(__name__).warning(f"Database ping error: {e}")
+        logging.getLogger(__name__).warning(f"Memory diagnostic failed: {e}")
+    
     # Seed identity memories on startup (Phase 3.9.4)
     try:
         from ai_factory.memory.identity_seeder import seed_identity_memories

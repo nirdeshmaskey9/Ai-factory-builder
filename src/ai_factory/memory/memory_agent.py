@@ -4,6 +4,7 @@ from sqlalchemy.exc import OperationalError
 from sqlalchemy import text
 from pathlib import Path
 import time
+import logging
 from typing import List, Dict, Optional, Tuple
 from datetime import datetime, timezone
 
@@ -19,6 +20,8 @@ from ai_factory.memory.memory_db import (
 )
 from shutil import copy2
 import os
+
+logger = logging.getLogger(__name__)
 
 
 def startup_probe() -> None:
@@ -62,17 +65,29 @@ def _norm_tags(tags: List[str]) -> str:
 
 def store_memory(run_id: Optional[int], goal: str, summary: str, tags: List[str], score: Optional[float]) -> int:
     init_db()
-    with SessionLocal() as session:
-        row = MemoryEntry(
-            run_id=run_id,
-            goal=str(goal or "").strip(),
-            summary=str(summary or "").strip(),
-            tags=_norm_tags(tags or []),
-            score=score if score is not None else None,
-        )
-        session.add(row)
-        session.commit()
-        return row.id
+    goal_str = str(goal or "").strip()
+    summary_str = str(summary or "").strip()
+    tags_normalized = _norm_tags(tags or [])
+    
+    logger.info(f"[Memory Write] Starting - goal='{goal_str[:50]}...' run_id={run_id} tags={tags_normalized}")
+    
+    try:
+        with SessionLocal() as session:
+            row = MemoryEntry(
+                run_id=run_id,
+                goal=goal_str,
+                summary=summary_str,
+                tags=tags_normalized,
+                score=score if score is not None else None,
+            )
+            session.add(row)
+            session.commit()
+            
+            logger.info(f"[Memory Write] SUCCESS - Stored memory id={row.id} goal='{goal_str[:50]}...'")
+            return row.id
+    except Exception as e:
+        logger.error(f"[Memory Write] FAILED - goal='{goal_str[:50]}...' error: {e}", exc_info=True)
+        raise
 
 
 def search_memories(q: str, limit: int = 20) -> List[Dict]:
