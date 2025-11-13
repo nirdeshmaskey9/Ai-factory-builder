@@ -1,39 +1,158 @@
-# AI Factory Builder - v1.2-master Universal Builder
+# AI Factory Builder - JoJo Planet v3.9.4.1
 
-This release adds domain-aware creation with full audit/rollback:
-- Startup self-audit with console summary and logs
-- .env validator (non-fatal) ensuring key presence and directories
-- PID tracking for deployments and safer rollback
-- Watchdog to auto-restart crashed deployments
-- /factory/info route with version and health
-- POST /factory/create for Universal Builder (web, cli, ml)
+**Unified Identity, Stable Memory, Clean Hybrid Output**
+
+AI Factory Builder is a local-first AI companion platform featuring JoJo, a unified AI assistant with persistent memory, hybrid reasoning (local + cloud), and clean conversational output.
+
+## 🚀 Quick Start
 
 Start the server:
 
-  poetry run uvicorn ai_factory.main:app --reload --port 8015
+```bash
+python scripts/run_factory.py
+```
 
-Stress test and audit:
+Or with Poetry:
 
-- GET /orchestrator/stress?n=5
-- python -m ai_factory.tools.system_audit
+```bash
+poetry run uvicorn src.ai_factory.main:app --reload --host 127.0.0.1 --port 8000
+```
 
-Info:
+The application runs on **http://127.0.0.1:8000** (port 8000 enforced).
 
-- GET /factory/info (version: 1.2-master)
-- POST /factory/create
+## ✨ Key Features
 
-## Windows PowerShell Execution Policy
+### 🧠 Unified JoJo Identity
+- Single, consistent AI persona (no mode switching)
+- Warm, intelligent, emotionally aware voice
+- Unified identity layer across all interactions
+
+### 💾 Persistent Memory System
+- SQLite-based memory storage (`data/memory.db`)
+- Identity memories seeded on startup
+- Reliable recall of user information (name, birthdate, birthplace, country)
+- Memory-first retrieval before any model runs
+
+### 🔄 Hybrid Reasoning Pipeline
+- **Local Trio Models** (via Ollama):
+  - Strategist: Qwen 2 1.5B Instruct Q4 (reasoning)
+  - Memory: Mistral 7B Instruct v0.3 Q4 (contextual synthesis)
+  - Executor: Phi-3 Mini 3.8B Q4 (code execution)
+- **External Enrichment**: Optional cloud model (GPT-4o) for final authoritative answers
+- **Clean Output**: No debug noise, no `[Local]`/`[External]` prefixes, no memory IDs
+
+### 🎯 Core Capabilities
+- **Chat Interface**: `/chat` - Clean, memory-powered conversations
+- **Memory Viewer**: `/ui/memory` - Browse and search memories
+- **System Status**: `/ui/system_status` - Monitor local trio health
+- **Debug Endpoints**: `/debug/memory/list` and `/debug/memory/search` - Memory diagnostics
+
+## 📁 Project Structure
+
+```
+ai_factory_builder/
+├── src/ai_factory/          # Main application code
+│   ├── bridge/              # Hybrid reasoning pipeline
+│   ├── memory/              # Memory system (SQLite + vector store)
+│   ├── identity/            # JoJo unified identity layer
+│   ├── advisor/             # Local trio management
+│   ├── ui/                  # Web interface (FastAPI + Jinja2)
+│   └── main.py              # FastAPI application entry point
+├── data/                    # Runtime data
+│   ├── memory.db            # SQLite memory database
+│   └── app-internal/        # Internal app data
+├── scripts/                 # Utility scripts
+│   ├── run_factory.py       # Main launcher
+│   ├── setup_ollama.ps1    # Ollama model setup (Windows)
+│   └── memory_diagnostics.py # Memory system diagnostics
+├── tests/                   # Test suite
+└── docs/                    # Documentation
+```
+
+## 🛠️ Setup
+
+### Prerequisites
+- Python 3.10+
+- Poetry (for dependency management)
+- Ollama (for local AI models)
+
+### Installation
+
+1. **Clone and setup:**
+```bash
+git clone <repo-url>
+cd ai_factory_builder
+poetry install
+```
+
+2. **Setup Ollama models:**
+```bash
+# Windows
+.\scripts\setup_ollama.ps1
+
+# Linux/Mac
+./scripts/setup_ollama.sh
+```
+
+3. **Configure environment:**
+- Copy `.env.template` to `.env` (if needed)
+- Set `OPENAI_API_KEY` for external model enrichment (optional)
+
+4. **Start the application:**
+```bash
+python scripts/run_factory.py
+```
+
+## 🧪 Testing
+
+Run the test suite:
+```bash
+pytest tests/ -v
+```
+
+Test memory persistence:
+```bash
+pytest tests/test_memory_persistence.py -v
+```
+
+Run diagnostics:
+```bash
+python scripts/memory_diagnostics.py
+```
+
+## 📚 Documentation
+
+- **Architecture**: See `docs/ARCHITECTURE.md`
+- **Phases**: See `docs/PHASES.md`
+- **Phase 3.9.x Details**: See `PHASE_3.9.4_SUMMARY.md` and related phase documents
+
+## 🪶 Milestone History
+
+- **v3.9.4.1 — Stable Release (2025-11-12)**  
+  > Unified identity, stable memory persistence, clean hybrid output. All Phase 3.9.x objectives complete.
+
+- **v3.9.0 — Unified JoJo Identity (2025-11-12)**  
+  > Removed all persona modes, created unified identity layer, integrated filter chain.
+
+- **v3.7.0 — Hybrid Brain Initialization (2025-11-12)**  
+  > Optimized Local Trio models for 8GB VRAM, hybrid reasoning pipeline established.
+
+- **v3.3.5 — JoJo First Contact (2025-11-02)**  
+  > JoJo achieved first verified autonomous local conversation with empathy and memory recall.
+
+## 🔧 Windows PowerShell Execution Policy
 
 If you see a script execution error on Windows, allow local scripts once:
 
-`Set-ExecutionPolicy RemoteSigned -Scope CurrentUser`
+```powershell
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
 
 Then run lifecycle scripts from `scripts/`:
 
 - `scripts\resume_jojo.ps1` — start Ollama and AI Factory
 - `scripts\pause_jojo.ps1` - stop services and snapshot
 
-## 🪶 Milestone History
+## 📝 License
 
-- **v3.3.5 — JoJo First Contact (2025-11-02)**  
-  > JoJo achieved first verified autonomous local conversation with empathy and memory recall, proving full hybrid bridge stability.
+[Add your license information here]
