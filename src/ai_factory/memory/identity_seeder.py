@@ -39,6 +39,12 @@ IDENTITY_MEMORIES = [
         "score": 1.0,
     },
     {
+        "goal": "user_village",
+        "summary": "Nirdesh is from Gorkha, Nepal.",
+        "tags": ["identity", "village", "location", "core", "gorkha"],
+        "score": 1.0,
+    },
+    {
         "goal": "user_current_location",
         "summary": "Nirdesh currently lives in Milwaukee, Wisconsin, USA.",
         "tags": ["identity", "location", "current", "core"],
@@ -55,6 +61,12 @@ IDENTITY_MEMORIES = [
         "summary": "Nirdesh is a student at Milwaukee Area Technical College (MATC).",
         "tags": ["identity", "education", "student", "core"],
         "score": 0.9,
+    },
+    {
+        "goal": "jojo_creator",
+        "summary": "Nirdesh Maskey is the creator and architect of JoJo's existence. JoJo was created by Nirdesh Maskey.",
+        "tags": ["identity", "creator", "jojo", "core", "nirdesh"],
+        "score": 1.0,
     },
 ]
 
@@ -147,10 +159,14 @@ def verify_identity_memories() -> Dict[str, any]:
         ("birthdate", "user_birthdate"),
         ("birthplace", "user_birthplace"),
         ("country", "user_country"),
+        ("village", "user_village"),
+        ("Gorkha", "user_village"),
         ("Nirdesh", "user_full_name"),
         ("Nepal", "user_country"),
         ("July 8", "user_birthdate"),
         ("Kathmandu", "user_birthplace"),
+        ("creator", "jojo_creator"),
+        ("who created", "jojo_creator"),
     ]
     
     for query, expected_goal in test_queries:
