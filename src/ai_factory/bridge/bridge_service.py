@@ -146,22 +146,15 @@ def handle_chat(user_text: str, session_id: Optional[str] = None, timestamp: Opt
 
 
 def process_bridge_chat(user_input: str, session_id: Optional[str]) -> Dict[str, Any]:
-    """Hybrid reasoning flow: memory, redaction, local summarize, external enrich, merge, autolearn."""
-    # Always apply identity layer at the top
-    identity_prompt = build_identity_system_prompt()
-    local_prefix = build_identity_context_for_local()
-    
-    # 1. Retrieve contextual memory (internal use only, not appended to prompts)
-    related = memory_agent.search_memories(user_input or "", limit=10)
-    ctx_items = [f"[{r.get('id')}] {r.get('summary') or r.get('goal')}" for r in related[:10]]
-    # 2. Redact sensitive
-    sanitized, redactions = _redact_private(user_input or "")
-    # 3. Local summary (deterministic synthesis) with unified identity
-    local_summary = _local_reason(sanitized, ctx_items)
-    # Inject identity context for local reasoning
-    local_summary = f"{local_prefix}\nUser: {sanitized}\n{local_summary}"
-    
-    # Memory recall hook - retrieve relevant user memory BEFORE generating final hybrid prompt
+    """
+    Final, correct hybrid reasoning pipeline:
+    1. Retrieve memory FIRST
+    2. Build system prompt with identity + memory
+    3. Local reasoning → rough draft only
+    4. External model → final authoritative rewrite (OVERRIDES local)
+    5. clean_output() applied LAST
+    """
+    # 1. Retrieve memory FIRST - before any model runs
     user_memory = memory_agent.search_memories(user_input or "", limit=5)
     clean_memory = []
     for m in user_memory or []:
@@ -171,36 +164,52 @@ def process_bridge_chat(user_input: str, session_id: Optional[str]) -> Dict[str,
             clean_memory.append(summary)
     memory_context = "\n".join(clean_memory).strip()
     
-    # 4. Compose prompt and call external with unified JoJo identity
-    # Build messages format with identity system prompt
-    persona_tone = stabilize_persona_tone(user_input or "")
-    # Build system context with identity and memory recall
-    system_context = get_identity_prompt()
+    # 2. Redact sensitive
+    sanitized, redactions = _redact_private(user_input or "")
+    
+    # 3. Build unified identity system prompt with memory injected FIRST
+    system_prompt = get_identity_prompt()
     if memory_context:
-        system_context += f"\n\nRelevant user memory:\n{memory_context}\n\nUse this memory to answer clearly."
-    # For external call, inject identity as system message context
+        system_prompt += f"\n\nRelevant user memory:\n{memory_context}\n\nUse this memory to answer clearly."
+    
+    # 4. Local reasoning → rough draft only (NO "User:" prefix, NO final output)
+    local_prefix = build_identity_context_for_local()
+    related = memory_agent.search_memories(user_input or "", limit=10)
+    ctx_items = [f"[{r.get('id')}] {r.get('summary') or r.get('goal')}" for r in related[:10]]
+    local_summary = _local_reason(sanitized, ctx_items)
+    # Local summary is just a rough draft, no "User:" prefix to avoid transcript spam
+    local_draft = local_summary
+    
+    # 5. External model → final authoritative rewrite (OVERRIDES local, not merged)
+    persona_tone = stabilize_persona_tone(user_input or "")
     final_prompt = (
-        system_context + "\n\n" +
+        system_prompt + "\n\n" +
         f"Tone: {persona_tone}\n\n" +
         get_external_enrichment_context() + "\n\n" +
-        _compose_prompt(local_summary, [])  # No raw memory chunks in prompt
+        f"User question: {sanitized}\n\n" +
+        f"Local rough draft (for context only, do not repeat): {local_draft}\n\n" +
+        "Provide a clean, final answer based on the user's question and the memory context above."
     )
+    
     # Always delegate mock/live behavior to call_gpt5 via runtime flags
     test_mode = bool(os.getenv("PYTEST_CURRENT_TEST"))
     diagnostic_mode = bool(os.getenv("HYBRID_DIAGNOSTIC"))
     try:
+        # External model provides final authoritative answer (OVERRIDES local)
         ext_out = call_gpt5(final_prompt)
     except Exception as e:
-        ext_out = f"[LOCAL-ONLY FALLBACK] {local_summary}\n\n(Error: {e})"
-    # Preserve mock markers for tests
-    # 5. Merge
-    merged = _merge_local_external(local_summary, ext_out)
+        # Fallback to local only if external fails
+        ext_out = local_draft
+    
+    # External output is the final answer (not merged with local)
+    final_answer = ext_out
     # Ensure empathetic reinforcement is present for gratitude messages
     try:
-        if "thank" in (sanitized or "").lower() and ("glad" not in merged.lower() and "you're welcome" not in merged.lower() and "support" not in merged.lower()):
-            merged = (merged + "\n\nYou're welcome — I'm glad I could help. I'm here to support you.").strip()
+        if "thank" in (sanitized or "").lower() and ("glad" not in final_answer.lower() and "you're welcome" not in final_answer.lower() and "support" not in final_answer.lower()):
+            final_answer = (final_answer + "\n\nYou're welcome — I'm glad I could help. I'm here to support you.").strip()
     except Exception:
         pass
+    
     # 6. Persist dialogue + mood (best-effort)
     try:
         sid = session_id or "default"
@@ -209,7 +218,7 @@ def process_bridge_chat(user_input: str, session_id: Optional[str]) -> Dict[str,
         pass
     try:
         sid = session_id or "default"
-        _save_turn(sid, "assistant", merged or "", meta={"source": "bridge"})
+        _save_turn(sid, "assistant", final_answer or "", meta={"source": "bridge"})
     except Exception:
         pass
     try:
@@ -223,7 +232,7 @@ def process_bridge_chat(user_input: str, session_id: Optional[str]) -> Dict[str,
         memory_agent.store_memory(
             run_id=None,
             goal=f"bridge_chat session={session_id}",
-            summary=(merged[:400] if merged else ""),
+            summary=(final_answer[:400] if final_answer else ""),
             tags=["bridge", "chat", "hybrid"],
             score=None,
         )
@@ -235,7 +244,7 @@ def process_bridge_chat(user_input: str, session_id: Optional[str]) -> Dict[str,
         _store(
             run_id=None,
             goal="auto_reflection",
-            summary=(merged[:400] if merged else ""),
+            summary=(final_answer[:400] if final_answer else ""),
             tags=["reflection", "autosave", "session"],
             score=0.7,
         )
@@ -244,8 +253,9 @@ def process_bridge_chat(user_input: str, session_id: Optional[str]) -> Dict[str,
             print("Auto-reflection save skipped:", e)
         except Exception:
             pass
-    # FINAL CLEAN BEFORE RETURN - MUST be applied after hybrid enrichment
-    final_text = merged
+    
+    # FINAL CLEAN BEFORE RETURN - MUST be applied LAST after all processing
+    final_text = final_answer
     if isinstance(final_text, str):
         final_text = clean_output(final_text)
     else:

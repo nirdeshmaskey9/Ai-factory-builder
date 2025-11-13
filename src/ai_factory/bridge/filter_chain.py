@@ -91,23 +91,41 @@ def clean_output(text: str) -> str:
     """
     Final clean filter that removes all internal noise from text output.
     This MUST be applied at the very end of the chain, after hybrid enrichment.
+    Enforces brutal final clean to remove transcript spam and duplicates.
     """
     if not text:
-        return text
+        return ""
     
-    # Remove unified reasoning prefix
+    # Remove JoJo unified reasoning prefix
     text = re.sub(r"JoJo['']s unified reasoning:\s*", "", text, flags=re.IGNORECASE)
     
-    # Remove [Local], [External]
-    text = re.sub(r"\[(Local|External)\]", "", text)
+    # Remove all [Local], [External]
+    text = re.sub(r"\[(Local|External)\]", "", text, flags=re.IGNORECASE)
     
-    # Remove numeric memory brackets like [3641]
+    # Remove memory IDs like [3648]
     text = re.sub(r"\[\d+\]", "", text)
     
-    # Remove any remaining bracketed metadata
-    text = re.sub(r"\[[^\]]+\]", "", text)
+    # Remove "User: ..." transcript echoes completely
+    text = re.sub(r"User:\s?.*?\?", "", text)
     
-    # Collapse multiple spaces
+    # Remove any repeated "User:" patterns
+    text = re.sub(r"User:\s*", "", text)
+    
+    # Remove leftover metadata in brackets
+    text = re.sub(r"\[[^\]]*\]", "", text)
+    
+    # Collapse duplicated sentences
+    sentences = text.split(".")
+    seen = set()
+    unique = []
+    for s in sentences:
+        s = s.strip()
+        if s and s not in seen:
+            seen.add(s)
+            unique.append(s)
+    text = ". ".join(unique)
+    
+    # Collapse extra whitespace
     text = re.sub(r"\s+", " ", text).strip()
     
     return text
