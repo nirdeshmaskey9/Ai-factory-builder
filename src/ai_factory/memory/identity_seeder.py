@@ -77,6 +77,8 @@ def seed_identity_memories() -> Dict[str, int]:
     Only creates memories that don't already exist (by goal).
     Commits once at the end.
     
+    Phase 4.1: Also registers auto-aliases for each identity memory.
+    
     Returns:
         Dict with counts: {"inserted": int, "skipped": int, "errors": int, "total": int}
     """
@@ -84,6 +86,14 @@ def seed_identity_memories() -> Dict[str, int]:
     inserted = 0
     skipped = 0
     errors = 0
+    
+    # Phase 4.1: Register auto-aliases for all identity keys
+    try:
+        from ai_factory.identity.identity_alias_map import register_auto_alias
+        for mem in IDENTITY_MEMORIES:
+            register_auto_alias(mem["goal"])
+    except ImportError:
+        pass  # Graceful degradation if alias map not available
     
     with SessionLocal() as session:
         for mem in IDENTITY_MEMORIES:

@@ -174,6 +174,87 @@ def get_session() -> Session:
     return SessionLocal()
 
 
+# Phase 4.1 - Identity Alias Engine
+def resolve_memory_key(user_query: str) -> Optional[str]:
+    """
+    Phase 4.1 - Resolve a user query to the best matching memory key using aliases.
+    
+    Steps:
+    1. Normalize query
+    2. Exact match against existing memory goals
+    3. Alias match using identity_alias_map
+    4. Fuzzy match (fallback)
+    
+    Args:
+        user_query: User's natural language query
+    
+    Returns:
+        Best matching memory goal/key, or None
+    """
+    import re
+    
+    # Normalize
+    normalized = user_query.lower().strip()
+    normalized = re.sub(r'[^\w\s]', '', normalized)
+    
+    if not normalized:
+        return None
+    
+    # Get all memory goals from DB
+    init_db()
+    with SessionLocal() as session:
+        stmt = select(MemoryEntry).where(MemoryEntry.deleted == 0)
+        all_entries = list(session.scalars(stmt))
+        
+        if not all_entries:
+            return None
+        
+        # Step 1: Exact match on goal
+        for entry in all_entries:
+            goal_normalized = entry.goal.lower().strip()
+            goal_normalized = re.sub(r'[^\w\s]', '', goal_normalized)
+            if goal_normalized == normalized or normalized in goal_normalized:
+                return entry.goal
+        
+        # Step 2: Alias match
+        try:
+            from ai_factory.identity.identity_alias_map import find_best_match
+            best_alias_key = find_best_match(normalized)
+            if best_alias_key:
+                # Map alias key to actual memory goal
+                for entry in all_entries:
+                    # Check if entry.goal contains the alias key
+                    goal_lower = entry.goal.lower().replace("_", " ")
+                    alias_lower = best_alias_key.lower().replace("_", " ")
+                    if alias_lower in goal_lower or goal_lower in alias_lower:
+                        return entry.goal
+                    # Check tags
+                    if best_alias_key.lower() in entry.tags.lower():
+                        return entry.goal
+        except ImportError:
+            pass
+        
+        # Step 3: Fuzzy match on summary and tags
+        best_match = None
+        best_score = 0
+        
+        for entry in all_entries:
+            # Combine goal, summary, tags for matching
+            combined = f"{entry.goal} {entry.summary} {entry.tags}".lower()
+            combined = re.sub(r'[^\w\s]', '', combined)
+            
+            # Count word overlap
+            query_words = set(normalized.split())
+            combined_words = set(combined.split())
+            overlap = len(query_words & combined_words)
+            
+            if overlap > best_score:
+                best_score = overlap
+                best_match = entry.goal
+        
+        return best_match if best_score > 0 else None
+
+
 def _retry_commit(sess: Session, attempts: int = 3) -> None:
     delay = 0.05
     for i in range(attempts):

@@ -14,10 +14,13 @@ src/ai_factory/advisor/context_filter.py
 src/ai_factory/advisor/local_trio.py
 src/ai_factory/advisor/policy.py
 src/ai_factory/advisor/trio_manager.py
+src/ai_factory/awareness/__init__.py
+src/ai_factory/awareness/awareness_engine.py
 src/ai_factory/bridge/bridge_router.py
 src/ai_factory/bridge/bridge_service.py
 src/ai_factory/bridge/chatgpt_proxy.py
 src/ai_factory/bridge/dialogue_router.py
+src/ai_factory/bridge/filter_chain.py
 src/ai_factory/bridge/response_manager.py
 src/ai_factory/builder/__init__.py
 src/ai_factory/builder/builder_agent.py
@@ -43,6 +46,8 @@ src/ai_factory/deployer/deployer_router.py
 src/ai_factory/deployer/deployer_store.py
 src/ai_factory/deployer/preview_router.py
 src/ai_factory/deployer/preview_service.py
+src/ai_factory/emotion/__init__.py
+src/ai_factory/emotion/emotion_engine.py
 src/ai_factory/evaluator/__init__.py
 src/ai_factory/evaluator/evaluator_agent.py
 src/ai_factory/evaluator/evaluator_main.py
@@ -56,8 +61,11 @@ src/ai_factory/evaluator_v2/__init__.py
 src/ai_factory/evaluator_v2/evaluator_v2_agent.py
 src/ai_factory/evaluator_v2/evaluator_v2_router.py
 src/ai_factory/evaluator_v2/evaluator_v2_store.py
+src/ai_factory/identity/__init__.py
+src/ai_factory/identity/jojo_identity.py
 src/ai_factory/memory/__init__.py
 src/ai_factory/memory/dialogue_store.py
+src/ai_factory/memory/identity_seeder.py
 src/ai_factory/memory/memory_agent.py
 src/ai_factory/memory/memory_db.py
 src/ai_factory/memory/memory_embeddings.py
@@ -164,6 +172,7 @@ tests/test_memory_embeddings_stats.py
 tests/test_memory_export_import.py
 tests/test_memory_extra_endpoints.py
 tests/test_memory_log.py
+tests/test_memory_persistence.py
 tests/test_memory_rank.py
 tests/test_memory_rank_env_weights.py
 tests/test_memory_recall_v3.py

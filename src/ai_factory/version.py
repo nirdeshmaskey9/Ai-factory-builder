@@ -1,3 +1,3 @@
-__version__ = "v3.9.4.1-restored"
-__milestone__ = "Unified JoJo Identity - Final Cleanup + Hybrid Brain"
-PHASE = "3.9.4.1"
+__version__ = "v4.1.0-identity-alias-engine"
+__milestone__ = "Phase 4.1: Identity Alias Engine - Semantic Memory Recall"
+PHASE = "4.1.0"

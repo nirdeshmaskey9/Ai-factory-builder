@@ -361,3 +361,109 @@ def restore():
     if not p:
         raise HTTPException(status_code=404, detail="no backup found")
     return {"status": "ok", "path": p}
+
+
+# Phase 4: Debug endpoint for emotion & awareness state
+@debug_router.get("/emotion_awareness")
+def debug_emotion_awareness():
+    """
+    Phase 4 debug endpoint - returns current emotion/awareness engine state.
+    For debugging only, NOT shown to user in chat.
+    """
+    result = {
+        "last_emotion_sample": None,
+        "last_awareness_sample": None,
+        "notes": "For debugging only – not shown to user in chat.",
+    }
+    
+    # Try to get emotion engine state
+    try:
+        from ai_factory.emotion import emotion_engine
+        emotion_summary = emotion_engine.get_emotion_summary_for_logs()
+        result["last_emotion_sample"] = emotion_summary
+    except ImportError:
+        result["last_emotion_sample"] = "emotion_engine not available"
+    except Exception as e:
+        result["last_emotion_sample"] = f"error: {str(e)}"
+    
+    # Try to get awareness engine state
+    try:
+        from ai_factory.awareness import awareness_engine
+        awareness_summary = awareness_engine.get_awareness_summary_for_logs()
+        result["last_awareness_sample"] = awareness_summary
+    except ImportError:
+        result["last_awareness_sample"] = "awareness_engine not available"
+    except Exception as e:
+        result["last_awareness_sample"] = f"error: {str(e)}"
+    
+    return result
+
+
+# Phase 4.1: Debug endpoint for identity alias engine
+@debug_router.get("/aliases")
+def debug_aliases():
+    """
+    Phase 4.1 debug endpoint - returns current state of identity alias engine.
+    Shows static aliases, auto-generated aliases, and sample resolution tests.
+    For debugging only, NOT shown to user in chat.
+    """
+    result = {
+        "static_alias_map": {},
+        "auto_generated_aliases": {},
+        "sample_resolutions": {},
+        "notes": "Phase 4.1 - Identity Alias Engine debugging data",
+    }
+    
+    # Get static alias map
+    try:
+        from ai_factory.identity.identity_alias_map import (
+            IDENTITY_ALIAS_MAP, 
+            AUTO_GENERATED_ALIASES,
+            find_best_match,
+        )
+        result["static_alias_map"] = IDENTITY_ALIAS_MAP
+        result["auto_generated_aliases"] = AUTO_GENERATED_ALIASES
+        
+        # Test some sample queries
+        test_queries = [
+            "Where is my hometown?",
+            "What is my origin?",
+            "Where am I from?",
+            "What is my home place?",
+            "What village am I from?",
+            "Where did I grow up?",
+            "What is my favorite color?",
+            "What do I do for work?",
+        ]
+        
+        for query in test_queries:
+            matched_key = find_best_match(query)
+            result["sample_resolutions"][query] = matched_key
+            
+    except ImportError:
+        result["error"] = "identity_alias_map not available"
+    except Exception as e:
+        result["error"] = f"error: {str(e)}"
+    
+    # Get memory resolution samples
+    try:
+        from ai_factory.memory.memory_db import resolve_memory_key
+        result["memory_key_resolutions"] = {}
+        
+        test_memory_queries = [
+            "Where is my hometown?",
+            "What is my village?",
+            "When was I born?",
+            "What is my profession?",
+        ]
+        
+        for query in test_memory_queries:
+            resolved = resolve_memory_key(query)
+            result["memory_key_resolutions"][query] = resolved
+            
+    except ImportError:
+        result["memory_key_resolutions"] = "resolve_memory_key not available"
+    except Exception as e:
+        result["memory_key_resolutions"] = f"error: {str(e)}"
+    
+    return result

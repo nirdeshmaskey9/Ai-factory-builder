@@ -16,6 +16,7 @@ from ai_factory.identity.jojo_identity import (
     get_identity_prompt,
     get_local_reasoning_prefix,
     get_external_enrichment_context,
+    get_emotional_awareness_context,
 )
 from typing import Tuple
 from ai_factory.memory import memory_agent
@@ -23,6 +24,26 @@ from ai_factory.memory.memory_agent import CORE_IDENTITY
 from ai_factory.memory.dialogue_store import save_turn as _save_turn
 from ai_factory.mood.mood_engine import analyze_mood, log_mood
 import json
+
+# Phase 4.1 - Identity Alias Engine
+try:
+    from ai_factory.memory.memory_db import resolve_memory_key
+    ALIAS_ENGINE_AVAILABLE = True
+except ImportError:
+    ALIAS_ENGINE_AVAILABLE = False
+
+# Phase 4 - Emotion & Awareness Integration
+try:
+    from ai_factory.emotion import emotion_engine
+    EMOTION_ENGINE_AVAILABLE = True
+except ImportError:
+    EMOTION_ENGINE_AVAILABLE = False
+    
+try:
+    from ai_factory.awareness import awareness_engine
+    AWARENESS_ENGINE_AVAILABLE = True
+except ImportError:
+    AWARENESS_ENGINE_AVAILABLE = False
 
 # Diagnostic flags retained only for visibility; do not control mocking
 TEST_MODE = bool(os.getenv("PYTEST_CURRENT_TEST"))
@@ -147,15 +168,65 @@ def handle_chat(user_text: str, session_id: Optional[str] = None, timestamp: Opt
 
 def process_bridge_chat(user_input: str, session_id: Optional[str]) -> Dict[str, Any]:
     """
-    Final, correct hybrid reasoning pipeline:
+    Phase 4 Enhanced Hybrid Reasoning Pipeline:
     1. Retrieve memory FIRST
-    2. Build system prompt with identity + memory
-    3. Local reasoning → rough draft only
-    4. External model → final authoritative rewrite (OVERRIDES local)
-    5. clean_output() applied LAST
+    2. Compute emotion & awareness context (Phase 4)
+    3. Build system prompt with identity + memory + emotion/awareness hints
+    4. Local reasoning → rough draft only
+    5. External model → final authoritative rewrite (OVERRIDES local)
+    6. Apply personality filter (Phase 4)
+    7. clean_output() applied LAST
     """
     # 1. Retrieve memory FIRST - before any model runs
     user_memory = memory_agent.search_memories(user_input or "", limit=5)
+    
+    # Always include identity memories for identity-related queries
+    identity_keywords = ["who am i", "when was i born", "where was i born", "where am i from", "what is my village", "who created", "birthdate", "birthplace", "village", "gorkha", "nirdesh", "hometown", "origin", "where from", "home place", "home town"]
+    user_lower = (user_input or "").lower()
+    is_identity_query = any(keyword in user_lower for keyword in identity_keywords)
+    
+    # Phase 4.1: Use alias resolution for identity queries
+    if is_identity_query and ALIAS_ENGINE_AVAILABLE:
+        try:
+            resolved_key = resolve_memory_key(user_input or "")
+            if resolved_key:
+                # Search for the resolved key specifically
+                targeted_results = memory_agent.search_memories(resolved_key, limit=3)
+                # Merge with existing results, prioritizing targeted
+                existing_ids = {m.get("id") for m in user_memory}
+                for result in targeted_results:
+                    if result.get("id") not in existing_ids:
+                        user_memory.insert(0, result)
+        except Exception:
+            pass  # Best-effort only
+    
+    if is_identity_query:
+        # Search specifically for identity memories
+        from ai_factory.memory.memory_db import SessionLocal, MemoryEntry
+        from sqlalchemy import select, and_
+        identity_goals = ["user_full_name", "user_birthdate", "user_birthplace", "user_country", "user_village", "user_current_location", "jojo_creator"]
+        with SessionLocal() as session:
+            identity_mems = session.scalars(
+                select(MemoryEntry).where(
+                    and_(
+                        MemoryEntry.goal.in_(identity_goals),
+                        MemoryEntry.deleted == 0
+                    )
+                )
+            ).all()
+            # Add identity memories to the results
+            for mem in identity_mems:
+                identity_dict = {
+                    "id": mem.id,
+                    "goal": mem.goal,
+                    "summary": mem.summary,
+                    "tags": mem.tags,
+                    "score": mem.score,
+                }
+                # Only add if not already in user_memory
+                if not any(m.get("id") == mem.id for m in user_memory):
+                    user_memory.insert(0, identity_dict)  # Insert at beginning for priority
+    
     clean_memory = []
     for m in user_memory or []:
         # Ensure we use only clean summaries
@@ -164,15 +235,44 @@ def process_bridge_chat(user_input: str, session_id: Optional[str]) -> Dict[str,
             clean_memory.append(summary)
     memory_context = "\n".join(clean_memory).strip()
     
-    # 2. Redact sensitive
+    # 2. Phase 4: Compute emotion & awareness context (hidden from user, guides JoJo's tone)
+    emotion_ctx = None
+    user_emotion = "neutral"
+    tone_hint = None
+    
+    if EMOTION_ENGINE_AVAILABLE:
+        try:
+            emotion_ctx = emotion_engine.get_emotional_context(
+                user_input=user_input or "",
+                memory_context={"memories": user_memory} if user_memory else None
+            )
+            user_emotion = emotion_ctx.get("user_emotion", "neutral")
+            tone_hint = emotion_ctx.get("tone_instruction")
+        except Exception:
+            pass  # Best-effort only
+    
+    # Build compact emotional/awareness context for system prompt injection
+    emotional_awareness_hint = get_emotional_awareness_context(
+        user_emotion=user_emotion if user_emotion != "neutral" else None,
+        tone_hint=tone_hint
+    )
+    
+    # 3. Redact sensitive
     sanitized, redactions = _redact_private(user_input or "")
     
-    # 3. Build unified identity system prompt with memory injected FIRST
+    # 4. Build unified identity system prompt with memory injected FIRST
     system_prompt = get_identity_prompt()
     if memory_context:
-        system_prompt += f"\n\nRelevant user memory:\n{memory_context}\n\nUse this memory to answer clearly."
+        if is_identity_query:
+            system_prompt += f"\n\nIMPORTANT - User Identity Information:\n{memory_context}\n\nYou MUST use this identity information to answer the user's question. Do not say you don't have access to this information - it is provided above. Answer directly using the facts from the identity information."
+        else:
+            system_prompt += f"\n\nRelevant user memory:\n{memory_context}\n\nUse this memory to answer clearly."
     
-    # 4. Local reasoning → rough draft only (NO "User:" prefix, NO final output)
+    # Phase 4: Inject compact emotion/awareness guidance into system prompt
+    if emotional_awareness_hint:
+        system_prompt += f"\n\n{emotional_awareness_hint}"
+    
+    # 5. Local reasoning → rough draft only (NO "User:" prefix, NO final output)
     local_prefix = build_identity_context_for_local()
     related = memory_agent.search_memories(user_input or "", limit=10)
     ctx_items = [f"[{r.get('id')}] {r.get('summary') or r.get('goal')}" for r in related[:10]]
@@ -180,7 +280,7 @@ def process_bridge_chat(user_input: str, session_id: Optional[str]) -> Dict[str,
     # Local summary is just a rough draft, no "User:" prefix to avoid transcript spam
     local_draft = local_summary
     
-    # 5. External model → final authoritative rewrite (OVERRIDES local, not merged)
+    # 6. External model → final authoritative rewrite (OVERRIDES local, not merged)
     persona_tone = stabilize_persona_tone(user_input or "")
     final_prompt = (
         system_prompt + "\n\n" +
@@ -203,6 +303,15 @@ def process_bridge_chat(user_input: str, session_id: Optional[str]) -> Dict[str,
     
     # External output is the final answer (not merged with local)
     final_answer = ext_out
+    
+    # Phase 4: Apply personality filter to ensure warmth and consistency
+    if EMOTION_ENGINE_AVAILABLE and emotion_ctx:
+        try:
+            emotional_state = emotion_ctx.get("emotional_state")
+            final_answer = emotion_engine.apply_personality_filter(final_answer, emotional_state)
+        except Exception:
+            pass  # Best-effort only
+    
     # Ensure empathetic reinforcement is present for gratitude messages
     try:
         if "thank" in (sanitized or "").lower() and ("glad" not in final_answer.lower() and "you're welcome" not in final_answer.lower() and "support" not in final_answer.lower()):
@@ -210,7 +319,7 @@ def process_bridge_chat(user_input: str, session_id: Optional[str]) -> Dict[str,
     except Exception:
         pass
     
-    # 6. Persist dialogue + mood (best-effort)
+    # 7. Persist dialogue + mood (best-effort)
     try:
         sid = session_id or "default"
         _save_turn(sid, "user", user_input or "", meta={"source": "ui"})
@@ -227,7 +336,7 @@ def process_bridge_chat(user_input: str, session_id: Optional[str]) -> Dict[str,
     except Exception:
         pass
 
-    # 7. Auto-learn (best-effort)
+    # 8. Auto-learn (best-effort)
     try:
         memory_agent.store_memory(
             run_id=None,
@@ -238,7 +347,7 @@ def process_bridge_chat(user_input: str, session_id: Optional[str]) -> Dict[str,
         )
     except Exception:
         pass
-    # 8. Auto-reflection persistent save (best-effort)
+    # 9. Auto-reflection persistent save (best-effort)
     try:
         from ai_factory.memory.memory_agent import store_memory as _store
         _store(
@@ -254,14 +363,15 @@ def process_bridge_chat(user_input: str, session_id: Optional[str]) -> Dict[str,
         except Exception:
             pass
     
-    # FINAL CLEAN BEFORE RETURN - MUST be applied LAST after all processing
+    # 10. FINAL CLEAN BEFORE RETURN - MUST be applied LAST after all processing
     final_text = final_answer
     if isinstance(final_text, str):
         final_text = clean_output(final_text)
     else:
         final_text = clean_output(str(final_text))
     
-    return {
+    # Build response dict (Phase 4: do NOT include raw emotion/awareness data)
+    response = {
         "response_text": final_text,
         "model": "hybrid",
         "memory_updates": [],
@@ -276,6 +386,20 @@ def process_bridge_chat(user_input: str, session_id: Optional[str]) -> Dict[str,
             "private_fields_redacted": redactions,
         },
     }
+    
+    # Phase 4: For debugging only - log emotion/awareness state (NOT returned to user)
+    if DIAGNOSTIC_MODE and emotion_ctx:
+        try:
+            Path("logs").mkdir(exist_ok=True)
+            with open("logs/emotion_debug.log", "a", encoding="utf-8") as f:
+                import json as _json
+                f.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')} session={session_id} " +
+                        f"user_emotion={user_emotion} " +
+                        f"tone={tone_hint[:50] if tone_hint else 'none'}\n")
+        except Exception:
+            pass
+    
+    return response
 
 
 def bridge_status() -> Dict[str, Any]:
