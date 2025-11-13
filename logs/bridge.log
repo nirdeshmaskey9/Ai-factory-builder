@@ -301,3 +301,8 @@ CHAT ceo.session=conv-001 ok
 {"ts": "2025-11-13T04:06:00Z", "event": "chat", "len": 121}
 {"ts": "2025-11-13T04:06:10Z", "event": "chat", "len": 329}
 {"ts": "2025-11-13T04:06:21Z", "event": "chat", "len": 387}
+{"ts": "2025-11-13T04:20:51Z", "event": "chat", "len": 391}
+{"ts": "2025-11-13T04:21:01Z", "event": "chat", "len": 121}
+{"ts": "2025-11-13T04:21:10Z", "event": "chat", "len": 357}
+{"ts": "2025-11-13T04:21:46Z", "event": "chat", "len": 387}
+{"ts": "2025-11-13T04:21:56Z", "event": "chat", "len": 534}
